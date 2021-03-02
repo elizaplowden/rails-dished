@@ -1,8 +1,8 @@
   <%#--Shows that this is YOUR profile page if it's yours %>
   <% if @user == current_user %>
-  Logged in as: <%= @user.username %>
-  <br>
-  Your profile:
+    Logged in as: <%= @user.username %>
+    <br>
+    Your profile:
 
   <%#-- Otherwise shows the username %>
   <% else %>
@@ -15,9 +15,9 @@
     Not following anyone
   <% else %>
     Following:
-        <% @user.follows_given.each do |following| %>
-      <%= link_to following.followee.username, user_path(following.followee) %><br>
-       <% end %>
+      <% @user.follows_given.each do |following| %>
+        <%= link_to following.followee.username, user_path(following.followee) %><br>
+      <% end %>
   <% end %>
 
   <br>
@@ -27,8 +27,8 @@
   <% else %>
     Followed by:
         <% @user.follows_received.each do |following| %>
-            <%= link_to following.follower.username, user_path(following.follower) %>
-          <% end %>
+          <%= link_to following.follower.username, user_path(following.follower) %>
+        <% end %>
   <% end %>
 
   <br>
@@ -44,17 +44,18 @@
   <%#-- Link to users index %>
   <%= link_to "Show all users", users_path %>
 
-  <%#-- Link to users index %>
+  <br>
+  <%#-- Show each bookmark... this needs to be turned into a card %>
   <% @user.bookmarks.each do |bookmark| %>
   <%= link_to 'recipe', recipe_path(bookmark.recipe.id)  %>
   <%= bookmark.recipe.name %>
-  <%= bookmark.recipe.description%>
-  <%= bookmark.recipe.instructions%>
-  <%= bookmark.recipe.meal%>
-  <%= bookmark.recipe.cuisine%>
-  <%= bookmark.recipe.serves%>
-  <%= bookmark.recipe.cook_time%>
-  <%= bookmark.recipe.user.id%>
+  <%= bookmark.recipe.description %>
+  <%= bookmark.recipe.instructions %>
+  <%= bookmark.recipe.meal %>
+  <%= bookmark.recipe.cuisine %>
+  <%= bookmark.recipe.serves %>
+  <%= bookmark.recipe.cook_time %>
+  <%= bookmark.recipe.user.id %>
   <% end %>
 
 
