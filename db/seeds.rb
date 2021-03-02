@@ -4,9 +4,10 @@ require 'json'
 require 'open-uri'
 
 puts 'deleting existing records...'
-Bookmark.delete_all
-Review.delete_all
+
 Note.delete_all
+Review.delete_all
+Bookmark.delete_all
 Ingredient.delete_all
 Following.delete_all
 Recipe.delete_all
@@ -119,7 +120,7 @@ puts "created #{Bookmark.count} bookmarks"
     description: 'Add more salt'
   })
 
-  Notes.create({
+  Note.create({
     bookmark: Bookmark.first,
     description: 'Cook for 5 mins longer'
   })
