@@ -1,0 +1,4 @@
+<%= simple_form_for [@bookmark, @note] do |f| %>
+  <%= f.input :description %>
+  <%= f.submit "Add a note", class: 'btn btn-primary' %>
+<% end %>
