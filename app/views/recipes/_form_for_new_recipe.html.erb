@@ -1,6 +1,4 @@
-<%#= render "form_for_new_recipe", recipe: @recipe %>
-
-<%= simple_form_for :recipe do |f| %>
+  <%= simple_form_for :recipe do |f| %>
     <%= f.input :name, placeholder: 'e.g.: Name'  %>
     <%= f.input :description, label: 'Description' %>
     <%= f.input :instructions, label: 'Cooking nstructions' %>

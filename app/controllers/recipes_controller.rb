@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :find_recipe, only: [:show, :destroy]
 
   def index
     @recipes = Recipe.all
@@ -9,10 +10,17 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipes = Recipe.new
+    @recipe = Recipe.new
   end
 
   def create
+    @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
+    if @recipe.save
+      redirect_to recipes_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -24,7 +32,7 @@ class RecipesController < ApplicationController
   private
 
   def find_recipe
-    @recipe = Yurt.find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def recipe_params

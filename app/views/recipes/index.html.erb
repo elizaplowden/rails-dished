@@ -1,4 +1,4 @@
-<% @recipes.each do |recipe| %>
+<p><% @recipes.each do |recipe| %>
 <%=recipe.name%>
 <%=recipe.description%>
 <%=recipe.instructions%>
@@ -8,4 +8,4 @@
 <%=recipe.cook_time%>
 <%=recipe.user.id%>
 <%= link_to 'More info', recipe_path(recipe.id), class: "button" %>
-<% end %>
+<% end %></p>
