@@ -14,10 +14,10 @@ Rails.application.routes.draw do
   resources :reviews, only: :destroy
 
   resources :bookmarks, only: [ :index, :show, :destroy ] do
-    resources :notes, only: :create
+    resources :notes, only: [:create, :new]
   end
 
-  resources :notes, only: :destroy
+  resources :notes, only: [ :update, :destroy ]
   resources :users, only: [:index, :show] do
     post :follow, on: :member
     delete :unfollow, on: :member

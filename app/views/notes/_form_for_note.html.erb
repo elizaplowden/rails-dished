@@ -1,0 +1,6 @@
+<p>note.description</p>
+<br>
+<%= simple_form_for [bookmark, note] do |f| %>
+  <%= f.input :description, label: "Note" %>
+  <%= f.submit "Submit", class: 'button' %>
+<% end %>
