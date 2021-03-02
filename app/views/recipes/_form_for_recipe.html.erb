@@ -1,0 +1,10 @@
+  <%= simple_form_for(recipe) do |f| %>
+    <%= f.input :name, placeholder: 'e.g.: Name'  %>
+    <%= f.input :description, label: 'Description' %>
+    <%= f.input :instructions, label: 'Cooking Instructions' %>
+    <%= f.input :meal, label: 'Breakfast, lunch or dinner' %>
+    <%= f.input :cuisine, label: 'Cuisine' %>
+    <%= f.input :serves, label: 'For how many?' %>
+    <%= f.input :cook_time, label: 'How long?' %>
+    <%= f.submit "Submit", class: "button" %>
+  <% end %>
