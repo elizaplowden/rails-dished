@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :find_recipe, only: [:show, :destroy]
+  before_action :find_recipe, only: [:show, :destroy, :edit, :update]
 
   def index
     @recipes = Recipe.all
@@ -15,18 +15,19 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.user = current_user
-    if @recipe.save
-      redirect_to recipes_path
-    else
-      render :new
-    end
+    @recipe.save
   end
 
   def edit
   end
 
+  def update
+    @recipe.update(recipe_params)
+    @recipe.save
+  end
+
   def destroy
+    @recipe.destroy
   end
 
   private
