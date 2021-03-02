@@ -1,0 +1,44 @@
+<div class="user_show">
+  <% if @user == current_user %>
+    <p>Logged in as: <%= @user.username %></p>
+    <p>Your profile:</p>
+  <% else %>
+    <h2><%= @user.username %></h2>
+  <% end %>
+
+  <% if @user.follows_given.empty? %>
+    <p>Not following anyone</p>
+  <% else %>
+    <p>Following:</p>
+    <ul>
+        <% @user.follows_given.each do |following| %>
+       <li>
+      <%= link_to following.followee.username, user_path(following.followee) %><br>
+       <% end %>
+      </li>
+    </ul>
+  <% end %>
+
+  <% if @user.follows_received.empty? %>
+    <p>No followers</p>
+  <% else %>
+    <p>Followed by:</p>
+      <ul>
+        <% @user.follows_received.each do |following| %>
+          <li>
+            <%= link_to following.follower.username, user_path(following.follower) %>
+          <% end %>
+        </li>
+      </ul>
+  <% end %>
+
+  <% if current_user != @user && !current_user.follows_given.pluck(:followee_id).include?(@user.id) %>
+    <p><%= link_to "Follow", follow_user_path(@user), method: :post %></p>
+  <% elsif current_user != @user  %>
+    <p><%= link_to "Unfollow", unfollow_user_path(@user), method: :delete %></p>
+  <% end %>
+
+  <br><%= link_to "Show all users", users_path %>
+
+</div>
+

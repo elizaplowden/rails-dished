@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   resources :recipes do
     resources :ingredients, only: :create
     resources :reviews, only: [:create, :new]
-
   end
 
   resources :reviews, only: :destroy
@@ -19,4 +18,9 @@ Rails.application.routes.draw do
   end
 
   resources :notes, only: :destroy
+  resources :users, only: [:index, :show] do
+    post :follow, on: :member
+    delete :unfollow, on: :member
+  end
+
 end
