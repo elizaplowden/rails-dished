@@ -1,3 +1,10 @@
 <% @users.each do |user| %>
-  <%= link_to @user.username %>
+  <%= link_to user.username, user %><br>
+  <% if current_user != user && !current_user.follows_given.pluck(:followee_id).include?(user.id) %>
+    <p><%= link_to "Follow", follow_user_path(user), method: :post %></p>
+  <% elsif current_user != user  %>
+    <p><%= link_to "Unfollow", unfollow_user_path(user), method: :delete %></p>
+  <% end %>
+
+
 <% end %>

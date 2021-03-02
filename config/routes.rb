@@ -18,5 +18,9 @@ Rails.application.routes.draw do
   end
 
   resources :notes, only: :destroy
-  resources :users, :only [:index, :show]
+  resources :users, only: [:index, :show] do
+    post :follow, on: :member
+    delete :unfollow, on: :member
+  end
+
 end

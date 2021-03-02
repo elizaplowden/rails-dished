@@ -1,2 +1,17 @@
 <%= @user.username %>
-<%= link_to "current_user_show", current_user %>
+Follows:
+<% @user.follows_given.each do |following| %>
+  <%= link_to following.followee.username, user_path(following.followee) %>
+<% end %>
+Followed by:
+<% @user.follows_received.each do |following| %>
+  <%= link_to following.follower.username, user_path(following.follower) %>
+<% end %>
+
+<% if current_user != @user && !current_user.follows_given.pluck(:followee_id).include?(@user.id) %>
+  <p><%= link_to "Follow", follow_user_path(@user), method: :post %></p>
+<% elsif current_user != @user  %>
+  <p><%= link_to "Unfollow", unfollow_user_path(@user), method: :delete %></p>
+<% end %>
+
+<%= link_to "Show all users", users_path %>
