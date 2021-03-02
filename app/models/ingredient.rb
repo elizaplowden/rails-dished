@@ -3,4 +3,5 @@ class Ingredient < ApplicationRecord
   belongs_to :recipe
 
   validates :quantity, presence: true
+  validates :food, uniqueness: { scope: :recipe }
 end
