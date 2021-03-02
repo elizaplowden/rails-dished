@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :reviews, only: :destroy
 
   resources :bookmarks, only: [ :index, :show, :destroy ] do
-    resources :notes, only: :create
+    resources :notes, only: [:create, :new]
   end
 
   resources :notes, only: [ :update, :destroy ]
