@@ -1,6 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-
+require 'json'
+require 'open-uri'
 
 puts 'deleting existing records...'
 Cookbook.delete_all
@@ -37,3 +38,17 @@ puts "created #{Cookbook.count} cookbooks"
 ###################################
 
 # seeding the list of foods from an API
+
+url = 'https://www.themealdb.com/api/json/v1/1/list.php?i=list'
+foods_serialized = open(url).read
+foods = JSON.parse(foods_serialized)
+
+puts 'creating foods ...'
+
+foods['meals'].each do |food|
+  Food.create(name: food['strIngredient'])
+end
+
+puts "created #{Food.count} foods"
+
+###################################
