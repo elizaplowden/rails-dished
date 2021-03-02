@@ -41,34 +41,37 @@ puts "created #{Food.count} foods"
 
 # seeding some recipes from meals.db api
 
-recipes_url = 'https://www.themealdb.com/api/json/v1/1/random.php'
-recipes_serialized = open(recipes_url).read
-recipes = JSON.parse(recipes_serialized)
+10.times do
+
+  recipes_url = 'https://www.themealdb.com/api/json/v1/1/random.php'
+  recipes_serialized = open(recipes_url).read
+  recipes = JSON.parse(recipes_serialized)
 
 
-recipes['meals'].each do |meal|
-  # creating the recipe instance and saving to the db
-   recipe = Recipe.create( {
-    name: meal['strMeal'],
-    description: 'a meal',
-    instructions: meal['strInstructions'],
-    serves: rand(1..10),
-    cook_time: rand(15..60),
-    user: User.first
-  } )
-   # creating arrays of the ingredients and foods
-  foods = [meal['strIngredient1'], meal['strIngredient2'], meal['strIngredient3'], meal['strIngredient4'], meal['strIngredient5']]
-  measures = [meal['strMeasure1'], meal['strMeasure2'], meal['strMeasure3'], meal['strMeasure4'], meal['strMeasure5']]
-  # iterating over each measure
-  measures.each_with_index do |measure, index|
-    # finding the food instance with the same name as the ingredient from the API
-    food = Food.find_by(name: foods[index])
-    # creating the ingredient instances
-    Ingredient.create({
-    recipe: recipe,
-    food: food,
-    quantity: measure
-   })
+  recipes['meals'].each do |meal|
+    # creating the recipe instance and saving to the db
+     recipe = Recipe.create( {
+      name: meal['strMeal'],
+      description: 'a meal',
+      instructions: meal['strInstructions'],
+      serves: rand(1..10),
+      cook_time: rand(15..60),
+      user: User.first
+    } )
+     # creating arrays of the ingredients and foods
+    foods = [meal['strIngredient1'], meal['strIngredient2'], meal['strIngredient3'], meal['strIngredient4'], meal['strIngredient5']]
+    measures = [meal['strMeasure1'], meal['strMeasure2'], meal['strMeasure3'], meal['strMeasure4'], meal['strMeasure5']]
+    # iterating over each measure
+    measures.each_with_index do |measure, index|
+      # finding the food instance with the same name as the ingredient from the API
+      food = Food.find_by(name: foods[index])
+      # creating the ingredient instances
+      Ingredient.create({
+      recipe: recipe,
+      food: food,
+      quantity: measure
+     })
+    end
   end
 end
 
