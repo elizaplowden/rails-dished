@@ -1,3 +1,4 @@
+
 <% @users.each do |user| %>
   <%= link_to user.username, user %><br>
   <% if current_user != user && !current_user.follows_given.pluck(:followee_id).include?(user.id) %>
