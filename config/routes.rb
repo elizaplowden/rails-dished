@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   end
 
   resources :recipe do
-    resources :ingredients, only: :create 
-    resources :reviews, only: :create 
+    resources :ingredients, only: :create
+    resources :reviews, only: :create
   end
-  
-  resources :reviews, only: :destroy 
+
+  resources :reviews, only: :destroy
 
   resources :bookmarks, only: [ :index, :show, :destroy ] do
     resources :notes, only: :create
