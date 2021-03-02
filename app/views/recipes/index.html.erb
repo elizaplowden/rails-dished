@@ -7,4 +7,5 @@
 <%=recipe.serves%>
 <%=recipe.cook_time%>
 <%=recipe.user.id%>
+<%= link_to 'More info', recipe_path(recipe.id), class: "button" %>
 <% end %>
