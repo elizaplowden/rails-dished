@@ -1,7 +1,7 @@
 class Bookmark < ApplicationRecord
-  belongs_to :cookbook
+  belongs_to :user
   belongs_to :recipe
   has_many :notes
 
-  validates :recipe, uniqueness: { scope: :cookbook }
+  validates :recipe, uniqueness: { scope: :user }
 end
