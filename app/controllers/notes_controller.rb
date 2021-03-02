@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
   before_action :find_bookmark, only: [:new, :create]
+  before_action :find_note, only: [:edit, :update, :destroy]
 
   def new
     @note = Note.new
@@ -16,8 +17,19 @@ class NotesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @note.update(strong_params)
+    if @note.save
+      redirect_to bookmark_path(@bookmark.id)
+    else
+      render :new
+    end
+  end
+
   def destroy
-    @note = Note.find(params[:id])
     @note.destroy
     @bookmark = @note.bookmark
     redirect_to bookmark_path(@bookmark.id)
@@ -31,6 +43,10 @@ class NotesController < ApplicationController
 
   def find_bookmark
     @bookmark = Bookmark.find(params[:id])
+  end
+
+  def find_note
+    @note = Note.find(params[:id])
   end
 
 end
