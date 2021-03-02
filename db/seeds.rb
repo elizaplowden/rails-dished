@@ -4,7 +4,6 @@ require 'json'
 require 'open-uri'
 
 puts 'deleting existing records...'
-Cookbook.delete_all
 Bookmark.delete_all
 Review.delete_all
 Note.delete_all
@@ -16,24 +15,12 @@ User.delete_all
 
 ###################################
 
-puts 'creating users...'
-
-User.create(email: 'email@gmail.com', password: 'Password1')
-User.create(email: 'email@hotmail.com', password: 'Password2')
-User.create(email: 'email@outlook.com', password: 'Password3')
+User.create(email: 'email@gmail.com', password: 'Password1', username: 'user3456')
+User.create(email: 'email@hotmail.com', password: 'Password2', username: 'foodielondon')
+User.create(email: 'email@outlook.com', password: 'Password3', username: 'chefjacob')
 
 puts "created #{User.count} users"
 
-###################################
-
-puts 'creating cookbooks...'
-
-# creating a cookbook for each user
-User.all.each do |user|
-  Cookbook.create(user: user)
-end
-
-puts "created #{Cookbook.count} cookbooks"
 
 ###################################
 
@@ -41,8 +28,6 @@ puts "created #{Cookbook.count} cookbooks"
 foods_url = 'https://www.themealdb.com/api/json/v1/1/list.php?i=list'
 foods_serialized = open(foods_url).read
 foods = JSON.parse(foods_serialized)
-
-puts 'creating foods ...'
 
 foods['meals'].each do |food|
   Food.create(name: food['strIngredient'])
@@ -59,7 +44,6 @@ recipes_url = 'https://www.themealdb.com/api/json/v1/1/random.php'
 recipes_serialized = open(recipes_url).read
 recipes = JSON.parse(recipes_serialized)
 
-puts 'creating recipes ...'
 
 recipes['meals'].each do |meal|
   # creating the recipe instance and saving to the db
@@ -92,8 +76,6 @@ puts "created #{Ingredient.count} ingredients"
 
 ###################################
 
-puts 'creating reviews...'
-
 reviews = %w('Really tasty, I love this recipe.', 'I cooked this for my family, and they all loved it.', 'Simple and delicious meal.')
 
 counter = 0
@@ -111,8 +93,6 @@ puts "created #{counter} reviews"
 
 ###################################
 
-puts 'creating followings...'
-
 follower = User.first
 followee = User.last
 
@@ -125,7 +105,23 @@ puts "created #{Following.count} followings"
 
 ###################################
 
-puts 'not creating bookmarks until bookmark model change is completed'
-puts 'not creating notes until bookmark model change is completed'
+  Bookmark.create({
+    user: User.first,
+    recipe: Recipe.first
+  })
 
+puts "created #{Bookmark.count} bookmarks"
 
+###################################
+
+  Note.create({
+    bookmark: Bookmark.first,
+    description: 'Add more salt'
+  })
+
+  Notes.create({
+    bookmark: Bookmark.first,
+    description: 'Cook for 5 mins longer'
+  })
+
+puts "created #{Note.count} notes"
