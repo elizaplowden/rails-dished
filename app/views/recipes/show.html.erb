@@ -1,0 +1,20 @@
+<%=@recipe.name%>
+<%=@recipe.description%>
+<%=@recipe.instructions%>
+<%=@recipe.meal%>
+<%=@recipe.cuisine%>
+<%=@recipe.serves%>
+<%=@recipe.cook_time%>
+<%=@recipe.user.id%>
+<br>
+<% @recipe.reviews.each do |review| %>
+      <%= review.description %>
+      <%= review.rating %>
+      <%= link_to 'delete review', review_path(review.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+<br>
+<%= link_to 'Delete Recipe', recipe_path(@recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<br>
+<%= link_to 'Leave a Review', new_recipe_review_path(@recipe.id), class: "button" %>
+<br>
+<%= link_to 'More Recipes', recipes_path, class: "button" %>
