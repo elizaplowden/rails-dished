@@ -1,11 +1,15 @@
-
-<% @users.each do |user| %>
-  <%= link_to user.username, user %><br>
-  <% if current_user != user && !current_user.follows_given.pluck(:followee_id).include?(user.id) %>
-    <p><%= link_to "Follow", follow_user_path(user), method: :post %></p>
-  <% elsif current_user != user  %>
-    <p><%= link_to "Unfollow", unfollow_user_path(user), method: :delete %></p>
+<div class="user-index">
+  <h2>All users</h2>
+  <ul class="users">
+    <% @users.each do |user| %>
+    <li>
+      <%= link_to user.username, user %><br>
+    <% if current_user != user && !current_user.follows_given.pluck(:followee_id).include?(user.id) %>
+      <%= link_to "Follow", follow_user_path(user), method: :post %>
+    <% elsif current_user != user  %>
+      <%= link_to "Unfollow", unfollow_user_path(user), method: :delete %>
+    <% end %>
+    </li>
   <% end %>
-
-
-<% end %>
+  </ul>
+</div>
