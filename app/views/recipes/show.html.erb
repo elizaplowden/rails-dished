@@ -6,4 +6,9 @@
 <%=@recipe.serves%>
 <%=@recipe.cook_time%>
 <%=@recipe.user.id%>
+<br>
+<%= link_to 'Delete Recipe', recipe_path(@recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<br>
+<%= link_to 'Leave a Review', new_recipe_review_path(@recipe.id), class: "button" %>
+<br>
 <%= link_to 'More Recipes', recipes_path, class: "button" %>

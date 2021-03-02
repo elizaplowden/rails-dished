@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(strong_params)
     @review.recipe = @recipe
+    @review.user = current_user
     if @review.save
       redirect_to recipe_path(@recipe.id)
     else
@@ -32,5 +33,3 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:description, :rating)
   end
 end
-
-
