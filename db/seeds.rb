@@ -73,11 +73,22 @@ recipes['meals'].each do |meal|
     user: User.first
   } )
 
-   Ingredient.create({
+   # creating arrays of the ingredients and foods
+   foods = [meal['strIngredient1'], meal['strIngredient2'], meal['strIngredient3'], meal['strIngredient4'], meal['strIngredient5']]
+   measures = [meal['strMeasure1'], meal['strMeasure2'], meal['strMeasure3'], meal['strMeasure4'], meal['strMeasure5']]
+
+  measures.each_with_index do |measure, index|
+    food = Food.find_by(name: foods[index])
+
+    Ingredient.create({
     recipe: recipe,
-    food: Food.find_by(name: meal['strIngredient1'] ),
-    quantity: meal['strMeasure1']
+    food: food,
+    quantity: measure
    })
+
+  end
+
+
 end
 
 puts "created #{Recipe.count} recipes"
