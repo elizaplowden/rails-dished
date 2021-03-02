@@ -16,6 +16,13 @@ class NotesController < ApplicationController
     end
   end
 
+  def destroy
+    @note = Note.find(params[:id])
+    @note.destroy
+    @bookmark = @note.bookmark
+    redirect_to bookmark_path(@bookmark.id)
+  end
+
   private
 
   def strong_params
