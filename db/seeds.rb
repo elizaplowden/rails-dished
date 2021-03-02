@@ -38,7 +38,6 @@ puts "created #{Cookbook.count} cookbooks"
 ###################################
 
 # seeding the list of foods from an API
-
 foods_url = 'https://www.themealdb.com/api/json/v1/1/list.php?i=list'
 foods_serialized = open(foods_url).read
 foods = JSON.parse(foods_serialized)
@@ -72,24 +71,61 @@ recipes['meals'].each do |meal|
     cook_time: rand(15..60),
     user: User.first
   } )
-
    # creating arrays of the ingredients and foods
-   foods = [meal['strIngredient1'], meal['strIngredient2'], meal['strIngredient3'], meal['strIngredient4'], meal['strIngredient5']]
-   measures = [meal['strMeasure1'], meal['strMeasure2'], meal['strMeasure3'], meal['strMeasure4'], meal['strMeasure5']]
-
+  foods = [meal['strIngredient1'], meal['strIngredient2'], meal['strIngredient3'], meal['strIngredient4'], meal['strIngredient5']]
+  measures = [meal['strMeasure1'], meal['strMeasure2'], meal['strMeasure3'], meal['strMeasure4'], meal['strMeasure5']]
+  # iterating over each measure
   measures.each_with_index do |measure, index|
+    # finding the food instance with the same name as the ingredient from the API
     food = Food.find_by(name: foods[index])
-
+    # creating the ingredient instances
     Ingredient.create({
     recipe: recipe,
     food: food,
     quantity: measure
    })
-
   end
-
-
 end
 
 puts "created #{Recipe.count} recipes"
 puts "created #{Ingredient.count} ingredients"
+
+###################################
+
+puts 'creating reviews...'
+
+reviews = %w('Really tasty, I love this recipe.', 'I cooked this for my family, and they all loved it.', 'Simple and delicious meal.')
+
+counter = 0
+5.times do
+  Review.create({
+    rating: rand(1..5),
+    description: reviews.sample,
+    user: User.last,
+    recipe: Recipe.last
+  })
+  counter += 1
+end
+
+puts "created #{counter} reviews"
+
+###################################
+
+puts 'creating followings...'
+
+follower = User.first
+followee = User.last
+
+Following.create({
+  follower: follower,
+  followee: followee
+})
+
+puts "created #{Following.count} followings"
+
+###################################
+
+puts 'not creating bookmarks until bookmark model change is completed'
+puts 'not creating notes until bookmark model change is completed'
+
+
