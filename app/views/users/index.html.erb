@@ -1,4 +1,8 @@
 <div class="user-index">
+  <!-- If we want this page permitted with devise -->
+  <% if user_signed_in? %>
+    <p>Logged in as: <%= current_user.username %></p>
+  <% end %>
   <h2>All users</h2>
   <ul class="users">
     <% @users.each do |user| %>
