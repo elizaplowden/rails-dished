@@ -15,7 +15,11 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @bookmark = Bookmark.new
+    @bookmark = current_user.bookmarks.find_by(recipe: @recipe)
+    if @bookmark.nil?
+      @bookmark = Bookmark.new
+    end
+    @note = Note.new(bookmark: @bookmark)
   end
 
   def new

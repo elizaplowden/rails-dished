@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   def create
-    @bookmark = Bookmark.new(bookmark_params)
+    @bookmark = Bookmark.new(recipe: Recipe.find(params[:recipe_id]))
     # we need a cookbook id to associate bookmark with corresponding cookbook
     @bookmark.user = current_user
     # @recipe = Recipe.find(params[recipe_id])
@@ -22,7 +22,7 @@ class BookmarksController < ApplicationController
 
   private
 
-  def bookmark_params
-    params.require(:bookmark).permit(:recipe_id)
-  end
+  # def bookmark_params
+  #   params.require(:bookmark).permit(:recipe_id)
+  # end
 end
