@@ -56,11 +56,13 @@
       <% end %>
     </div>
   </div>
+  <hr>
   <!-- all the sections below need work, just moving them out of the way for now -->
   <!-- gallery of images uploaded by users -->
   <div class="user-image-uploads">
+    <h3>User pictures</h3>
+    <p>placeholder for button to upload user image</p>
     <% if @recipe.images.attached? %>
-      <h3>User pictures</h3>
       <% @recipe.images.each do |image| %>
         <%= cl_image_tag image.key, height: 60, width: 100, crop: :fill %>
       <% end %>
@@ -70,15 +72,13 @@
   <!-- all the reviews -->
   <div class="reviews-container">
     <h3>Reviews</h3>
-    <% if @recipe.reviews.empty? %>
-      <%= link_to 'Leave a Review', new_recipe_review_path(@recipe.id), class: "button" %>
-    <% else %>
-      <%= link_to 'Leave a Review', new_recipe_review_path(@recipe.id), class: "button" %>
-      <% @recipe.reviews.each do |review| %>
+    <%= link_to 'Leave a Review', new_recipe_review_path(@recipe.id), class: "button" %>
+    <% @recipe.reviews.each do |review| %>
+      <div class="review">
           <%= review.description %>
           <%= review.rating %>
           <%= link_to 'delete review', review_path(review.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
+      </div>
     <% end %>
   </div>
 
