@@ -2,13 +2,8 @@ class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_recipe, only: [:show, :destroy, :edit, :update]
 
-
   def index
-    if params[:query].present?
-      @recipes = Recipe.where("name ILIKE ?", "%#{params[:query]}%")
-    else
       @recipes = Recipe.all
-    end
   end
 
   def show
