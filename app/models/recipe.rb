@@ -10,5 +10,5 @@ class Recipe < ApplicationRecord
   validates :instructions, presence: true
   validates :serves, presence: true
   validates :cook_time, presence: true
-  # has_many_attached :photos
+  has_many_attached :photos
 end
