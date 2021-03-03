@@ -3,10 +3,18 @@
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-    <% if session[:recipe].present? %>
+    <% if session[:recipe_id].present? %>
 
-    <% session[:recipe].each do |recipe| %>
-    <%= recipe %>
+    <% session[:recipe_id].each do |recipe_id| %>
+
+    <div>
+      <% unless recipe_id.nil? %>
+      <% roast_dinner = Recipe.find(recipe_id)%>
+      <%= roast_dinner.name %>
+      <%= recipe_id.class %>
+      <% end %>
+    </div>
+
     <% end %>
 
     <% else %>

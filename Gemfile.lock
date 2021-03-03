@@ -125,6 +125,7 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
+    popper_js (2.8.6)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -249,6 +250,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
+  popper_js (~> 2.8.6)
   pry-byebug
   pry-rails
   puma (~> 5.0)
@@ -269,4 +271,4 @@ RUBY VERSION
    ruby 2.6.6p146
 
 BUNDLED WITH
-   2.1.0
+   2.2.11
