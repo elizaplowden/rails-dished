@@ -35,10 +35,11 @@ gem 'popper_js', '~> 2.8.6'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
-
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem 'pg_search'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
