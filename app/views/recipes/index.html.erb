@@ -1,8 +1,16 @@
+<%= render "search", foods: @foods %>
+
 <% @recipes.each do |recipe| %>
+<<<<<<< HEAD
   <%=cl_image_tag recipe.photo.key, height: 200, width: 300, crop: :fill  %>
   <br>
   <%=recipe.name%>
   <%=recipe.description%>
+=======
+  <%=recipe.name%>
+  <%=recipe.description%>
+  <%=recipe.instructions%>
+>>>>>>> master
   <%=recipe.meal%>
   <%=recipe.cuisine%>
   <%=recipe.serves%>

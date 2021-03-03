@@ -23,9 +23,31 @@
 <%= link_to 'Delete Recipe', recipe_path(@recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %>
 <br>
 
-<%= simple_form_for [ @recipe, @bookmark ] do |f| %>
-  <%= f.hidden_field :recipe_id, :value => @recipe.id %>
-  <%= f.submit "Create Bookmark", class: "btn btn-primary" %>
+<%= link_to 'Add to cookbook', recipe_bookmarks_path(@recipe), method: :post, class: 'button' %>
+
+
+<br>
+<!-- if the user has bookmarked the recipe -->
+<% if current_user.bookmarks.pluck(:recipe_id).include?(@recipe.id) %>
+  <!-- they can view their notes -->
+  Notes:
+  <ul>
+    <% @recipe.notes.each do |note| %>
+    <li>
+      <%= note.description %>
+      <%= link_to "Delete note", note_path(note), method: :delete,  data: { confirm: 'Are you sure?'} %>
+
+    </li>
+  <% end %>
+  </ul>
+
+  <!-- they can add/delete notes -->
+  <%= simple_form_for [@bookmark, @note], method: :post do |f| %>
+    <%= f.input :description, label: "Note" %>
+    <%= f.submit "Add a note", class: 'button' %>
+  <% end %>
+
+
 <% end %>
 
 <br>
@@ -35,3 +57,5 @@
 
 
 <%= link_to 'More Recipes', recipes_path, class: "button" %>
+<br>
+<%= link_to 'Add to wishlist', wishlist_path(@recipe.id), class: "button" %>
