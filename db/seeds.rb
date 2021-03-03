@@ -76,7 +76,7 @@ puts "created #{Food.count} foods"
      image_url = meal['strMealThumb']
      downloaded_image = open(image_url)
      filename = File.basename(image_url)
-     recipe.photos.attach(io: downloaded_image, filename: filename)
+     recipe.photo.attach(io: downloaded_image, filename: filename)
      puts 'attached photo'
     end
   end
