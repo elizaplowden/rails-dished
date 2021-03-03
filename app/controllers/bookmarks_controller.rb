@@ -3,6 +3,8 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
     # we need a cookbook id to associate bookmark with corresponding cookbook
     @bookmark.user = current_user
+    # @recipe = Recipe.find(params[recipe_id])
+    # @bookmark.recipe = @recipe
     if @bookmark.save
       flash[:notice] = "this saved"
     else

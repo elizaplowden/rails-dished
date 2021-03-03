@@ -1,44 +1,61 @@
-<div class="user_show">
+  <%#--Shows that this is YOUR profile page if it's yours %>
   <% if @user == current_user %>
-    <p>Logged in as: <%= @user.username %></p>
-    <p>Your profile:</p>
+    Logged in as: <%= @user.username %>
+    <br>
+    Your profile:
+
+  <%#-- Otherwise shows the username %>
   <% else %>
-    <h2><%= @user.username %></h2>
+    <%= @user.username %>
   <% end %>
 
+  <br>
+  <%#-- Shows who you are following %>
   <% if @user.follows_given.empty? %>
-    <p>Not following anyone</p>
+    Not following anyone
   <% else %>
-    <p>Following:</p>
-    <ul>
-        <% @user.follows_given.each do |following| %>
-       <li>
-      <%= link_to following.followee.username, user_path(following.followee) %><br>
-       <% end %>
-      </li>
-    </ul>
+    Following:
+      <% @user.follows_given.each do |following| %>
+        <%= link_to following.followee.username, user_path(following.followee) %><br>
+      <% end %>
   <% end %>
 
+  <br>
+  <%#-- Shows who follows you %>
   <% if @user.follows_received.empty? %>
-    <p>No followers</p>
+    No followers
   <% else %>
-    <p>Followed by:</p>
-      <ul>
+    Followed by:
         <% @user.follows_received.each do |following| %>
-          <li>
-            <%= link_to following.follower.username, user_path(following.follower) %>
-          <% end %>
-        </li>
-      </ul>
+          <%= link_to following.follower.username, user_path(following.follower) %>
+        <% end %>
   <% end %>
 
+  <br>
+  <%#-- Follow / Unfollow logic %>
   <% if current_user != @user && !current_user.follows_given.pluck(:followee_id).include?(@user.id) %>
-    <p><%= link_to "Follow", follow_user_path(@user), method: :post %></p>
+    <%= link_to "Follow", follow_user_path(@user), method: :post %>
   <% elsif current_user != @user  %>
-    <p><%= link_to "Unfollow", unfollow_user_path(@user), method: :delete %></p>
+    <%= link_to "Unfollow", unfollow_user_path(@user), method: :delete %>
   <% end %>
 
-  <br><%= link_to "Show all users", users_path %>
+  <br>
 
-</div>
+  <%#-- Link to users index %>
+  <%= link_to "Show all users", users_path %>
+
+  <br>
+  <%#-- Show each bookmark... this needs to be turned into a card %>
+  <% @user.bookmarks.each do |bookmark| %>
+  <%= link_to 'recipe', recipe_path(bookmark.recipe.id)  %>
+  <%= bookmark.recipe.name %>
+  <%= bookmark.recipe.description %>
+  <%= bookmark.recipe.instructions %>
+  <%= bookmark.recipe.meal %>
+  <%= bookmark.recipe.cuisine %>
+  <%= bookmark.recipe.serves %>
+  <%= bookmark.recipe.cook_time %>
+  <%= bookmark.recipe.user.id %>
+  <% end %>
+
 
