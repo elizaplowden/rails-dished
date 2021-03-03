@@ -50,4 +50,9 @@
 
 <%= link_to 'More Recipes', recipes_path, class: "button" %>
 <br>
+
+<%#-- Link to recipes index%>
+<%= link_to 'Back', recipes_path, class: "button" %>
+
 <%= link_to 'Add to wishlist', wishlist_path(@recipe.id), class: "button" %>
+
