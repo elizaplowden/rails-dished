@@ -28,6 +28,9 @@ gem 'cloudinary', '~> 1.16.0'
 # Use popper for creating modals
 gem 'popper_js', '~> 2.8.6'
 
+# masonry for dynamic grid layout
+gem 'masonry-rails', '~> 0.2.4'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
