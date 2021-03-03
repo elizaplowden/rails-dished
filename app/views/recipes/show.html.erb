@@ -1,67 +1,66 @@
-<%=cl_image_tag @recipe.photo.key, height: 300, width: 450, class: 'recipe-photo', crop: :fill %>
-<br>
-<%=@recipe.name%>
-<%=@recipe.description%>
-<%=@recipe.instructions%>
-<%=@recipe.meal%>
-<%=@recipe.cuisine%>
-<%=@recipe.serves%>
-<%=@recipe.cook_time%>
-<%=@recipe.user.id%>
-<br>
-<!-- gallery of images uploaded by users -->
-<% if @recipe.images.attached? %>
-  <% @recipe.images.each do |image| %>
-    <%= cl_image_tag image.key, height: 60, width: 100, crop: :fill %>
+<div class="recipe-container">
+
+  <%=cl_image_tag @recipe.photo.key, height: 300, width: 450, class: 'recipe-photo', crop: :fill %>
+  <br>
+  <%=@recipe.name%>
+  <%=@recipe.description%>
+  <%=@recipe.instructions%>
+  <%=@recipe.meal%>
+  <%=@recipe.cuisine%>
+  <%=@recipe.serves%>
+  <%=@recipe.cook_time%>
+  <%=@recipe.user.id%>
+  <br>
+  <!-- gallery of images uploaded by users -->
+  <% if @recipe.images.attached? %>
+    <% @recipe.images.each do |image| %>
+      <%= cl_image_tag image.key, height: 60, width: 100, crop: :fill %>
+    <% end %>
   <% end %>
-<% end %>
-<% @recipe.reviews.each do |review| %>
-      <%= review.description %>
-      <%= review.rating %>
-      <%= link_to 'delete review', review_path(review.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% @recipe.reviews.each do |review| %>
+        <%= review.description %>
+        <%= review.rating %>
+        <%= link_to 'delete review', review_path(review.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  <br>
+  <%= link_to 'Delete Recipe', recipe_path(@recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <br>
+
+  <%= link_to 'Add to cookbook', recipe_bookmarks_path(@recipe), method: :post, class: 'button' %>
+
+
+  <br>
+  <!-- if the user has bookmarked the recipe -->
+  <% if current_user.bookmarks.pluck(:recipe_id).include?(@recipe.id) %>
+    <!-- they can view their notes -->
+    Notes:
+    <ul>
+      <% @recipe.notes.each do |note| %>
+      <li>
+        <%= note.description %>
+        <%= link_to "Delete note", note_path(note), method: :delete,  data: { confirm: 'Are you sure?'} %>
+
+      </li>
+    <% end %>
+    </ul>
+
+    <!-- they can add/delete notes -->
+    <%= simple_form_for [@bookmark, @note], method: :post do |f| %>
+      <%= f.input :description, label: "Note" %>
+      <%= f.submit "Add a note", class: 'button' %>
+    <% end %>
+
+
   <% end %>
-<br>
-<%= link_to 'Delete Recipe', recipe_path(@recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-<br>
 
-<%= link_to 'Add to cookbook', recipe_bookmarks_path(@recipe), method: :post, class: 'button' %>
+  <br>
+  <%= link_to 'Leave a Review', new_recipe_review_path(@recipe.id), class: "button" %>
+  <br>
 
 
-<br>
-<!-- if the user has bookmarked the recipe -->
-<% if current_user.bookmarks.pluck(:recipe_id).include?(@recipe.id) %>
-  <!-- they can view their notes -->
-  Notes:
   <ul>
-    <% @recipe.notes.each do |note| %>
-    <li>
-      <%= note.description %>
-      <%= link_to "Delete note", note_path(note), method: :delete,  data: { confirm: 'Are you sure?'} %>
-
-    </li>
-  <% end %>
+    <li><%= link_to 'More Recipes', recipes_path, class: "button" %></li>
+    <li><%= link_to 'Back', recipes_path, class: "button" %></li>
+    <li><%= link_to 'Add to wishlist', wishlist_path(@recipe.id), class: "button" %></li>
   </ul>
-
-  <!-- they can add/delete notes -->
-  <%= simple_form_for [@bookmark, @note], method: :post do |f| %>
-    <%= f.input :description, label: "Note" %>
-    <%= f.submit "Add a note", class: 'button' %>
-  <% end %>
-
-
-<% end %>
-
-<br>
-<%= link_to 'Leave a Review', new_recipe_review_path(@recipe.id), class: "button" %>
-<br>
-
-
-
-<%= link_to 'More Recipes', recipes_path, class: "button" %>
-<br>
-
-<%#-- Link to recipes index%>
-<%= link_to 'Back', recipes_path, class: "button" %>
-
-<%= link_to 'Add to wishlist', wishlist_path(@recipe.id), class: "button" %>
-
+</div>
