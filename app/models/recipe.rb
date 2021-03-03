@@ -3,6 +3,7 @@ class Recipe < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :ingredients, dependent: :destroy
+  has_many :foods, through: :ingredients
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
@@ -13,8 +14,6 @@ class Recipe < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_food,
-                  against: :name,
-                  using: {
-                    tsearch: { prefix: true }
-                  }
+                  associated_against: { foods: :name },
+                  using: { tsearch: { prefix: true } }
 end
