@@ -9,6 +9,7 @@
 <%=@recipe.cook_time%>
 <%=@recipe.user.id%>
 <br>
+<!-- gallery of images uploaded by users -->
 <% if @recipe.images.attached? %>
   <% @recipe.images.each do |image| %>
     <%= cl_image_tag image.key, height: 60, width: 100, crop: :fill %>
