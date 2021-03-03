@@ -56,7 +56,7 @@ puts "created #{Food.count} foods"
       instructions: meal['strInstructions'],
       serves: rand(1..10),
       cook_time: rand(15..60),
-      user: User.first
+      user: User.first,
     } )
      # creating arrays of the ingredients and foods
     foods = [meal['strIngredient1'], meal['strIngredient2'], meal['strIngredient3'], meal['strIngredient4'], meal['strIngredient5']]
@@ -71,6 +71,13 @@ puts "created #{Food.count} foods"
       food: food,
       quantity: measure
      })
+
+     # attaching a photo to the recipe
+     image_url = meal['strMealThumb']
+     downloaded_image = open(image_url)
+     filename = File.basename(image_url)
+     recipe.photos.attach(io: downloaded_image, filename: filename)
+     puts 'attached photo'
     end
   end
 end

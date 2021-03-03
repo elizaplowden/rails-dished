@@ -1,10 +1,6 @@
 class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-<<<<<<< HEAD
   before_action :find_recipe, only: [:show, :destroy, :edit, :update, :add_to_wishlist]
-=======
-  before_action :find_recipe, only: [:show, :destroy, :edit, :update]
->>>>>>> add-recipe-ingredient-search
 
   def index
     # used to populate the drop down list (select tag) in the search form

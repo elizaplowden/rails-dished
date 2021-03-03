@@ -1,6 +1,9 @@
 <%= render "search", foods: @foods %>
 
 <% @recipes.each do |recipe| %>
+  <% recipe.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
   <%=recipe.name%>
   <%=recipe.description%>
   <%=recipe.instructions%>

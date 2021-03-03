@@ -138,10 +138,10 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
-    popper_js (2.8.6)
     pg_search (2.3.5)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
+    popper_js (2.8.6)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -232,9 +232,6 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    turbolinks_render (0.9.20)
-      rails (>= 5.2.0)
-      turbolinks-source (~> 5.1)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
@@ -278,8 +275,8 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
-  popper_js (~> 2.8.6)
   pg_search
+  popper_js (~> 2.8.6)
   pry-byebug
   pry-rails
   puma (~> 5.0)
@@ -291,7 +288,6 @@ DEPENDENCIES
   simple_form
   spring
   turbolinks (~> 5)
-  turbolinks_render
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
