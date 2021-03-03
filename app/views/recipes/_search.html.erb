@@ -5,6 +5,8 @@
     class: "form-control",
     placeholder: "Search for ingredients"
   %>
+  <!-- implementing a select tag of all foods for the search -->
+  <%= select_tag "ingredient", options_from_collection_for_select(foods, :id, :name) %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 <!-- the list of movies -->
