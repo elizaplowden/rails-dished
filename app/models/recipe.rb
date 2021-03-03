@@ -12,7 +12,7 @@ class Recipe < ApplicationRecord
   # has_many_attached :photos
 
   include PgSearch::Model
-  pg_search_scope :search_by_name,
+  pg_search_scope :search_by_food,
                   against: :name,
                   using: {
                     tsearch: { prefix: true }

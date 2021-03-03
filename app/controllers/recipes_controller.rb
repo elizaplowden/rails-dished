@@ -3,15 +3,8 @@ class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :destroy, :edit, :update]
 
   def index
-    # if params[:query].present?
-    #   sql_query = " \
-    #     recipes.name @@ :query \
-    #   "
-    #   @recipes = Recipe.where(sql_query, query: "%#{params[:query]}%")
-    # else
-    #   @recipes = Recipe.all
-    # end
-    @recipes = Recipe.all
+    # using pgsearch - the search criteria is defined in the Recipe model
+    @recipes = Recipe.search_by_food(params[:query])
   end
 
   def show
@@ -29,7 +22,6 @@ class RecipesController < ApplicationController
     else
       render :new
     end
-
   end
 
   def edit
@@ -52,7 +44,6 @@ class RecipesController < ApplicationController
   private
 
   def find_recipe
-
     @recipe = Recipe.find(params[:id])
   end
 
