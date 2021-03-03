@@ -1,5 +1,32 @@
 // recipe show page css goes here
 .recipe-container {
   background-color: #fff;
-  margin: 20px auto;
+  max-width: 1000px;
+  display: flex;
+  // margin: 20px auto;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.notes-container {
+  background-color: #fff;
+  margin-left: 20px;
+}
+
+.recipe-photo {
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
+
+}
+
+.main-recipe-container {
+  display:flex;
+}
+
+.recipe-details-container {
+  display: flex;
 }
