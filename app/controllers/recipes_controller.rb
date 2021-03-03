@@ -3,8 +3,12 @@ class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :destroy, :edit, :update]
 
   def index
-    # using pgsearch - the search criteria is defined in the Recipe model
-    @recipes = Recipe.search_by_food(params[:query])
+    if params[:query].present?
+      # using pgsearch - the search criteria is defined in the Recipe model
+      @recipes = Recipe.search_by_food(params[:query])
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show
