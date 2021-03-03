@@ -1,7 +1,6 @@
 class RecipesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index]
   before_action :find_recipe, only: [:show, :destroy, :edit, :update]
-
 
   def index
     @recipes = Recipe.all
@@ -27,7 +26,6 @@ class RecipesController < ApplicationController
     else
       render :new
     end
-
   end
 
   def edit
