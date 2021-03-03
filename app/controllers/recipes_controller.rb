@@ -1,9 +1,21 @@
 class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+<<<<<<< HEAD
   before_action :find_recipe, only: [:show, :destroy, :edit, :update, :add_to_wishlist]
+=======
+  before_action :find_recipe, only: [:show, :destroy, :edit, :update]
+>>>>>>> add-recipe-ingredient-search
 
   def index
-    @recipes = Recipe.all
+    # used to populate the drop down list (select tag) in the search form
+    @foods = Food.all
+    # if statement so the recipes index still returns all recipes if there is no search term
+    if params.dig(:search, :query).present?
+      # using pgsearch - the search criteria is defined in the Recipe model
+      @recipes = Recipe.search_by_food(params.dig(:search, :query))
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show
