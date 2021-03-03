@@ -22,6 +22,11 @@
 <% end %>
 
 <br>
+<% if @user.bookmarks.include?(@recipe.id) %>
+  <%= link_to 'Add a note', bookmark_notes_path(@recipe.id), class: "button", remote: true %>
+<% end %>
+
+<br>
 <%= link_to 'Leave a Review', new_recipe_review_path(@recipe.id), class: "button" %>
 <br>
 
