@@ -1,14 +1,17 @@
 <% @recipes.each do |recipe| %>
-<%=recipe.name%>
-<%=recipe.description%>
-<%=recipe.instructions%>
-<%=recipe.meal%>
-<%=recipe.cuisine%>
-<%=recipe.serves%>
-<%=recipe.cook_time%>
-<%=recipe.user.id%>
-<%= link_to 'More info', recipe_path(recipe.id), class: "button" %>
-<br>
+  <% @recipes.photos.each do |photo| %>
+    <%=cl_image_tag photo.key, class: 'recipe-photo', crop: :fill %>
+  <% end %>
+  <%=recipe.name%>
+  <%=recipe.description%>
+  <%=recipe.instructions%>
+  <%=recipe.meal%>
+  <%=recipe.cuisine%>
+  <%=recipe.serves%>
+  <%=recipe.cook_time%>
+  <%=recipe.user.id%>
+  <%= link_to 'More info', recipe_path(recipe.id), class: "button" %>
+  <br>
 <% end %>
 <br>
 <%= link_to "Create Recipe", new_recipe_path %>
