@@ -1,12 +1,15 @@
 <!-- [...] -->
-<%= form_tag recipes_path, method: :get do %>
-  <%= text_field_tag  :query,
+<%= simple_form_for "search", url: recipes_path, method: :get do |f| %>
+
+  <%#= text_field_tag  "placeholder",
     params[:query],
     class: "form-control",
     placeholder: "Search for ingredients"
   %>
   <!-- implementing a select tag of all foods for the search -->
-  <%= select_tag "ingredient", options_from_collection_for_select(foods, :id, :name), class: 'select2' %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= f.label "Search for ingredient" %>
+  <%= f.input :query, collection: foods.pluck(:name), label: false, input_html: { class: 'select2' }  %>
+
+  <%= f.submit "Search", class: "btn btn-primary" %>
 <% end %>
 <!-- the list of movies -->
