@@ -1,12 +1,10 @@
 <%= render "search", foods: @foods %>
 
 <% @recipes.each do |recipe| %>
-  <% recipe.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
+  <%=cl_image_tag recipe.photo.key, height: 200, width: 300, crop: :fill  %>
+  <br>
   <%=recipe.name%>
   <%=recipe.description%>
-  <%=recipe.instructions%>
   <%=recipe.meal%>
   <%=recipe.cuisine%>
   <%=recipe.serves%>
@@ -16,4 +14,5 @@
   <br>
 <% end %>
 <br>
+<%#-- Link to New recipe%>
 <%= link_to "Create Recipe", new_recipe_path %>

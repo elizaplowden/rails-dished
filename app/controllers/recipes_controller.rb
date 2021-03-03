@@ -1,6 +1,8 @@
 class RecipesController < ApplicationController
+
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_recipe, only: [:show, :destroy, :edit, :update, :add_to_wishlist]
+
 
   def index
     # used to populate the drop down list (select tag) in the search form
@@ -74,6 +76,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :instructions, :meal, :cuisine, :serves, :cook_time)
+    params.require(:recipe).permit(:name, :description, :instructions, :meal, :cuisine, :serves, :cook_time, :photo, images: { multiple: true})
   end
 end

@@ -3,3 +3,6 @@
   <%= f.input :rating %>
   <%= f.submit "Create a Review", class: 'btn btn-primary' %>
 <% end %>
+
+<%#-- Link to recipes index%>
+<%= link_to 'Back', recipe_path(@recipe.id), class: "button" %>
