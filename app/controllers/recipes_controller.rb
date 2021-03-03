@@ -41,14 +41,14 @@ class RecipesController < ApplicationController
   end
 
   def add_to_wishlist
-    if session[:recipe_id].present?
-      if session[:recipe_id].include?(@recipe.id)
-        session[:recipe_id].delete(@recipe.id)
+    if session[:recipe].present?
+      if session[:recipe].include?(@recipe)
+        session[:recipe].delete(@recipe)
       else
-        session[:recipe_id] << @recipe.id
+        session[:recipe] << @recipe
       end
     else
-      session[:recipe_id] = [@recipe.id]
+      session[:recipe] = [@recipe]
     end
     flash[:notice] = "success!"
     redirect_back(fallback_location: recipes_path)
