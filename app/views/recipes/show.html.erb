@@ -1,3 +1,5 @@
+<%=cl_image_tag @recipe.photo.key, height: 300, width: 450, class: 'recipe-photo', crop: :fill %>
+<br>
 <%=@recipe.name%>
 <%=@recipe.description%>
 <%=@recipe.instructions%>
@@ -7,6 +9,11 @@
 <%=@recipe.cook_time%>
 <%=@recipe.user.id%>
 <br>
+<% if @recipe.images.attached? %>
+  <% @recipe.images.each do |image| %>
+    <%= cl_image_tag image.key, height: 60, width: 100, crop: :fill %>
+  <% end %>
+<% end %>
 <% @recipe.reviews.each do |review| %>
       <%= review.description %>
       <%= review.rating %>
@@ -17,6 +24,7 @@
 <br>
 <%= link_to 'Leave a Review', new_recipe_review_path(@recipe.id), class: "button" %>
 <br>
+
 
 
 <%= link_to 'More Recipes', recipes_path, class: "button" %>
