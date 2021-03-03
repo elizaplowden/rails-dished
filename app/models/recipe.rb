@@ -11,12 +11,11 @@ class Recipe < ApplicationRecord
   validates :instructions, presence: true
   validates :serves, presence: true
   validates :cook_time, presence: true
+  has_one_attached :photo
+  has_many_attached :images
 
   include PgSearch::Model
   pg_search_scope :search_by_food,
                   associated_against: { foods: :name },
                   using: { tsearch: { prefix: true } }
-
-  has_many_attached :photos
-
 end
