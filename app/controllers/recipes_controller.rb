@@ -3,7 +3,15 @@ class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :destroy, :edit, :update]
 
   def index
-      @recipes = Recipe.all
+    # if params[:query].present?
+    #   sql_query = " \
+    #     recipes.name @@ :query \
+    #   "
+    #   @recipes = Recipe.where(sql_query, query: "%#{params[:query]}%")
+    # else
+    #   @recipes = Recipe.all
+    # end
+    @recipes = Recipe.all
   end
 
   def show
