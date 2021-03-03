@@ -1,0 +1,7 @@
+<!-- [...] -->
+<%= simple_form_for "search", url: recipes_path, method: :get do |f| %>
+  <%= f.label "Search for ingredient" %>
+  <%= f.input :query, collection: foods.pluck(:name), label: false, remote: true, input_html: { class: 'select2' }  %>
+
+  <%= f.submit "Search", class: "btn btn-primary" %>
+<% end %>
