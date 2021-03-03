@@ -18,3 +18,5 @@
 <%= link_to 'Leave a Review', new_recipe_review_path(@recipe.id), class: "button" %>
 <br>
 <%= link_to 'More Recipes', recipes_path, class: "button" %>
+<br>
+<%= link_to 'Add to wishlist', wishlist_path(@recipe.id), class: "button" %>
