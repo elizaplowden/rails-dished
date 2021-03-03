@@ -1,25 +1,39 @@
+<%# Modal Button --- Could be moved to Navbar?%>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View Wishlist</button>
 
+<%# Modal from Bootstrap %>
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
+
+    <%# If there's something in the session wishlist%>
     <% if session[:recipe_id].present? %>
 
+    <%# Iterate through the session array - it's full of recipe ID's %>
     <% session[:recipe_id].each do |recipe_id| %>
 
-    <div>
-      <% unless recipe_id.nil? %>
-      <% roast_dinner = Recipe.find(recipe_id)%>
-      <%= roast_dinner.name %>
-      <%= recipe_id.class %>
-      <% end %>
-    </div>
+    <%# unless what's in there is 'nil'%>
+    <% unless recipe_id.nil? %>
+
+    <%# Find the recipe according to their ID %>
+    <% found_recipe = Recipe.find(recipe_id)%>
+
+    <%# Display what's in the recipe - this needs to be in a card...%>
+    <%= found_recipe.name %>
+    <%= found_recipe.description %>
+    <%= found_recipe.instructions %>
+    <%= found_recipe.meal %>
+    <%= found_recipe.cuisine %>
+    <%= found_recipe.serves %>
+    <%= found_recipe.cook_time %>
+    <%= found_recipe.user.id%>
+    <% end %>
 
     <% end %>
 
+    <%# Else display that there's nothing there. Maybe add a 'Go to Recipes' button here %>
     <% else %>
-
-    <p> You have nothing in your wishlist</p>
+      <p> You have nothing in your wishlist</p>
 
     <% end %>
 
