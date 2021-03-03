@@ -1,18 +1,21 @@
 <%= render "search", foods: @foods %>
 
-<% @recipes.each do |recipe| %>
-  <%=cl_image_tag recipe.photo.key, height: 200, width: 300, crop: :fill  %>
-  <br>
-  <%=recipe.name%>
-  <%=recipe.description%>
-  <%=recipe.meal%>
-  <%=recipe.cuisine%>
-  <%=recipe.serves%>
-  <%=recipe.cook_time%>
-  <%=recipe.user.id%>
-  <%= link_to 'More info', recipe_path(recipe.id), class: "button" %>
-  <br>
-<% end %>
+<div class="index-container">
+  <% @recipes.each do |recipe| %>
+    <div class="index-box">
+    <%#=cl_image_tag recipe.photo.key, crop: :fill  %>
+    <h2><%=recipe.name%></h2>
+    <p><%=recipe.description%></p>
+    <p><%=recipe.cuisine%></p>
+    <p><%=recipe.serves%></p>
+    <p><%=recipe.cook_time%></p>
+    <p><%=recipe.user.id%></p>
+    <%= link_to 'More info', recipe_path(recipe.id), class: "button" %>
+    </div>
+  <% end %>
+
+</div>
+
 <br>
 <%#-- Link to New recipe%>
 <%= link_to "Create Recipe", new_recipe_path %>
