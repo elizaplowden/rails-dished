@@ -1,14 +1,17 @@
+<%= render "search", foods: @foods %>
+
 <% @recipes.each do |recipe| %>
-<%=recipe.name%>
-<%=recipe.description%>
-<%=recipe.instructions%>
-<%=recipe.meal%>
-<%=recipe.cuisine%>
-<%=recipe.serves%>
-<%=recipe.cook_time%>
-<%=recipe.user.id%>
-<%= link_to 'More info', recipe_path(recipe.id), class: "button" %>
-<br>
+  <%=recipe.name%>
+  <%=recipe.description%>
+  <%=recipe.instructions%>
+  <%=recipe.meal%>
+  <%=recipe.cuisine%>
+  <%=recipe.serves%>
+  <%=recipe.cook_time%>
+  <%=recipe.user.id%>
+  <%= link_to 'More info', recipe_path(recipe.id), class: "button" %>
+  <br>
 <% end %>
 <br>
+<%#-- Link to New recipe%>
 <%= link_to "Create Recipe", new_recipe_path %>

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :bookmarks, only: [ :create ]
   end
 
+  get 'wishlist/:id', to: 'recipes#add_to_wishlist', as: 'wishlist'
+
   resources :reviews, only: :destroy
   resources :bookmarks, only: :destroy
 

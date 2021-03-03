@@ -25,6 +25,9 @@ gem 'cloudinary', '~> 1.16.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'cloudinary', '~> 1.16.0'
 
+# Use popper for creating modals
+gem 'popper_js', '~> 2.8.6'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -32,10 +35,11 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
-
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem 'pg_search'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
