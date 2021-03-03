@@ -232,9 +232,6 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    turbolinks_render (0.9.20)
-      rails (>= 5.2.0)
-      turbolinks-source (~> 5.1)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
@@ -291,7 +288,6 @@ DEPENDENCIES
   simple_form
   spring
   turbolinks (~> 5)
-  turbolinks_render
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
