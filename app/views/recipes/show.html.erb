@@ -24,8 +24,8 @@
 <% if current_user.bookmarks.pluck(:recipe_id).include?(@recipe.id) %>
   <!-- they can view their notes -->
   Notes:
-  <% @recipe.notes.each do |note| %>
   <ul>
+    <% @recipe.notes.each do |note| %>
     <li>
       <%= note.description %>
       <%= link_to "Delete note", note_path(note), method: :delete,  data: { confirm: 'Are you sure?'} %>
