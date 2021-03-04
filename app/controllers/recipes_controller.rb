@@ -58,13 +58,15 @@ class RecipesController < ApplicationController
     if session[:recipe_id].present?
       if session[:recipe_id].include?(@recipe.id)
         session[:recipe_id].delete(@recipe.id)
+        flash[:notice] = "Removed from Dishlist"
       else
         session[:recipe_id] << @recipe.id
+        flash[:notice] = "Added to Dishlist"
       end
     else
       session[:recipe_id] = [@recipe.id]
+      flash[:notice] = "Added to Dishlist"
     end
-    flash[:notice] = "success!"
     redirect_back(fallback_location: recipes_path)
   end
 

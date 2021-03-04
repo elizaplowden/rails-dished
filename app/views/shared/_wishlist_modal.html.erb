@@ -18,15 +18,14 @@
               <% unless recipe_id.nil? || Recipe.find_by_id(recipe_id).nil? %>
                 <%# Find the recipe according to their ID %>
                 <% found_recipe = Recipe.find(recipe_id)%>
-                <%# Display what's in the recipe - this needs to be in a card...%>
+                <%# Display what's in the recipe %>
 
+                  <%# Make the whole thing a link %>
                   <%=link_to recipe_path(found_recipe.id) do %>
                     <div class="scrolling-card">
-
-
-
+                      <%# Display Image %>
                       <%=cl_image_tag found_recipe.photo.key, height: 700 %>
-
+                      <%# Display recipe details %>
                       <div class="scrolling-recipe-details">
                         <h2><%=found_recipe.name%></h2>
                         <h4>Details</h4>
@@ -34,24 +33,21 @@
                         <p>Cook time: <%=found_recipe.cook_time%></p>
                         <p>Meal type: <%=found_recipe.meal%></p>
                         <p>Cuisine: <%=found_recipe.cuisine%></p>
+                        <%# iterate through ingredients %>
                         <h4>Ingredients</h4>
                         <% found_recipe.ingredients.each do |ingredient| %>
                           <p><%= ingredient.quantity %> <%= ingredient.food.name %></p>
                         <% end %>
                       </div>
-
-
-
                     </div>
                 <% end %>
-
               <% end %>
             <% end %>
           </div>
-
         <%# Else display that there's nothing there. Maybe add a 'Go to Recipes' button here %>
         <% else %>
-          <p> You have nothing in your wishlist</p>
+          <p> You have nothing in your dishlist!</p>
+          <%= link_to 'Find some dishes!', recipes_path, class: "button" %>
         <% end %>
       </div>
     </div>
