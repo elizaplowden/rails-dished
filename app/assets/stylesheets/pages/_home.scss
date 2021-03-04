@@ -16,7 +16,7 @@
   flex-direction: column;
   a{
     color: white;
-    font-size: 20px;
+    font-size: 26px;
     &:hover{
       text-decoration: none;
       opacity: 0.5;
@@ -32,6 +32,7 @@ h1 {
   color: white;
   text-align: center;
   position: center;
+  font-size: 50px;
 }
 
 .banner-search{
@@ -43,6 +44,11 @@ h1 {
   color: white;
   margin-top: 40px;
   font-size: 28px;
+  position: center;
+
+}
+
+.select2{
 
 }
 
