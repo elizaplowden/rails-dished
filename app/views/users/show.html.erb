@@ -83,31 +83,31 @@
       Your Cookbook
       <div class="cookbook-content">
         <!-- to be replaced by index card once created -->
-        <div class="row">
+        <div class="index-container">
           <% @user.bookmarks.each do |bookmark| %>
-            <div class="col-4">
-              <div class="recipe-index-card">
-                <%=cl_image_tag bookmark.recipe.photo.key, height: 200, width: 300, crop: :fill  %>
-                <br>
-                <%= link_to bookmark.recipe.name, recipe_path(bookmark.recipe.id)  %>
-                <p><%= bookmark.recipe.description %></p>
-                <p><%= bookmark.recipe.meal %></p>
-                <p><%= bookmark.recipe.cuisine %></p>
-                <p>Serves: <%= bookmark.recipe.serves %></p>
-                <p>Cook time: <%= bookmark.recipe.cook_time %></p>
-                  <% unless @user.id == bookmark.recipe.user.id %>
-                      <p><%= link_to "Chef's Profile", user_path(bookmark.recipe.user.id) %></p>
-                  <% end %>
+
+            <div class="index-box">
+
+              <div class="index-card">
+                <%=cl_image_tag bookmark.recipe.photo.key, height: 320  %>
+                <div class="index-card-text">
+                  <div class="index-card-heading">
+                    <h2><%= link_to bookmark.recipe.name, recipe_path(bookmark.recipe.id) %></h2>
+                  </div>
+                  <div class="index-card-info">
+                    <p><%=bookmark.recipe.cook_time%> minutes</p>
+                    <p>Serves <%=bookmark.recipe.serves%></p>
+                    <p>5 stars</p>
+                  </div>
+                </div>
               </div>
             </div>
           <% end %>
         </div>
 
       </div>
-
-
     </div>
-  </div>
 
+  </div>
 </div>
 
