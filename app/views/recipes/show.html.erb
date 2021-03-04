@@ -5,6 +5,7 @@
       <div>
         <%=cl_image_tag @recipe.photo.key, class: 'recipe-photo', crop: :fill %>
         <h2><%=@recipe.name%></h2>
+        <%= render "./shared/ratings", average_rating: @average_rating %>
         <!-- flexbox containing  -->
         <div class="recipe-details-container">
           <div>
@@ -72,7 +73,7 @@
   <!-- all the reviews -->
   <div class="reviews-container">
     <h3>Reviews</h3>
-    <%= render "./shared/ratings", average_rating: @average_rating %>
+
     <%= link_to 'Leave a Review', new_recipe_review_path(@recipe.id), class: "button" %>
     <% @recipe.reviews.each do |review| %>
       <div class="review">
