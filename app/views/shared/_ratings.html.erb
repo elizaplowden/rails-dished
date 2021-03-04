@@ -1,4 +1,9 @@
-<div class="averagerating">
+<div class="average_rating">
   Average rating:
-  <%= average_rating %>
+  <% average_rating.times do %>
+    <i class="fas fa-star"></i>
+  <% end %>
+  <% (5 - average_rating).times do %>
+    <i class="far fa-star"></i>
+  <% end %>
 </div>
