@@ -5,55 +5,67 @@
         <div class="user-profile">
           <%#--Shows that this is YOUR profile page if it's yours %>
           <% if @user == current_user %>
-          <h3>Your Dished Profile</h3>
-          <div class="avatar-username">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
-            Username: <%= @user.username %>
-          </div>
-
-
+            <h3>Your Dished Profile</h3>
           <%#-- Otherwise shows the username %>
           <% else %>
-          Profile:  <%= @user.username %>
+            <h3>Dished Profile</h3>
           <% end %>
+            <div class="avatar-username">
+              <!-- TODO: add an if statement to replace avatar with logo -->
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+              Username: <%= @user.username %>
+            </div>
         </div>
 
 
         <div class="followings">
           <%#-- Shows who you are following %>
+          <h5>Community</h5>
           <% if @user.follows_given.empty? %>
-            Not following anyone
+            <p>Not following anyone</p>
           <% else %>
-            Following:
+            <p>Following:
             <%= @user.follows_given.count%>
             <br>
             <% @user.follows_given.each do |following| %>
               <%= link_to following.followee.username, user_path(following.followee) %><br>
-              <% end %>
+            <% end %></p>
           <% end %>
 
           <br>
           <%#-- Shows who follows you %>
           <% if @user.follows_received.empty? %>
-            No followers
+            <p>No followers</p>
           <% else %>
-            Followed by:
+            <p>Followed by:
             <%= @user.follows_received.count %>
             <br>
             <% @user.follows_received.each do |following| %>
-              <%= link_to following.follower.username, user_path(following.follower) %>
+              <%= link_to following.follower.username, user_path(following.follower) %><br>
+            <% end %></p>
+          <% end %>
+
+
+          <div class="follow-buttons">
+            <%#-- Follow / Unfollow logic %>
+            <% if current_user != @user && !current_user.follows_given.pluck(:followee_id).include?(@user.id) %>
+              <%= link_to "Follow this foodie", follow_user_path(@user), method: :post %>
+            <% elsif current_user != @user  %>
+              <%= link_to "Unfollow this foodie", unfollow_user_path(@user), method: :delete %>
             <% end %>
-          <% end %>
-          <%#-- Link to users index %>
-          <br>
-          <%= link_to "Find foodie friends", users_path %>
-          <br>
-          <%#-- Follow / Unfollow logic %>
-          <% if current_user != @user && !current_user.follows_given.pluck(:followee_id).include?(@user.id) %>
-            <%= link_to "Follow this foodie", follow_user_path(@user), method: :post %>
-          <% elsif current_user != @user  %>
-            <%= link_to "Unfollow this foodie", unfollow_user_path(@user), method: :delete %>
-          <% end %>
+          </div>
+
+
+          <div class="index-link">
+            <%#-- Link to users index %>
+            <% if @user == current_user %>
+              <%= link_to "Find foodie friends", users_path %>
+            <% else %>
+              <%= link_to "Find more foodies", users_path %>
+              <br>
+            <% end %>
+          </div>
+
         </div>
       </div>
 

@@ -27,7 +27,13 @@
   display: flex;
   flex-direction: column;
   margin-top: 40px;
+  margin-left: 30px;
+
 }
+
+h5{
+    padding-bottom: 10px;
+  }
 
 .recipe-links {
   display: flex;
@@ -47,10 +53,3 @@
 }
 
 
-
-
-
-.recipe-index-card li, ul {
-  list-style-type: none;
-  padding: 0;
-}
