@@ -35,12 +35,6 @@
   font-size: 23px;
 }
 
-// home link color
-#home-button {
-  color: gray !important;
-}
-
-
 // padding for home
 .navbar-expand-sm .navbar-nav .nav-link {
   padding-right: 2.5rem;
@@ -54,10 +48,17 @@
     margin: 5px 10px;
 }
 
+// drop down color
 .dropdown-item {
   color: gray;
 }
 
+// drop down hover color
 .dropdown-item:hover {
-  background-color: #ffbb00;
+  color: #ffbb00;
+}
+
+// links hover color
+.navbar-expand-sm .navbar-nav .nav-link:hover {
+color: #ffbb00;
 }
