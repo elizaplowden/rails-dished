@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital@1&display=swap');
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -15,8 +16,12 @@
  padding: 20px;
 }
 
-.fas {
+.title-with-icon {
   font-size: 35px;
   padding: 10px 10px;
   color: #ffbb00;
+}
+
+.dished-title {
+  font-family: 'Playfair Display SC';
 }
