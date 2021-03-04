@@ -16,12 +16,33 @@
  padding: 20px;
 }
 
+// Icon & Title styling
 .title-with-icon {
-  font-size: 35px;
+  font-size: 25px;
   padding: 10px 10px;
   color: #ffbb00;
 }
 
+// Dished text
 .dished-title {
   font-family: 'Playfair Display SC';
+  font-size: 23px;
+}
+
+// home link color
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+  color: gray;
+}
+
+// padding for home
+.navbar-expand-sm .navbar-nav .nav-link {
+  padding-right: 3.5rem;
+}
+
+// avatar
+.avatar {
+    width: 35px;
+    border-radius: 50%;
+    height: 35px;
+    margin: 5px;
 }
