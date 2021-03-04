@@ -1,38 +1,58 @@
 .user-profile-page {
   display:flex;
+  width: 100%;
+  height: 100vh;
 
 }
 
 .profile-sections{
+  display: block;
+  width: 100%;
 
 }
 
-.user-profile{
-
+.user-page{
+  display: flex;
+  justify-content: space-between;
 }
 
 .profile-info {
+  display: block;
+}
 
-
+.avatar-username{
+  padding: 10px 0px;
 }
 
 .followings{
-
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
 }
 
 .recipe-links {
   display: flex;
+  flex-direction: column;
+  margin-right: 150px;
 
 }
 
 .cookbook{
+  width: 100%;
+  margin-top: 60px;
+}
 
+.cookbook-content{
+  background-color: white;
+  box-shadow: 2px 2px lightgrey;
+  margin-top: 10px;
 }
 
 
 
 
 
-.recipe-index-card li {
+.recipe-index-card li, ul {
   list-style-type: none;
+  padding: 0;
 }

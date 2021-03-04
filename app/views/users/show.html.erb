@@ -6,11 +6,11 @@
           <%#--Shows that this is YOUR profile page if it's yours %>
           <% if @user == current_user %>
           <h3>Your Dished Profile</h3>
+          <div class="avatar-username">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+            Username: <%= @user.username %>
+          </div>
 
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
-          Username: <%= @user.username %>
-          <br>
-          <br>
 
           <%#-- Otherwise shows the username %>
           <% else %>
@@ -58,10 +58,10 @@
       </div>
 
 
-        <div class="recipe-links">
+      <div class="recipe-links">
           <%= link_to 'Back to recipes', recipes_path %>
           <%= link_to 'Upload a new recipe', new_recipe_path %>
-        </div>
+      </div>
     </div>
 
 
@@ -69,24 +69,27 @@
     <%#-- Show each bookmark... this needs to be turned into a card %>
     <div class="cookbook">
       Your Cookbook
-      <!-- to be replaced by index card once created -->
-      <div class="recipe-index-card">
-        <ul>
-          <% @user.bookmarks.each do |bookmark| %>
+      <div class="cookbook-content">
+        <!-- to be replaced by index card once created -->
+        <div class="recipe-index-card">
+          <ul>
+            <% @user.bookmarks.each do |bookmark| %>
 
-            <%= link_to bookmark.recipe.name, recipe_path(bookmark.recipe.id)  %>
-            <li><%= bookmark.recipe.description %></li>
-            <li><%= bookmark.recipe.instructions %></li>
-            <li><%= bookmark.recipe.meal %></li>
-            <li><%= bookmark.recipe.cuisine %></li>
-            <li>Serves: <%= bookmark.recipe.serves %></li>
-            <li>Cook time: <%= bookmark.recipe.cook_time %></li>
-            <li> <% unless @user.id == bookmark.recipe.user.id %>
-                    <%= link_to "Chef's Profile", user_path(bookmark.recipe.user.id) %></li>
-                <% end %>
-          <% end %>
-        </ul>
+              <%= link_to bookmark.recipe.name, recipe_path(bookmark.recipe.id)  %>
+              <li><%= bookmark.recipe.description %></li>
+              <li><%= bookmark.recipe.instructions %></li>
+              <li><%= bookmark.recipe.meal %></li>
+              <li><%= bookmark.recipe.cuisine %></li>
+              <li>Serves: <%= bookmark.recipe.serves %></li>
+              <li>Cook time: <%= bookmark.recipe.cook_time %></li>
+              <li> <% unless @user.id == bookmark.recipe.user.id %>
+                      <%= link_to "Chef's Profile", user_path(bookmark.recipe.user.id) %></li>
+                  <% end %>
+            <% end %>
+          </ul>
+        </div>
       </div>
+
 
     </div>
   </div>
