@@ -1,11 +1,16 @@
 // Specific CSS for your home-page
-.banner{
+
+
+
+.d-block{
   height: 800px;
-  margin: 0;
   display:flex;
   align-items: center;
   justify-content: center;
+  background-size: cover;
+  padding: 200px;
 }
+
 
 
 
@@ -14,6 +19,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 50px;
+
   a{
     color: white;
     font-size: 26px;
@@ -25,19 +32,24 @@
 }
 
 .banner-content{
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 
 h1 {
   color: white;
   text-align: center;
   position: center;
   font-size: 50px;
+  font-weight: bold;
 }
 
 .banner-search{
-  margin: 20px;
-  margin-left: 50px;
+  text-align: center;
+  width: 300px;
 }
 
 .search-bar{
@@ -48,7 +60,4 @@ h1 {
 
 }
 
-.select2{
-
-}
 
