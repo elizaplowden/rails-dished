@@ -93,9 +93,9 @@
     <li><%= link_to 'Add to cookbook', recipe_bookmarks_path(@recipe), method: :post, class: 'button' %></li>
     <li><%= link_to 'More Recipes', recipes_path, class: "button" %></li>
     <li><%= link_to 'Back', recipes_path, class: "button" %></li>
-    <li><%= link_to 'Add to wishlist', wishlist_path(@recipe.id), class: "button" %></li>
   </ul>
 
-
+<%= link_to 'Add to wishlist', wishlist_path(@recipe.id), class: "button", method: :post %>
 </div>
+
 
