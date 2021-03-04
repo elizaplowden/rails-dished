@@ -1,0 +1,10 @@
+<div class="user-image-uploads col-11">
+  <h3>User pictures</h3>
+  <hr>
+  <p>placeholder for button to upload user image</p>
+  <% if recipe.images.attached? %>
+    <% recipe.images.each do |image| %>
+      <%= cl_image_tag image.key, height: 60, width: 100, crop: :fill %>
+    <% end %>
+  <% end %>
+</div>

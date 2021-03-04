@@ -1,0 +1,25 @@
+
+
+.review {
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#delete-review {
+  color: #fff;
+}
+
+.review p:hover > a {
+  color: gray;
+}
+
+.review p {
+  margin: 0;
+}
+
+.review-details {
+  font-size: 10pt;
+  color: gray;
+}
