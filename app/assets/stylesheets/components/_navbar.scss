@@ -1,3 +1,6 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital@1&display=swap');
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -10,3 +13,69 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar {
+ padding: 20px;
+}
+
+// Icon & Title styling
+.title-with-icon {
+  font-size: 25px;
+  padding: 10px 10px;
+  color: #ffbb00;
+}
+
+.title-with-icon:hover {
+  color: #ffbb00;
+  opacity: 0.7;
+}
+
+// Dished text
+.dished-title {
+  font-family: 'Playfair Display SC';
+  font-size: 23px;
+}
+
+// padding for home
+.navbar-expand-sm .navbar-nav .nav-link {
+  padding-right: 2.5rem;
+}
+
+// avatar
+.avatar {
+    width: 35px;
+    border-radius: 50%;
+    height: 35px;
+    margin: 5px 10px;
+}
+
+// drop down color
+.dropdown-item {
+  color: gray;
+}
+
+// drop down hover color
+.dropdown-item:hover {
+  color: #ffbb00;
+}
+
+// links hover color
+.navbar-expand-sm .navbar-nav .nav-link:hover {
+  color: #ffbb00;
+}
+
+// nav search styling
+.search_nav .btn {
+  background-color: white;
+  color: gray;
+  border: white;
+}
+
+.search_nav .btn:hover {
+  color: #ffbb00;
+}
+
+.search_nav .select2:hover {
+  color: #ffbb00;
+}
+

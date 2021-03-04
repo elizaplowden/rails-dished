@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index ]
-  before_action :find_recipe, only: [:show, :destroy, :edit, :update, :add_to_wishlist]
+  before_action :find_recipe, only: [:show, :destroy, :edit, :update, :add_to_wishlist, :average_rating]
+
 
   def index
     # used to populate the drop down list (select tag) in the search form
@@ -57,14 +58,28 @@ class RecipesController < ApplicationController
     if session[:recipe_id].present?
       if session[:recipe_id].include?(@recipe.id)
         session[:recipe_id].delete(@recipe.id)
+        flash[:notice] = "Removed from Dishlist"
       else
         session[:recipe_id] << @recipe.id
+        flash[:notice] = "Added to Dishlist"
       end
     else
       session[:recipe_id] = [@recipe.id]
+      flash[:notice] = "Added to Dishlist"
     end
-    flash[:notice] = "success!"
     redirect_back(fallback_location: recipes_path)
+  end
+
+
+  def average_rating
+    reviews = @recipe.reviews
+    ratings = []
+    reviews.each do |review|
+      ratings << review.rating
+    end
+    unless ratings.empty?
+      @average_rating = (ratings.sum / ratings.size)
+    end
   end
 
   private

@@ -1,0 +1,38 @@
+.index-container {
+  width: 100%;
+  columns: 4;
+  column-gap: 0px;
+}
+
+.index-box {
+  width: 100%;
+  overflow: hidden;
+  break-inside: avoid;
+  margin-bottom: 32px;
+}
+
+
+
+// Responsive Container ---------------------
+
+@media(max-width: 1200px)
+  {
+    .index-container
+    {
+      columns: 3;
+    }
+  }
+@media(max-width: 768px)
+  {
+    .index-container
+    {
+      columns: 2;
+    }
+  }
+@media(max-width: 480px)
+  {
+    .index-container
+    {
+      columns: 1;
+    }
+  }
