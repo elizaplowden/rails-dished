@@ -3,7 +3,7 @@
 <div class="index-container">
   <% @recipes.each do |recipe| %>
     <div class="index-box">
-    <%#=cl_image_tag recipe.photo.key, crop: :fill  %>
+    <%=cl_image_tag recipe.photo.key, class: "index-card-image" %>
     <h2><%=recipe.name%></h2>
     <p><%=recipe.description%></p>
     <p><%=recipe.cuisine%></p>

@@ -22,32 +22,30 @@
   font-size: 16px;
 }
 
+
+// Responsive Container ---------------------
+
 @media(max-width: 1200px)
-
-{
-  .index-container
   {
-    columns: 3;
-    width: calc(100% - 40px);
-    box-sizing: border-box;
-    padding: 20px 20px 20px 0;
+    .index-container
+    {
+      columns: 3;
+      width: calc(100% - 40px);
+      box-sizing: border-box;
+      padding: 20px 20px 20px 0;
+    }
   }
-}
-
 @media(max-width: 768px)
-
-{
-  .index-container
   {
-    columns: 2;
+    .index-container
+    {
+      columns: 2;
+    }
   }
-}
-
 @media(max-width: 480px)
-
-{
-  .index-container
   {
-    columns: 1;
+    .index-container
+    {
+      columns: 1;
+    }
   }
-}
