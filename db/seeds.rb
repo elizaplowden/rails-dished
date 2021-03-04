@@ -70,16 +70,17 @@ puts 'creating recipes, ingredients and photos...'
       food = Food.find_by(name: foods[index])
       # creating the ingredient instances
       Ingredient.create({
-        recipe: recipe,
-        food: food,
-        quantity: measure
-      })
+      recipe: recipe,
+      food: food,
+      quantity: measure
+     })
     end
-    # attaching photos to the recipes
-    image_url = meal['strMealThumb']
-    downloaded_image = open(image_url)
-    filename = File.basename(image_url)
-    recipe.photo.attach(io: downloaded_image, filename: filename)
+     # attaching a photo to the recipe
+     image_url = meal['strMealThumb']
+     downloaded_image = open(image_url)
+     filename = File.basename(image_url)
+     recipe.photo.attach(io: downloaded_image, filename: filename)
+     puts 'attached photo'
   end
 end
 

@@ -1,0 +1,21 @@
+<div class="index-container">
+  <% @recipes.each do |recipe| %>
+    <div class="index-box">
+      <%=link_to recipe_path(recipe.id) do %>
+        <div class='index-card'>
+          <%=cl_image_tag recipe.photo.key, height: [320,400,480].sample %>
+          <div class="index-card-text">
+              <div class="index-card-heading">
+                <h2><%=recipe.name%></h2>
+              </div>
+              <div class="index-card-info">
+                  <p><%=recipe.cook_time%> minutes</p>
+                  <p>Serves <%=recipe.serves%></p>
+                  <p>5 stars</p>
+              </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
