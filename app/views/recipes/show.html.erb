@@ -70,19 +70,8 @@
     <% end %>
   </div>
   <hr>
-  <!-- all the reviews -->
-  <div class="reviews-container">
-    <h3>Reviews</h3>
-
-    <%= link_to 'Leave a Review', new_recipe_review_path(@recipe.id), class: "button" %>
-    <% @recipe.reviews.each do |review| %>
-      <div class="review">
-          <%= render "./shared/rating", rating: review.rating %>
-          <%= review.description %>
-          <%= link_to 'delete review', review_path(review.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
-    <% end %>
-  </div>
+  <!-- REVIEWS -->
+  <%= render "reviews", recipe: @recipe %>
 
   <!-- user actions -->
   <!-- these will be moved and integrated better later, just putting them all here in one place for now! -->
