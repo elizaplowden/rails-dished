@@ -1,10 +1,31 @@
 // Specific CSS for your home-page
 .banner{
-  height: 700px;
+  height: 800px;
   margin: 0;
   display:flex;
   align-items: center;
   justify-content: center;
+}
+
+
+
+.banner-links{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  a{
+    color: white;
+    font-size: 20px;
+    &:hover{
+      text-decoration: none;
+      opacity: 0.5;
+    }
+  }
+}
+
+.banner-content{
+  display: block;
 }
 
 h1 {
@@ -15,11 +36,13 @@ h1 {
 
 .banner-search{
   margin: 20px;
+  margin-left: 50px;
 }
 
 .search-bar{
   color: white;
   margin-top: 40px;
   font-size: 28px;
+
 }
 
