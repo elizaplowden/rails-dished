@@ -1,4 +1,6 @@
+// Fonts
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital@1&display=swap');
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -23,6 +25,10 @@
   color: #ffbb00;
 }
 
+.title-with-icon:hover {
+  background-color: #e6e7e8;
+}
+
 // Dished text
 .dished-title {
   font-family: 'Playfair Display SC';
@@ -30,13 +36,14 @@
 }
 
 // home link color
-.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
-  color: gray;
+#home-button {
+  color: gray !important;
 }
+
 
 // padding for home
 .navbar-expand-sm .navbar-nav .nav-link {
-  padding-right: 3.5rem;
+  padding-right: 2.5rem;
 }
 
 // avatar
@@ -46,3 +53,4 @@
     height: 35px;
     margin: 5px 10px;
 }
+
