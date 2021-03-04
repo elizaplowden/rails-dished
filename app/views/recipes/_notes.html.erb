@@ -1,20 +1,24 @@
     <!-- container for all the recipe notes -->
-    <div class="notes-container">
+    <div class="notes-container col-4">
       <% if current_user.bookmarks.pluck(:recipe_id).include?(recipe.id) %>
         <!-- they can view their notes -->
-        My recipe notes
+        <h3>My recipe notes</h3>
+        <hr>
         <ul>
           <% recipe.notes.each do |note| %>
           <li>
-            <%= note.description %>
-            <%= link_to "Delete note", note_path(note), method: :delete,  data: { confirm: 'Are you sure?'} %>
+            <i class="fas fa-cheese"></i> &nbsp;
+            <%= note.description %> &nbsp;
+            <%= link_to note_path(note), method: :delete,  data: { confirm: 'Are you sure?'} do %>
+              <i class="fas fa-trash"></i>
+            <% end %>
           </li>
         <% end %>
         </ul>
         <!-- they can add/delete notes -->
         <%= simple_form_for [bookmark, note], method: :post do |f| %>
-          <%= f.input :description, label: "Note" %>
-          <%= f.submit "Add a note", class: 'button' %>
+          <%= f.input :description, label: false, placeholder: 'add a note' %>
+          <%= f.submit "Add", class: 'button' %>
         <% end %>
       <% end %>
     </div>

@@ -1,4 +1,9 @@
 // recipe show page css goes here
+
+.container {
+  background-color: #fff;
+}
+
 .show-container {
   background-color: #fff;
 }
@@ -32,7 +37,8 @@
 .recipe-stats-actions {
   color: gray;
   display: flex;
-  padding: 40px 50px;
+  justify-content: space-around;
+  padding: 10px 0px 30px 0px;
 
 }
 
