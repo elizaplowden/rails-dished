@@ -1,10 +1,8 @@
 <%= render "search", foods: @foods %>
 
-<div class="index-container">
-  <% @recipes.each do |recipe| %>
-    <%= render 'shared/index-card', recipe: recipe %>
-  <% end %>
-</div>
+<%= render 'shared/index-card', recipe: @recipe %>
+
+
 
 <br>
 <%#-- Link to New recipe%>
