@@ -8,6 +8,7 @@
   <!-- flex box containing the main recipe card and the notes container -->
   <div class="main-recipe-container">
     <div class="recipe-container">
+
       <div class="recipe-overview-container padding">
           <div class="ingredients-container">
             <h4>Ingredients</h4>
@@ -18,7 +19,6 @@
             </ul>
           </div>
           <%=cl_image_tag @recipe.photo.key, class: 'recipe-photo', crop: :fill %>
-
 
         <div class="recipe-details-container">
           <div>
