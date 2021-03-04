@@ -1,0 +1,53 @@
+
+// overiding bootstrap modal rules to create a transparent background
+.modal-content {
+  background: transparent;
+  border: 0px;
+}
+
+// wrapper around cards to make them scroll horizontally
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  .scrolling-card {
+    flex: 0 0 auto;
+  }
+}
+
+// extra css to make the scroll have 'momentum'
+.scrolling-wrapper {
+  -webkit-overflow-scrolling: touch;
+}
+
+// card within the modal, flexbox, sizing
+.scrolling-card {
+  background: grey;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  margin-right: 4px;
+}
+
+// position all details on top of the image, left aligned
+.scrolling-recipe-details {
+  position: absolute;
+  bottom: 0px;
+  left: 5px;
+  text-align: left;
+  padding-left: 24px;
+}
+
+.scrolling-card img {
+  width: 500px;
+  object-fit: cover;
+  filter: brightness(50%);
+}
+
+.scrolling-card {
+  text-decoration: none;
+  color: white;
+  text-shadow: 0.5px 0.5px black;
+}

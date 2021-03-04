@@ -1,1 +1,63 @@
 // Specific CSS for your home-page
+
+
+
+.d-block{
+  height: 800px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  padding: 200px;
+}
+
+
+
+
+.banner-links{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 50px;
+
+  a{
+    color: white;
+    font-size: 26px;
+    &:hover{
+      text-decoration: none;
+      opacity: 0.5;
+    }
+  }
+}
+
+.banner-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+h1 {
+  color: white;
+  text-align: center;
+  position: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.banner-search{
+  text-align: center;
+  width: 300px;
+}
+
+.search-bar{
+  color: white;
+  margin-top: 40px;
+  font-size: 28px;
+  position: center;
+
+}
+
+

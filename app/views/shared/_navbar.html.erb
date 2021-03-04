@@ -1,24 +1,29 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <span class="title-with-icon">
+    <i class="fas fa-utensils"></i> <span class="dished-title">Dished</span>
+    </span>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
+  <div class="search_nav"><%= render "./shared/search", foods: @foods unless current_page?("/")%></div>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
+        <li class="nav-item" id= "home-button">
           <%= link_to "Home", "/", class: "nav-link" %>
+          <li class="nav-item" id= "create-button">
+          <%= link_to "Create Recipe", new_recipe_path, class: "nav-link" %>
+          <li class="nav-item" id= "explore-button">
+          <%= link_to "Explore", users_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id= "navbar-dropdown-text">
             <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Users", users_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

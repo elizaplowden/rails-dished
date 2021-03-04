@@ -1,33 +1,53 @@
 <%# Modal Button --- Could be moved to Navbar?%>
 <% if user_signed_in? %>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View Wishlist</button>
-
+  <button type="button" class="btn btn-primary chilli-button" data-toggle="modal" data-target=".bd-example-modal-lg">Dishlist <i class="fas fa-pepper-hot"></i></button>
   <%# Modal from Bootstrap %>
   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+
         <%# If there's something in the session wishlist%>
         <% if session[:recipe_id].present? %>
-        <%# Iterate through the session array - it's full of recipe ID's %>
-          <% session[:recipe_id].each do |recipe_id| %>
-          <%# unless what's in there is 'nil'%>
-            <% unless recipe_id.nil? || Recipe.find_by_id(recipe_id).nil? %>
-              <%# Find the recipe according to their ID %>
-              <% found_recipe = Recipe.find(recipe_id)%>
-              <%# Display what's in the recipe - this needs to be in a card...%>
-              <%= found_recipe.name %>
-              <%= found_recipe.description %>
-              <%= found_recipe.instructions %>
-              <%= found_recipe.meal %>
-              <%= found_recipe.cuisine %>
-              <%= found_recipe.serves %>
-              <%= found_recipe.cook_time %>
-              <%= found_recipe.user.id%>
+
+          <%# Scrolling Div%>
+          <div class="scrolling-wrapper">
+
+          <%# Iterate through the session array - it's full of recipe ID's %>
+            <% session[:recipe_id].each do |recipe_id| %>
+            <%# unless what's in there is 'nil'%>
+              <% unless recipe_id.nil? || Recipe.find_by_id(recipe_id).nil? %>
+                <%# Find the recipe according to their ID %>
+                <% found_recipe = Recipe.find(recipe_id)%>
+                <%# Display what's in the recipe %>
+
+                  <%# Make the whole thing a link %>
+                  <%=link_to recipe_path(found_recipe.id) do %>
+                    <div class="scrolling-card">
+                      <%# Display Image %>
+                      <%=cl_image_tag found_recipe.photo.key, height: 700 %>
+                      <%# Display recipe details %>
+                      <div class="scrolling-recipe-details">
+                        <h2><%=found_recipe.name%></h2>
+                        <h4>Details</h4>
+                        <p>Serves: <%=found_recipe.serves%></p>
+                        <p>Cook time: <%=found_recipe.cook_time%></p>
+                        <p>Meal type: <%=found_recipe.meal%></p>
+                        <p>Cuisine: <%=found_recipe.cuisine%></p>
+                        <%# iterate through ingredients %>
+                        <h4>Ingredients</h4>
+                        <% found_recipe.ingredients.each do |ingredient| %>
+                          <p><%= ingredient.quantity %> <%= ingredient.food.name %></p>
+                        <% end %>
+                      </div>
+                    </div>
+                <% end %>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         <%# Else display that there's nothing there. Maybe add a 'Go to Recipes' button here %>
         <% else %>
-          <p> You have nothing in your wishlist</p>
+          <p> You have nothing in your dishlist!</p>
+          <%= link_to 'Find some dishes!', recipes_path, class: "button" %>
         <% end %>
       </div>
     </div>
