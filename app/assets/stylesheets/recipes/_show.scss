@@ -1,45 +1,38 @@
 // recipe show page css goes here
 .show-container {
   background-color: #fff;
-  padding: 20px;
 }
 
 .show-container h2 {
   color: gray;
-}
-.main-recipe-container {
-  display:flex;
+  padding: 30px 40px 0 40px;
 }
 
 .non-recipe-container {
   background-color: #FFD966;
+  padding: 20px 0 20px 40px;
 }
 
-.recipe-container {
-  background-color: #fff;
-  max-width: 70vw;
+.recipe-overview-container  {
   display: flex;
-  // box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2)
-  // margin: 20px auto;
+  justify-content: space-between;
+  padding: 20px 0 20px 40px
+}
+
+.ingredients-container ul {
+  text-decoration: none;
 }
 
 .recipe-method-container {
   display: flex;
-}
-
-.padding {
-  padding: 30px;
+  padding: 20px 0 20px 40px;
+  // opacity: 1;
 }
 
 .recipe-stats-actions {
   color: gray;
   display: flex;
-  padding: 10px 30px;
-}
-
-.notes-container {
-  background-color: #fff;
-  margin-left: 20px;
+  padding: 10px 50px;
 }
 
 .recipe-photo {
@@ -49,13 +42,14 @@
 
 }
 
-.recipe-details-container {
-  display: flex;
-}
-
 .review {
   background-color: #fff;
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 20px;
+}
+
+.notes-container {
+  background-color: #fff;
+  margin-left: 20px;
 }
