@@ -74,12 +74,12 @@ puts 'creating recipes, ingredients and photos...'
         food: food,
         quantity: measure
       })
-      # attaching photos to the recipes
-      image_url = meal['strMealThumb']
-      downloaded_image = open(image_url)
-      filename = File.basename(image_url)
-      recipe.photo.attach(io: downloaded_image, filename: filename)
     end
+    # attaching photos to the recipes
+    image_url = meal['strMealThumb']
+    downloaded_image = open(image_url)
+    filename = File.basename(image_url)
+    recipe.photo.attach(io: downloaded_image, filename: filename)
   end
 end
 
