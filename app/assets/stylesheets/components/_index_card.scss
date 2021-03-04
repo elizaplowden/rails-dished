@@ -1,0 +1,62 @@
+p, h2 {
+  font-family: "Lucida Console", "Courier   New", monospace;
+}
+
+// Image styling
+.index-card img {
+  width: 500px;
+  object-fit: cover;
+}
+
+// Index card positioning
+.index-card {
+  border-radius: 16px;
+  width: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+// Index text positioning
+.index-card-text {
+  position: absolute;
+  bottom: 0px;
+}
+
+// specific styling for serves, cooktime, ratings
+.index-card-info p {
+  font-size: 16px;
+  margin: 8px;
+  padding: 4px;
+}
+
+// specific styling for heading
+.index-card-heading h2 {
+  font-size: 24px;
+  margin: 8px;
+}
+
+// specific styling for heading and serves, cooktime, ratings
+.index-card-heading, .index-card-info {
+  display: none;
+  width: 220px;
+  background: #CDCDCD;
+  border-radius: 18px;
+  margin: 10px;
+  opacity: 1;
+}
+
+// ----- Hover Activity --------------
+
+.index-card:hover .index-card-info {
+  display: block;
+}
+
+.index-card:hover .index-card-heading {
+  display: block;
+}
+.index-card:hover img {
+  opacity: 0.7;
+}

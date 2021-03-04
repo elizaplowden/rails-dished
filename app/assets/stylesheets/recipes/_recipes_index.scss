@@ -1,20 +1,13 @@
 .index-container {
-  width: 960px;
-  margin: 20px auto;
+  width: 100%;
   columns: 4;
-  column-gap: 40px;
+  column-gap: 0px;
 }
 
 .index-container .index-box {
   width: 100%;
-  margin: 0 0 20px;
-  padding: 10px;
   overflow: hidden;
   break-inside: avoid;
-}
-
-.index-container .index-box img {
-  max-width: 100%;
 }
 
 .index-container .index-box p {
@@ -30,9 +23,6 @@
     .index-container
     {
       columns: 3;
-      width: calc(100% - 40px);
-      box-sizing: border-box;
-      padding: 20px 20px 20px 0;
     }
   }
 @media(max-width: 768px)

@@ -1,21 +1,8 @@
 <%= render "search", foods: @foods %>
 
-<div class="index-container">
-  <% @recipes.each do |recipe| %>
-    <div class="index-box">
-    <%=cl_image_tag recipe.photo.key, class: "index-card-image" %>
-    <h2><%=recipe.name%></h2>
-    <p><%=recipe.description%></p>
-    <p><%=recipe.cuisine%></p>
-    <p><%=recipe.serves%></p>
-    <p><%=recipe.cook_time%></p>
-    <p><%=recipe.user.id%></p>
-    <%= link_to 'More info', recipe_path(recipe.id), class: "button" %>
-    </div>
-  <% end %>
-
-</div>
+<%= render 'shared/index-card' %>
 
 <br>
 <%#-- Link to New recipe%>
 <%= link_to "Create Recipe", new_recipe_path %>
+
