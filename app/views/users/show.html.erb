@@ -1,89 +1,95 @@
-  <%#--Shows that this is YOUR profile page if it's yours %>
-  <% if @user == current_user %>
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
-    Profile: <%= @user.username %>
-    <br>
-    <br>
+<div class="user-profile-page">
+  <div class="profile-sections">
+    <div class="user-page">
+      <div class="profile-info">
+        <div class="user-profile">
+          <%#--Shows that this is YOUR profile page if it's yours %>
+          <% if @user == current_user %>
+          <h3>Your Dished Profile</h3>
+
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+          Username: <%= @user.username %>
+          <br>
+          <br>
+
+          <%#-- Otherwise shows the username %>
+          <% else %>
+          Profile:  <%= @user.username %>
+          <% end %>
+        </div>
 
 
-  <%#-- Otherwise shows the username %>
-  <% else %>
-  Profile:  <%= @user.username %>
-  <% end %>
+        <div class="followings">
+          <%#-- Shows who you are following %>
+          <% if @user.follows_given.empty? %>
+            Not following anyone
+          <% else %>
+            Following:
+            <%= @user.follows_given.count%>
+            <br>
+            <% @user.follows_given.each do |following| %>
+              <%= link_to following.followee.username, user_path(following.followee) %><br>
+              <% end %>
+          <% end %>
 
-  <br>
-  <%#-- Shows who you are following %>
-  <% if @user.follows_given.empty? %>
-    Not following anyone
-  <% else %>
-    Following:
-    <%= @user.follows_given.count%>
-    <br>
-    <% @user.follows_given.each do |following| %>
-      <%= link_to following.followee.username, user_path(following.followee) %><br>
-    <% end %>
-  <% end %>
-
-  <br>
-  <%#-- Shows who follows you %>
-  <% if @user.follows_received.empty? %>
-    No followers
-
-  <% else %>
-    Followed by:
-    <%= @user.follows_received.count %>
-    <br>
-    <% @user.follows_received.each do |following| %>
-      <%= link_to following.follower.username, user_path(following.follower) %>
-    <% end %>
-  <% end %>
-  <%#-- Link to users index %>
-  <br>
-  <%= link_to "Find foodie friends", users_path %>
-  <br>
-  <%#-- Follow / Unfollow logic %>
-  <% if current_user != @user && !current_user.follows_given.pluck(:followee_id).include?(@user.id) %>
-    <%= link_to "Follow this foodie", follow_user_path(@user), method: :post %>
-  <% elsif current_user != @user  %>
-    <%= link_to "Unfollow this foodie", unfollow_user_path(@user), method: :delete %>
-  <% end %>
-
-  <br>
-
-  <div class="index-link">
-    <%= link_to 'Back to recipes', recipes_path %>
-  </div>
+          <br>
+          <%#-- Shows who follows you %>
+          <% if @user.follows_received.empty? %>
+            No followers
+          <% else %>
+            Followed by:
+            <%= @user.follows_received.count %>
+            <br>
+            <% @user.follows_received.each do |following| %>
+              <%= link_to following.follower.username, user_path(following.follower) %>
+            <% end %>
+          <% end %>
+          <%#-- Link to users index %>
+          <br>
+          <%= link_to "Find foodie friends", users_path %>
+          <br>
+          <%#-- Follow / Unfollow logic %>
+          <% if current_user != @user && !current_user.follows_given.pluck(:followee_id).include?(@user.id) %>
+            <%= link_to "Follow this foodie", follow_user_path(@user), method: :post %>
+          <% elsif current_user != @user  %>
+            <%= link_to "Unfollow this foodie", unfollow_user_path(@user), method: :delete %>
+          <% end %>
+        </div>
+      </div>
 
 
-  <br>
-  <%#-- Show each bookmark... this needs to be turned into a card %>
-  <div class="cookbook">
-    Your Cookbook
-    <!-- to be replaced by index card once created -->
-    <div class="recipe-index-card">
-      <ul>
-        <% @user.bookmarks.each do |bookmark| %>
-
-          <%= link_to bookmark.recipe.name, recipe_path(bookmark.recipe.id)  %>
-          <li><%= bookmark.recipe.description %></li>
-          <li><%= bookmark.recipe.instructions %></li>
-          <li><%= bookmark.recipe.meal %></li>
-          <li><%= bookmark.recipe.cuisine %></li>
-          <li>Serves: <%= bookmark.recipe.serves %></li>
-          <li>Cook time: <%= bookmark.recipe.cook_time %></li>
-          <li> <%= link_to 'Chef', user_path(bookmark.recipe.user.id) %></li>
-
-
-
-
-
-        <% end %>
-      </ul>
+        <div class="recipe-links">
+          <%= link_to 'Back to recipes', recipes_path %>
+          <%= link_to 'Upload a new recipe', new_recipe_path %>
+        </div>
     </div>
 
+
+
+    <%#-- Show each bookmark... this needs to be turned into a card %>
+    <div class="cookbook">
+      Your Cookbook
+      <!-- to be replaced by index card once created -->
+      <div class="recipe-index-card">
+        <ul>
+          <% @user.bookmarks.each do |bookmark| %>
+
+            <%= link_to bookmark.recipe.name, recipe_path(bookmark.recipe.id)  %>
+            <li><%= bookmark.recipe.description %></li>
+            <li><%= bookmark.recipe.instructions %></li>
+            <li><%= bookmark.recipe.meal %></li>
+            <li><%= bookmark.recipe.cuisine %></li>
+            <li>Serves: <%= bookmark.recipe.serves %></li>
+            <li>Cook time: <%= bookmark.recipe.cook_time %></li>
+            <li> <% unless @user.id == bookmark.recipe.user.id %>
+                    <%= link_to "Chef's Profile", user_path(bookmark.recipe.user.id) %></li>
+                <% end %>
+          <% end %>
+        </ul>
+      </div>
+
+    </div>
   </div>
 
-
-
-
+</div>
 
