@@ -74,7 +74,9 @@ class RecipesController < ApplicationController
     reviews.each do |review|
       ratings << review.rating
     end
-    @average_rating = (ratings.sum / ratings.size)
+    unless ratings.empty?
+      @average_rating = (ratings.sum / ratings.size)
+    end
   end
 
   private
