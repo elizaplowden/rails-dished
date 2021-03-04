@@ -1,0 +1,5 @@
+<!-- [...] -->
+<%= simple_form_for "search", url: recipes_path, method: :get, html: {class: 'form-inline'} do |f| %>
+  <%= f.input :query, collection: foods.pluck(:name), label: false, input_html: { class: 'select2' }  %>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+<% end %>
