@@ -9,7 +9,6 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
@@ -17,14 +16,13 @@
           <%= link_to "Home", "/", class: "nav-link" %>
           <li class="nav-item" id= "create-button">
           <%= link_to "Create Recipe", new_recipe_path, class: "nav-link" %>
-          <li class="nav-item" id= "Explore-button">
+          <li class="nav-item" id= "explore-button">
           <%= link_to "Explore", users_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id= "navbar-dropdown-text">
             <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-           <!--  <%= link_to "Users", users_path, class: "dropdown-item" %> -->
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
