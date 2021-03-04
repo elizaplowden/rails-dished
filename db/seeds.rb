@@ -5,7 +5,9 @@ require 'open-uri'
 
 puts 'deleting existing records...'
 
-Note.delete_all
+#  remove the session before destroying all the records
+# session = nil
+Note.destroy_all
 Review.delete_all
 Bookmark.delete_all
 Ingredient.delete_all
@@ -40,7 +42,7 @@ puts "created #{Food.count} foods"
 
 
 # seeding some recipes from meals.db api
-
+puts 'creating recipes, ingredients and photos...'
 10.times do
 
   recipes_url = 'https://www.themealdb.com/api/json/v1/1/random.php'
@@ -59,6 +61,7 @@ puts "created #{Food.count} foods"
       user: User.first,
     } )
      # creating arrays of the ingredients and foods
+     # only adds the first 5 ingredients of 20
     foods = [meal['strIngredient1'], meal['strIngredient2'], meal['strIngredient3'], meal['strIngredient4'], meal['strIngredient5']]
     measures = [meal['strMeasure1'], meal['strMeasure2'], meal['strMeasure3'], meal['strMeasure4'], meal['strMeasure5']]
     # iterating over each measure

@@ -15,8 +15,9 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= render 'shared/wishlist_modal' %>
-    <div class="container">
-    <%= yield %>
+    <div class="yield-container">
+      <%= yield %>
     </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>
