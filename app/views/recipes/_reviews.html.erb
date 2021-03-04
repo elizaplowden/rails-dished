@@ -3,7 +3,9 @@
     <h3>Reviews</h3>
     <hr>
     <!-- need to remove this if a review exists -->
-    <%= link_to 'Leave a Review', new_recipe_review_path(recipe.id), class: "button" %>
+    <% unless recipe.reviews.include?(current_user) %>
+      <%= link_to 'Leave a Review', new_recipe_review_path(recipe.id), class: "button" %>
+    <% end %>
     <% recipe.reviews.each do |review| %>
       <div class="review">
           <div class="review-details">
