@@ -4,7 +4,7 @@
     <div class="ingredients-container col-7">
       <div class="recipe-stats-actions">
         <%= render "./shared/rating", rating: @average_rating %>
-        <%= link_to 'Save to your cookbook', recipe_bookmarks_path(@recipe), method: :post, class: 'button' %>
+        <%= link_to 'Save to your cookbook', recipe_bookmarks_path(@recipe), method: :post, class: 'cookbook-button' %>
         <%= link_to 'Add to wishlist', wishlist_path(@recipe.id), class: "button" %>
       </div>
       <div class="recipe-info-bar">
@@ -38,15 +38,15 @@
   <div class="non-recipe-container">
     <!-- USER IMAGES -->
     <%= render "user_images", recipe: @recipe %>
-    <hr>
     <!-- REVIEWS -->
     <%= render "reviews", recipe: @recipe %>
     <!-- user actions -->
-    <hr>
-    <ul>
+
+  </div>
+
+  <ul>
       <li><%= link_to 'Delete Recipe', recipe_path(@recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
       <li><%= link_to 'More Recipes', recipes_path, class: "button" %></li>
       <li><%= link_to 'Back', recipes_path, class: "button" %></li>
-    </ul>
-  </div>
+   </ul>
 </div>

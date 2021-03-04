@@ -1,9 +1,4 @@
 // recipe show page css goes here
-
-.container {
-  background-color: #fff;
-}
-
 .show-container {
   background-color: #fff;
 }
@@ -39,6 +34,8 @@
   display: flex;
   justify-content: space-around;
   padding: 10px 0px 30px 0px;
+  align-items: center;
+  font-weight: bold;
 
 }
 
@@ -49,17 +46,7 @@
 
 }
 
-.review {
-  background-color: #fff;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  padding: 20px;
-}
 
-.notes-container {
-  background-color: #fff;
-  margin-left: 20px;
-}
 
 
 .recipe-info-bar {
@@ -74,4 +61,9 @@
 
 .recipe-info-bar i {
   color: #FFD966;
+}
+
+.cookbook-button {
+  background-color: #5ADDE6;
+  padding: 10px;
 }

@@ -1,16 +1,20 @@
 <!-- this partial displays all the reviews for one recipe -->
-  <div class="reviews-container">
+  <div class="reviews-container col-11">
     <h3>Reviews</h3>
-
+    <hr>
+    <!-- need to remove this if a review exists -->
     <%= link_to 'Leave a Review', new_recipe_review_path(recipe.id), class: "button" %>
     <% recipe.reviews.each do |review| %>
       <div class="review">
-          <%= render "./shared/rating", rating: review.rating %>
-          <p><%= review.description %></p>
+          <div class="review-details">
+            <%= render "./shared/rating", rating: review.rating %>
+            <%= review.created_at.strftime("%c") %>
+          </div>
+          <p> <%= review.description %></p>
           <%= link_to review.user.username, user_path(review.user)  %><br>
           <% if current_user == review.user %>
             <%= link_to review_path(review.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <i class="fas fa-trash"></i>
+              <i id= "delete-review" class="fas fa-trash"></i>
             <% end %>
           <% end %>
       </div>
