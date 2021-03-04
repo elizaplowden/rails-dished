@@ -2,14 +2,21 @@
   <h2><%=@recipe.name%></h2>
   <div class="recipe-stats-actions">
     <%= render "./shared/rating", rating: @average_rating %>
-    <%= link_to 'Add to cookbook', recipe_bookmarks_path(@recipe), method: :post, class: 'button' %></li>
+    <%= link_to 'Add to cookbook', recipe_bookmarks_path(@recipe), method: :post, class: 'button' %>
     <%= link_to 'Add to wishlist', wishlist_path(@recipe.id), class: "button" %>
   </div>
   <div class="recipe-overview-container">
-    <div class="ingredients-container">
+    <div class="ingredients-container col-7">
       <div class="recipe-info-bar">
         <h4>Ingredients</h4>
+        <div class="cook-time">
+          <i class="fas fa-clock"></i> <%= @recipe.cook_time %> mins
+        </div>
+        <div class="serves">
+          <i class="fas fa-user-friends"></i> Serves <%= @recipe.serves %>
+        </div>
       </div>
+      <hr>
        <ul>
         <% @recipe.ingredients.each do |ingredient| %>
           <li><%= ingredient.quantity %> <%= ingredient.food.name %></li>
@@ -20,8 +27,9 @@
   </div>
   <!-- METHOD -->
   <div class="recipe-method-container">
-    <div class="recipe-method col-9">
+    <div class="recipe-method col-7">
       <h3>Method</h3>
+      <hr>
       <p><%=@recipe.instructions%></p>
     </div>
     <!-- NOTES -->
