@@ -5,7 +5,7 @@
       <div>
         <%=cl_image_tag @recipe.photo.key, class: 'recipe-photo', crop: :fill %>
         <h2><%=@recipe.name%></h2>
-        <%= render "./shared/ratings", average_rating: @average_rating %>
+        <%= render "./shared/rating", rating: @average_rating %>
         <!-- flexbox containing  -->
         <div class="recipe-details-container">
           <div>
