@@ -71,13 +71,15 @@
       Your Cookbook
       <div class="cookbook-content">
         <!-- to be replaced by index card once created -->
-        <div class="recipe-index-card">
+        <div class="row">
+          <div class="col-4">
+          <div class="recipe-index-card">
           <ul>
             <% @user.bookmarks.each do |bookmark| %>
-
+              <%=cl_image_tag bookmark.recipe.photo.key, height: 200, width: 300, crop: :fill  %>
+              <br>
               <%= link_to bookmark.recipe.name, recipe_path(bookmark.recipe.id)  %>
               <li><%= bookmark.recipe.description %></li>
-              <li><%= bookmark.recipe.instructions %></li>
               <li><%= bookmark.recipe.meal %></li>
               <li><%= bookmark.recipe.cuisine %></li>
               <li>Serves: <%= bookmark.recipe.serves %></li>
@@ -88,6 +90,10 @@
             <% end %>
           </ul>
         </div>
+        </div>
+        </div>
+
+
       </div>
 
 
