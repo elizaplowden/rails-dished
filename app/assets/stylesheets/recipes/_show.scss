@@ -1,15 +1,28 @@
 // recipe show page css goes here
+.show-container {
+  background-color: #fff;
+}
+
+.main-recipe-container {
+  display:flex;
+}
+
+.non-recipe-container {
+  background-color: #FFD966;
+}
+
 .recipe-container {
   background-color: #fff;
-  max-width: 1000px;
+  max-width: 70vw;
   display: flex;
+  // box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2)
   // margin: 20px auto;
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
+.padding {
+  padding: 30px;
 }
+
 
 .notes-container {
   background-color: #fff;
@@ -21,10 +34,6 @@
   height: 400px;
   object-fit: cover;
 
-}
-
-.main-recipe-container {
-  display:flex;
 }
 
 .recipe-details-container {
