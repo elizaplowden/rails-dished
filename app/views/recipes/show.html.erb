@@ -5,6 +5,7 @@
       <div>
         <%=cl_image_tag @recipe.photo.key, class: 'recipe-photo', crop: :fill %>
         <h2><%=@recipe.name%></h2>
+        <%= render "./shared/rating", rating: @average_rating %>
         <!-- flexbox containing  -->
         <div class="recipe-details-container">
           <div>
@@ -72,11 +73,12 @@
   <!-- all the reviews -->
   <div class="reviews-container">
     <h3>Reviews</h3>
+
     <%= link_to 'Leave a Review', new_recipe_review_path(@recipe.id), class: "button" %>
     <% @recipe.reviews.each do |review| %>
       <div class="review">
+          <%= render "./shared/rating", rating: review.rating %>
           <%= review.description %>
-          <%= review.rating %>
           <%= link_to 'delete review', review_path(review.id), method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     <% end %>
@@ -91,9 +93,9 @@
     <li><%= link_to 'Add to cookbook', recipe_bookmarks_path(@recipe), method: :post, class: 'button' %></li>
     <li><%= link_to 'More Recipes', recipes_path, class: "button" %></li>
     <li><%= link_to 'Back', recipes_path, class: "button" %></li>
-    <li><%= link_to 'Add to wishlist', wishlist_path(@recipe.id), class: "button" %></li>
   </ul>
 
-
+<%= link_to 'Add to wishlist', wishlist_path(@recipe.id), class: "button", method: :post %>
 </div>
+
 
