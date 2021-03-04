@@ -1,12 +1,25 @@
 <div class="show-container">
+  <h2><%=@recipe.name%></h2>
+  <div class="recipe-stats-actions">
+    <%= render "./shared/rating", rating: @average_rating %>
+    <%= link_to 'Add to cookbook', recipe_bookmarks_path(@recipe), method: :post, class: 'button' %></li>
+    <%= link_to 'Add to wishlist', wishlist_path(@recipe.id), class: "button" %>
+  </div>
   <!-- flex box containing the main recipe card and the notes container -->
   <div class="main-recipe-container">
     <div class="recipe-container">
-      <div>
-        <%=cl_image_tag @recipe.photo.key, class: 'recipe-photo', crop: :fill %>
-        <h2><%=@recipe.name%></h2>
-        <%= render "./shared/rating", rating: @average_rating %>
-        <!-- flexbox containing  -->
+      <div class="recipe-overview-container padding">
+          <div class="ingredients-container">
+            <h4>Ingredients</h4>
+            <ul>
+              <% @recipe.ingredients.each do |ingredient| %>
+                <li><%= ingredient.quantity %> <%= ingredient.food.name %></li>
+              <% end %>
+            </ul>
+          </div>
+          <%=cl_image_tag @recipe.photo.key, class: 'recipe-photo', crop: :fill %>
+
+
         <div class="recipe-details-container">
           <div>
             <h4>Details</h4>
@@ -17,85 +30,43 @@
               <li>Cuisine: <%=@recipe.cuisine%></li>
             </ul>
           </div>
-          <div class="ingredients-container">
-            <h4>Ingredients</h4>
-            <ul>
-              <% @recipe.ingredients.each do |ingredient| %>
-                <li><%= ingredient.quantity %> <%= ingredient.food.name %></li>
-              <% end %>
-            </ul>
-          </div>
+
         </div>
       </div>
-      <div class="recipe-description-container">
-        <p><%=@recipe.description%></p>
-        <h3>Method</h3>
-        <p><%=@recipe.instructions%></p>
-      </div>
     </div>
-
-
-
-    <!-- container for all the recipe notes -->
-    <div class="notes-container">
-      <% if current_user.bookmarks.pluck(:recipe_id).include?(@recipe.id) %>
-        <!-- they can view their notes -->
-        My recipe notes
-        <ul>
-          <% @recipe.notes.each do |note| %>
-          <li>
-            <%= note.description %>
-            <%= link_to "Delete note", note_path(note), method: :delete,  data: { confirm: 'Are you sure?'} %>
-          </li>
-        <% end %>
-        </ul>
-        <!-- they can add/delete notes -->
-        <%= simple_form_for [@bookmark, @note], method: :post do |f| %>
-          <%= f.input :description, label: "Note" %>
-          <%= f.submit "Add a note", class: 'button' %>
+  </div>
+  <!-- METHOD -->
+  <div class="recipe-method-container">
+    <div class="recipe-method col-9">
+      <h3>Method</h3>
+      <p><%=@recipe.instructions%></p>
+    </div>
+    <!-- NOTES -->
+    <%= render "notes", recipe: @recipe, bookmark: @bookmark, note: @note %>
+  </div>
+  <div class="non-recipe-container padding">
+    <!-- USER IMAGES -->
+    <div class="user-image-uploads">
+      <h3>User pictures</h3>
+      <p>placeholder for button to upload user image</p>
+      <% if @recipe.images.attached? %>
+        <% @recipe.images.each do |image| %>
+          <%= cl_image_tag image.key, height: 60, width: 100, crop: :fill %>
         <% end %>
       <% end %>
     </div>
+    <hr>
+    <!-- REVIEWS -->
+    <%= render "reviews", recipe: @recipe %>
+
+    <!-- user actions -->
+    <!-- these will be moved and integrated better later, just putting them all here in one place for now! -->
+    <hr>
+    <ul>
+      <li><%= link_to 'Delete Recipe', recipe_path(@recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <li>
+      <li><%= link_to 'More Recipes', recipes_path, class: "button" %></li>
+      <li><%= link_to 'Back', recipes_path, class: "button" %></li>
+      <li></li>
+    </ul>
   </div>
-  <hr>
-  <!-- all the sections below need work, just moving them out of the way for now -->
-  <!-- gallery of images uploaded by users -->
-  <div class="user-image-uploads">
-    <h3>User pictures</h3>
-    <p>placeholder for button to upload user image</p>
-    <% if @recipe.images.attached? %>
-      <% @recipe.images.each do |image| %>
-        <%= cl_image_tag image.key, height: 60, width: 100, crop: :fill %>
-      <% end %>
-    <% end %>
-  </div>
-  <hr>
-  <!-- all the reviews -->
-  <div class="reviews-container">
-    <h3>Reviews</h3>
-
-    <%= link_to 'Leave a Review', new_recipe_review_path(@recipe.id), class: "button" %>
-    <% @recipe.reviews.each do |review| %>
-      <div class="review">
-          <%= render "./shared/rating", rating: review.rating %>
-          <%= review.description %>
-          <%= link_to 'delete review', review_path(review.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
-    <% end %>
-  </div>
-
-  <!-- user actions -->
-  <!-- these will be moved and integrated better later, just putting them all here in one place for now! -->
-  <hr>
-  <ul>
-    <li><%= link_to 'Delete Recipe', recipe_path(@recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
-    <li><%= link_to 'Leave a Review', new_recipe_review_path(@recipe.id), class: "button" %></li>
-    <li><%= link_to 'Add to cookbook', recipe_bookmarks_path(@recipe), method: :post, class: 'button' %></li>
-    <li><%= link_to 'More Recipes', recipes_path, class: "button" %></li>
-    <li><%= link_to 'Back', recipes_path, class: "button" %></li>
-  </ul>
-
-<%= link_to 'Add to wishlist', wishlist_path(@recipe.id), class: "button", method: :post %>
-</div>
-
-
