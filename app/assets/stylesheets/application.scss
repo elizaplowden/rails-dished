@@ -12,5 +12,10 @@
 @import "components/index";
 @import "pages/index";
 @import "recipes/index";
+@import "users/index";
 
 @import 'select2/dist/css/select2';
+
+h1 h2 h3 h4 {
+  font-family: PLayfair Display SC;
+}
