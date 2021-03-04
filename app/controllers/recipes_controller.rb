@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index ]
-  before_action :find_recipe, only: [:show, :destroy, :edit, :update, :add_to_wishlist]
+  before_action :find_recipe, only: [:show, :destroy, :edit, :update, :add_to_wishlist, :average_rating]
+  before_action :average_rating, only: :show
 
   def index
     # used to populate the drop down list (select tag) in the search form
@@ -65,6 +66,15 @@ class RecipesController < ApplicationController
     end
     flash[:notice] = "success!"
     redirect_back(fallback_location: recipes_path)
+  end
+
+  def average_rating
+    reviews = @recipe.reviews
+    ratings = []
+    reviews.each do |review|
+      ratings << review.rating
+    end
+    @average_rating = (ratings.sum / ratings.size)
   end
 
   private
