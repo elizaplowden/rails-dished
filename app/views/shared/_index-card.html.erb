@@ -1,5 +1,5 @@
 <div class="index-container">
-  <% recipes.each do |recipe| %>
+  <% @recipes.each do |recipe| %>
     <div class="index-box">
       <%=link_to recipe_path(recipe.id) do %>
         <div class='index-card'>
