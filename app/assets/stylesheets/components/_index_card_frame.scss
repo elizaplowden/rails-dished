@@ -4,16 +4,13 @@
   column-gap: 0px;
 }
 
-.index-container .index-box {
+.index-box {
   width: 100%;
   overflow: hidden;
   break-inside: avoid;
+  margin-bottom: 32px;
 }
 
-.index-container .index-box p {
-  padding: 10px;
-  font-size: 16px;
-}
 
 
 // Responsive Container ---------------------
