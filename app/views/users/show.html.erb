@@ -72,7 +72,7 @@
 
       <div class="recipe-links">
           <%= link_to 'Back to recipes', recipes_path %>
-          <%= link_to 'Upload a recipe', new_recipe_path %>
+          <%= link_to 'Upload a new recipe', new_recipe_path %>
       </div>
     </div>
 
@@ -83,22 +83,27 @@
       Your Cookbook
       <div class="cookbook-content">
         <!-- to be replaced by index card once created -->
+
         <div class="row">
           <% @user.bookmarks.each do |bookmark| %>
             <div class="col-4">
-              <div class="recipe-index-card">
-                <%=cl_image_tag bookmark.recipe.photo.key, height: 200, width: 300, crop: :fill  %>
+              <%= render: 'shared/index-card', locals: {recipe: @bookmark.recipe} %>
+              <!-- <div class="recipe-index-card">
+                <%#=cl_image_tag bookmark.recipe.photo.key, height: 200, width: 300, crop: :fill  %>
                 <br>
-                <%= link_to bookmark.recipe.name, recipe_path(bookmark.recipe.id)  %>
+                <%#= link_to bookmark.recipe.name, recipe_path(bookmark.recipe.id)  %>
                 <p><%= bookmark.recipe.description %></p>
                 <p><%= bookmark.recipe.meal %></p>
                 <p><%= bookmark.recipe.cuisine %></p>
                 <p>Serves: <%= bookmark.recipe.serves %></p>
                 <p>Cook time: <%= bookmark.recipe.cook_time %></p>
-                  <% unless @user.id == bookmark.recipe.user.id %>
-                      <p><%= link_to "Chef's Profile", user_path(bookmark.recipe.user.id) %></p>
-                  <% end %>
-              </div>
+                  <%# unless @user.id == bookmark.recipe.user.id %>
+                      <p><%#= link_to "Chef's Profile", user_path(bookmark.recipe.user.id) %></p>
+                  <%# end %>
+              </div> -->
+            </div>
+          <% end %>
+        </div>
             </div>
           <% end %>
         </div>
