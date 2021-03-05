@@ -54,7 +54,12 @@ recipes_url = [
   'https://themealdb.com/api/json/v1/1/search.php?s=apple',
   'https://themealdb.com/api/json/v1/1/search.php?s=quinoa',
   'https://themealdb.com/api/json/v1/1/search.php?s=teriyaki',
-  'https://themealdb.com/api/json/v1/1/search.php?s=tagine'
+  'https://themealdb.com/api/json/v1/1/search.php?s=tagine',
+  'https://themealdb.com/api/json/v1/1/search.php?s=nicoise',
+  'https://themealdb.com/api/json/v1/1/search.php?s=vegan',
+  'https://themealdb.com/api/json/v1/1/search.php?s=jerk',
+  'https://themealdb.com/api/json/v1/1/search.php?s=linguine',
+  'https://themealdb.com/api/json/v1/1/search.php?s=carrot'
 ]
 image_url = [
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944353/curry_enmkfv.jpg',
@@ -66,7 +71,12 @@ image_url = [
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945552/apple_tart_fqencu.jpg',
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945687/quinoa_n9zmji.jpg',
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944557/salmon_xv79pu.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945819/tagine_asyowg.jpg'
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945819/tagine_asyowg.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949295/nicoise_vphbl4.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949440/lasagne_avupin.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949651/jerk_uywqnh.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949851/inguine_o0jtfp.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949946/carrot_cake_sw8lch.jpg'
 ]
 
 image_name = [
@@ -79,11 +89,17 @@ image_name = [
       'apple_tart_fqencu.jpg',
       'quinoa_n9zmji.jpg',
       'salmon_xv79pu.jpg',
-      'tagine_asyowg.jpg'
+      'tagine_asyowg.jpg',
+      'nicoise_vphbl4.jpg',
+      'lasagne_avupin.jpg',
+      'jerk_uywqnh.jpg',
+      'inguine_o0jtfp.jpg',
+      'carrot_cake_sw8lch.jpg'
+
 ]
 
 
-10.times do
+15.times do
   recipes_serialized = open(recipes_url[counter]).read
   recipes = JSON.parse(recipes_serialized)
 
@@ -95,7 +111,7 @@ image_name = [
       instructions: meal['strInstructions'],
       serves: rand(1..10),
       cook_time: rand(15..60),
-      user: User.first,
+      user: User.first
     } )
      # creating arrays of the ingredients and foods
      # only adds the first 5 ingredients of 20
