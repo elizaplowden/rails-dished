@@ -10,12 +10,12 @@ class UsersController < ApplicationController
 
   def follow
     Following.create(follower: current_user, followee: @user)
-    redirect_to user_path(@user)
+    redirect_back(fallback_location: users_path)
   end
 
   def unfollow
     Following.find_by(follower: current_user, followee: @user).destroy
-    redirect_to users_path
+    redirect_back(fallback_location: users_path)
   end
 
   private
