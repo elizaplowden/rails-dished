@@ -186,7 +186,7 @@ followees.each do |followee|
 end
 
 puts "created #{Following.count} followings"
-r
+
 
 ###################################
 
