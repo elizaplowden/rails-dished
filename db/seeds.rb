@@ -45,7 +45,18 @@ puts "created #{Food.count} foods"
 puts 'creating recipes, ingredients and photos...'
 10.times do
 
-  recipes_url = 'https://www.themealdb.com/api/json/v1/1/random.php'
+  recipes_url = [
+    'https://www.themealdb.com/api/json/v1/1/search.php?s=thai',
+    'https://themealdb.com/api/json/v1/1/search.php?s=banana',
+    'https://themealdb.com/api/json/v1/1/search.php?s=pasta',
+    'https://themealdb.com/api/json/v1/1/search.php?s=burger',
+    'https://themealdb.com/api/json/v1/1/search.php?s=souffle',
+    'https://themealdb.com/api/json/v1/1/search.php?s=tacos',
+    'https://themealdb.com/api/json/v1/1/search.php?s=apple',
+    'https://themealdb.com/api/json/v1/1/search.php?s=quinoa',
+    'https://themealdb.com/api/json/v1/1/search.php?s=teriyaki',
+    'https://themealdb.com/api/json/v1/1/search.php?s=tagine'
+]
   recipes_serialized = open(recipes_url).read
   recipes = JSON.parse(recipes_serialized)
 
@@ -76,9 +87,31 @@ puts 'creating recipes, ingredients and photos...'
      })
     end
      # attaching a photo to the recipe
-     image_url = meal['strMealThumb']
-     downloaded_image = open(image_url)
-     filename = File.basename(image_url)
+     image_url = [
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944353/curry_enmkfv.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944736/pancakes_qrqfsm.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944817/photo-1473093295043-cdd812d0e601_feew13.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944885/burger_v3wcmm.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945126/photo-1579523609100-5b868b803668_z4psfa.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945367/tacos_yjk701.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945552/apple_tart_fqencu.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945687/quinoa_n9zmji.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944557/salmon_xv79pu.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945819/tagine_asyowg.jpg']
+     image_name = [
+      'curry_enmkfv.jpg',
+      'pancakes_qrqfsm.jpg',
+      'photo-1473093295043-cdd812d0e601_feew13.jpg',
+      'burger_v3wcmm.jpg',
+      'photo-1579523609100-5b868b803668_z4psfa.jpg',
+      'tacos_yjk701.jpg',
+      'apple_tart_fqencu.jpg',
+      'quinoa_n9zmji.jpg',
+      'salmon_xv79pu.jpg',
+      'tagine_asyowg.jpg'
+       ]
+     # downloaded_image = open(image_url)
+     # filename = File.basename(image_url)
      recipe.photo.attach(io: downloaded_image, filename: filename)
      puts 'attached photo'
   end
