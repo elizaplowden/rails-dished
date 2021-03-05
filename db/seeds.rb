@@ -171,6 +171,7 @@ puts "created #{counter} reviews"
 
 ###################################
 
+
 follower = User.find_by(username: 'GoldenBoy')
 followees = []
 followees << User.find_by(username: 'user3456')
@@ -185,6 +186,7 @@ followees.each do |followee|
 end
 
 puts "created #{Following.count} followings"
+r
 
 ###################################
 
