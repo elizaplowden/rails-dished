@@ -16,15 +16,18 @@
 
 @import 'select2/dist/css/select2';
 
-// h1 {
-//   font-family: 'Playfair Display SC', serif;
-// }
+// below is css that applies to whole application
 
-// h2 h3 h4 {
-//   font-family: 'Cutive Mono', monospace;
-// }
+h1 {
+  font-family: 'Courgette', serif;
+  // font-family: 'Playfair Display SC', serif;
+}
 
-// body {
-//   font-family: 'Open Sans', sans-serif;
-//   background-color: #fff;
-// }
+h2, h3, h4 {
+  font-family: 'Cutive Mono', monospace;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff;
+}
