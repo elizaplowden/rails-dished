@@ -15,12 +15,21 @@
 .d-block{
   height: 100vh;
   width: auto;
-  display:flex;
-  align-items: center;
-  justify-content: center;
+  // display:flex;
+  // align-items: center;
+  // justify-content: center;
   background-size: cover;
   padding: 200px;
 
+
+}
+
+.carousel-inner{
+  height: 100vh;
+  width: 100vw;
+  // display:flex;
+  // align-items: center;
+  // justify-content: center;
 
 }
 
@@ -48,6 +57,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  padding: 200px;
 }
 
 
@@ -62,6 +73,7 @@ h1 {
 .banner-search{
   text-align: center;
   width: 300px;
+
 }
 
 .search-bar{

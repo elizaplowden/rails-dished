@@ -5,6 +5,9 @@ footer {
   background: #e6d74e;
   height: auto;
   padding: 20px 40px 0px 40px;
+
+  width: 100vw;
+  bottom: 0px;
 }
 
 // /* Footer P*/
@@ -30,9 +33,6 @@ footer {
   text-shadow: 1px 1px 1px #ccc;
 }
 
-.yield-container {
-  padding-top: 70px;
-}
 
 .footer-grid {
   display: grid;
