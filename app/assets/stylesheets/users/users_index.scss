@@ -1,0 +1,53 @@
+// make the users recipes scroll
+.explore-feed-item {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  .explore-recipe-card {
+    flex: 0 0 auto;
+  }
+}
+
+// extra css to make the scroll have 'momentum'
+.explore-feed-item {
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.explore-feed {
+
+}
+
+.explore-feed-item {
+  width: 100%;
+  display: flex;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 1px 1px 1px 1px #888888;
+  margin: 16px;
+}
+
+.explore-feed-heading {
+  display: flex;
+}
+
+.explore-recipe-card {
+  position: relative;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.explore-recipe-card img {
+  border-radius: 16px;
+  filter: brightness(70%);
+}
+
+.explore-recipe-info {
+  position: absolute;
+  bottom: 0px;
+  left: 12px;
+  color: white;
+}
+
+

@@ -11,10 +11,6 @@
   font-size: 20px;
   color: white;
   text-align: center;
-
-  position: fixed;
-  right: 50px;
-  bottom: 65px;
 }
 
 .chilli-button:hover {
@@ -22,4 +18,11 @@
   transform: scale(1.05);
   background-color: blue;
   border-color: none;
+}
+
+// adding specific css for the dishlist button using id
+#dishlist-button {
+  position: fixed;
+  right: 50px;
+  bottom: 65px;
 }
