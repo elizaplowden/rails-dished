@@ -159,15 +159,7 @@ puts "created #{counter} reviews"
 
 ###################################
 
-follower = User.first
-followee = User.last
 
-Following.create({
-  follower: follower,
-  followee: followee
-})
-
-puts "created #{Following.count} followings"
 
 ###################################
 
