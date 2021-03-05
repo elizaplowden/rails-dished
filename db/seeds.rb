@@ -21,6 +21,7 @@ User.delete_all
 User.create(email: 'email@gmail.com', password: 'Password1', username: 'user3456')
 User.create(email: 'email@hotmail.com', password: 'Password2', username: 'foodielondon')
 User.create(email: 'email@outlook.com', password: 'Password3', username: 'chefjacob')
+User.create(email: 'goldenboy@gmail.com', password: 'goldenboy', username: 'GoldenBoy')
 
 puts "created #{User.count} users"
 
@@ -45,21 +46,21 @@ puts "created #{Food.count} foods"
 puts 'creating recipes, ingredients and photos...'
 counter = 0
 recipes_url = [
-  'https://www.themealdb.com/api/json/v1/1/search.php?s=thai',
-  'https://themealdb.com/api/json/v1/1/search.php?s=banana',
-  'https://themealdb.com/api/json/v1/1/search.php?s=pasta',
-  'https://themealdb.com/api/json/v1/1/search.php?s=burger',
-  'https://themealdb.com/api/json/v1/1/search.php?s=souffle',
-  'https://themealdb.com/api/json/v1/1/search.php?s=tacos',
-  'https://themealdb.com/api/json/v1/1/search.php?s=apple',
-  'https://themealdb.com/api/json/v1/1/search.php?s=quinoa',
-  'https://themealdb.com/api/json/v1/1/search.php?s=teriyaki',
-  'https://themealdb.com/api/json/v1/1/search.php?s=tagine',
-  'https://themealdb.com/api/json/v1/1/search.php?s=nicoise',
-  'https://themealdb.com/api/json/v1/1/search.php?s=vegan',
-  'https://themealdb.com/api/json/v1/1/search.php?s=jerk',
-  'https://themealdb.com/api/json/v1/1/search.php?s=linguine',
-  'https://themealdb.com/api/json/v1/1/search.php?s=carrot'
+  'https://themealdb.com/api/json/v1/1/search.php?s=Thai%20Green%20Curry',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Banana%20Pancakes',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Mediterranean%20Pasta%20Salad',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Lamb%20Tzatziki%20Burgers',
+  'https://themealdb.com/api/json/v1/1/search.php?s=chocolate%20souffle',
+  'https://themealdb.com/api/json/v1/1/search.php?s=cajun%20spiced%20fish%20tacos',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Chinon%20Apple%20Tarts',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Chicken%20Quinoa%20Greek%20Salad',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Honey%20Teriyaki%20Salmon',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Lamb%20Tagine',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Tuna%20Nicoise',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Vegan%20Lasagna',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Jerk%20chicken%20with%20rice%20&%20peas',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Squash%20linguine',
+  'https://themealdb.com/api/json/v1/1/search.php?s=carrot%20cake'
 ]
 image_url = [
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944353/curry_enmkfv.jpg',
@@ -128,12 +129,13 @@ image_name = [
       quantity: measure
      })
     end
-     # attaching a photo to the recipe
-     downloaded_image = open(image_url[counter])
-     filename = image_name[counter]
-     recipe.photo.attach(io: downloaded_image, filename: filename)
-     puts 'attached photo'
+   # attaching a photo to the recipe
+   downloaded_image = open(image_url[counter])
+   filename = image_name[counter]
+   recipe.photo.attach(io: downloaded_image, filename: filename)
+   puts 'attached photo'
   end
+   puts "created recipe #{counter}"
    counter += 1
 end
 
