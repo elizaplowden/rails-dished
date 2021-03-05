@@ -111,7 +111,7 @@ image_name = [
       instructions: meal['strInstructions'],
       serves: rand(1..10),
       cook_time: rand(15..60),
-      user: User.rand(1..3),
+      user: User.first
     } )
      # creating arrays of the ingredients and foods
      # only adds the first 5 ingredients of 20
