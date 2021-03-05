@@ -6,9 +6,9 @@ class BookmarksController < ApplicationController
     # @recipe = Recipe.find(params[recipe_id])
     # @bookmark.recipe = @recipe
     if @bookmark.save
-      flash[:notice] = "this saved"
+      flash[:notice] = "Saved to your cookbook."
     else
-      flash[:alert] = "this did not save"
+      flash[:alert] = "This did not save"
     end
     redirect_back(fallback_location: recipes_path)
   end
@@ -16,7 +16,7 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
-    flash[:notice] = "this has been deleted"
+    flash[:notice] = "Removed from your cookbook."
     redirect_back(fallback_location: recipes_path)
   end
 

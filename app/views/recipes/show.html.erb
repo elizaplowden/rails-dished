@@ -5,7 +5,7 @@
       <div class="recipe-stats-actions">
         <%= render "./shared/rating", rating: @average_rating %>
         <%= render "./shared/cookbook_button", recipe: @recipe %>
-        <%= link_to 'Add to wishlist', wishlist_path(@recipe.id), method: :post, class: "button" %>
+        <%= render "./shared/dishlist_button", recipe: @recipe %>
       </div>
       <div class="recipe-info-bar">
         <h4>Ingredients</h4>
