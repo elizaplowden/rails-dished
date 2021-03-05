@@ -24,37 +24,36 @@
 
 // specific styling for serves, cooktime, ratings
 .index-card-info p {
-  font-size: 16px;
+  font-size: 15px;
   margin: 8px;
   padding: 4px;
+  font-weight: bold;
 }
 
 // specific styling for heading
 .index-card-heading h2 {
-  font-size: 24px;
+  font-size: 20px;
   margin: 8px;
+  font-weight: bold;
 }
 
 // specific styling for heading and serves, cooktime, ratings
-.index-card-heading, .index-card-info {
-  display: none;
+.index-card-text {
   width: 220px;
-  background: #CDCDCD;
-  border-radius: 18px;
-  margin: 10px;
   opacity: 1;
+  color: transparent;
+  margin-bottom: 10px;
 }
 
 // ----- Hover Activity --------------
 
-.index-card:hover .index-card-info {
-  display: block;
+.index-card:hover .index-card-text {
+  color: black;
+  transition: ease 0.3s;
+  background: white;
 }
 
-.index-card:hover .index-card-heading {
-  display: block;
-}
 .index-card:hover img {
   opacity: 0.7;
-  transition: ease 1s;
+  transition: ease 0.3s;
 }
