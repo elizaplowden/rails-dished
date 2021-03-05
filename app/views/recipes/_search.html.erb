@@ -1,6 +1,6 @@
 <!-- [...] -->
 <%= simple_form_for "search", url: recipes_path, html: { class: 'search-bar' }, method: :get  do |f| %>
   <%= f.label "What's in your fridge?", label_html: { class: 'search-label' }%>
-  <%= f.input :query, collection: foods.pluck(:name), label: false, input_html: { class: 'select2' }, placeholder: "What's in your fridge?"  %>
+  <%= f.input :query, collection: foods.pluck(:name), label: false, input_html: { class: 'select2' }  %>
   <%= f.submit "Search", class: "btn btn-light" %>
 <% end %>
