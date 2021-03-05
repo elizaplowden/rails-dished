@@ -1,8 +1,13 @@
-<%= simple_form_for [@recipe, @review], remote: true do |f| %>
-  <%= f.input :description %>
-  <%= f.input :rating %>
-  <%= f.submit "Create a Review", class: 'btn btn-primary' %>
-<% end %>
-
-<%#-- Link to recipes index%>
-<%= link_to 'Back', recipe_path(@recipe.id), class: "button" %>
+<div class="review-form-outer">
+  <div class="review-form-container">
+    <div class="review-form-card">
+    <%= simple_form_for [@recipe, @review], remote: true do |f| %>
+      <%= f.input :description %>
+      <%= f.input :rating %>
+      <%= f.submit "Create a Review", class: 'btn-primary-review' %>
+    <% end %>
+    <%#-- Link to recipes index%>
+    <%= link_to 'Back', recipe_path(@recipe.id), class: "back-button-review" %>
+    </div>
+  </div>
+</div>
