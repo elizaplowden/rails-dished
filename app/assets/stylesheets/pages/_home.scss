@@ -1,14 +1,20 @@
 // Specific CSS for your home-page
 
-
+.container{
+  margin: 0;
+  padding: 0;
+}
 
 .d-block{
-  height: 800px;
+  height: 100%;
+  width: auto;
   display:flex;
   align-items: center;
   justify-content: center;
   background-size: cover;
   padding: 200px;
+  position: relative;
+  z-index: -1;
 }
 
 
