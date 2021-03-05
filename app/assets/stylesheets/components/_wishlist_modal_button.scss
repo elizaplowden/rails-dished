@@ -16,8 +16,10 @@
 .chilli-button:hover {
   box-shadow: 0 6px 14px 0 #666;
   transform: scale(1.05);
-  background-color: #5ADDE6;
+  background-color: #666;
+
   border-color: none;
+  opacity: .75;
 }
 
 // adding specific css for the dishlist button using id
