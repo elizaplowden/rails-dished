@@ -1,10 +1,12 @@
 .form-container {
-  margin: 50px auto;
-  width: 600px;
+  width: 500px;
   background-color: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 20px 35px;
   border-radius: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: gray;
 }
 
 .yield-container {
@@ -12,6 +14,16 @@
   margin: 70px 250px;
 }
 
-.container {
- margin: 60px;
+.form-outer {
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+.back-button{
+  color: gray;
+}
+.back-button:hover {
+  color: #ffbb00;
 }
