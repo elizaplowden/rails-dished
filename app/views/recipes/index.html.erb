@@ -1,5 +1,7 @@
 
-<%= render "search", foods: @foods %>
+<div class="container">
+  <%= render "search", foods: @foods %>
+
 
 <%= render 'shared/index-card', recipe: @recipe %>
 
@@ -9,3 +11,4 @@
 <%#-- Link to New recipe%>
 <%= link_to "Create Recipe", new_recipe_path %>
 
+</div>
