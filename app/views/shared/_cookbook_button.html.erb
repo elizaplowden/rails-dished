@@ -1,5 +1,5 @@
 <% if recipe.bookmarks.pluck(:user_id).include?(current_user.id) %>
-  <%= link_to bookmark_path(recipe.bookmarks.find_by(:user_id == current_user.id).id), method: :delete, target: "_blank", class: 'cookbook-button-saved' do %>
+  <%= link_to bookmark_path(recipe.bookmarks.find_by(:user_id == current_user.id).id), method: :delete, data: { confirm: 'Are you sure? This will remove all of your recipe notes too.' }, class: 'cookbook-button-saved' do %>
     <i class="fas fa-bookmark"></i> Saved to your cookbook
   <% end %>
 <% else %>
