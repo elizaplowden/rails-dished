@@ -4,9 +4,7 @@
     <div class="ingredients-container col-7">
       <div class="recipe-stats-actions">
         <%= render "./shared/rating", rating: @average_rating %>
-        <%= link_to recipe_bookmarks_path(@recipe), method: :post, class: 'cookbook-button' do %>
-          <i class="fas fa-bookmark"></i> Saved to your cookbook
-        <% end %>
+        <%= render "./shared/cookbook_button", recipe: @recipe %>
         <%= link_to 'Add to wishlist', wishlist_path(@recipe.id), method: :post, class: "button" %>
       </div>
       <div class="recipe-info-bar">

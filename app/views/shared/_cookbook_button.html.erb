@@ -1,0 +1,9 @@
+<% if recipe.bookmarks.pluck(:user_id).include?(current_user.id) %>
+  <%= link_to bookmark_path(recipe.bookmarks.find_by(:user_id == current_user.id).id), method: :delete, target: "_blank", class: 'cookbook-button-saved' do %>
+    <i class="fas fa-bookmark"></i> Saved to your cookbook
+  <% end %>
+<% else %>
+  <%= link_to recipe_bookmarks_path(recipe), method: :post, class: 'cookbook-button-save' do %>
+    <i class="far fa-bookmark"></i> Save to your cookbook
+  <% end %>
+<% end %>
