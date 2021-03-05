@@ -36,9 +36,12 @@ $secondary-colour: #5ADDE6; // blue
   opacity: 0.8;
 }
 
+.user-images-container, .reviews-container {
+  padding: 20px;
+}
+
 .reviews-container {
   background-color: $primary-colour;
-  padding: 20px;
   border: 0;
 }
 
