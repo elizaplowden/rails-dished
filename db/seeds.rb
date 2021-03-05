@@ -7,7 +7,7 @@ puts 'deleting existing records...'
 
 #  remove the session before destroying all the records
 # session = nil
-Note.destroy_all
+Note.delete_all
 Review.delete_all
 Bookmark.delete_all
 Ingredient.delete_all
@@ -34,7 +34,7 @@ foods_serialized = open(foods_url).read
 foods = JSON.parse(foods_serialized)
 
 foods['meals'].each do |food|
-  Food.create(name: food['strIngredient'])
+  Food.create(name: food['strIngredient'].downcase)
 end
 
 puts "created #{Food.count} foods"
@@ -116,18 +116,20 @@ image_name = [
     } )
      # creating arrays of the ingredients and foods
      # only adds the first 5 ingredients of 20
-    foods = [meal['strIngredient1'], meal['strIngredient2'], meal['strIngredient3'], meal['strIngredient4'], meal['strIngredient5']]
-    measures = [meal['strMeasure1'], meal['strMeasure2'], meal['strMeasure3'], meal['strMeasure4'], meal['strMeasure5']]
+    foods = [meal['strIngredient1'], meal['strIngredient2'], meal['strIngredient3'], meal['strIngredient4'], meal['strIngredient5'], meal['strIngredient6'], meal['strIngredient7'], meal['strIngredient8'], meal['strIngredient9'], meal['strIngredient10']]
+    measures = [meal['strMeasure1'], meal['strMeasure2'], meal['strMeasure3'], meal['strMeasure4'], meal['strMeasure5'], meal['strMeasure6'], meal['strMeasure7'], meal['strMeasure8'], meal['strMeasure9'], meal['strMeasure10']]
     # iterating over each measure
     measures.each_with_index do |measure, index|
-      # finding the food instance with the same name as the ingredient from the API
-      food = Food.find_by(name: foods[index])
-      # creating the ingredient instances
-      Ingredient.create({
-      recipe: recipe,
-      food: food,
-      quantity: measure
-     })
+      unless measure.nil?
+        # finding the food instance with the same name as the ingredient from the API
+        food = Food.find_by(name: foods[index].downcase)
+        # creating the ingredient instances
+        Ingredient.create({
+          recipe: recipe,
+          food: food,
+          quantity: measure
+        })
+      end
     end
    # attaching a photo to the recipe
    downloaded_image = open(image_url[counter])
@@ -147,12 +149,20 @@ puts "created #{Ingredient.count} ingredients"
 reviews = %w('Really tasty, I love this recipe.', 'I cooked this for my family, and they all loved it.', 'Simple and delicious meal.')
 
 counter = 0
+
+recipes = []
+recipes << Recipe.find_by(name: 'Banana Pancakes')
+recipes << Recipe.find_by(name: 'Thai Green Curry')
+recipes << Recipe.find_by(name: 'Lamb Tagine')
+recipes << Recipe.find_by(name: 'Vegan lasagne')
+recipes << Recipe.find_by(name: 'Chinon Apple Tarts')
+
 5.times do
   Review.create({
-    rating: rand(1..5),
+    rating: rand(3..5),
     description: reviews.sample,
-    user: User.last,
-    recipe: Recipe.last
+    user: User.find_by(username: 'GoldenBoy'),
+    recipe: recipes.sample
   })
   counter += 1
 end
@@ -161,13 +171,18 @@ puts "created #{counter} reviews"
 
 ###################################
 
-follower = User.first
-followee = User.last
+follower = User.find_by(username: 'GoldenBoy')
+followees = []
+followees << User.find_by(username: 'user3456')
+followees << User.find_by(username: 'chefjacob')
+followees << User.find_by(username: 'foodielondon')
 
-Following.create({
-  follower: follower,
-  followee: followee
-})
+followees.each do |followee|
+  Following.create({
+    follower: follower,
+    followee: followee
+  })
+end
 
 puts "created #{Following.count} followings"
 
