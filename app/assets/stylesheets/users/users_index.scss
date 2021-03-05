@@ -14,6 +14,12 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.explore-feed-user-item {
+  margin: 16px;
+  border-radius: 16px;
+  box-shadow: 1px 1px 1px 1px #888888;
+  padding: 16px;
+}
 
 .explore-feed {
 
@@ -22,14 +28,12 @@
 .explore-feed-item {
   width: 100%;
   display: flex;
-  padding: 16px;
-  border-radius: 16px;
-  box-shadow: 1px 1px 1px 1px #888888;
-  margin: 16px;
 }
 
 .explore-feed-heading {
   display: flex;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .explore-recipe-card {
