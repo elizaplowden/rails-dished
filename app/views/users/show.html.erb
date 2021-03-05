@@ -1,3 +1,5 @@
+<div class="form-outer">
+
 <div class="user-profile-page">
   <div class="profile-sections">
     <div class="user-page">
@@ -20,7 +22,7 @@
 
         <div class="followings">
           <%#-- Shows who you are following %>
-          <h5>Community</h5>
+          <h4>Community</h4>
           <% if @user.follows_given.empty? %>
             <p>Not following anyone</p>
           <% else %>
@@ -80,7 +82,7 @@
 
     <%#-- Show each bookmark... this needs to be turned into a card %>
     <div class="cookbook">
-      Your Cookbook
+      <h3>Your Cookbook</h3>
       <div class="cookbook-content">
         <!-- to be replaced by index card once created -->
         <div class="index-container">
@@ -110,4 +112,4 @@
 
   </div>
 </div>
-
+</div>

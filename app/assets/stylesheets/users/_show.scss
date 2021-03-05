@@ -1,6 +1,7 @@
 .user-profile-page {
   display:flex;
-  width: 100%;
+  width: 100vw;
+
 
 }
 
@@ -44,12 +45,15 @@ h5{
 
 .cookbook{
   margin-top: 60px;
+  .index-card {
+    padding:0;
+  }
 }
 
 .cookbook-content{
 
-  box-shadow: 0px 2px 2px 0px lightgrey;
-  margin-top: 10px;
+  // box-shadow: 0px 2px 2px 0px lightgrey;
+  margin-top: 20px;
 }
 
 
