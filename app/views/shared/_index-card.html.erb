@@ -6,7 +6,7 @@
           <%=cl_image_tag recipe.photo.key, height: [320,400,480].sample %>
           <div class="index-card-text">
               <div class="index-card-heading">
-                <h2><%=recipe.name%></h2>
+                <h2><%=recipe.name.truncate(32)%></h2>
               </div>
               <div class="index-card-info">
                   <p><%=recipe.cook_time%> minutes</p>
