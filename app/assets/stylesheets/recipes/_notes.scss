@@ -1,6 +1,11 @@
 // all css for notes on the recipe show page
 // colour variables
 
+// colour variables
+$primary-colour: #E6D74E; // yellow
+$secondary-colour: #5ADDE6; // blue
+
+
 .notes-container {
   margin-left: 20px;
 }
@@ -17,9 +22,10 @@
 }
 
 .notes-container a {
-  color: #fff;
+  color: $secondary-colour;
 }
 
 .notes-container li:hover > a {
-  color: gray;
+  color: #fff;
+  cursor: pointer;
 }
