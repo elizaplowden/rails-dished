@@ -7,7 +7,7 @@ puts 'deleting existing records...'
 
 #  remove the session before destroying all the records
 # session = nil
-Note.destroy_all
+Note.delete_all
 Review.delete_all
 Bookmark.delete_all
 Ingredient.delete_all
@@ -21,6 +21,7 @@ User.delete_all
 User.create(email: 'email@gmail.com', password: 'Password1', username: 'user3456')
 User.create(email: 'email@hotmail.com', password: 'Password2', username: 'foodielondon')
 User.create(email: 'email@outlook.com', password: 'Password3', username: 'chefjacob')
+User.create(email: 'goldenboy@gmail.com', password: 'goldenboy', username: 'GoldenBoy')
 
 puts "created #{User.count} users"
 
@@ -33,7 +34,7 @@ foods_serialized = open(foods_url).read
 foods = JSON.parse(foods_serialized)
 
 foods['meals'].each do |food|
-  Food.create(name: food['strIngredient'])
+  Food.create(name: food['strIngredient'].downcase)
 end
 
 puts "created #{Food.count} foods"
@@ -45,21 +46,21 @@ puts "created #{Food.count} foods"
 puts 'creating recipes, ingredients and photos...'
 counter = 0
 recipes_url = [
-  'https://www.themealdb.com/api/json/v1/1/search.php?s=thai',
-  'https://themealdb.com/api/json/v1/1/search.php?s=banana',
-  'https://themealdb.com/api/json/v1/1/search.php?s=pasta',
-  'https://themealdb.com/api/json/v1/1/search.php?s=burger',
-  'https://themealdb.com/api/json/v1/1/search.php?s=souffle',
-  'https://themealdb.com/api/json/v1/1/search.php?s=tacos',
-  'https://themealdb.com/api/json/v1/1/search.php?s=apple',
-  'https://themealdb.com/api/json/v1/1/search.php?s=quinoa',
-  'https://themealdb.com/api/json/v1/1/search.php?s=teriyaki',
-  'https://themealdb.com/api/json/v1/1/search.php?s=tagine',
-  'https://themealdb.com/api/json/v1/1/search.php?s=nicoise',
-  'https://themealdb.com/api/json/v1/1/search.php?s=vegan',
-  'https://themealdb.com/api/json/v1/1/search.php?s=jerk',
-  'https://themealdb.com/api/json/v1/1/search.php?s=linguine',
-  'https://themealdb.com/api/json/v1/1/search.php?s=carrot'
+  'https://themealdb.com/api/json/v1/1/search.php?s=Thai%20Green%20Curry',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Banana%20Pancakes',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Mediterranean%20Pasta%20Salad',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Lamb%20Tzatziki%20Burgers',
+  'https://themealdb.com/api/json/v1/1/search.php?s=chocolate%20souffle',
+  'https://themealdb.com/api/json/v1/1/search.php?s=cajun%20spiced%20fish%20tacos',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Chinon%20Apple%20Tarts',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Chicken%20Quinoa%20Greek%20Salad',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Honey%20Teriyaki%20Salmon',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Lamb%20Tagine',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Tuna%20Nicoise',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Vegan%20Lasagna',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Jerk%20chicken%20with%20rice%20&%20peas',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Squash%20linguine',
+  'https://themealdb.com/api/json/v1/1/search.php?s=carrot%20cake'
 ]
 image_url = [
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944353/curry_enmkfv.jpg',
@@ -115,25 +116,28 @@ image_name = [
     } )
      # creating arrays of the ingredients and foods
      # only adds the first 5 ingredients of 20
-    foods = [meal['strIngredient1'], meal['strIngredient2'], meal['strIngredient3'], meal['strIngredient4'], meal['strIngredient5']]
-    measures = [meal['strMeasure1'], meal['strMeasure2'], meal['strMeasure3'], meal['strMeasure4'], meal['strMeasure5']]
+    foods = [meal['strIngredient1'], meal['strIngredient2'], meal['strIngredient3'], meal['strIngredient4'], meal['strIngredient5'], meal['strIngredient6'], meal['strIngredient7'], meal['strIngredient8'], meal['strIngredient9'], meal['strIngredient10']]
+    measures = [meal['strMeasure1'], meal['strMeasure2'], meal['strMeasure3'], meal['strMeasure4'], meal['strMeasure5'], meal['strMeasure6'], meal['strMeasure7'], meal['strMeasure8'], meal['strMeasure9'], meal['strMeasure10']]
     # iterating over each measure
     measures.each_with_index do |measure, index|
-      # finding the food instance with the same name as the ingredient from the API
-      food = Food.find_by(name: foods[index])
-      # creating the ingredient instances
-      Ingredient.create({
-      recipe: recipe,
-      food: food,
-      quantity: measure
-     })
+      unless measure.nil?
+        # finding the food instance with the same name as the ingredient from the API
+        food = Food.find_by(name: foods[index].downcase)
+        # creating the ingredient instances
+        Ingredient.create({
+          recipe: recipe,
+          food: food,
+          quantity: measure
+        })
+      end
     end
-     # attaching a photo to the recipe
-     downloaded_image = open(image_url[counter])
-     filename = image_name[counter]
-     recipe.photo.attach(io: downloaded_image, filename: filename)
-     puts 'attached photo'
+   # attaching a photo to the recipe
+   downloaded_image = open(image_url[counter])
+   filename = image_name[counter]
+   recipe.photo.attach(io: downloaded_image, filename: filename)
+   puts 'attached photo'
   end
+   puts "created recipe #{counter}"
    counter += 1
 end
 
@@ -145,12 +149,20 @@ puts "created #{Ingredient.count} ingredients"
 reviews = %w('Really tasty, I love this recipe.', 'I cooked this for my family, and they all loved it.', 'Simple and delicious meal.')
 
 counter = 0
+
+recipes = []
+recipes << Recipe.find_by(name: 'Banana Pancakes')
+recipes << Recipe.find_by(name: 'Thai Green Curry')
+recipes << Recipe.find_by(name: 'Lamb Tagine')
+recipes << Recipe.find_by(name: 'Vegan lasagne')
+recipes << Recipe.find_by(name: 'Chinon Apple Tarts')
+
 5.times do
   Review.create({
-    rating: rand(1..5),
+    rating: rand(3..5),
     description: reviews.sample,
-    user: User.last,
-    recipe: Recipe.last
+    user: User.find_by(username: 'GoldenBoy'),
+    recipe: recipes.sample
   })
   counter += 1
 end
@@ -160,6 +172,21 @@ puts "created #{counter} reviews"
 ###################################
 
 
+follower = User.find_by(username: 'GoldenBoy')
+followees = []
+followees << User.find_by(username: 'user3456')
+followees << User.find_by(username: 'chefjacob')
+followees << User.find_by(username: 'foodielondon')
+
+followees.each do |followee|
+  Following.create({
+    follower: follower,
+    followee: followee
+  })
+end
+
+puts "created #{Following.count} followings"
+r
 
 ###################################
 

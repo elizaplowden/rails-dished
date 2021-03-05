@@ -1,4 +1,4 @@
-.form-container {
+.review-form-container {
   width: 500px;
   background-color: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -9,22 +9,23 @@
   color: gray;
 }
 
-.yield-container {
-  padding-top: 50px;
-  margin: 70px 250px;
-}
-
-.form-outer {
+.review-form-outer {
   display: flex;
   // align-items: center;
   justify-content: center;
   width: 100vw;
-  background-color: #5ADDE6;
+  margin: 30px;
 }
 
-.back-button{
+.back-button-review {
   color: gray;
 }
-.back-button:hover {
-  color: #ffbb00;
+
+.back-button-review:hover {
+  color: #E6D74E;
+}
+
+.btn-primary-review {
+  color: gray;
+  border: gray;
 }

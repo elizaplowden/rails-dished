@@ -1,0 +1,19 @@
+.search-bar{
+  display:flex;
+  position: center;
+  justify-content: center;
+  flex-direction: column;
+
+
+}
+
+.index-search{
+  background-color: #5ADDE6;
+  color: #f4f4f4;
+  font-size: 32px;
+  width: 98%;
+  font-family: "Nunito", "Helvetica", "sans-serif";
+  padding-bottom: 30px;
+  padding-top: 30px;
+  border-radius: 10px;
+}
