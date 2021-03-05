@@ -4,10 +4,8 @@
     <div class="ingredients-container col-7">
       <div class="recipe-stats-actions">
         <%= render "./shared/rating", rating: @average_rating %>
-        <%= link_to recipe_bookmarks_path(@recipe), method: :post, class: 'cookbook-button' do %>
-          <i class="fas fa-bookmark"></i> Saved to your cookbook
-        <% end %>
-        <%= link_to 'Add to wishlist', wishlist_path(@recipe.id), method: :post, class: "button" %>
+        <%= render "./shared/cookbook_button", recipe: @recipe %>
+        <%= render "./shared/dishlist_button", recipe: @recipe %>
       </div>
       <div class="recipe-info-bar">
         <h4>Ingredients</h4>
@@ -37,13 +35,11 @@
     <!-- NOTES -->
     <%= render "notes", recipe: @recipe, bookmark: @bookmark, note: @note %>
   </div>
-  <div class="non-recipe-container">
-    <!-- USER IMAGES -->
+  <div class="user-images-container">
     <%= render "user_images", recipe: @recipe %>
-    <!-- REVIEWS -->
+  </div>
+  <div class="reviews-container">
     <%= render "reviews", recipe: @recipe %>
-    <!-- user actions -->
-
   </div>
 
   <ul>

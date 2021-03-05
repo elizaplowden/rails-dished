@@ -28,6 +28,7 @@
                       <%=cl_image_tag found_recipe.photo.key, height: 700 %>
                       <%# Display recipe details %>
                       <div class="scrolling-recipe-details">
+                        <%= render "./shared/cookbook_button", recipe: found_recipe %>
                         <h2><%=found_recipe.name%></h2>
                         <h4>Details</h4>
                         <p>Serves: <%=found_recipe.serves%></p>

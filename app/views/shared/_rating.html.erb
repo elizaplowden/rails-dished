@@ -1,11 +1,11 @@
 <div class="rating">
-  <% unless rating.nil? %>
+  <% if !rating.nil? %>
     <% rating.times do %>
       <i class="fas fa-star"></i>
     <% end %>
     <% (5 - rating).times do %>
       <i class="far fa-star"></i>
     <% end %>
+    <strong><%= rating %> stars</strong>
   <% end %>
-  <strong><%= rating %> stars</strong>
 </div>
