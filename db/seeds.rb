@@ -43,23 +43,23 @@ puts "created #{Food.count} foods"
 
 # seeding some recipes from meals.db api
 puts 'creating recipes, ingredients and photos...'
-10.times do
-
-  recipes_url = [
-    'https://www.themealdb.com/api/json/v1/1/search.php?s=thai',
-    'https://themealdb.com/api/json/v1/1/search.php?s=banana',
-    'https://themealdb.com/api/json/v1/1/search.php?s=pasta',
-    'https://themealdb.com/api/json/v1/1/search.php?s=burger',
-    'https://themealdb.com/api/json/v1/1/search.php?s=souffle',
-    'https://themealdb.com/api/json/v1/1/search.php?s=tacos',
-    'https://themealdb.com/api/json/v1/1/search.php?s=apple',
-    'https://themealdb.com/api/json/v1/1/search.php?s=quinoa',
-    'https://themealdb.com/api/json/v1/1/search.php?s=teriyaki',
-    'https://themealdb.com/api/json/v1/1/search.php?s=tagine'
+counter = 0
+recipes_url = [
+  'https://www.themealdb.com/api/json/v1/1/search.php?s=thai',
+  'https://themealdb.com/api/json/v1/1/search.php?s=banana',
+  'https://themealdb.com/api/json/v1/1/search.php?s=pasta',
+  'https://themealdb.com/api/json/v1/1/search.php?s=burger',
+  'https://themealdb.com/api/json/v1/1/search.php?s=souffle',
+  'https://themealdb.com/api/json/v1/1/search.php?s=tacos',
+  'https://themealdb.com/api/json/v1/1/search.php?s=apple',
+  'https://themealdb.com/api/json/v1/1/search.php?s=quinoa',
+  'https://themealdb.com/api/json/v1/1/search.php?s=teriyaki',
+  'https://themealdb.com/api/json/v1/1/search.php?s=tagine'
 ]
-  recipes_serialized = open(recipes_url).read
-  recipes = JSON.parse(recipes_serialized)
 
+10.times do
+  recipes_serialized = open(recipes_url[counter]).read
+  recipes = JSON.parse(recipes_serialized)
 
   recipes['meals'].each do |meal|
     # creating the recipe instance and saving to the db
@@ -110,11 +110,13 @@ puts 'creating recipes, ingredients and photos...'
       'salmon_xv79pu.jpg',
       'tagine_asyowg.jpg'
        ]
-     # downloaded_image = open(image_url)
-     # filename = File.basename(image_url)
+
+     downloaded_image = open(image_url[counter])
+     filename = image_name[counter]
      recipe.photo.attach(io: downloaded_image, filename: filename)
      puts 'attached photo'
   end
+   counter += 1
 end
 
 puts "created #{Recipe.count} recipes"
