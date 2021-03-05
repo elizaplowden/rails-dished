@@ -1,15 +1,20 @@
 // recipe show page css goes here
+
+// colour variables
+$primary-colour: #E6D74E; // yellow
+$secondary-colour: #5ADDE6; // blue
+
+
 .show-container {
   background-color: #fff;
 }
 
 .show-container h2 {
-  color: gray;
   padding: 30px 40px 0 40px;
+  font-weight: bold;
 }
 
 .non-recipe-container {
-  background-color: #FFD966;
   padding: 20px 0 20px 40px;
 }
 
@@ -26,7 +31,15 @@
 .recipe-method-container {
   display: flex;
   padding: 20px 0 20px 40px;
-  // opacity: 1;
+  background-color: $secondary-colour;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.reviews-container {
+  background-color: $primary-colour;
+  padding: 20px;
+  border: 0;
 }
 
 .recipe-stats-actions {
@@ -46,7 +59,6 @@
 
 }
 
-
 .recipe-info-bar {
   display: flex;
   justify-content: space-between;
@@ -58,11 +70,11 @@
 }
 
 .recipe-info-bar i {
-  color: #FFD966;
+  color: $primary-colour;
 }
 
 .cookbook-button {
-  background-color: #5ADDE6;
+  background-color: $secondary-colour;
   padding: 10px 15px;
   border-radius: 40px;
   color: #fff;

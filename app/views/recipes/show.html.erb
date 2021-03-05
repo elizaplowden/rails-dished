@@ -37,13 +37,11 @@
     <!-- NOTES -->
     <%= render "notes", recipe: @recipe, bookmark: @bookmark, note: @note %>
   </div>
-  <div class="non-recipe-container">
-    <!-- USER IMAGES -->
+  <div class="user-images-container">
     <%= render "user_images", recipe: @recipe %>
-    <!-- REVIEWS -->
+  </div>
+  <div class="reviews-container">
     <%= render "reviews", recipe: @recipe %>
-    <!-- user actions -->
-
   </div>
 
   <ul>
