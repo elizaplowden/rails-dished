@@ -70,20 +70,25 @@ h1 {
   font-weight: bold;
 }
 
-.banner-search{
+.banner-search {
   text-align: center;
-  width: 300px;
-
+  margin: 0;
+  justify-content: center;
 }
 
-.banner-text{
-.search-bar{
-  color: white;
-  margin-top: 40px;
-  font-size: 28px;
-  position: center;
+.banner-search-text {
+  color: #fff;
+  font-size: 40px;
+}
 
-}
-}
+// .banner-text{
+// .search-bar{
+//   color: white;
+//   margin-top: 40px;
+//   font-size: 28px;
+//   position: center;
+
+// }
+// }
 
 
