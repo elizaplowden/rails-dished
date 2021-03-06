@@ -3,6 +3,6 @@ class PagesController < ApplicationController
 
   def home
     # used in the select tag
-    @foods = Food.all
+    @foods = Food.order(:name)
   end
 end
