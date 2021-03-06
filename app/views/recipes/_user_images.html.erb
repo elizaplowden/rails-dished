@@ -2,10 +2,9 @@
   <h3>User pictures</h3>
   <hr>
   <p>placeholder for button to upload user image</p>
-   <%= link_to 'Add a photo', class: "button" %>
-    <% simple_form_for [recipe], remote: :true do |f| %>
-        <%= f.input :images, as: :file %>
-        <%= f.submit "Add a photo", class: "button" %>
+    <% form_for [recipe], remote: :true do |f| %>
+        <%= f.file_field :image %>
+        <%= f.submit "Photo", class: "button" %>
   <% end %>
   <% if recipe.images.attached? %>
     <% recipe.images.each do |image| %>
