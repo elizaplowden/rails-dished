@@ -1,13 +1,34 @@
 <div class="review-form-outer">
-  <div class="review-form-container">
-    <div class="review-form-card">
-    <%= simple_form_for [@recipe, @review], remote: true do |f| %>
-      <%= f.input :description %>
-      <%= f.input :rating %>
-      <%= f.submit "Create a Review", class: 'btn-primary-review' %>
+    <!-- this partial displays all the reviews for one recipe -->
+  <div class="col-11">
+    <h3>Reviews</h3>
+    <hr>
+    <!-- need to remove this if a review exists -->
+    <div class="review-form-container">
+      <% unless recipe.reviews.pluck(:user_id).include?(current_user.id) %>
+      <%= simple_form_for [recipe, review], method: :post, url: recipe_reviews_path(recipe) do |f| %>
+        <%= f.input :description %>
+        <%= f.input :rating %>
+        <%= f.submit 'Leave a review', class: "back-button-review" %>
+      <% end %>
     <% end %>
-    <%#-- Link to recipes index%>
-    <%= link_to 'Back', recipe_path(@recipe.id), class: "back-button-review" %>
     </div>
+
+    <% recipe.reviews.each do |review| %>
+      <div class="review">
+          <div class="review-details">
+            <%= render "./shared/rating", rating: review.rating %>
+            <%= review.created_at.strftime("%c") %>
+          </div>
+          <p> <%= review.description %></p>
+          <%= link_to review.user.username, user_path(review.user)  %><br>
+          <% if current_user == review.user %>
+            <%= link_to review_path(review.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i id= "delete-review" class="fas fa-trash"></i>
+            <% end %>
+          <% end %>
+      </div>
+    <% end %>
   </div>
+
 </div>

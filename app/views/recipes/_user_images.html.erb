@@ -1,5 +1,5 @@
 <div class="user-image-uploads col-12">
-  <h3>User pictures</h3>
+  <h3>Gallery</h3>
   <hr>
     <% if recipe.images.attached? %>
       <% recipe.images.each do |image| %>
@@ -9,7 +9,7 @@
     <%= simple_form_for recipe, method: :patch, url: upload_recipe_path do |f| %>
       <!-- to add one or mutliple images to a recipe -->
       <%= f.input :images, as: :file, label: false, input_html: {multiple: true} %>
-      <%= f.submit "Upload your photo", class: "button" %>
+      <%= f.submit "Add to gallery", class: "button" %>
     <% end %>
 
 </div>
