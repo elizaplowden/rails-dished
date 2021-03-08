@@ -73,7 +73,7 @@
 
 
       <div class="recipe-links">
-          <%= link_to 'Back to recipes', recipes_path %>
+
           <%= link_to 'Upload a new recipe', new_recipe_path %>
       </div>
     </div>
@@ -106,8 +106,13 @@
             </div>
           <% end %>
         </div>
+        <div class="cookbook-exit">
+          <%= link_to 'Back to all recipes', recipes_path %>
+        </div>
+
 
       </div>
+
     </div>
 
   </div>

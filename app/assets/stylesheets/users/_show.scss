@@ -56,4 +56,18 @@ h5{
   margin-top: 20px;
 }
 
+.recipe-links a{
+    background-color: $primary-colour;
+  padding: 10px 15px;
+  border-radius: 40px;
+  color: #fff;
+  a{
+    color: #fff
+  }
+  margin-right: 250px;
+  margin-top: 80px;
+}
 
+.cookbook-exit{
+  margin-top: 40px;
+}
