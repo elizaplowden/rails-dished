@@ -75,6 +75,7 @@ h5{
   flex-direction: column;
   width: auto;
   margin-top: 20px;
+  margin-bottom: 40px;
   }
   .recipe-links a{
   background-color: $primary-colour;
@@ -94,18 +95,18 @@ h5{
 
 }
 
-#upload-recipe-link a {
-  color: gray;
-  text-decoration: none
-}
+// #upload-recipe-link a {
+//   color: gray;
+//   text-decoration: none
+// }
 
-#back-to-recipe-link:hover a {
-  color: #E6D74E;
-}
+// #back-to-recipe-link:hover a {
+//   color: #E6D74E;
+// }
 
-#upload-recipe-link:hover a {
-  color: #E6D74E;
-}
+// #upload-recipe-link:hover a {
+//   color: #E6D74E;
+// }
 
 .followings a {
   text-decoration: none
