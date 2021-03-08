@@ -1,8 +1,6 @@
 .user-profile-page {
   display:flex;
   width: 100vw;
-
-
 }
 
 .profile-sections{
@@ -18,7 +16,10 @@
 
 .profile-info {
   display: block;
-}
+  background: #5ADDE6;
+  color: white;
+  padding: 30px 30px;
+  }
 
 .avatar-username{
   padding: 10px 0px;
