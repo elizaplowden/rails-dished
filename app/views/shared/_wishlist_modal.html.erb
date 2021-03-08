@@ -50,8 +50,11 @@
           </div>
         <%# Else display that there's nothing there. Maybe add a 'Go to Recipes' button here %>
         <% else %>
-          <p> You have nothing in your dishlist!</p>
-          <%= link_to 'Find some dishes!', recipes_path, class: "button" %>
+          <div class="empty-dishlist">
+            <p> You have nothing in your dishlist!</p>
+            <%= link_to 'Find some dishes!', recipes_path, class: "button" %>
+          </div>
+
         <% end %>
       </div>
     </div>
