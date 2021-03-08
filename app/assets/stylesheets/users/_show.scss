@@ -109,10 +109,11 @@ h5{
 // }
 
 .followings a {
-  text-decoration: none
+  text-decoration: none;
+  color: #fff;
 }
 
-.recipe-links {
-  margin-top: 15px;
+.followings a:hover{
+  color: #E6D74E;
 }
 
