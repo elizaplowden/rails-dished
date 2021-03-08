@@ -2,6 +2,7 @@
   width: 100%;
   columns: 4;
   column-gap: 0px;
+
 }
 
 .index-box {
@@ -9,6 +10,7 @@
   overflow: hidden;
   break-inside: avoid;
   margin-bottom: 32px;
+  transition: all 0.2s linear;
 }
 
 

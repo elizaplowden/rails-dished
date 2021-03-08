@@ -28,13 +28,16 @@
   display: flex;
   justify-content: center;
   overflow: hidden;
-  margin-right: 4px;
+  margin-right: 8px;
+  border-radius: 16px;
 }
 .scrolling-recipe-details h2, h4 {
-  background: white;
-  color: black;
-  padding: 1px;
   display: inline-block;
+  background: white;
+  box-shadow: 2px 2px black;
+  padding: 8px;
+  border: 1px;
+  border-style: solid;
 }
 
 // position all details on top of the image, left aligned
@@ -44,6 +47,8 @@
   left: 5px;
   text-align: left;
   padding-left: 24px;
+  max-height: 520px;
+  overflow-y: scroll;
 }
 
 .scrolling-card img {
