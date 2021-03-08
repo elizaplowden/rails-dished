@@ -21,6 +21,11 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :profile_photo,
+                as: :file,
+                input_html: ( autocomplete: "add a profile photo") %>
+    <%= cl_image_upload_tag(:image_id) %>
+
   </div>
 
   <div class="form-actions">

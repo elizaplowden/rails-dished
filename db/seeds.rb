@@ -112,6 +112,7 @@ image_name = [
       instructions: meal['strInstructions'],
       serves: rand(1..10),
       cook_time: rand(15..60),
+      cuisine: ["Indian","Italian","French","British","Chinese"].sample,
       user: User.first
     } )
      # creating arrays of the ingredients and foods

@@ -1,0 +1,31 @@
+.filter-links {
+  width: 90px;
+  position: fixed;
+  left: 10px;
+  top: 200px;
+  z-index: 100;
+  padding: 5px;
+  color: black;
+}
+
+.filter-title {
+  color: white;
+  background: black;
+}
+.filter-links a {
+  text-decoration: none;
+  color: black;
+}
+
+.filter-links h4 {
+  font-size: 16px;
+  box-shadow: 2px 2px black;
+  padding: 8px;
+  border: 1px;
+  border-style: solid;
+}
+
+.filter-links :hover {
+  transform: translateY(1px);
+  transition: all 0.2s linear;
+}
