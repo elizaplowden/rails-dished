@@ -1,5 +1,5 @@
 .form-container {
-  width: 700px;
+  width: 650px;
   background-color: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 20px 35px;
@@ -27,4 +27,9 @@
 }
 .back-button:hover {
   color: #ffbb00;
+}
+
+.ingredient-form-group {
+  display: flex;
+  justify-content: flex-start;
 }

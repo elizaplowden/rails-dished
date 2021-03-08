@@ -27,9 +27,15 @@ class RecipesController < ApplicationController
   end
 
   def create
+    # recipe_params = recipe_params.to_hash
+    # recipe_params[:ingredients_attributes] = recipe_params[:ingredients_attributes].select { |i| i[:quantity].present? }
+    # recipe_params.deep_transform_keys!(&:compact)
+    ingredients_attributes = params[:recipe][:ingredients_attributes]
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
     if @recipe.save
+      ingredients_attributes.map! { |attribute| Ingredient.create!(food_id: attribute[:food_id], quantity: attribute[:quantity], recipe: @recipe) if attribute[:quantity].present? }
+      @recipe.ingredients = ingredients_attributes.reject(&:nil?)
       redirect_to recipes_path
     else
       render :new
@@ -87,7 +93,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :instructions, :meal, :cuisine, :serves, :cook_time, :photo, images: { multiple: true }, ingredients_attributes: [:food_id, :quantity] )
+    params.require(:recipe).permit(:name, :description, :instructions, :meal, :cuisine, :serves, :cook_time, :photo, images: { multiple: true } )
   end
 
   def foods

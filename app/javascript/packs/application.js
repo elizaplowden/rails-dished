@@ -30,8 +30,10 @@ import "bootstrap";
 
 // Internal imports
 import { initSelect2 } from '../components/init_select2';
+import { initAddNewField } from '../components/recipe_new_form';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here
   initSelect2();
+  initAddNewField();
 });
