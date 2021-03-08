@@ -26,15 +26,17 @@
                     <div class="scrolling-card">
                       <%# Display Image %>
                       <%=cl_image_tag found_recipe.photo.key, height: 700 %>
+                      <div class="add-to-cookbook">
+                          <%= render "./shared/cookbook_button", recipe: found_recipe %>
+                      </div>
                       <%# Display recipe details %>
                       <div class="scrolling-recipe-details">
-                        <%= render "./shared/cookbook_button", recipe: found_recipe %>
                         <h2><%=found_recipe.name%></h2>
+                        <br>
                         <h4>Details</h4>
-                        <p>Serves: <%=found_recipe.serves%></p>
-                        <p>Cook time: <%=found_recipe.cook_time%></p>
-                        <p>Meal type: <%=found_recipe.meal%></p>
-                        <p>Cuisine: <%=found_recipe.cuisine%></p>
+                        <p>For <%=found_recipe.serves%> People</p>
+                        <p><%=found_recipe.cook_time%> mins</p>
+                        <p><%=found_recipe.cuisine%></p>
                         <%# iterate through ingredients %>
                         <h4>Ingredients</h4>
                         <% found_recipe.ingredients.each do |ingredient| %>

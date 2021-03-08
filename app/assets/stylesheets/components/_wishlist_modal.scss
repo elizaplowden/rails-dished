@@ -30,6 +30,12 @@
   overflow: hidden;
   margin-right: 4px;
 }
+.scrolling-recipe-details h2, h4 {
+  background: white;
+  color: black;
+  padding: 1px;
+  display: inline-block;
+}
 
 // position all details on top of the image, left aligned
 .scrolling-recipe-details {
@@ -46,8 +52,19 @@
   filter: brightness(50%);
 }
 
-.scrolling-card {
+.scrolling-card p {
   text-decoration: none;
   color: white;
   text-shadow: 0.5px 0.5px black;
+}
+
+.add-to-cookbook {
+  position: absolute;
+  top: 0px;
+  left: 32px;
+}
+
+.add-to-cookbook a {
+  color: white i !important;
+  text-decoration: none i !important;
 }
