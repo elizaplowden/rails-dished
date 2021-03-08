@@ -11,6 +11,7 @@
     <hr>
     <h5>Ingredients</h5>
     <%=  f.simple_fields_for :ingredients do |ingredients_form| %>
+      <%= ingredients_form.input :foods, collection: @foods %>
       <%= ingredients_form.input :quantity  %>
     <% end %>
     <%= f.submit "Submit", class: "button" %>

@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :find_recipe, only: [:show, :destroy, :edit, :update, :add_to_wishlist, :average_rating]
   before_action :average_rating, only: :show
-  before_action :food, only: [:index, :new]
+  before_action :foods, only: [:index, :new]
 
   def index
     # if statement so the recipes index still returns all recipes if there is no search term
