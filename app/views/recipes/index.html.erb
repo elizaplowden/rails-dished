@@ -4,15 +4,7 @@
    <%= render "search", foods: @foods %>
   </div>
 
-<p>filter by cuisine<p>
-<ul class="filter-links">
-  <li><%= link_to 'All', recipes_path %></li>
-  <li><%= link_to 'indian', recipes_path(cuisine_type: "indian") %></li>
-  <li><%= link_to 'italian', recipes_path(cuisine_type: "italian") %></li>
-  <li><%= link_to 'french', recipes_path(cuisine_type: "french") %></li>
-  <li><%= link_to 'british', recipes_path(cuisine_type: "british") %></li>
-</ul>
-
+<%= render "shared/filter_panel" %>
 <%= render 'shared/index-card', recipe: @recipe %>
 
 
