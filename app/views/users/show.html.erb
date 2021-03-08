@@ -57,10 +57,10 @@
             <% end %>
           </div>
 
-
           <div class="index-link">
             <%#-- Link to users index %>
             <% if @user == current_user %>
+            <i class="fas fa-users"></i>
               <%= link_to "Find foodie friends", users_path %>
             <% else %>
               <%= link_to "Find more foodies", users_path %>
@@ -71,19 +71,17 @@
         </div>
       </div>
 
-
       <div class="recipe-links">
-          <%= link_to 'Back to recipes', recipes_path %>
-          <%= link_to 'Upload a new recipe', new_recipe_path %>
+          <div id="back-to-recipe-link"><%= link_to 'Back to recipes', recipes_path %></div>
+          <div id="upload-recipe-link"><%= link_to 'Upload a new recipe', new_recipe_path %></div>
       </div>
     </div>
-
-
 
     <%#-- Show each bookmark... this needs to be turned into a card %>
     <div class="cookbook">
       <h3>Your Cookbook</h3>
       <div class="cookbook-content">
+
         <!-- to be replaced by index card once created -->
         <div class="index-container">
           <% @user.bookmarks.each do |bookmark| %>

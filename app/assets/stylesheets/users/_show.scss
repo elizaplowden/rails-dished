@@ -1,8 +1,6 @@
 .user-profile-page {
   display:flex;
   width: 100vw;
-
-
 }
 
 .profile-sections{
@@ -18,7 +16,11 @@
 
 .profile-info {
   display: block;
-}
+  background: #5ADDE6;
+  color: white;
+  padding: 30px 85px;
+  margin-top: 15px;
+  }
 
 .avatar-username{
   padding: 10px 0px;
@@ -56,4 +58,39 @@ h5{
   margin-top: 20px;
 }
 
+.index-card-heading a {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+  }
 
+.fa-users {
+  font-size: 20px;
+  padding-right:  5px;
+}
+
+#back-to-recipe-link a {
+  color: gray;
+  text-decoration: none
+}
+
+#upload-recipe-link a {
+  color: gray;
+  text-decoration: none
+}
+
+#back-to-recipe-link:hover a {
+  color: #E6D74E;
+}
+
+#upload-recipe-link:hover a {
+  color: #E6D74E;
+}
+
+.followings a {
+  text-decoration: none
+}
+
+.recipe-links {
+  margin-top: 15px;
+}
