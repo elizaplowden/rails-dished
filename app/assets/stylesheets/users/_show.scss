@@ -68,12 +68,21 @@ h5{
   padding-right:  5px;
 }
 
-.recipe-links a {
+#back-to-recipe-link a {
   color: gray;
   text-decoration: none
 }
 
-.recipe-links:hover a {
+#upload-recipe-link a {
+  color: gray;
+  text-decoration: none
+}
+
+#back-to-recipe-link:hover a {
+  color: #E6D74E;
+}
+
+#upload-recipe-link:hover a {
   color: #E6D74E;
 }
 
