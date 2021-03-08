@@ -2,10 +2,9 @@ class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :find_recipe, only: [:show, :destroy, :edit, :update, :add_to_wishlist, :average_rating]
   before_action :average_rating, only: :show
+  before_action :food, only: [:index, :new]
 
   def index
-    # used to populate the drop down list (select tag) in the search form
-    @foods = Food.order(:name)
     # if statement so the recipes index still returns all recipes if there is no search term
     if params.dig(:search, :query).present?
       # using pgsearch - the search criteria is defined in the Recipe model
@@ -89,5 +88,10 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:name, :description, :instructions, :meal, :cuisine, :serves, :cook_time, :photo, images: { multiple: true})
+  end
+
+  def foods
+    # gets a list of all the foods in the Foods table and sorts them alphabetically by name
+    @foods = Food.order(:name)
   end
 end
