@@ -18,6 +18,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @review = Review.new
     @bookmark = current_user.bookmarks.find_by(recipe: @recipe)
     if @bookmark.nil?
       @bookmark = Bookmark.new
