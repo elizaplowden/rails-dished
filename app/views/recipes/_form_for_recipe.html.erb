@@ -4,14 +4,14 @@
     <%= f.input :instructions, label: 'Cooking Instructions' %>
     <%= f.input :meal, label: 'Which meal?', as: :radio_buttons, collection: ['breakfast', 'lunch', 'dinner'] %>
     <%= f.input :cuisine, label: 'Cuisine' %>
-    <%= f.input :serves, label: 'For how many people?', collection: (1..30) %>
-    <%= f.input :cook_time, label: 'How long in minutes?' %>
+    <%= f.input :serves, label: 'For how many people?', collection: (1..30), wrapper_html: { class: 'form-inline' } %>
+    <%= f.input :cook_time, label: 'How long in minutes?', wrapper_html: { class: 'form-inline' } %>
     <%= f.input :photo, as: :file %>
     <hr>
     <h5>Ingredients</h5>
     <%=  f.simple_fields_for :ingredients_attributes do |ingredients_form| %>
-      <%= ingredients_form.input :food_id, collection: @foods, label: "Select ingredient", input_html: { name: "recipe[ingredients_attributes][][food_id]" } %>
-      <%= ingredients_form.input :quantity, input_html: { name: "recipe[ingredients_attributes][][quantity]" }  %>
+      <%= ingredients_form.input :food_id, collection: @foods, label: "Select ingredient: ", input_html: { name: "recipe[ingredients_attributes][][food_id]", class: "select2" } %>
+      <%= ingredients_form.input :quantity, label: 'Quantity:', input_html: { name: "recipe[ingredients_attributes][][quantity]" }, wrapper_html: { class: 'form-inline' }  %>
     <% end %>
     <%= f.submit "Submit", class: "button" %>
   <% end %>
