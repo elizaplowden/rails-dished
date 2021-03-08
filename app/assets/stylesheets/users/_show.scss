@@ -65,6 +65,19 @@ h5{
 
 .fa-users {
   font-size: 20px;
+  padding-right:  5px;
 }
 
+.recipe-links a {
+  color: gray;
+  text-decoration: none
+}
+
+.recipe-links:hover a {
+  color: #E6D74E;
+}
+
+.followings a {
+  text-decoration: none
+}
 
