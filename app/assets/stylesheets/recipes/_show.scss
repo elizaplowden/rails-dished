@@ -72,17 +72,41 @@ $secondary-colour: #5ADDE6; // blue
   color: $primary-colour;
 }
 
-.cookbook-button {
-  background-color: $secondary-colour;
+.cookbook-button-save, .cookbook-button-saved {
+  background-color: $primary-colour;
   padding: 10px 15px;
   border-radius: 40px;
   color: #fff;
-  text-decoration: none;
+  a{
+    color: #fff
+  }
 }
 
 
-.cookbook-button:hover {
-  opacity: 0.8;
-  text-decoration: none;
+.cookbook-button-save:hover, .cookbook-button-saved:hover{
+    opacity: 0.8;
+    text-decoration: none;
+    color: #fff;
+    padding: 12px 16px;
+  }
+
+
+
+.dishlist-button{
+  background-color: $primary-colour;
+  padding: 10px 15px;
+  border-radius: 40px;
+  color: #fff;
+  a{
+    color: #fff
+  }
 }
+
+.dishlist-button:hover{
+     opacity: 0.8;
+    text-decoration: none;
+    color: #fff;
+    padding: 12px 16px;
+}
+
 
