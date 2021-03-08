@@ -15,6 +15,7 @@
   align-items: center;
   position: relative;
   overflow: hidden;
+  transition: all 0.2s linear;
 }
 
 // Index text positioning
@@ -48,13 +49,28 @@
 
 // ----- Hover Activity --------------
 
-.index-card:hover .index-card-text {
+.index-card:hover .index-card-heading {
   color: black;
-  transition: ease 0.3s;
   background: white;
+  box-shadow: 2px 2px black;
+  padding: 8px;
+  border: 1px;
+  border-style: solid;
+  display: inline-block;
+}
+
+.index-card:hover .index-card-text {
+  color: white;
 }
 
 .index-card:hover img {
-  opacity: 0.7;
-  transition: ease 0.3s;
+  filter: brightness(50%);
+  transition: all 0.2s linear;
 }
+
+.index-box:hover {
+  transform: translateY(6px);
+  transition: all 0.2s linear;
+}
+
+

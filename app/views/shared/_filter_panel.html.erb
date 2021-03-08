@@ -1,9 +1,10 @@
 
-<ul class="filter-links">
-  <p>filter by cuisine</p>
-  <li><%= link_to 'All', recipes_path %></li>
-  <li><%= link_to 'Indian', recipes_path(cuisine_type: "indian") %></li>
-  <li><%= link_to 'Italian', recipes_path(cuisine_type: "italian") %></li>
-  <li><%= link_to 'French', recipes_path(cuisine_type: "french") %></li>
-  <li><%= link_to 'British', recipes_path(cuisine_type: "british") %></li>
-</ul>
+<div class="filter-links">
+  <h4 class="filter-title">filter by cuisine</h4>
+  <h4><%= link_to 'All', recipes_path %></h4>
+  <h4><%= link_to 'Indian', recipes_path(cuisine_type: "Indian") %></h4>
+  <h4><%= link_to 'Italian', recipes_path(cuisine_type: "Italian") %></h4>
+  <h4><%= link_to 'French', recipes_path(cuisine_type: "French") %></h4>
+  <h4><%= link_to 'British', recipes_path(cuisine_type: "British") %></h4>
+  <h4><%= link_to 'Chinese', recipes_path(cuisine_type: "Chinese") %></h4>
+</div>
