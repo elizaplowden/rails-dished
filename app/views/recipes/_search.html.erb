@@ -1,6 +1,30 @@
 <!-- [...] -->
-<%= simple_form_for "search", url: recipes_path, html: { class: 'search-bar' }, method: :get  do |f| %>
-  <%= f.label "What's in your fridge?", label_html: { class: 'search-label' }%>
-  <%= f.input :query, collection: foods.pluck(:name), label: false, input_html: { class: 'select2' }  %>
-  <%= f.submit "Search", class: "btn btn-light" %>
+<%= simple_form_for "search", url: recipes_path, html: { class: 'form-inline search-bar' }, method: :get  do |f| %>
+  <%#= f.label "What's in your fridge?", label_html: { class: 'search-label' }%>
+  <%= f.input :query, collection: foods.pluck(:name), label: false, input_html: { class: 'select2', id: 'search-box', multiple: 'multiple' } %>
+  <%= f.submit "Search", class: "button" %>
 <% end %>
+
+
+
+<!--
+
+<form action="/recipes" method="get">
+  <select for="query" class="select2" name="recipes" multiple='multiple'>
+  <% foods.each do |food| %>
+    <option value="<%=food.name%>"><%=food.name%></option>
+  <% end %>
+</select>
+<input type='submit'>
+</form>
+
+<form action="/recipes">
+  <select class="select2" name="filter by">
+    <option value="cook_time">Cooking Time</option>
+    <option value="serves">Serves</option>
+    <option value="rating">Rating</option>
+</select>
+<input type='submit'>
+</form>
+
+-->

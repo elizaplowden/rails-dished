@@ -5,11 +5,14 @@ class RecipesController < ApplicationController
 
   def index
     # used to populate the drop down list (select tag) in the search form
-    @foods = Food.all
+    @foods = Food.order(:name)
     # if statement so the recipes index still returns all recipes if there is no search term
     if params.dig(:search, :query).present?
       # using pgsearch - the search criteria is defined in the Recipe model
       @recipes = Recipe.search_by_food(params.dig(:search, :query))
+    # elsif passing params to filter by cuisine
+    elsif params.key?(:cuisine_type)
+      @recipes = Recipe.where(cuisine: params[:cuisine_type])
     else
       @recipes = Recipe.all
     end
