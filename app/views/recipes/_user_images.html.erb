@@ -3,7 +3,7 @@
   <hr>
     <% if recipe.images.attached? %>
       <% recipe.images.each do |image| %>
-        <%= cl_image_tag image.key, height: 100, width: 100, crop: :fill %>
+        <%= cl_image_tag image.key, height: 150, width: 150, crop: :fill %>
       <% end %>
     <% end %>
     <%= simple_form_for recipe, method: :patch, url: upload_recipe_path do |f| %>
