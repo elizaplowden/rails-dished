@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :ingredients, only: :create
     resources :reviews, only: [:create, :new]
     resources :bookmarks, only: [ :create ]
+    patch :upload, on: :member
   end
 
   post 'wishlist/:id', to: 'recipes#add_to_wishlist', as: 'wishlist'

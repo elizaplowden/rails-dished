@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :find_recipe, only: [:show, :destroy, :edit, :update, :add_to_wishlist, :average_rating]
+  before_action :find_recipe, only: [:show, :destroy, :edit, :update, :upload, :add_to_wishlist, :average_rating]
   before_action :average_rating, only: :show
 
   def index
@@ -33,6 +33,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
+
     if @recipe.save
       redirect_to recipes_path
     else
@@ -44,12 +45,17 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe.update(recipe_params)
-    if @recipe.save
-      redirect_to recipes_path
+    if @recipe.update(recipe_params)
+      redirect_to recipe_path(@recipe)
     else
       render :new
     end
+  end
+
+  def upload
+    @images = recipe_params[:images]
+    @recipe.images.attach(@images)
+    redirect_to recipe_path(@recipe)
   end
 
   def destroy
@@ -91,6 +97,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :instructions, :meal, :cuisine, :serves, :cook_time, :photo, images: { multiple: true})
+    params.require(:recipe).permit(:name, :description, :instructions, :meal, :cuisine, :serves, :cook_time, :photo, images: []  )
   end
 end
