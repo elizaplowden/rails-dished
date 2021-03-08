@@ -11,12 +11,9 @@
           <%#-- Otherwise shows the username %>
           <% else %>
             <h3>Dished Profile</h3>
+            Username: <%= @user.username %>
           <% end %>
-            <div class="avatar-username">
-              <!-- TODO: add an if statement to replace avatar with logo -->
-              <%= cl_image_tag "https://res.cloudinary.com/dupmc3vsd/image/upload/v1614955948/Screenshot_2021-03-05_at_14.49.26_debpb2.png", class: "avatar" %>
-              Username: <%= @user.username %>
-            </div>
+
         </div>
 
 

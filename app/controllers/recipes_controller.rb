@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :find_recipe, only: [:show, :destroy, :edit, :update, :add_to_wishlist, :average_rating]
+  before_action :find_recipe, only: [:show, :destroy, :edit, :update, :upload, :add_to_wishlist, :average_rating]
   before_action :average_rating, only: :show
 
   def index
@@ -10,6 +10,9 @@ class RecipesController < ApplicationController
     if params.dig(:search, :query).present?
       # using pgsearch - the search criteria is defined in the Recipe model
       @recipes = Recipe.search_by_food(params.dig(:search, :query))
+    # elsif passing params to filter by cuisine
+    elsif params.key?(:cuisine_type)
+      @recipes = Recipe.where(cuisine: params[:cuisine_type])
     else
       @recipes = Recipe.all
     end
@@ -30,6 +33,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
+
     if @recipe.save
       redirect_to recipes_path
     else
@@ -41,12 +45,17 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe.update(recipe_params)
-    if @recipe.save
-      redirect_to recipes_path
+    if @recipe.update(recipe_params)
+      redirect_to recipe_path(@recipe)
     else
       render :new
     end
+  end
+
+  def upload
+    @images = recipe_params[:images]
+    @recipe.images.attach(@images)
+    redirect_to recipe_path(@recipe)
   end
 
   def destroy
@@ -88,6 +97,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :instructions, :meal, :cuisine, :serves, :cook_time, :photo, images: { multiple: true})
+    params.require(:recipe).permit(:name, :description, :instructions, :meal, :cuisine, :serves, :cook_time, :photo, images: []  )
   end
 end

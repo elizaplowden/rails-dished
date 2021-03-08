@@ -1,0 +1,19 @@
+.filter-links {
+  background: grey;
+  width: 90px;
+  position: fixed;
+  left: 10px;
+  top: 200px;
+  z-index: 100;
+  padding: 5px;
+  color: white;
+}
+
+.filter-links li {
+  list-style-type: none;
+}
+
+.filter-links a {
+  text-decoration: none;
+  color: white;
+}
