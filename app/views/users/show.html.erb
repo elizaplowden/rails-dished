@@ -57,10 +57,10 @@
             <% end %>
           </div>
 
-
           <div class="index-link">
             <%#-- Link to users index %>
             <% if @user == current_user %>
+            <i class="fas fa-users"></i>
               <%= link_to "Find foodie friends", users_path %>
             <% else %>
               <%= link_to "Find more foodies", users_path %>
