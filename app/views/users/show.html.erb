@@ -11,16 +11,9 @@
           <%#-- Otherwise shows the username %>
           <% else %>
             <h3>Dished Profile</h3>
+            Username: <%= @user.username %>
           <% end %>
-            <div class="avatar-username">
-              <!-- TODO: add an if statement to replace avatar with logo -->
-              <% if @user.avatar.attached? %>
-                 <%=cl_image_tag @user.avatar.key, class: "avatar", crop: :fill  %>
-              <% else %>
-                <%= image_tag, '/dished-logo', class: "placeholder-avatar" %>
-              <% end %>
-              Username: <%= @user.username %>
-            </div>
+
         </div>
 
 

@@ -7,6 +7,7 @@
       <% end %>
     <% end %>
     <%= simple_form_for recipe, method: :patch, url: upload_recipe_path do |f| %>
+      <!-- to add one or mutliple images to a recipe -->
       <%= f.input :images, as: :file, label: false, input_html: {multiple: true} %>
       <%= f.submit "Upload your photo", class: "button" %>
     <% end %>
