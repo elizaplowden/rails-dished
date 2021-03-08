@@ -13,11 +13,15 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <%= render 'shared/wishlist_modal' %>
-      <%= yield %>
-    <%= render 'shared/footer' %>
+      <div class="d-flex flex-column min-vh-100">
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+      <%= render 'shared/wishlist_modal' %>
+      <div class="flex-grow-1">
+        <%= yield %>
+        </div>
+      <%= render 'shared/footer' %>
+     </div>
   </body>
 
 </html>
