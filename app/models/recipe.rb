@@ -14,8 +14,11 @@ class Recipe < ApplicationRecord
   has_one_attached :photo
   has_many_attached :images
 
+  accepts_nested_attributes_for :ingredients
+
   include PgSearch::Model
   pg_search_scope :search_by_food,
                   associated_against: { foods: :name },
                   using: { tsearch: { prefix: true } }
+
 end

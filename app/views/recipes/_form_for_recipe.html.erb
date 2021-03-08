@@ -7,12 +7,11 @@
     <%= f.input :serves, label: 'For how many people?', collection: (1..30) %>
     <%= f.input :cook_time, label: 'How long in minutes?' %>
     <%= f.input :photo, as: :file %>
-
     <hr>
     <h5>Ingredients</h5>
-    <%=  f.simple_fields_for :ingredients do |ingredients_form| %>
-      <%= ingredients_form.input :foods, collection: @foods %>
-      <%= ingredients_form.input :quantity  %>
+    <%=  f.simple_fields_for :ingredients_attributes do |ingredients_form| %>
+      <%= ingredients_form.input :food_id, collection: @foods, label: "Select ingredient", input_html: { name: "recipe[ingredients_attributes][][food_id]" } %>
+      <%= ingredients_form.input :quantity, input_html: { name: "recipe[ingredients_attributes][][quantity]" }  %>
     <% end %>
     <%= f.submit "Submit", class: "button" %>
   <% end %>
