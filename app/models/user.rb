@@ -14,4 +14,5 @@ class User < ApplicationRecord
   has_many :bookmarks
   has_one :cookbook
   validates :username, presence: true, uniqueness: true
+  has_one_attached :avatar
 end
