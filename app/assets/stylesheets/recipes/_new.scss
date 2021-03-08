@@ -1,5 +1,5 @@
 .form-container {
-  width: 500px;
+  width: 650px;
   background-color: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 20px 35px;
@@ -9,10 +9,10 @@
   color: gray;
 }
 
-.yield-container {
-  padding-top: 50px;
-  margin: 70px 250px;
-}
+// .yield-container {
+//   padding-top: 50px;
+//   margin: 70px 250px;
+// }
 
 .form-outer {
   display: flex;
@@ -29,4 +29,7 @@
   color: #E6D74E;
 }
 
-
+.ingredient-form-group {
+  display: flex;
+  justify-content: flex-start;
+}
