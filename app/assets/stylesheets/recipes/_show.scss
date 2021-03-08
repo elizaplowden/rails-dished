@@ -16,17 +16,24 @@ $secondary-colour: #5ADDE6; // blue
 
 .recipe-overview-container  {
   display: flex;
-  padding: 20px 0 20px 40px;
-  justify-content: block;
+  padding: 20px 0 20px 20px;
+  margin-top: 20px;
 }
 
 .ingredients-container ul {
   list-style-type: none;
+  padding:0;
+  padding-top: 20px;
+}
+
+.ingredients-container {
+  padding-right: 50px;
 }
 
 .recipe-method-container {
+  margin-top: 50px;
   display: flex;
-  padding: 20px 0 20px 40px;
+  padding: 20px 0 20px 20px;
   background-color: $secondary-colour;
   color: #fff;
   opacity: 0.8;
@@ -34,6 +41,7 @@ $secondary-colour: #5ADDE6; // blue
 
 .user-images-container, .reviews-container {
   padding: 20px;
+  margin: 20px 0px;
 }
 
 .reviews-container {
@@ -42,12 +50,11 @@ $secondary-colour: #5ADDE6; // blue
 }
 
 .recipe-stats-actions {
-  color: gray;
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 0px 30px 0px;
-  align-items: center;
-  font-weight: bold;
+  // color: gray;
+  // display: flex;
+  // justify-content: flex-start;
+  // padding: 10px 0px 30px 0px;
+  // font-weight: bold;
 
 }
 
@@ -55,13 +62,22 @@ $secondary-colour: #5ADDE6; // blue
   width: 450px;
   height: 400px;
   object-fit: cover;
+  border-radius: 16px;
+  margin-top: 30px;
 
 }
 
 .recipe-info-bar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+}
+
+.recipe-info-icons{
+  margin-left: 130px;
+  display:flex;
+  .cook-time{
+    padding-right: 20px;
+  }
 }
 
 .recipe-info-bar h4 {
@@ -113,7 +129,7 @@ $secondary-colour: #5ADDE6; // blue
   padding: 0px;
   img{
     margin-right: 10px;
-    border-radius: 5px;
+    border-radius: 16px;
     margin-bottom: 20px;
   }
   // to style buttons etc

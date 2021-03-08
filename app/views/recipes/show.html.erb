@@ -5,17 +5,19 @@
     <div class="ingredients-container col-7">
       <div class="recipe-stats-actions">
         <%= render "./shared/rating", rating: @average_rating %>
-        <%= render "./shared/cookbook_button", recipe: @recipe %>
-        <%= render "./shared/dishlist_button", recipe: @recipe %>
       </div>
+
       <div class="recipe-info-bar">
         <h4>Ingredients</h4>
-        <div class="cook-time">
-          <i class="fas fa-clock"></i> <%= @recipe.cook_time %> mins
+        <div class="recipe-info-icons">
+          <div class="cook-time">
+            <i class="fas fa-clock"></i> <%= @recipe.cook_time %> mins
+          </div>
+          <div class="serves">
+            <i class="fas fa-user-friends"></i> <%= @recipe.serves %>
+          </div>
         </div>
-        <div class="serves">
-          <i class="fas fa-user-friends"></i> Serves <%= @recipe.serves %>
-        </div>
+
       </div>
       <hr>
        <ul>
@@ -43,6 +45,9 @@
   <div class="reviews-container">
     <%= render "reviews", recipe: @recipe %>
   </div>
+
+    <%= render "./shared/cookbook_button", recipe: @recipe %>
+    <%= render "./shared/dishlist_button", recipe: @recipe %>
 
   <ul>
       <li><%= link_to 'Delete Recipe', recipe_path(@recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
