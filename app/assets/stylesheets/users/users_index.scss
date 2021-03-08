@@ -17,8 +17,9 @@
 .explore-feed-user-item {
   margin: 16px;
   border-radius: 16px;
-  box-shadow: 1px 1px 1px 1px #888888;
-  padding: 16px;
+  box-shadow: 1px 1px 1px 1px #e6e3e385;
+  padding: 20px;
+  background: white;
 }
 
 .explore-feed {
@@ -57,6 +58,11 @@
   bottom: 0px;
   left: 12px;
   color: white;
+}
+
+.explore-container {
+  padding: 80px 100px;
+  background: #5ADDE6;
 }
 
 
