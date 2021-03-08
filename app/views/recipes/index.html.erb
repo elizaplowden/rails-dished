@@ -1,18 +1,18 @@
-
 <div class="container">
-  <div class="index-search">
-   <%= render "search", foods: @foods %>
-  </div>
+  <div class="index-page">
+    <div class="index-search">
+      <%= render "search", foods: @foods %>
+    </div>
 
-<%= render "shared/filter_panel" %>
-<%= render 'shared/index-card', recipe: @recipe %>
+    <%= render "shared/filter_panel" %>
+    <%= render 'shared/index-card', recipe: @recipe %>
 
-
-
-<br>
-<%#-- Link to New recipe%>
+    <br>
+  <%#-- Link to New recipe%>
   <div class="recipe-button">
     <%= link_to "Create Recipe", new_recipe_path %>
+  </div>
+
   </div>
 
 </div>
