@@ -5,13 +5,17 @@
 @import "notes";
 @import "reviews";
 
+.index-page{
+  padding-bottom: 20px;
+}
+
 .index-search{
   display:flex;
   justify-content: center;
-  // margin-bottom: 20px;
+  padding-bottom: 30px;
   // background-color: #5ADDE6;
   // color: #f4f4f4;
-  // width: 98%;
+  width: 98%;
   border-radius: 10px;
 }
 
