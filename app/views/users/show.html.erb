@@ -3,9 +3,15 @@
 <div class="user-profile-page">
   <div class="profile-info">
         <div class="user-profile">
-          <%#--Shows that this is YOUR profile page if it's yours %>
-          <% if @user == current_user %>
 
+          <%#--Shows profile name %>
+            <h3><%= @user.username %></h3>
+            <%#-- Follow / Unfollow logic %>
+            <% if current_user != @user && !current_user.follows_given.pluck(:followee_id).include?(@user.id) %>
+              <button><%= link_to "Follow", follow_user_path(@user), method: :post %></button>
+            <% elsif current_user != @user  %>
+              <button><%= link_to "Unfollow", unfollow_user_path(@user), method: :delete %></button>
+            <% end %>
 
            <div class="avatar-username">
               <!-- TODO: add an if statement to replace avatar with logo -->
@@ -14,13 +20,8 @@
               <% else %>
                 <%= image_tag 'logo-dished' %>
               <% end %>
-              <h3>Dished Profile for <%= @user.username %></h3>
             </div>
-          <%#-- Otherwise shows the username %>
-          <% else %>
-            <h3><%= @user.username %></h3>
-          <% end %>
-        </div>
+      
 
 
         <div class="followings">
@@ -29,14 +30,6 @@
           <%#-- Shows who you are following %>
           <%= render "./shared/following_modal" %>
 
-          <div class="follow-buttons">
-            <%#-- Follow / Unfollow logic %>
-            <% if current_user != @user && !current_user.follows_given.pluck(:followee_id).include?(@user.id) %>
-              <%= link_to "Follow this foodie", follow_user_path(@user), method: :post %>
-            <% elsif current_user != @user  %>
-              <%= link_to "Unfollow this foodie", unfollow_user_path(@user), method: :delete %>
-            <% end %>
-          </div>
 
           <button>
             <%#-- Link to users index %>
@@ -54,7 +47,7 @@
 
     <%#-- Show each bookmark... this needs to be turned into a card %>
     <div class="cookbook">
-      <h3>Your Dishes</h3>
+      <h3>Saved Dishes</h3>
       <div class="cookbook-content">
 
         <!-- to be replaced by index card once created -->

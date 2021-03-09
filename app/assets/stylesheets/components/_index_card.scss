@@ -18,10 +18,19 @@
   transition: all 0.2s linear;
 }
 
+#explore-page {
+  width: 400px;
+  margin: 12px;
+}
+
 // Index text positioning
 .index-card-text {
   position: absolute;
   bottom: 0px;
+}
+
+#explore-text {
+  left: 20px;
 }
 
 // specific styling for serves, cooktime, ratings

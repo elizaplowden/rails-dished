@@ -1,13 +1,23 @@
-<div class="explore-container">
+<div class="container">
 <%# explore feed container %>
+  <h2 class="explore-heading">Explore Top Rated Chefs</h2>
 
-<h2 class="explore-heading">Explore Top Rated Chefs</h2>
+    <% @users.each do |user| %>
+    <%# explore feed item containing username and recipes %>
 
-<% @users.each do |user| %>
-<%# explore feed item containing username and recipes %>
+      <div class="explore-feed-user-item">
 
+        <div class="explore-feed-heading">
+          <%# the name of the user %>
+          <h2 id="h2"><%= link_to user.username, user %></h2>
 
-  <div class="explore-feed-user-item">
+          <%# follow/unfollow user %>
+          <h2 class="chilli-button" id="h2"><% if current_user != user && !current_user.follows_given.pluck(:followee_id).include?(user.id) %>
+          <%= link_to "Follow", follow_user_path(user), method: :post %>
+          <% elsif current_user != user  %>
+          <%= link_to "Unfollow", unfollow_user_path(user), method: :delete %>
+          <% end %><i class="fas fa-pepper-hot"></i></h2>
+
 
     <div class="explore-feed-heading">
     <%# the name of the user %>
@@ -26,25 +36,28 @@
 
     </div>
 
-    <div class="explore-feed-item">
+        <div class="explore-feed-item">
 
-    <% user.recipes.each do |recipe| %>
-    <%# making the recipe item a link %>
-    <%=link_to recipe_path(recipe.id) do %>
-    <%# Some of the users recipes in a card %>
-      <div class="explore-recipe-card">
-      <%# Recipe image %>
-      <%=cl_image_tag recipe.photo.key, height: 240 %>
-
-        <%# Recipe title %>
-        <div class="explore-recipe-info">
-          <p><%= recipe.name %></p>
+          <% user.recipes.each do |recipe| %>
+          <%# making the recipe item a link %>
+          <%=link_to recipe_path(recipe.id) do %>
+          <%# Some of the users recipes in a card %>
+          <div class="index-card" id="explore-page">
+            <%# Recipe image %>
+            <%=cl_image_tag recipe.photo.key, height: 240 %>
+            <div class="index-card-text" id="explore-text">
+              <div class="index-card-heading">
+                <h2><%=recipe.name.truncate(32)%></h2>
+              <%# Recipe title %>
+              </div>
+              <div class="index-card-info">
+                <p>5 stars</p>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <% end %>
         </div>
-
       </div>
-    <% end %>
-    <% end %>
-    </div>
-  </div>
   <% end %>
 </div>
