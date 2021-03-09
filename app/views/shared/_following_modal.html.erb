@@ -17,7 +17,14 @@
           </div>
               <div class="modal-body">
               <% @user.follows_given.each do |following| %>
+              <div class="modal-info">
                 <p><%= link_to following.followee.username, user_path(following.followee.id) %></p>
+                        <% if following.followee.avatar.attached? %>
+                 <%=cl_image_tag following.followee.avatar.key, class: "avatar-large", crop: :fill  %>
+              <% else %>
+                <%= image_tag 'logo-dished', class: "avatar-large" %>
+              <% end %>
+              </div>
               <% end %>
               </div>
             <div class="modal-footer">
