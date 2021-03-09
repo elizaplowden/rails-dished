@@ -1,4 +1,4 @@
 meta_product_name: "Dished!"
 meta_title: "Dished! Making dinner time easier"
-meta_description: "A recipe inspiration platform for foodies and their friends"
-meta_image: "cover.png" # should exist in `app/assets/images/`
+meta_description: "Recipe inspiration for foodies and your friends"
+meta_image: "cover2.png" # should exist in `app/assets/images/`
