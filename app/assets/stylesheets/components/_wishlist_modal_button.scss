@@ -19,7 +19,7 @@
   background-color: #E6D74E;
 
   border-color: none;
-  opacity: .75;
+  opacity: .8;
 }
 
 // adding specific css for the dishlist button using id
@@ -31,7 +31,13 @@
 }
 
 // adding specific css for the username & follow elements on the explore page
-#h2 {
+#h2-button {
   padding-top: 12px;
   text-align: center;
+  background: #808080c7;
+  text-decoration: none;
+}
+
+#h2-button a {
+  text-decoration: none;
 }
