@@ -25,6 +25,10 @@ User.create(email: 'saraevs@email.com', password: 'Password1', username: 'saraev
 User.create(email: 'phillip@email.com', password: 'Password1', username: 'Phillip')
 User.create(email: 'eliza@email.com', password: 'Password1', username: 'Eliza')
 User.create(email: 'george@email.com', password: 'Password1', username: 'George')
+User.create(email: 'chefcasper@email.com', password: 'Password1', username: 'chefcasper')
+User.create(email: 'nigella@email.com', password: 'Password1', username: 'nigella')
+User.create(email: 'roy@email.com', password: 'Password1', username: 'roychoi')
+
 
 3.times do
   User.create(email: Faker::Internet::email, password: 'Password1', username: Faker::Internet::username)
@@ -67,7 +71,11 @@ recipes_url = [
   'https://themealdb.com/api/json/v1/1/search.php?s=Vegan%20Lasagna',
   'https://themealdb.com/api/json/v1/1/search.php?s=Jerk%20chicken%20with%20rice%20&%20peas',
   'https://themealdb.com/api/json/v1/1/search.php?s=Squash%20linguine',
-  'https://themealdb.com/api/json/v1/1/search.php?s=carrot%20cake'
+  'https://themealdb.com/api/json/v1/1/search.php?s=carrot%20cake',
+  'https://www.themealdb.com/api/json/v1/1/search.php?s=Salmon%20Prawn%20Risotto',
+  'https://www.themealdb.com/api/json/v1/1/search.php?s=Baked%20salmon%20with%20fennel%20&%20tomatoes',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Lasagne',
+  'https://themealdb.com/api/json/v1/1/search.php?s=Blackberry%20Fool'
 ]
 image_url = [
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944353/curry_enmkfv.jpg',
@@ -84,6 +92,10 @@ image_url = [
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949440/lasagne_avupin.jpg',
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949651/jerk_uywqnh.jpg',
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949851/inguine_o0jtfp.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949946/carrot_cake_sw8lch.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949946/carrot_cake_sw8lch.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949946/carrot_cake_sw8lch.jpg',
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949946/carrot_cake_sw8lch.jpg',
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949946/carrot_cake_sw8lch.jpg'
 ]
 
@@ -102,12 +114,15 @@ image_name = [
       'lasagne_avupin.jpg',
       'jerk_uywqnh.jpg',
       'inguine_o0jtfp.jpg',
+      'carrot_cake_sw8lch.jpg',
+      'carrot_cake_sw8lch.jpg',
+      'carrot_cake_sw8lch.jpg',
+      'carrot_cake_sw8lch.jpg',
       'carrot_cake_sw8lch.jpg'
-
 ]
 
 
-15.times do
+19.times do
   recipes_serialized = open(recipes_url[counter]).read
   recipes = JSON.parse(recipes_serialized)
 
@@ -122,7 +137,7 @@ image_name = [
       instructions: meal['strInstructions'],
       serves: rand(1..10),
       cook_time: rand(15..60),
-      cuisine: ["Indian","Italian","French","British","Chinese"].sample,
+      cuisine: ["Indian", "Italian", "French", "British", "Chinese", "Austrian"].sample,
       user: rand_user
     } )
      # creating arrays of the ingredients and foods
@@ -157,37 +172,64 @@ puts "created #{Ingredient.count} ingredients"
 
 ###################################
 
-reviews = ['Really tasty, I love this recipe.', 'I cooked this for my family, and they all loved it.', 'Simple and delicious meal.']
+good_reviews = ['Really tasty, I love this recipe.',
+          'I cooked this for my family, and they all loved it.',
+          'Simple and delicious meal.',
+          'Definitely going to make this again, it was delicious.',
+          'SOOOOOOOOO TASTY!!!!',
+          'Dished is the best website, I love this recipe!',
+          'I loved the recipe, but it makes way too much! I couldnt eat it all.',
+          'Lovely meal',
+          'I really enjoyed this.',
+          'Cooked this recently, great as a mid-week meal.',
+          'I want to eat this all the time!!!!',
+          'Better than a restaurant',
+          'I love Dished, their recipes are always amazing. This is another winner.'
+          ]
 
 counter = 0
+recipes = Recipe.all
 
-recipes = []
-recipes << Recipe.find_by(name: 'Banana Pancakes')
-recipes << Recipe.find_by(name: 'Thai Green Curry')
-recipes << Recipe.find_by(name: 'Lamb Tagine')
-recipes << Recipe.find_by(name: 'Vegan lasagne')
-recipes << Recipe.find_by(name: 'Chinon Apple Tarts')
+# creating a good review for every recipe
+recipes.each do |recipe|
+  random_user = User.order("RANDOM()").limit(1).first
 
-5.times do
   Review.create({
-    rating: rand(3..5),
-    description: reviews.sample,
-    user: User.find_by(username: 'GoldenBoy'),
-    recipe: recipes.sample
+    rating: rand(4..5),
+    description: good_reviews[counter],
+    user: random_user,
+    recipe: recipe
   })
   counter += 1
 end
 
-puts "created #{counter} reviews"
+counter = 0
+
+# creating 5 random bad reviews
+bad_reviews = ['I hate this.', 'Won\t cook this again', 'Pretty bland, but was ok once I added some spices', 'Loved it, but it makes way too much, I couldn\'t eat it all!']
+5.times do
+  random_user = User.order("RANDOM()").limit(1).first
+  random_recipe = Recipe.order("RANDOM()").limit(1).first
+
+  Review.create({
+    rating: rand(2..3),
+    description: bad_reviews.sample,
+    user: random_user,
+    recipe: random_recipe
+  })
+  counter += 1
+end
+
+puts "created #{Review.count} reviews"
 
 ###################################
 
 
 follower = User.find_by(username: 'GoldenBoy')
 followees = []
-followees << User.find_by(username: 'user3456')
-followees << User.find_by(username: 'chefjacob')
-followees << User.find_by(username: 'foodielondon')
+followees << User.find_by(username: 'GordonRamsey')
+followees << User.find_by(username: 'jayray')
+followees << User.find_by(username: 'saraevs')
 
 followees.each do |followee|
   Following.create({
