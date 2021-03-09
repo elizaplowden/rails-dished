@@ -17,7 +17,7 @@
                   </div>
                       <div class="modal-body">
                       <% @user.follows_given.each do |following| %>
-                        <p><%= link_to following.followee.username, user_path(following.followee) %></p><br>
+                        <p><%= link_to following.followee.username, user_path(following.followee.id) %></p><br>
                       <% end %>
                       </div>
                     <div class="modal-footer">
