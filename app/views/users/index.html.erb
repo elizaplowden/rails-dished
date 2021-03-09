@@ -14,7 +14,7 @@
     <% if user.avatar.attached? %>
        <%=cl_image_tag user.avatar.key, class: "avatar", crop: :fill  %>
     <% else %>
-      <%= cl_image_tag('dished-logo', crop: :fill) %>
+      <%= image_tag 'logo-dished', class: "avatar", crop: :fill %>
     <% end %>
     <h2 id="h2"><%= link_to user.username, user %></h2>
     <%# follow/unfollow user %>

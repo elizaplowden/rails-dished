@@ -13,7 +13,7 @@
               <% if @user.avatar.attached? %>
                  <%=cl_image_tag @user.avatar.key, class: "avatar", crop: :fill  %>
               <% else %>
-                <%= cl_image_tag('dished-logo', crop: :fill) %>
+                <%= image_tag 'logo-dished' %>
               <% end %>
               <h3>Dished Profile for <%= @user.username %></h3>
             </div>
