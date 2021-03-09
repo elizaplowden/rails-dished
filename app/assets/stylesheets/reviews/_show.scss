@@ -26,6 +26,19 @@
 }
 
 .btn-primary-review {
-  color: gray;
-  border: gray;
+  margin-bottom: 40px;
+  background-color: #80808094;
+  padding: 10px 10px;
+  border-radius: 40px;
+  color: #fff;
+  width: 150px;
+  margin: 5px -5px;
+  text-decoration: none;
+  border: none;
 }
+
+  .btn-primary-review:hover{
+  opacity: 0.8;
+  text-decoration: none;
+  }
+
