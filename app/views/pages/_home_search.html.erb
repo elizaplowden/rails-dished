@@ -1,8 +1,10 @@
-
-<!-- search form that appears on the home page only -->
-<%= simple_form_for "search", url: recipes_path, html: { class: 'form-inline search-bar' }, method: :get  do |f| %>
-  <%= f.input :query, collection: foods.pluck(:name), label: false, input_html: { class: 'select2', multiple: true }, wrapper_html: { id: "home-search-box" } %>
-  <%= f.submit "Search", class: "button" do %>
+<%= simple_form_for "search", url: recipes_path, html: { id: "search-bar-form" }, method: :get  do |f| %>
+  <%= f.input :query, collection: foods.pluck(:name), label: false,
+              input_html: { class: 'select2',
+                            multiple: true,
+                            id: "search-box",
+                            style: "width: 700px;" } %>
+  <%= f.button :button, class: "search_button" do %>
     <i class="fas fa-search"></i>
   <% end %>
 <% end %>
