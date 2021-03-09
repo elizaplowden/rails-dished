@@ -16,10 +16,16 @@
 
 .followings {
   display: flex;
-  justify-content: space-between;
+  align-items: flex-start;
   margin-top: 20px;
 
 }
+
+
+.followings button {
+  margin-right: 48px;
+}
+
 
 h5 {
   padding-bottom: 10px;
