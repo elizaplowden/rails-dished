@@ -1,9 +1,7 @@
 <div class="container">
 
 <div class="user-profile-page">
-  <div class="profile-sections">
-    <div class="user-page">
-      <div class="profile-info">
+  <div class="profile-info">
         <div class="user-profile">
           <%#--Shows that this is YOUR profile page if it's yours %>
           <% if @user == current_user %>
@@ -65,7 +63,6 @@
             <% end %>
           </div>
 
-        </div>
       </div>
     </div>
 
@@ -109,7 +106,6 @@
       <%= link_to 'Back to all recipes', recipes_path %>
     </div>
   </div>
-</div>
 </div>
 
 
