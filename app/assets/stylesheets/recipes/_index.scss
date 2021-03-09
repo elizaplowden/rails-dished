@@ -20,29 +20,24 @@
 }
 
 
-.recipe-button{
+.recipe-button {
   margin-bottom: 40px;
-  background-color: $primary-colour;
-  padding: 10px 10px;
+  background-color: #808080c7;
+  padding: 10px 15px;
   border-radius: 40px;
   color: #fff;
-  width: 200px;
+  width: 145px;
   margin: 5px;
   text-decoration: none;
-  .recipe-button, a{
-  background-color: $primary-colour;
-  padding: 10px 13px;
-  border-radius: 40px;
+}
+
+  .recipe-button a {
   color: #fff;
-  width: 200px;
-  margin: 5px;
   text-decoration: none;
-  }
-  .recipe-button, a:hover{
-  opacity: 0.8;
-  text-decoration: none;
-  color: #fff;
-  padding: 12px 16px;
   }
 
-}
+.recipe-button:hover {
+  opacity: 0.8;
+  text-decoration: none;
+  }
+
