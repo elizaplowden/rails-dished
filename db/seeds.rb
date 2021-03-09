@@ -147,7 +147,7 @@ puts "created #{Ingredient.count} ingredients"
 
 ###################################
 
-reviews = %w('Really tasty, I love this recipe.', 'I cooked this for my family, and they all loved it.', 'Simple and delicious meal.')
+reviews = ['Really tasty, I love this recipe.', 'I cooked this for my family, and they all loved it.', 'Simple and delicious meal.']
 
 counter = 0
 

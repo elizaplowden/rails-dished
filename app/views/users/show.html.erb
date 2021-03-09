@@ -7,13 +7,21 @@
         <div class="user-profile">
           <%#--Shows that this is YOUR profile page if it's yours %>
           <% if @user == current_user %>
-            <h3>Your Dished Profile</h3>
+
+            <div class="avatar-username">
+              <!-- TODO: add an if statement to replace avatar with logo -->
+              <% if @user.avatar.attached? %>
+                 <%=cl_image_tag @user.avatar.key, class: "avatar", crop: :fill  %>
+              <% else %>
+                <%= image_tag 'logo-dished' %>
+              <% end %>
+              <h3>Dished Profile for <%= @user.username %></h3>
+            </div>
           <%#-- Otherwise shows the username %>
           <% else %>
             <h3>Dished Profile</h3>
             Username: <%= @user.username %>
           <% end %>
-
         </div>
 
 
@@ -104,6 +112,7 @@
 
     </div>
     <div class="recipe-links">
+      <%= link_to 'Edit your profile', edit_user_registration_path %>
       <%= link_to 'Upload a new recipe', new_recipe_path %>
       <%= link_to 'Back to all recipes', recipes_path %>
     </div>

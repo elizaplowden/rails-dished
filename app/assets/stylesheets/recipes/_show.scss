@@ -16,17 +16,24 @@ $secondary-colour: #5ADDE6; // blue
 
 .recipe-overview-container  {
   display: flex;
-  padding: 20px 0 20px 40px;
-  justify-content: block;
+  padding: 20px 0 20px 20px;
+  margin-top: 20px;
 }
 
 .ingredients-container ul {
   list-style-type: none;
+  padding:0;
+  padding-top: 20px;
+}
+
+.ingredients-container {
+  padding-right: 50px;
 }
 
 .recipe-method-container {
+  margin-top: 50px;
   display: flex;
-  padding: 20px 0 20px 40px;
+  padding: 20px 0 20px 20px;
   background-color: $secondary-colour;
   color: #fff;
   opacity: 0.8;
@@ -34,6 +41,7 @@ $secondary-colour: #5ADDE6; // blue
 
 .user-images-container, .reviews-container {
   padding: 20px;
+  margin: 20px 0px;
 }
 
 .reviews-container {
@@ -49,19 +57,87 @@ $secondary-colour: #5ADDE6; // blue
   align-items: center;
   font-weight: bold;
 
+  // color: gray;
+  // display: flex;
+  // justify-content: flex-start;
+  // padding: 10px 0px 30px 0px;
+  // font-weight: bold;
+}
+
+.recipe-photo-container{
+  position:relative;
+  display:block;
 }
 
 .recipe-photo {
   width: 450px;
   height: 400px;
   object-fit: cover;
+  border-radius: 16px;
+  margin-top: 30px;
 
 }
 
+
+.cookbook-button-save, .cookbook-button-saved{
+    position:absolute;
+    top:0;
+    right: 0;
+    z-index: 2;
+    color: $secondary-colour;
+    font-weight: bold;
+
+  }
+
+
+.cookbook-button-save:hover, .cookbook-button-saved:hover{
+  text-decoration: none;
+  color: $primary-colour;
+  font-weight: bold;
+}
+
+.dishlist-button {
+  color: $secondary-colour;
+  font-weight: bold;
+}
+
+.dishlist-button:hover{
+  color: $primary-colour;
+  font-weight: bold;
+}
+
+
+// .cookbook-button-save, .cookbook-button-saved {
+//   // background-color: $primary-colour;
+//   // padding: 10px 15px;
+//   // border-radius: 40px;
+//   // color: #fff;
+//   // a{
+//   //   color: #fff
+//   // }
+// // }
+
+
+// .cookbook-button-save:hover, .cookbook-button-saved:hover{
+  //   opacity: 0.8;
+  //   text-decoration: none;
+  //   color: #fff;
+  //   padding: 12px 16px;
+  // }
+
+
+
 .recipe-info-bar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+}
+
+.recipe-info-icons{
+  margin-left: 130px;
+  display:flex;
+  .cook-time{
+    padding-right: 20px;
+  }
 }
 
 .recipe-info-bar h4 {
@@ -72,54 +148,38 @@ $secondary-colour: #5ADDE6; // blue
   color: $primary-colour;
 }
 
-.cookbook-button-save, .cookbook-button-saved {
-  background-color: $primary-colour;
-  padding: 10px 15px;
-  border-radius: 40px;
-  color: #fff;
-  a{
-    color: #fff
-  }
-}
 
 
-.cookbook-button-save:hover, .cookbook-button-saved:hover{
-    opacity: 0.8;
-    text-decoration: none;
-    color: #fff;
-    padding: 12px 16px;
-  }
+// .dishlist-button{
+//   background-color: $primary-colour;
+//   padding: 10px 15px;
+//   border-radius: 40px;
+//   color: #fff;
+//   a{
+//     color: #fff
+//   }
+// }
 
 
-.dishlist-button{
-  background-color: $primary-colour;
-  padding: 10px 15px;
-  border-radius: 40px;
-  color: #fff;
-  a{
-    color: #fff
-  }
-}
-
-
-.dishlist-button:hover{
-     opacity: 0.8;
-    text-decoration: none;
-    color: #fff;
-    padding: 12px 16px;
-}
+// .dishlist-button:hover{
+//      opacity: 0.8;
+//     text-decoration: none;
+//     color: #fff;
+//     padding: 12px 16px;
+// }
 
 .user-image-uploads{
   padding: 0px;
   img{
     margin-right: 10px;
-    border-radius: 5px;
+    border-radius: 16px;
     margin-bottom: 20px;
   }
   // to style buttons etc
   .simple_form{
   }
 }
+
 
 .show-button {
   margin-bottom: 40px;
@@ -154,8 +214,18 @@ $secondary-colour: #5ADDE6; // blue
 
 
 
+.recipe-actions a{
+  margin-top: 30px;
+  display:flex;
+  color: $secondary-colour;
+  font-weight:bold;
+}
 
+.recipe-actions a:hover{
+  color: $primary-colour;
+}
 
-
-
+.recipe-actions{
+  margin: 40px 20px;
+}
 

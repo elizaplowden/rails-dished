@@ -2,10 +2,9 @@ class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :find_recipe, only: [:show, :destroy, :edit, :update, :upload, :add_to_wishlist, :average_rating]
   before_action :average_rating, only: :show
+  before_action :foods, only: [:index, :new]
 
   def index
-    # used to populate the drop down list (select tag) in the search form
-    @foods = Food.order(:name)
     # if statement so the recipes index still returns all recipes if there is no search term
     if params.dig(:search, :query).present?
       # using pgsearch - the search criteria is defined in the Recipe model
@@ -19,6 +18,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @review = Review.new
     @bookmark = current_user.bookmarks.find_by(recipe: @recipe)
     if @bookmark.nil?
       @bookmark = Bookmark.new
@@ -31,10 +31,16 @@ class RecipesController < ApplicationController
   end
 
   def create
+    # recipe_params = recipe_params.to_hash
+    # recipe_params[:ingredients_attributes] = recipe_params[:ingredients_attributes].select { |i| i[:quantity].present? }
+    # recipe_params.deep_transform_keys!(&:compact)
+    ingredients_attributes = params[:recipe][:ingredients_attributes]
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
 
     if @recipe.save
+      ingredients_attributes.map! { |attribute| Ingredient.create!(food_id: attribute[:food_id], quantity: attribute[:quantity], recipe: @recipe) if attribute[:quantity].present? }
+      @recipe.ingredients = ingredients_attributes.reject(&:nil?)
       redirect_to recipes_path
     else
       render :new
@@ -97,6 +103,11 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :instructions, :meal, :cuisine, :serves, :cook_time, :photo, images: []  )
+    params.require(:recipe).permit(:name, :description, :instructions, :meal, :cuisine, :serves, :cook_time, :photo, images: [] )
+  end
+
+  def foods
+    # gets a list of all the foods in the Foods table and sorts them alphabetically by name
+    @foods = Food.order(:name)
   end
 end

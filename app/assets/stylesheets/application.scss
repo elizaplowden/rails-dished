@@ -21,10 +21,9 @@
 
 h1 {
   font-family: 'Courgette', serif;
-  // font-family: 'Playfair Display SC', serif;
 }
 
-h2, h3, h4 {
+h2, h3, h4, h5 {
   font-family: 'Cutive Mono', monospace;
 }
 
@@ -33,3 +32,11 @@ body {
   background-color: #fff;
 }
 
+a {
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}
