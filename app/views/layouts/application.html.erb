@@ -14,7 +14,13 @@
 
   <body>
       <div class="d-flex flex-column min-vh-100">
-      <%= render 'shared/navbar' %>
+      <% if current_page?("/") %>
+        <div class="fixed-top">
+          <%= render 'shared/navbar' %>
+        </div>
+      <% else %>
+        <%= render 'shared/navbar' %>
+      <% end %>
       <%= render 'shared/flashes' %>
       <%= render 'shared/wishlist_modal' %>
       <div class="flex-grow-1">
