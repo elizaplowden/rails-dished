@@ -13,9 +13,6 @@
               <button><%= link_to "Unfollow", unfollow_user_path(@user), method: :delete %></button>
             <% end %>
 
-          <%#--Shows that this is YOUR profile page if it's yours %>
-          <% if @user == current_user %>
-
            <div class="avatar-username">
               <!-- TODO: add an if statement to replace avatar with logo -->
               <% if @user.avatar.attached? %>
