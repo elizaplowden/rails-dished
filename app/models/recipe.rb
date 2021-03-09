@@ -19,5 +19,5 @@ class Recipe < ApplicationRecord
   include PgSearch::Model
   pg_search_scope :search_by_food,
                   associated_against: { foods: :name },
-                  using: { tsearch: { prefix: true } }
+                  using: { tsearch: { prefix: true, any_word: false } }
 end
