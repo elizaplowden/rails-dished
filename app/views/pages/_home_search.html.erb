@@ -1,26 +1,8 @@
+
+<!-- search form that appears on the home page only -->
 <%= simple_form_for "search", url: recipes_path, html: { class: 'form-inline search-bar' }, method: :get  do |f| %>
-  <%= f.input :query, collection: foods.pluck(:name), label: false, placeholder: "What's in your fridge?", input_html: { class: 'select2', multiple: true }, wrapper_html: { id: "home-search-box" } %>
+  <%= f.input :query, collection: foods.pluck(:name), label: false, input_html: { class: 'select2', multiple: true }, wrapper_html: { id: "home-search-box" } %>
   <%= f.submit "Search", class: "button" do %>
     <i class="fas fa-search"></i>
   <% end %>
 <% end %>
-
-<!-- rails form -->
-
-<%#= form_for(recipes_path) do |f| %>
-  <%#= f.text_field :name %>
-<%# end %>
-
-<!-- html form -->
-
-<!-- <form action="/recipes" method="get" id="html-select2-form">
-  <select for="recipes" class="select2" name="search[query]" id="search_query" multiple='multiple'>
-    <%# foods.each do |food| %>
-      <option><%#=food.name%></option>
-    <%# end %>
-  </select>
-  <input type='Submit'>
-    <i class="fas fa-search"></i>
-  </input>
-</form>
- -->

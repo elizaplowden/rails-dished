@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
 
   def index
     # if statement so the recipes index still returns all recipes if there is no search term
+    # also it removes any blank values from the search array
     if params.dig(:search, :query).present? && !params.dig(:search, :query).reject(&:blank?).empty?
       # using pgsearch - the search criteria is defined in the Recipe model
       @recipes = Recipe.search_by_food(params.dig(:search, :query))
