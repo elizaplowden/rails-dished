@@ -1,7 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 require 'json'
 require 'open-uri'
+require 'faker'
 
 puts 'deleting existing records...'
 
@@ -18,10 +17,11 @@ User.delete_all
 
 ###################################
 
-User.create(email: 'email@gmail.com', password: 'Password1', username: 'user3456')
-User.create(email: 'email@hotmail.com', password: 'Password2', username: 'foodielondon')
-User.create(email: 'email@outlook.com', password: 'Password3', username: 'chefjacob')
+
 User.create(email: 'goldenboy@gmail.com', password: 'goldenboy', username: 'GoldenBoy')
+User.create(email: 'gordon@kitchennightmares.com', password: 'gordon', username: 'Gordon Ramsey')
+User.create(email: 'jayray@gmail.com', password: 'jayray', username: 'jayray')
+
 
 puts "created #{User.count} users"
 
