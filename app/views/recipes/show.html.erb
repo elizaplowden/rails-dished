@@ -1,11 +1,13 @@
 <div class="container">
 <div class="show-container">
-  <h2><%=@recipe.name%></h2>
+
+  <div class="recipe-stats-actions">
+    <h2><%=@recipe.name%></h2>
+    <%= render "./shared/rating", rating: @average_rating %>
+  </div>
   <div class="recipe-overview-container">
     <div class="ingredients-container col-7">
-      <div class="recipe-stats-actions">
-        <%= render "./shared/rating", rating: @average_rating %>
-      </div>
+
 
       <div class="recipe-info-bar">
         <h4>Ingredients</h4>
