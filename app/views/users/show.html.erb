@@ -1,89 +1,91 @@
 <div class="container">
 
-<div class="user-profile-page">
-  <div class="profile-info">
-        <div class="user-profile">
 
-          <%#--Shows profile name %>
-            <h3><%= @user.username %></h3>
-            <%#-- Follow / Unfollow logic %>
-            <% if current_user != @user && !current_user.follows_given.pluck(:followee_id).include?(@user.id) %>
-              <button><%= link_to "Follow", follow_user_path(@user), method: :post %></button>
-            <% elsif current_user != @user  %>
-              <button><%= link_to "Unfollow", unfollow_user_path(@user), method: :delete %></button>
-            <% end %>
+  <div class="user-profile-page">
+    <div class="profile-info">
+          <div class="user-profile">
 
-           <div class="avatar-username">
-              <!-- TODO: add an if statement to replace avatar with logo -->
-              <% if @user.avatar.attached? %>
-                 <%=cl_image_tag @user.avatar.key, class: "avatar", crop: :fill  %>
+            <%#--Shows profile name %>
+              <h3><%= @user.username %></h3>
+              <%#-- Follow / Unfollow logic %>
+              <% if current_user != @user && !current_user.follows_given.pluck(:followee_id).include?(@user.id) %>
+                <button><%= link_to "Follow", follow_user_path(@user), method: :post %></button>
+              <% elsif current_user != @user  %>
+                <button><%= link_to "Unfollow", unfollow_user_path(@user), method: :delete %></button>
+              <% end %>
+
+             <div class="avatar-username">
+                <!-- TODO: add an if statement to replace avatar with logo -->
+                <% if @user.avatar.attached? %>
+                   <%=cl_image_tag @user.avatar.key, class: "avatar", crop: :fill  %>
+                <% else %>
+                  <%= image_tag 'logo-dished' %>
+                <% end %>
+              </div>
+
+
+
+          <div class="followings">
+            <%#-- Shows who follows you %>
+            <%= render "./shared/follower_modal" %>
+            <%#-- Shows who you are following %>
+            <%= render "./shared/following_modal" %>
+
+
+            <button>
+              <%#-- Link to users index %>
+              <% if @user == current_user %>
+              <i class="fas fa-users"></i>
+                <%= link_to "Find foodie friends", users_path %>
               <% else %>
-                <%= image_tag 'logo-dished' %>
+                <%= link_to "Find more foodies", users_path %>
+                <br>
               <% end %>
-            </div>
-      
+            </button>
 
-
-        <div class="followings">
-          <%#-- Shows who follows you %>
-          <%= render "./shared/follower_modal" %>
-          <%#-- Shows who you are following %>
-          <%= render "./shared/following_modal" %>
-
-
-          <button>
-            <%#-- Link to users index %>
-            <% if @user == current_user %>
-            <i class="fas fa-users"></i>
-              <%= link_to "Find foodie friends", users_path %>
-            <% else %>
-              <%= link_to "Find more foodies", users_path %>
-              <br>
-            <% end %>
-          </button>
-
+        </div>
       </div>
-    </div>
 
-    <%#-- Show each bookmark... this needs to be turned into a card %>
-    <div class="cookbook">
-      <h3>Saved Dishes</h3>
-      <div class="cookbook-content">
+      <%#-- Show each bookmark... this needs to be turned into a card %>
+      <div class="cookbook">
+        <h3>Saved Dishes</h3>
+        <div class="cookbook-content">
 
-        <!-- to be replaced by index card once created -->
-        <div class="index-container">
-          <% @user.bookmarks.each do |bookmark| %>
-            <div class="index-box">
-              <%=link_to recipe_path(bookmark.recipe.id) do %>
-                <div class='index-card'>
-                  <%=cl_image_tag bookmark.recipe.photo.key, height: 400 %>
-                  <div class="index-card-text">
-                      <div class="index-card-heading">
-                        <h2><%=bookmark.recipe.name.truncate(32)%></h2>
-                      </div>
-                      <div class="index-card-info">
-                          <p><%=bookmark.recipe.cook_time%> minutes</p>
-                          <p>Serves <%=bookmark.recipe.serves%></p>
-                          <p><%=bookmark.recipe.cuisine%></p>
-                          <p>5 stars</p>
-                      </div>
+          <!-- to be replaced by index card once created -->
+          <div class="index-container">
+            <% @user.bookmarks.each do |bookmark| %>
+              <div class="index-box">
+                <%=link_to recipe_path(bookmark.recipe.id) do %>
+                  <div class='index-card'>
+                    <%=cl_image_tag bookmark.recipe.photo.key, height: 400 %>
+                    <div class="index-card-text">
+                        <div class="index-card-heading">
+                          <h2><%=bookmark.recipe.name.truncate(32)%></h2>
+                        </div>
+                        <div class="index-card-info">
+                            <p><%=bookmark.recipe.cook_time%> minutes</p>
+                            <p>Serves <%=bookmark.recipe.serves%></p>
+                            <p><%=bookmark.recipe.cuisine%></p>
+                            <p>5 stars</p>
+                        </div>
+                    </div>
                   </div>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+
+
+
         </div>
 
 
-
       </div>
-
-
-    </div>
-    <div class="recipe-links">
-      <%= link_to 'Edit your profile', edit_user_registration_path %>
-      <%= link_to 'Upload a new recipe', new_recipe_path %>
-      <%= link_to 'Back to all recipes', recipes_path %>
+      <div class="recipe-links">
+        <div class="gray-button"><%= link_to 'Edit your profile', edit_user_registration_path %></div>
+        <div class="gray-button"><%= link_to 'Upload a new recipe', new_recipe_path %></div>
+        <div class="gray-button"><%= link_to 'Back to all recipes', recipes_path %></div>
+      </div>
     </div>
   </div>
 </div>

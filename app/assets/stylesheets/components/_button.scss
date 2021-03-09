@@ -1,21 +1,27 @@
 // colour variables
 $primary-colour: #80808094; // gray
-$secondary-colour: #5ADDE6; // blue
 
-// .recipe-button{
-//   margin-bottom: 40px;
-//   background-color: #80808094;
-//   padding: 10px 10px;
-//   border-radius: 40px;
-//   color: #fff;
-//   width: 200px;
-//   margin: 5px;
-//   text-decoration: none;
-//   .recipe-button, a{
-//   color: #fff;
-//   text-decoration: none;
-//   }
-//   .recipe-button, a:hover{
-//   opacity: 0.8;
-//   text-decoration: none;
-//   }
+// Gray Button
+.gray-button {
+  background-color: #80808094;
+  padding: 10px 15px;
+  border-radius: 40px;
+  color: #fff;
+  width: 15%;
+  margin: 5px;
+  text-decoration: none;
+  text-align: center;
+  height: 35px;
+  font-size: 15px;
+}
+
+  .gray-button a {
+  color: #fff;
+  text-decoration: none;
+  }
+
+.gray-button:hover {
+  opacity: 0.8;
+  text-decoration: none;
+  }
+
