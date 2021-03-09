@@ -1,7 +1,7 @@
 // recipe show page css goes here
 
 // colour variables
-$primary-colour: #E6D74E; // yellow
+$primary-colour: #80808094; // gray
 $secondary-colour: #5ADDE6; // blue
 
 
@@ -45,23 +45,28 @@ $secondary-colour: #5ADDE6; // blue
 }
 
 .reviews-container {
-  background-color: $primary-colour;
+  background-color: #E6D74E;
   border: 0;
 }
 
 .recipe-stats-actions {
+  color: #80808094;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0px 30px 0px;
+  align-items: center;
+  font-weight: bold;
+
   // color: gray;
   // display: flex;
   // justify-content: flex-start;
   // padding: 10px 0px 30px 0px;
   // font-weight: bold;
-
 }
 
 .recipe-photo-container{
   position:relative;
   display:block;
-
 }
 
 .recipe-photo {
@@ -174,6 +179,40 @@ $secondary-colour: #5ADDE6; // blue
   .simple_form{
   }
 }
+
+
+.show-button {
+  margin-bottom: 40px;
+  background-color: #80808094;
+  padding: 10px 15px;
+  border-radius: 40px;
+  color: #fff;
+  width: 145px;
+  margin: 5px;
+  text-decoration: none;
+}
+  .show-button, a {
+  text-decoration: none;
+  color: #fff;
+  }
+
+  a:hover {
+  opacity: 0.8;
+  text-decoration: none;
+  color: #fff;
+  }
+
+#delete-review {
+  background-color: #80808094;
+}
+
+.links-to {
+  list-style-type: none;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+
 
 .recipe-actions a{
   margin-top: 30px;
