@@ -3,17 +3,22 @@
   // padding: 30px;
 }
 
-
 #search-box {
   width: 400px;
 }
 
 
+#search_query {
+  border-radius: 25px 0 0 25px;
+  width: 900px !important;
+  height: 100px !important;
+}
+
 .index-search{
-//   background-color: #5ADDE6;
-//   color: #f4f4f4;
-//   width: 98%;
-//   padding-bottom: 30px;
-//   padding-top: 30px;
-//   border-radius: 10px;
+  background-color: #5ADDE6;
+  color: #f4f4f4;
+  width: 98%;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  border-radius: 10px;
 }
