@@ -6,12 +6,8 @@
 
 .profile-info {
   display: block;
-  background: #5ADDE6;
-  color: white;
-  padding: 30px 85px;
+  color: black;
   margin-top: 15px;
-    display: flex;
-  justify-content: space-between;
   }
 
 .avatar-username {
@@ -20,9 +16,8 @@
 
 .followings {
   display: flex;
-  flex-direction: column;
-  margin-top: 40px;
-  margin-left: 30px;
+  justify-content: space-between;
+  margin-top: 20px;
 
 }
 
@@ -32,7 +27,7 @@ h5 {
 
 
 .cookbook{
-  margin-top: 60px;
+  margin-top: 20px;
   .index-card {
     padding:0;
   }
@@ -101,7 +96,7 @@ h5 {
 
 .followings a {
   text-decoration: none;
-  color: #fff;
+  color: black;
 }
 
 .followings a:hover{
