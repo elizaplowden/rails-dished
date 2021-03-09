@@ -1,5 +1,8 @@
 <%= simple_form_for "search", url: recipes_path, html: { id: "search-bar-form" }, method: :get  do |f| %>
-  <%= f.input :query, collection: foods.pluck(:name), label: false,
+  <%= f.input :query,
+              collection: foods.pluck(:name),
+              label: false,
+              selected: search_terms,
               input_html: { class: 'select2',
                             multiple: true,
                             id: "search-box",

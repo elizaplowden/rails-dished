@@ -53,15 +53,15 @@
 .select2-container {
   min-width: 200px;
    font-family: Open Sans;
-   min-height: 50px;
    border: 0 !important;
 }
 
 .search_query, .select2-search, .select2-selection, .select2-selection__rendered {
-  min-height: 50px !important;
   border-radius: 20px 0 0 20px !important;
   border-right: 0 !important;
-  padding: 0 !important;
+  padding-left: 13px !important;
+  padding-top: 13px !important;
+  padding-bottom: 13px !important;
 }
 
 .select2-selection {
@@ -72,7 +72,6 @@
 }
 
 .select2-search__field {
-  height: 50px !important;
   margin: 0 !important;
 }
 
