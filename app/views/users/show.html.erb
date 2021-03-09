@@ -1,14 +1,13 @@
 <div class="container">
 
 <div class="user-profile-page">
-  <div class="profile-sections">
-    <div class="user-page">
-      <div class="profile-info">
+  <div class="profile-info">
         <div class="user-profile">
           <%#--Shows that this is YOUR profile page if it's yours %>
           <% if @user == current_user %>
 
-            <div class="avatar-username">
+
+           <div class="avatar-username">
               <!-- TODO: add an if statement to replace avatar with logo -->
               <% if @user.avatar.attached? %>
                  <%=cl_image_tag @user.avatar.key, class: "avatar", crop: :fill  %>
@@ -19,39 +18,16 @@
             </div>
           <%#-- Otherwise shows the username %>
           <% else %>
-            <h3>Dished Profile</h3>
-            Username: <%= @user.username %>
+            <h3><%= @user.username %></h3>
           <% end %>
         </div>
 
 
         <div class="followings">
-          <%#-- Shows who you are following %>
-          <h4>Community</h4>
-          <% if @user.follows_given.empty? %>
-            <p>Not following anyone</p>
-          <% else %>
-            <p>Following:
-            <%= @user.follows_given.count%>
-            <br>
-            <% @user.follows_given.each do |following| %>
-              <%= link_to following.followee.username, user_path(following.followee) %><br>
-            <% end %></p>
-          <% end %>
-
-          <br>
           <%#-- Shows who follows you %>
-          <% if @user.follows_received.empty? %>
-            <p>No followers</p>
-          <% else %>
-            <p>Followed by:
-            <%= @user.follows_received.count %>
-            <br>
-            <% @user.follows_received.each do |following| %>
-              <%= link_to following.follower.username, user_path(following.follower) %><br>
-            <% end %></p>
-          <% end %>
-
+          <%= render "./shared/follower_modal" %>
+          <%#-- Shows who you are following %>
+          <%= render "./shared/following_modal" %>
 
           <div class="follow-buttons">
             <%#-- Follow / Unfollow logic %>
@@ -62,7 +38,7 @@
             <% end %>
           </div>
 
-          <div class="index-link">
+          <button>
             <%#-- Link to users index %>
             <% if @user == current_user %>
             <i class="fas fa-users"></i>
@@ -71,9 +47,8 @@
               <%= link_to "Find more foodies", users_path %>
               <br>
             <% end %>
-          </div>
+          </button>
 
-        </div>
       </div>
     </div>
 
@@ -85,22 +60,23 @@
         <!-- to be replaced by index card once created -->
         <div class="index-container">
           <% @user.bookmarks.each do |bookmark| %>
-
             <div class="index-box">
-
-              <div class="index-card">
-                <%=cl_image_tag bookmark.recipe.photo.key, height: 320  %>
-                <div class="index-card-text">
-                  <div class="index-card-heading">
-                    <h2><%= link_to bookmark.recipe.name, recipe_path(bookmark.recipe.id) %></h2>
-                  </div>
-                  <div class="index-card-info">
-                    <p><%=bookmark.recipe.cook_time%> minutes</p>
-                    <p>Serves <%=bookmark.recipe.serves%></p>
-                    <p>5 stars</p>
+              <%=link_to recipe_path(bookmark.recipe.id) do %>
+                <div class='index-card'>
+                  <%=cl_image_tag bookmark.recipe.photo.key, height: 400 %>
+                  <div class="index-card-text">
+                      <div class="index-card-heading">
+                        <h2><%=bookmark.recipe.name.truncate(32)%></h2>
+                      </div>
+                      <div class="index-card-info">
+                          <p><%=bookmark.recipe.cook_time%> minutes</p>
+                          <p>Serves <%=bookmark.recipe.serves%></p>
+                          <p><%=bookmark.recipe.cuisine%></p>
+                          <p>5 stars</p>
+                      </div>
                   </div>
                 </div>
-              </div>
+              <% end %>
             </div>
           <% end %>
         </div>
@@ -118,4 +94,5 @@
     </div>
   </div>
 </div>
-</div>
+
+
