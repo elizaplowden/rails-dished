@@ -2,6 +2,14 @@
   background: white;
 }
 
-.modal-body {
+.modal-info {
+  display: flex;
+  vertical-align: middle;
+}
 
+.modal-info a {
+  padding: 25px;
+  margin-top: 14px;
+  vertical-align: middle;
+  margin-top: 5px;
 }
