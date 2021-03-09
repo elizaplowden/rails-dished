@@ -21,7 +21,14 @@ User.delete_all
 User.create(email: 'goldenboy@gmail.com', password: 'goldenboy', username: 'GoldenBoy')
 User.create(email: 'gordon@kitchennightmares.com', password: 'gordon', username: 'Gordon Ramsey')
 User.create(email: 'jayray@gmail.com', password: 'jayray', username: 'jayray')
+User.create(email: 'saraevs@email.com', password: 'Password1', username: 'saraevs')
+User.create(email: 'phillip@email.com', password: 'Password1', username: 'Phillip')
+User.create(email: 'eliza@email.com', password: 'Password1', username: 'Eliza')
+User.create(email: 'george@email.com', password: 'Password1', username: 'George')
 
+3.times do
+  User.create(email: Faker::Internet::email, password: 'Password1', username: Faker::Internet::username)
+end
 
 puts "created #{User.count} users"
 
@@ -104,6 +111,9 @@ image_name = [
   recipes_serialized = open(recipes_url[counter]).read
   recipes = JSON.parse(recipes_serialized)
 
+  # selects a random user
+  rand_user = User.order("RANDOM()").limit(1).first
+
   recipes['meals'].each do |meal|
     # creating the recipe instance and saving to the db
      recipe = Recipe.create( {
@@ -113,7 +123,7 @@ image_name = [
       serves: rand(1..10),
       cook_time: rand(15..60),
       cuisine: ["Indian","Italian","French","British","Chinese"].sample,
-      user: User.first
+      user: rand_user
     } )
      # creating arrays of the ingredients and foods
      # only adds the first 5 ingredients of 20
@@ -138,7 +148,7 @@ image_name = [
    recipe.photo.attach(io: downloaded_image, filename: filename)
    puts 'attached photo'
   end
-   puts "created recipe #{counter}"
+   puts "created recipe #{counter + 1}"
    counter += 1
 end
 
