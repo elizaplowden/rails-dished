@@ -8,28 +8,29 @@
 }
 
 // styles the button next to the search
-.search_button {
+#search_button {
   margin-bottom: 1rem;
   color: rgba(0, 0, 0, 0.5);
   font-size: 16px;
   border-radius: 0 20px 20px 0;
   background-color: #fff;
-  min-height: 50px;
+  min-height: 52px;
   // margin: 0;
   border-left: 0;
-  border-right: 1 solid gray;
-  border-bottom: 1 solid gray;
-  border-top: 1 solid gray;
+  border-right: 1px solid LightGray;
+  border-bottom: 1px solid LightGray;
+  border-top: 1px solid LightGray;
 }
 
 
 // styles the background box of the recipes index page
 .index-search-background {
-  background-color: #5ADDE6;
-  color: #f4f4f4;
+  // background-color: #5ADDE6;
+  // color: #f4f4f4;
+  // width: 90%;
   padding-bottom: 30px;
   padding-top: 30px;
-  border-radius: 10px;
+  // border-radius: 10px;
 }
 
 
@@ -47,8 +48,6 @@
   font-size: 40px;
 }
 
-
-
 // over-riding the select2 style
 
 .select2-container {
@@ -61,11 +60,15 @@
 .search_query, .select2-search, .select2-selection, .select2-selection__rendered {
   min-height: 50px !important;
   border-radius: 20px 0 0 20px !important;
-  border-left: 1 solid gray !important;
-  border-top: 1 solid gray !important;
-  border-bottom: 1 solid gray !important;
   border-right: 0 !important;
   padding: 0 !important;
+}
+
+.select2-selection {
+  border-right: 0;
+  border-left: 1px solid LightGray !important;
+  border-top: 1px solid LightGray !important;
+  border-bottom: 1px solid LightGray !important;
 }
 
 .select2-search__field {
