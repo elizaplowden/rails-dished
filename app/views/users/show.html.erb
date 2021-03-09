@@ -1,18 +1,26 @@
 <div class="container">
 
-
   <div class="user-profile-page">
     <div class="profile-info">
           <div class="user-profile">
 
             <%#--Shows profile name %>
-              <h3><%= @user.username %></h3>
-              <%#-- Follow / Unfollow logic %>
-              <% if current_user != @user && !current_user.follows_given.pluck(:followee_id).include?(@user.id) %>
-                <button><%= link_to "Follow", follow_user_path(@user), method: :post %></button>
-              <% elsif current_user != @user  %>
-                <button><%= link_to "Unfollow", unfollow_user_path(@user), method: :delete %></button>
+            <h3><%= @user.username %></h3>
+            <%#-- Follow / Unfollow logic %>
+            <% if current_user != @user && !current_user.follows_given.pluck(:followee_id).include?(@user.id) %>
+              <button><%= link_to "Follow", follow_user_path(@user), method: :post %></button>
+            <% elsif current_user != @user  %>
+              <button><%= link_to "Unfollow", unfollow_user_path(@user), method: :delete %></button>
+            <% end %>
+
+            <div class="avatar-username">
+              <!-- TODO: add an if statement to replace avatar with logo -->
+              <% if @user.avatar.attached? %>
+                 <%=cl_image_tag @user.avatar.key, class: "avatar", crop: :fill  %>
+              <% else %>
+                <%= image_tag 'logo-dished' %>
               <% end %>
+            </div>
 
              <div class="avatar-username">
                 <!-- TODO: add an if statement to replace avatar with logo -->
@@ -24,6 +32,11 @@
               </div>
 
 
+            <div class="followings">
+              <%#-- Shows who follows you %>
+              <%= render "./shared/follower_modal" %>
+              <%#-- Shows who you are following %>
+              <%= render "./shared/following_modal" %>
 
           <div class="followings">
             <%#-- Shows who follows you %>
@@ -85,6 +98,7 @@
         <div class="gray-button"><%= link_to 'Edit your profile', edit_user_registration_path %></div>
         <div class="gray-button"><%= link_to 'Upload a new recipe', new_recipe_path %></div>
         <div class="gray-button"><%= link_to 'Back to all recipes', recipes_path %></div>
+
       </div>
     </div>
   </div>
