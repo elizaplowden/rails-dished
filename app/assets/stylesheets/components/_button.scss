@@ -47,6 +47,11 @@ $primary-colour: #80808094; // gray
   text-decoration: none;
 }
 
+.unfollow-button:hover {
+  opacity: 0.8;
+  text-decoration: none;
+  }
+
 // Follow Button
 .follow-button {
   background-color: #5ADDE6;
@@ -64,5 +69,10 @@ $primary-colour: #80808094; // gray
 
 .follow-button a {
   color: #fff;
+  text-decoration: none;
+  }
+
+  .follow-button:hover {
+  opacity: 0.8;
   text-decoration: none;
   }
