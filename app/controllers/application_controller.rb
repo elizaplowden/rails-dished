@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     @foods = Food.all
   end
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
   protected
 
   def configure_permitted_parameters
