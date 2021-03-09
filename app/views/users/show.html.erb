@@ -77,22 +77,23 @@
         <!-- to be replaced by index card once created -->
         <div class="index-container">
           <% @user.bookmarks.each do |bookmark| %>
-
             <div class="index-box">
-
-              <div class="index-card">
-                <%=cl_image_tag bookmark.recipe.photo.key, height: 320  %>
-                <div class="index-card-text">
-                  <div class="index-card-heading">
-                    <h2><%= link_to bookmark.recipe.name, recipe_path(bookmark.recipe.id) %></h2>
-                  </div>
-                  <div class="index-card-info">
-                    <p><%=bookmark.recipe.cook_time%> minutes</p>
-                    <p>Serves <%=bookmark.recipe.serves%></p>
-                    <p>5 stars</p>
+              <%=link_to recipe_path(bookmark.recipe.id) do %>
+                <div class='index-card'>
+                  <%=cl_image_tag bookmark.recipe.photo.key, height: 400 %>
+                  <div class="index-card-text">
+                      <div class="index-card-heading">
+                        <h2><%=bookmark.recipe.name.truncate(32)%></h2>
+                      </div>
+                      <div class="index-card-info">
+                          <p><%=bookmark.recipe.cook_time%> minutes</p>
+                          <p>Serves <%=bookmark.recipe.serves%></p>
+                          <p><%=bookmark.recipe.cuisine%></p>
+                          <p>5 stars</p>
+                      </div>
                   </div>
                 </div>
-              </div>
+              <% end %>
             </div>
           <% end %>
         </div>
@@ -110,3 +111,5 @@
   </div>
 </div>
 </div>
+
+
