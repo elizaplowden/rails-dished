@@ -18,10 +18,10 @@ User.delete_all
 
 ###################################
 
-User.create(email: 'email@gmail.com', password: 'Password1', username: 'user3456')
+User.create(email: 'email@gmail.com', password: 'Password1', username: 'user3456', avatar: 'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615286260/pablo-merchan-montes-Orz90t6o0e4-unsplash_1_t4dwqy.jpg')
 User.create(email: 'email@hotmail.com', password: 'Password2', username: 'foodielondon')
 User.create(email: 'email@outlook.com', password: 'Password3', username: 'chefjacob')
-User.create(email: 'goldenboy@gmail.com', password: 'goldenboy', username: 'GoldenBoy')
+User.create(email: 'goldenboy@gmail.com', password: 'goldenboy', username: 'GoldenBoy', avatar: 'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614955948/Screenshot_2021-03-05_at_14.49.26_debpb2.png')
 
 puts "created #{User.count} users"
 
