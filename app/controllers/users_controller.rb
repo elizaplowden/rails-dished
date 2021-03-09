@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:follow, :unfollow]
+  before_action :find_user, only: [:show, :follow, :unfollow]
 
   def index
     @users = User.where.not(id: current_user.id)
   end
 
   def show
-    @user = current_user
   end
 
   def follow

@@ -2,7 +2,7 @@
 .chilli-button {
   width: 148px;
   height: 48px;
-  background-color: #ced4da;
+  background-color: #E6D74E;
   border-radius: 5px;
   box-shadow: 0 4px 4px 0 #ced4da;
   transition: all 0.1s ease-in-out;
@@ -16,10 +16,10 @@
 .chilli-button:hover {
   box-shadow: 0 6px 10px 0 #black;
   transform: scale(1.05);
-  background-color: #666;
+  background-color: #E6D74E;
 
   border-color: none;
-  opacity: .75;
+  opacity: .8;
 }
 
 // adding specific css for the dishlist button using id
@@ -31,7 +31,14 @@
 }
 
 // adding specific css for the username & follow elements on the explore page
-#h2 {
+#h2-button {
   padding-top: 12px;
   text-align: center;
+  background: #80808094;
+  text-decoration: none;
+  border-radius: 40px;
+}
+
+#h2-button a {
+  text-decoration: none;
 }
