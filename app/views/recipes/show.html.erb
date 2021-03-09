@@ -44,10 +44,13 @@
     <%= render "reviews", recipe: @recipe %>
   </div>
 
-  <ul>
-      <li><%= link_to 'Delete Recipe', recipe_path(@recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
-      <li><%= link_to 'More Recipes', recipes_path, class: "button" %></li>
-      <li><%= link_to 'Back', recipes_path, class: "button" %></li>
+  <ul class="links-to">
+      <br>
+      <li><%= link_to 'Delete Recipe', recipe_path(@recipe.id), class: "show-button", method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <br>
+      <li><%= link_to 'More Recipes', recipes_path, class: "show-button" %></li>
+      <br>
+      <li><%= link_to 'Back', recipes_path, class: "show-button" %></li>
    </ul>
 </div>
 </div>
