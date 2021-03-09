@@ -13,16 +13,9 @@
               <button><%= link_to "Unfollow", unfollow_user_path(@user), method: :delete %></button>
             <% end %>
 
-            <div class="avatar-username">
-              <!-- TODO: add an if statement to replace avatar with logo -->
-              <% if @user.avatar.attached? %>
-                 <%=cl_image_tag @user.avatar.key, class: "avatar", crop: :fill  %>
-              <% else %>
-                <%= image_tag 'logo-dished' %>
-              <% end %>
-            </div>
 
-             <div class="avatar-username">
+
+              <div class="avatar-username">
                 <!-- TODO: add an if statement to replace avatar with logo -->
                 <% if @user.avatar.attached? %>
                    <%=cl_image_tag @user.avatar.key, class: "avatar", crop: :fill  %>
@@ -32,11 +25,7 @@
               </div>
 
 
-            <div class="followings">
-              <%#-- Shows who follows you %>
-              <%= render "./shared/follower_modal" %>
-              <%#-- Shows who you are following %>
-              <%= render "./shared/following_modal" %>
+
 
           <div class="followings">
             <%#-- Shows who follows you %>
@@ -56,7 +45,7 @@
               <% end %>
             </button>
 
-        </div>
+          </div>
       </div>
 
       <%#-- Show each bookmark... this needs to be turned into a card %>
