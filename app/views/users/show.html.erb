@@ -7,15 +7,15 @@
         <div class="user-profile">
           <%#--Shows that this is YOUR profile page if it's yours %>
           <% if @user == current_user %>
-            <h3>Your Dished Profile</h3>
+
             <div class="avatar-username">
               <!-- TODO: add an if statement to replace avatar with logo -->
               <% if @user.avatar.attached? %>
                  <%=cl_image_tag @user.avatar.key, class: "avatar", crop: :fill  %>
               <% else %>
-                <%= image_tag, '/dished-logo', class: "placeholder-avatar" %>
+                <%= cl_image_tag('dished-logo', crop: :fill) %>
               <% end %>
-              Username: <%= @user.username %>
+              <h3>Dished Profile for <%= @user.username %></h3>
             </div>
           <%#-- Otherwise shows the username %>
           <% else %>
