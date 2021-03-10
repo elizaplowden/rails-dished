@@ -21,7 +21,7 @@
                         <% if following.followee.avatar.attached? %>
                  <%=cl_image_tag following.followee.avatar.key, class: "avatar-large", crop: :fill  %>
               <% else %>
-                <%= image_tag 'logo-dished.png', class: "avatar-large" %>
+                <%= image_tag 'yellow.png', class: "avatar-dished-large", crop: :fill %>
               <% end %>
               <%= link_to following.followee.username, user_path(following.followee.id) %>
               </div>

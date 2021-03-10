@@ -27,7 +27,7 @@
           <% if @user.avatar.attached? %>
             <%=cl_image_tag @user.avatar.key, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
-            <%= image_tag 'logo-dished.png', crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag 'yellow.png', crop: :fill, class: "avatar-dished dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
 
          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id= "navbar-dropdown-text">
