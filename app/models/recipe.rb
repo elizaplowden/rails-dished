@@ -5,6 +5,7 @@ class Recipe < ApplicationRecord
   has_many :ingredients, dependent: :destroy
   has_many :foods, through: :ingredients
   has_many :notes, through: :bookmarks
+  has_many :users, through: :reviews
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
