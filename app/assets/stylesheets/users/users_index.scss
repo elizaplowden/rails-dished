@@ -33,11 +33,17 @@
   display: flex;
 }
 
+// user avatar, name and follow button aligned to the left
 .explore-feed-heading {
   display: flex;
-  justify-content: space-between;
-  text-align: center;
+  justify-content: flex-start;
+  align-items: center;
   padding: 8px 16px
+}
+
+// remove margin from the bottom of usernames, so they align nicely with the avatar
+.explore-feed-heading h2 {
+  margin:0
 }
 
 .explore-recipe-card {
