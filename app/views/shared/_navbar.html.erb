@@ -23,11 +23,13 @@
           <%= link_to "Explore", users_path, class: "nav-link" %>
         </li>
 
+        <% @user = current_user %>
+
               <!-- adding Notification DropDown -->
+
         <li class="nav-item dropdown">
           <a class="dropdown-toggle nav-link" type="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-bell"></i>
-
+            <i class="fas fa-bell wiggle"></i>
           </a>
 
            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="navbar-dropdown-text">
@@ -38,16 +40,19 @@
         <script>
         fetch("/notifications.json")
           .then(response => response.json())
-          .then(data => {
-            data.forEach(notification => {
-              const element = `<a class="dropdown-item" data-remote="true" rel="nofollow" data-method="post" href="/notifications/${notification.id}/mark_as_read">${notification.actor} ${notification.action}</a>`
+            .then(data => {
+              let counter = 0
+              data.forEach(notification => {
+              const element = `<a class="dropdown-item" data-remote="true" rel="nofollow" data-method="post" href="/notifications/${notification.id}/mark_as_read">${notification.actor} ${notification.action}<i class="fas fa-times-circle"></i></a>`
               document.getElementById("navbar-dropdown-text").insertAdjacentHTML("beforeend", element)
+              counter += 1
+              })
+              const counterHTML =  `<h3>${counter}</h3>`
+              document.getElementById("navbarDropdown").insertAdjacentHTML("beforeend", counterHTML)
             })
-          })
         </script>
 
         <li class="nav-item dropdown">
-          <% @user = current_user %>
           <% if @user.avatar.attached? %>
             <%=cl_image_tag @user.avatar.key, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
