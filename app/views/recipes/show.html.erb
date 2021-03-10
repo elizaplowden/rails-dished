@@ -51,7 +51,7 @@
   </div>
   <div class="recipe-actions">
     <%= render "./shared/dishlist_button", recipe: @recipe %>
-    <%= link_to icon('far', 'trash-alt ', 'Delete'), recipe_path(@recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to icon('far', 'trash-alt ', '  Delete'), recipe_path(@recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %>
     <%= link_to 'More Recipes', recipes_path, class: "button" %>
 </div>
 </div>
