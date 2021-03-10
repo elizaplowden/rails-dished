@@ -20,4 +20,15 @@ class Recipe < ApplicationRecord
   pg_search_scope :search_by_food,
                   associated_against: { foods: :name },
                   using: { tsearch: { prefix: true, any_word: false } }
+
+  def average_rating
+    ratings = []
+    reviews.each do |review|
+      ratings << review.rating
+    end
+    unless ratings.empty?
+      (ratings.sum / ratings.size)
+    end
+  end
+
 end

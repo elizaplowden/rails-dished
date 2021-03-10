@@ -4,14 +4,12 @@
 
     <% @users.each do |user| %>
 
-
-
     <div class="explore-feed-heading">
     <%# the name of the user %>
     <% if user.avatar.attached? %>
        <%=cl_image_tag user.avatar.key, class: "avatar", crop: :fill  %>
     <% else %>
-      <%= image_tag 'logo-dished', class: "avatar", crop: :fill %>
+      <%= image_tag 'logo-dished.png', class: "avatar", crop: :fill %>
     <% end %>
     <h2 id="h2"><%= link_to user.username, user %></h2>
     <%# follow/unfollow user %>
@@ -36,7 +34,7 @@
               <%# Recipe title %>
               </div>
               <div class="index-card-info">
-                <p>5 stars</p>
+                <p><%= render 'shared/rating', rating: recipe.average_rating %></p>
               </div>
             </div>
           </div>
