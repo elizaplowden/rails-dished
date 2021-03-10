@@ -72,7 +72,8 @@ $secondary-colour: #5ADDE6; // blue
 
 }
 
-.recipe-photo-container .cookbook-button-save, .cookbook-button-saved {
+.recipe-photo-container {
+.cookbook-button-save, .cookbook-button-saved {
   color: #fff;
   position: relative;
   top: 20px;
@@ -80,6 +81,7 @@ $secondary-colour: #5ADDE6; // blue
   i{
     font-size: 30px;
   }
+}
 }
 
 

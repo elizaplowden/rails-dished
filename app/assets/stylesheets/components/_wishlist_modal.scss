@@ -28,7 +28,7 @@
   display: flex;
   justify-content: center;
   overflow: hidden;
-  // margin-right: 4px;
+  margin-right: 8px;
   border-radius: 16px;
 }
 
@@ -72,7 +72,16 @@
 .add-to-cookbook {
   top: 30px;
   position: relative;
+  // color: white;
   right: 60px;
+  .cookbook-button-save, .cookbook-button-saved {
+  color: #fff;
+  position: static;
+  i{
+    font-size: 30px;
+  }
+}
+
 
 }
 
