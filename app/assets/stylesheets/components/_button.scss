@@ -33,17 +33,12 @@ $secondary-colour: #15b3b3; // blue
 
 // Unfollow Button
 .unfollow-button {
-  background-color: #8080806b;
-  padding: 18px 10px;
-  border-radius: 40px;
-  color: #fff;
   width: fit-content;
   margin: 5px;
   text-decoration: none;
   text-align: center;
   height: 50px;
-  font-size: 10px;
-  box-shadow: 0 4px 4px 0 #ced4da;
+  font-size: 15px;
 }
 
 .unfollow-button a {
@@ -51,35 +46,36 @@ $secondary-colour: #15b3b3; // blue
   text-decoration: none;
 }
 
-.unfollow-button:hover {
+.unfollow-button a:hover {
   opacity: 0.8;
   text-decoration: none;
+  font-size: 16px;
  }
 
-// Follow Button
-.follow-button {
-  background-color: #8080806b;
-  padding: 18px 10px;
-  border-radius: 40px;
-  color: #fff;
-  width: fit-content;
-  margin: 5px;
-  text-decoration: none;
-  text-align: center;
-  height: 50px;
-  font-size: 10px;
-  box-shadow: 0 4px 4px 0 #ced4da;
-}
+// // Follow Button
+// .follow-button {
+//   background-color: #8080806b;
+//   padding: 18px 10px;
+//   border-radius: 40px;
+//   color: #fff;
+//   width: fit-content;
+//   margin: 5px;
+//   text-decoration: none;
+//   text-align: center;
+//   height: 50px;
+//   font-size: 10px;
+//   box-shadow: 0 4px 4px 0 #ced4da;
+// }
 
-.follow-button a {
-  color: #fff;
-  text-decoration: none;
-  }
+// .follow-button a {
+//   color: #fff;
+//   text-decoration: none;
+//   }
 
-  .follow-button:hover {
-  opacity: 0.8;
-  text-decoration: none;
-  }
+//   .follow-button:hover {
+//   opacity: 0.8;
+//   text-decoration: none;
+//   }
 
 // Followers & following
 .followings button {
