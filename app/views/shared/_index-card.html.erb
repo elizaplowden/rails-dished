@@ -9,10 +9,10 @@
                 <h2><%=recipe.name.truncate(32)%></h2>
               </div>
               <div class="index-card-info">
-                  <p><%=recipe.cook_time%> minutes</p>
-                  <p>Serves <%=recipe.serves%></p>
+                  <p><i class="fas fa-clock"></i> <%= recipe.cook_time %></p>
+                  <p><i class="fas fa-user-friends"></i> <%= recipe.serves %></p>
                   <p><%=recipe.cuisine%></p>
-                  <p>5 stars</p>
+                  <p><%= render "./shared/rating", rating: recipe.average_rating %></p>
               </div>
           </div>
         </div>
