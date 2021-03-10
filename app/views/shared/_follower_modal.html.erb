@@ -14,11 +14,16 @@
             </button>
           </div>
               <div class="modal-body">
-
               <% @user.follows_received.each do |following| %>
-                <p><%= link_to following.follower.username, user_path(following.follower) %></p>
-              <% end %></p>
-
+              <div class="modal-info">
+                <% if following.follower.avatar.attached? %>
+                 <%=cl_image_tag following.follower.avatar.key, class: "avatar-large", crop: :fill  %>
+              <% else %>
+                <%= image_tag 'logo-dished', class: "avatar-large" %>
+              <% end %>
+              <%= link_to following.follower.username, user_path(following.follower) %>
+              </div>
+              <% end %>
               </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
