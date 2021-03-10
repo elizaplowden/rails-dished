@@ -14,7 +14,7 @@
   font-size: 16px;
   border-radius: 0 20px 20px 0;
   background-color: #fff;
-  min-height: 52px;
+  min-height: 54px;
   // margin: 0;
   border-left: 0;
   border-right: 1px solid LightGray;
@@ -48,27 +48,41 @@
   font-size: 40px;
 }
 
-// over-riding the select2 style
-
+// over-riding the select2 styles
 .select2-container {
   min-width: 200px;
    font-family: Open Sans;
    border: 0 !important;
 }
 
-.search_query, .select2-search, .select2-selection, .select2-selection__rendered {
+.search_query, .select2-selection {
   border-radius: 20px 0 0 20px !important;
   border-right: 0 !important;
   padding-left: 13px !important;
   padding-top: 13px !important;
   padding-bottom: 13px !important;
+  min-height: 32px !important;
+}
+
+.select2-search {
+  min-height: 32px !important;
 }
 
 .select2-selection {
   border-right: 0;
+  min-height: 54px !important;
   border-left: 1px solid LightGray !important;
   border-top: 1px solid LightGray !important;
   border-bottom: 1px solid LightGray !important;
+}
+
+.select2-selection__rendered {
+  min-height: 32px !important;
+}
+
+.select2-selection__choice {
+  // line-height: 1.4px;
+  margin-top: 0 !important;
 }
 
 .select2-search__field {
