@@ -13,7 +13,7 @@
   font-size: 16px;
   border-radius: 0 20px 20px 0;
   background-color: #fff;
-  min-height: 54px;
+  min-height: 60px;
   // margin: 0;
   border-left: 0;
   border-right: 1px solid LightGray;
@@ -65,12 +65,12 @@
 }
 
 .select2-search {
-  min-height: 32px !important;
+  // min-height: 32px !important;
 }
 
 .select2-selection {
   border-right: 0;
-  min-height: 54px !important;
+  min-height: 60px !important;
   border-left: 1px solid LightGray !important;
   border-top: 1px solid LightGray !important;
   border-bottom: 1px solid LightGray !important;
@@ -87,5 +87,6 @@
 
 .select2-search__field {
   margin: 0 !important;
+  text-align: center;
 }
 
