@@ -9,10 +9,9 @@
     <p>Add to gallery</p>
     <%= simple_form_for recipe, method: :patch, url: upload_recipe_path do |f| %>
       <!-- to add one or mutliple images to a recipe -->
-      <%= f.input :images, as: :file, label: false, input_html: {multiple: true} %>
+      <%= f.input :images, as: :file, label: false, input_html: { class: 'd-none', multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
       <%= f.submit "Save", class: "button" %>
     <% end %>
-
 </div>
 
 
