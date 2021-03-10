@@ -1,45 +1,62 @@
 <div class="container">
 <%# explore feed container %>
   <h2 class="explore-heading">Explore Top Rated Chefs</h2>
-
     <% @users.each do |user| %>
-
-    <div class="explore-feed-heading">
-    <%# the name of the user %>
-    <% if user.avatar.attached? %>
-       <%=cl_image_tag user.avatar.key, class: "avatar", crop: :fill  %>
-    <% else %>
-      <%= image_tag 'yellow.png', class: "avatar", crop: :fill %>
-    <% end %>
-    <h2 id="h2"><%= link_to user.username, user %></h2>
-    <%# follow/unfollow user %>
-    <h2 class="unfollow-button"><% if current_user != user && !current_user.follows_given.pluck(:followee_id).include?(user.id) %>
-      <%= link_to "Follow", follow_user_path(user), method: :post %>
-    <% elsif current_user != user  %>
-      <%= link_to "Unfollow", unfollow_user_path(user), method: :delete %>
-    <% end %><i class="fas fa-carrot"></i></h2>
-    </div>
-
-    <div class="explore-feed-item">
-      <% user.recipes.each do |recipe| %>
-        <%# making the recipe item a link %>
-        <%=link_to recipe_path(recipe.id) do %>
-          <%# Some of the users recipes in a card %>
-          <div class="index-card" id="explore-page">
-            <%# Recipe image %>
-            <%=cl_image_tag recipe.photo.key, height: 240 %>
-            <div class="index-card-text" id="explore-text">
-              <div class="index-card-heading">
-                <h2><%=recipe.name.truncate(32)%></h2>
-              <%# Recipe title %>
+      <div class="explore-feed-heading">
+        <div class="explore-user-details">
+          <% if user.avatar.attached? %>
+             <%=cl_image_tag user.avatar.key, class: "avatar", crop: :fill  %>
+          <% else %>
+            <%= image_tag 'yellow.png', class: "avatar", crop: :fill %>
+          <% end %>
+          <h2><%= link_to user.username, user %></h2>
+        </div>
+        <%# follow/unfollow user %>
+        <div>
+          <% if current_user != user && !current_user.follows_given.pluck(:followee_id).include?(user.id) %>
+            <!-- follow button -->
+            <%= link_to follow_user_path(user), method: :post do %>
+              Follow <i class="fas fa-carrot"></i>
+            <% end %>
+          <% elsif current_user != user  %>
+            <!-- unfollow button -->
+            <%= link_to unfollow_user_path(user), method: :delete do %>
+              Unfollow <i class="fas fa-carrot"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="explore-feed-item">
+        <% if !user.recipes.empty? %>
+          <!-- if user does have recipes -->
+          <% user.recipes.each do |recipe| %>
+            <%# making the recipe item a link %>
+            <%=link_to recipe_path(recipe.id) do %>
+              <%# Some of the users recipes in a card %>
+              <div class="index-card" id="explore-page">
+                <!-- recipe image -->
+                <%=cl_image_tag recipe.photo.key, height: 240 %>
+                <div class="index-card-text">
+                  <div class="index-card-heading">
+                    <!-- recipe title -->
+                    <h2><%=recipe.name.truncate(32)%></h2>
+                  </div>
+                  <div class="index-card-info">
+                    <p><%= render 'shared/rating', rating: recipe.average_rating %></p>
+                  </div>
+                </div>
               </div>
-              <div class="index-card-info">
-                <p><%= render 'shared/rating', rating: recipe.average_rating %></p>
-              </div>
+            <% end %>
+          <% end %>
+        <% else %>
+          <!-- if the user hasn't created any recipes -->
+          <div class="index-card" id="empty-recipes-placeholder">
+            <div>
+              They haven't created any recipes yet
+              <i class="far fa-sad-cry"></i>
             </div>
           </div>
         <% end %>
-      <% end %>
-    </div>
+      </div>
   <% end %>
 </div>
