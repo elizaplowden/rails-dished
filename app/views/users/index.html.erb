@@ -16,12 +16,12 @@
           <% if current_user != user && !current_user.follows_given.pluck(:followee_id).include?(user.id) %>
             <!-- follow button -->
             <%= link_to follow_user_path(user), method: :post do %>
-              Follow <i class="fas fa-pepper-hot"></i>
+              Follow <i class="fas fa-carrot"></i>
             <% end %>
           <% elsif current_user != user  %>
             <!-- unfollow button -->
             <%= link_to unfollow_user_path(user), method: :delete do %>
-              Unfollow <i class="fas fa-pepper-hot"></i>
+              Unfollow <i class="fas fa-carrot"></i>
             <% end %>
           <% end %>
         </div>

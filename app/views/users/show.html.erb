@@ -51,11 +51,11 @@
                           <h2><%=bookmark.recipe.name.truncate(32)%></h2>
                         </div>
                         <div class="index-card-info">
-                            <p><%=bookmark.recipe.cook_time%> minutes</p>
-                            <p>Serves <%=bookmark.recipe.serves%></p>
-                            <p><%=bookmark.recipe.cuisine%></p>
-                            <p>5 stars</p>
-                        </div>
+                          <p><i class="fas fa-clock"></i> <%= bookmark.recipe.cook_time %></p>
+                          <p><i class="fas fa-user-friends"></i> <%= bookmark.recipe.serves %></p>
+                          <p><%=bookmark.recipe.cuisine%></p>
+                          <p><%= render "./shared/rating", rating: bookmark.recipe.average_rating %></p>
+                      </div>
                     </div>
                   </div>
                 <% end %>

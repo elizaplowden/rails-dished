@@ -2,7 +2,7 @@
 
 // colour variables
 $primary-colour: #80808094; // gray
-$secondary-colour: #5ADDE6; // blue
+$secondary-colour: #15b3b3; // blue
 
 
 .show-container {
@@ -164,18 +164,22 @@ $secondary-colour: #5ADDE6; // blue
   margin-top: 30px;
 }
 
-.recipe-actions a{
+.recipe-actions a {
   margin-top: 30px;
   display:flex;
   color: $secondary-colour;
   font-weight:bold;
+  flex-wrap: wrap;
 }
 
 .recipe-actions a:hover{
   color: $primary-colour;
 }
 
-.recipe-actions{
+.recipe-actions {
   margin: 40px 20px;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 40px;
 }
 

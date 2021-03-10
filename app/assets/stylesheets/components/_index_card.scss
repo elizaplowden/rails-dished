@@ -18,6 +18,7 @@
   transition: all 0.2s linear;
 }
 
+
 #explore-page {
   width: 400px;
   margin: 12px;
@@ -33,16 +34,22 @@
   left: 20px;
 }
 
+.index-card-info{
+  margin-top: 30px;
+}
+
 // specific styling for serves, cooktime, ratings
 .index-card-info p {
-  font-size: 15px;
+  font-size: 18px;
   margin: 8px;
   padding: 4px;
   font-weight: bold;
 }
 
+// reviews
 .index-card-info i{
   opacity: 0;
+
 }
 
 // specific styling for heading

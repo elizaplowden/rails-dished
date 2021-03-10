@@ -10,9 +10,10 @@
 #search_button_home {
   margin-bottom: 1rem;
   color: #fff;
-  font-size: 20px;
+  font-size: 48px;
   min-height: 60px;
   border: 0;
+  opacity: 0.7;
 }
 
 #search_button_navbar {
@@ -25,13 +26,15 @@
 }
 
 #search_button_home:hover, #search_button_navbar:hover {
-  opacity: 0.7;
+  opacity: 1;
+  transition: transform .2s;
+  transform: scale(1.3);
 }
 
 
 // styles the background box of the recipes index page
 .index-search-background {
-  // background-color: #5ADDE6;
+  // background-color: #15b3b3;
   // color: #f4f4f4;
   // width: 90%;
   padding-bottom: 30px;
@@ -44,7 +47,7 @@
 .banner-search {
   text-align: center;
   margin: 0;
-  margin-top: 100px;
+  margin-top: 80px;
   justify-content: center;
 }
 
@@ -52,7 +55,7 @@
 .banner-search-text {
   color: #fff;
   font-size: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 // over-riding the select2 styles
@@ -62,8 +65,11 @@
    border: 0 !important;
 }
 
+.select2-container--default .select2-selection--multiple {
+}
+
 .search_query, .select2-selection {
-  border-radius: 20px 20px 20px 20px !important;
+  border-radius: 16px 16px 16px 16px !important;
   border-right: 0 !important;
   padding-left: 13px !important;
   padding-top: 13px !important;
@@ -81,9 +87,11 @@
   border-left: 1px solid LightGray !important;
   border-top: 1px solid LightGray !important;
   border-bottom: 1px solid LightGray !important;
-  margin-bottom: 10px !important;
 }
 
+.select2-results__options {
+  border-radius: 16px;
+}
 
 .select2-selection__rendered {
   min-height: 32px !important;
@@ -92,6 +100,15 @@
 .select2-selection__choice {
   // line-height: 1.4px;
   margin-top: 0 !important;
+  background-color: #54BBC0 !important;
+  color: white !important;
+  border: 1px solid LightGray !important;
+  opacity: 1 !important;
+}
+
+.select2-selection__choice__remove {
+  border-right: none !important;
+  color: white !important;
 }
 
 .select2-search__field {
@@ -99,6 +116,23 @@
   text-align: center;
 }
 
-.select2-results__option--highlighted[aria-selected] {
-    background-color: #54BBC0 !important;
+.select2-container .select2-search--inline .select2-search__field {
+  height: 28px !important;
 }
+
+.select2-results__option--highlighted[aria-selected] {
+    background-color: #15b3b3 !important;
+}
+
+.select2-selection--multiple {
+  padding: 0px;
+}
+
+.select2-container--open .select2-dropdown--below {
+  border-radius: 16px !important;
+}
+
+.select2-results__option {
+  padding-left: 18px !important;
+}
+

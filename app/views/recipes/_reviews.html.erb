@@ -7,6 +7,7 @@
       <%= simple_form_for [recipe, review], method: :post, url: recipe_reviews_path(recipe), html: { class: 'review_form'} do |f| %>
         <%= f.input :description, label: false, placeholder: 'Leave a review' %>
         <%= f.input :rating, collection: (1..5).to_a, label: "Rate the recipe" %>
+        <!-- hidden button - still need it though for accessibility -->
         <%= f.submit 'Save', class: "d-none", style: "display:none" %>
       <% end %>
     <% end %>
