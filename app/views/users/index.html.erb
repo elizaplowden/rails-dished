@@ -4,8 +4,6 @@
 
     <% @users.each do |user| %>
 
-
-
     <div class="explore-feed-heading">
     <%# the name of the user %>
     <% if user.avatar.attached? %>
@@ -36,7 +34,7 @@
               <%# Recipe title %>
               </div>
               <div class="index-card-info">
-                <p>5 stars</p>
+                <p><%= render "./shared/rating", rating: @average_rating %></p>
               </div>
             </div>
           </div>
