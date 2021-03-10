@@ -8,7 +8,7 @@
               <% if @user.avatar.attached? %>
                  <%=cl_image_tag @user.avatar.key, class: "avatar-large", crop: :fill  %>
               <% else %>
-                <%= image_tag 'logo-dished.png', class: "avatar-large" %>
+                <%= image_tag 'yellow.png', class: "avatar-large", crop: :fill %>
               <% end %>
             <%#--Shows profile name %>
             <h3><%= @user.username %></h3>
