@@ -1,9 +1,9 @@
-<div class="user-image-uploads col-12">
+<div class="user-image-uploads col-12" id="user-image-uploads">
   <h3>Pictures</h3>
   <hr>
     <% if recipe.images.attached? %>
       <% recipe.images.each do |image| %>
-        <%= cl_image_tag image.key, class: "user-image", height: 150, width: 150, crop: :fill %>
+        <%= cl_image_tag image.key, height: 150, width: 150, crop: :fill %>
       <% end %>
     <% end %>
     <!-- uploading a photo -->

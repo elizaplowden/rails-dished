@@ -26,6 +26,7 @@ const displayPreview = (input) => {
 const displaySaveButton = () => {
   const button = document.getElementById('photo-save-button');
   button.classList.remove('d-none');
+  button.classList.add('gray-button');
 }
 
 export { previewImageOnFileSelect };

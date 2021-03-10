@@ -60,10 +60,11 @@ class RecipesController < ApplicationController
     end
   end
 
+  # uploading user images
   def upload
     @images = recipe_params[:images]
     @recipe.images.attach(@images)
-    redirect_to recipe_path(@recipe)
+    redirect_to recipe_path(@recipe, anchor: "user-image-uploads")
   end
 
   def destroy
