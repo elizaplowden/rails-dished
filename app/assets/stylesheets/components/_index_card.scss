@@ -41,6 +41,10 @@
   font-weight: bold;
 }
 
+.index-card-info i{
+  opacity: 0;
+}
+
 // specific styling for heading
 .index-card-heading h2 {
   font-size: 20px;
@@ -80,6 +84,10 @@
 .index-box:hover {
   transform: translateY(6px);
   transition: all 0.2s linear;
+}
+
+.index-card:hover i{
+  opacity: 1;
 }
 
 

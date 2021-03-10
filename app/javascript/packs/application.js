@@ -32,9 +32,14 @@ import "bootstrap";
 import { initSelect2 } from '../components/init_select2';
 import { initAddNewField } from '../components/recipe_new_form';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { initStarRating } from '../plugins/init_star_rating';
 
 document.addEventListener('turbolinks:load', () => {
   initSelect2();
   initAddNewField();
   initUpdateNavbarOnScroll();
+  initStarRating();
 });
+
+
+
