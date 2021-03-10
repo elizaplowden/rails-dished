@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def follow
     Following.create(follower: current_user, followee: @user)
+    Notification.create(recipient: @user, actor: current_user, action: "followed you", notifiable: @user)
     redirect_back(fallback_location: users_path)
   end
 
