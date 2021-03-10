@@ -35,22 +35,22 @@
 
 
 
-.banner-links{
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 50px;
+// .banner-links{
+//   display:flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-direction: column;
+//   margin-top: 50px;
 
-  a{
-    color: white;
-    font-size: 26px;
-    &:hover{
-      text-decoration: none;
-      opacity: 0.5;
-    }
-  }
-}
+//   a{
+//     color: white;
+//     font-size: 26px;
+//     &:hover{
+//       text-decoration: none;
+//       opacity: 0.5;
+//     }
+//   }
+// }
 
 .banner-content{
   display: flex;
@@ -59,6 +59,7 @@
   align-items: center;
   position: relative;
   padding: 200px;
+  margin-top: 60px;
 }
 
 
@@ -69,6 +70,8 @@ h1 {
   font-size: 50px;
   font-weight: bold;
 }
+
+
 
 
 .instructions {
