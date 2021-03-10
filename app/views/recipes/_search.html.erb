@@ -1,3 +1,4 @@
+<% button_id = current_page?("/") ? 'search_button_home' : 'search_button_navbar'  %>
 <%= simple_form_for "search", url: recipes_path, html: { id: "search-bar-form" }, method: :get  do |f| %>
   <%= f.input :query,
               collection: foods.pluck(:name),
@@ -8,7 +9,7 @@
                             autofocus: true,
                             id: "search-box",
                             style: "width: 800px;" } %>
-  <%= f.button :button, id: "search_button" do %>
+  <%= f.button :button, id: button_id do %>
     <i class="fas fa-search"></i>
   <% end %>
 <% end %>
