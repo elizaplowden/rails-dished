@@ -32,9 +32,11 @@ import "bootstrap";
 import { initSelect2 } from '../components/init_select2';
 import { initAddNewField } from '../components/recipe_new_form';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { previewImageOnFileSelect } from '../components/user_image_preview';
 
 document.addEventListener('turbolinks:load', () => {
   initSelect2();
   initAddNewField();
   initUpdateNavbarOnScroll();
+  previewImageOnFileSelect();
 });

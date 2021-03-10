@@ -6,11 +6,12 @@
         <%= cl_image_tag image.key, height: 150, width: 150, crop: :fill %>
       <% end %>
     <% end %>
-    <p>Add to gallery</p>
-    <%= simple_form_for recipe, method: :patch, url: upload_recipe_path do |f| %>
+    <!-- uploading a photo -->
+    <%= simple_form_for recipe, method: :patch, url: upload_recipe_path, remote: true do |f| %>
       <!-- to add one or mutliple images to a recipe -->
-      <%= f.input :images, as: :file, label: false, input_html: { class: 'd-none', multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
-      <%= f.submit "Save", class: "button" %>
+      <%= f.input :images, as: :file, input_html: { class: 'd-none', multiple: true, id: 'photo-input' }, label_html: { class: 'gray-button' }, label: 'Upload a photo' %>
+      <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+      <%= f.submit "Upload", class: "d-none" %>
     <% end %>
 </div>
 
