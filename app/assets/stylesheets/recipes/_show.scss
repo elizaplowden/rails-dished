@@ -82,32 +82,14 @@ $secondary-colour: #5ADDE6; // blue
 
 }
 
-
-.cookbook-button-save, .cookbook-button-saved{
-    position:absolute;
-    top:0;
-    right: 0;
-    z-index: 2;
-    color: $secondary-colour;
-    font-weight: bold;
-
+.recipe-photo-container .cookbook-button-save, .cookbook-button-saved {
+  color: #fff;
+  position: relative;
+  top: 80px;
+  left: 400px;
+  i{
+    font-size: 30px;
   }
-
-
-.cookbook-button-save:hover, .cookbook-button-saved:hover{
-  text-decoration: none;
-  color: $primary-colour;
-  font-weight: bold;
-}
-
-.dishlist-button {
-  color: $secondary-colour;
-  font-weight: bold;
-}
-
-.dishlist-button:hover{
-  color: $primary-colour;
-  font-weight: bold;
 }
 
 

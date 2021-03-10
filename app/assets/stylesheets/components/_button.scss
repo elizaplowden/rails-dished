@@ -1,5 +1,6 @@
 // colour variables
 $primary-colour: #80808094; // gray
+$secondary-colour: #5ADDE6; // blue
 
 // Gray Button
 .gray-button {
@@ -76,3 +77,31 @@ $primary-colour: #80808094; // gray
   opacity: 0.8;
   text-decoration: none;
   }
+
+
+.cookbook-button-save, .cookbook-button-saved{
+    // position:absolute;
+    top:0;
+    right: 0;
+    z-index: 2;
+    color: #fff;
+    font-weight: bold;
+
+  }
+
+
+.cookbook-button-save:hover, .cookbook-button-saved:hover{
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.dishlist-button {
+  color: $secondary-colour;
+  font-weight: bold;
+}
+
+.dishlist-button:hover{
+  color: $primary-colour;
+  font-weight: bold;
+}
