@@ -7,9 +7,9 @@
   border-radius: 5px;
 }
 
-#delete-review {
-  color: #fff;
-}
+// #delete-review {
+//   color: #fff;
+// }
 
 .review p:hover > a {
   color: gray;
@@ -22,4 +22,29 @@
 .review-details {
   font-size: 10pt;
   color: gray;
+}
+
+.review a{
+  color: #5ADDE6;
+}
+
+.review a:hover{
+  color: black;
+}
+
+.review .form-group {
+  margin-left: 10px;
+}
+
+.form-group{
+  margin-left: 13px;
+}
+
+
+.br-theme-css-stars .br-widget a:after {
+    color: #fff !important;
+}
+
+.br-theme-css-stars .br-widget a.br-active:after {
+    color: #5ADDE6 !important;
 }

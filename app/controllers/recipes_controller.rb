@@ -43,6 +43,7 @@ class RecipesController < ApplicationController
     if @recipe.save
       ingredients_attributes.map! { |attribute| Ingredient.create!(food_id: attribute[:food_id], quantity: attribute[:quantity], recipe: @recipe) if attribute[:quantity].present? }
       @recipe.ingredients = ingredients_attributes.reject(&:nil?)
+      # Create notifications
       redirect_to recipes_path
     else
       render :new
