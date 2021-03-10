@@ -3,7 +3,7 @@
   <hr>
     <% if recipe.images.attached? %>
       <% recipe.images.each do |image| %>
-        <%= cl_image_tag image.key, height: 150, width: 150, crop: :fill %>
+        <%= cl_image_tag image.key, class: "user-image", height: 150, width: 150, crop: :fill %>
       <% end %>
     <% end %>
     <!-- uploading a photo -->
@@ -11,7 +11,7 @@
       <!-- to add one or mutliple images to a recipe -->
       <%= f.input :images, as: :file, input_html: { class: 'd-none', multiple: true, id: 'photo-input' }, label_html: { class: 'gray-button' }, label: 'Upload a photo' %>
       <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
-      <%= f.submit "Upload", class: "d-none" %>
+      <%= f.submit "Upload", class: "d-none", id: 'photo-save-button' %>
     <% end %>
 </div>
 

@@ -6,6 +6,8 @@ const previewImageOnFileSelect = () => {
     input.addEventListener('change', () => {
       // we call the displayPreview function (who retrieve the image url and display it)
       displayPreview(input);
+      // display the save button
+      displaySaveButton();
     })
   }
 }
@@ -19,6 +21,11 @@ const displayPreview = (input) => {
     reader.readAsDataURL(input.files[0])
     document.getElementById('photo-preview').classList.remove('hidden');
   }
+}
+
+const displaySaveButton = () => {
+  const button = document.getElementById('photo-save-button');
+  button.classList.remove('d-none');
 }
 
 export { previewImageOnFileSelect };
