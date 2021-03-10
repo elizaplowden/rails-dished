@@ -89,6 +89,7 @@ $secondary-colour: #5ADDE6; // blue
     padding: 8px;
     border: 1px;
     border-style: solid;
+}
 
 .cookbook-button-save, .cookbook-button-saved{
     // position:absolute;
@@ -97,7 +98,6 @@ $secondary-colour: #5ADDE6; // blue
     z-index: 2;
     color: #fff;
     font-weight: bold;
-
   }
 
 
@@ -112,8 +112,9 @@ $secondary-colour: #5ADDE6; // blue
   font-weight: bold;
 }
 
-.dishlist-button:hover{
+.dishlist-button:hover {
   color: $primary-colour;
   font-weight: bold;
-
 }
+
+

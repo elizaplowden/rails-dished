@@ -70,21 +70,19 @@ h5 {
   padding-right:  5px;
 }
 
-#back-to-recipe-link a {
-  color: gray;
-  text-decoration: none
-}
+// #back-to-recipe-link a {
+//   color: gray;
+//   text-decoration: none
+// }
 
 .user-profile-page
-  .recipe-links {
+.recipe-links {
   display: flex;
   flex-direction: column;
   width: auto;
   margin-top: 20px;
-  margin-bottom: 40px;
-  position: relative;
-  bottom: -230px;
-  }
+  margin-bottom: 15px;
+}
 
 
 // #upload-recipe-link a {
