@@ -1,7 +1,7 @@
 <%= link_to wishlist_path(recipe.id), method: :post, class: "dishlist-button" do %>
   <% if session[:recipe_id] && session[:recipe_id].include?(recipe.id) %>
-    <p><i class="fas fa-pepper-hot"></i>Remove from dishlist</p>
+    <p><i class="fas fa-pepper-hot"></i>  Remove from dishlist</p>
   <% else %>
-    <i class="fas fa-pepper-hot"> </i> Add to dishlist
+    <p><i class="fas fa-pepper-hot"> </i>  Add to dishlist</p>
   <% end %>
 <% end %>
