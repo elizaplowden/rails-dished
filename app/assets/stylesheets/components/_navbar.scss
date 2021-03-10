@@ -1,18 +1,21 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital@1&display=swap');
 
+.navbar {
+  font-family:  "Work Sans", "Helvetica", "sans-serif";
+  padding: 0px !important;
+  border-style: solid;
+  border-color: black;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background-color: transparent;
   transition: 0.5s background-color ease;
 }
 
-.navbar {
-  font-family:  "Work Sans", "Helvetica", "sans-serif";
-}
-
-.navbar-lewagon-white {
-  background-color: white;
+.search_nav {
+  padding-top: 10px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -34,7 +37,7 @@
 // Icon & Title styling
 .title-with-icon {
   font-size: 25px;
-  padding: 10px 10px;
+  padding-left: 28px;
   color: #e6d74e;
 
 }
@@ -46,7 +49,7 @@
 }
 
 // padding for home
-.navbar-expand-sm .navbar-nav .nav-link {
+.navbar-expand-sm .navbar-nav {
   padding-right: 2.5rem;
 }
 
@@ -74,12 +77,25 @@
 
 }
 
+
+#dropdown-heading h3 {
+  padding: 10px;
+}
+
 // nav search styling
 .search_nav .btn {
   background-color: white;
   color: gray;
   border: white;
 }
+
+
+
+.dropdown-toggle .nav-link {
+  padding: 0px;
+}
+
+// animation
 
 @keyframes wiggle {
     0% { transform: rotate(12deg); }
