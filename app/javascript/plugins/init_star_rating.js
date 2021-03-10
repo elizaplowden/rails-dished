@@ -5,7 +5,11 @@ import "jquery-bar-rating";
 
 const initStarRating = () => {
   $('#review_rating').barrating({
-    theme: 'css-stars'
+    theme: 'css-stars',
+    onSelect: (value, text, event) => {
+      const form = $("form.review_form"); //selecting the form on the page with this class
+      form.submit(); // Submitting the form with JS
+    }
   });
 };
 
