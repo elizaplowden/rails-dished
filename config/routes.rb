@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :notifications do
-    collection do
+    member do
       post :mark_as_read
     end
   end

@@ -45,7 +45,6 @@ class RecipesController < ApplicationController
       @recipe.ingredients = ingredients_attributes.reject(&:nil?)
       # Create notifications
 
-
       redirect_to recipes_path
     else
       render :new
