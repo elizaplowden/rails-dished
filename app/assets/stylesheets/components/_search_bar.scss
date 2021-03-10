@@ -11,14 +11,12 @@
   margin-bottom: 1rem;
   color: #fff;
   font-size: 20px;
-  // border-radius: 0 20px 20px 0;
-  // background-color: #fff;
   min-height: 60px;
-  // margin: 0;
   border: 0;
-  // border-right: 1px solid LightGray;
-  // border-bottom: 1px solid LightGray;
-  // border-top: 1px solid LightGray;
+}
+
+#search_button:hover {
+  opacity: 0.7;
 }
 
 
@@ -92,3 +90,6 @@
   text-align: center;
 }
 
+.select2-results__option--highlighted[aria-selected] {
+    background-color: #54BBC0 !important;
+}
