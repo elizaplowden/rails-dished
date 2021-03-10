@@ -1,9 +1,9 @@
 // colour variables
-$primary-colour: #80808094; // gray
+$primary-colour: #8080806b; // gray
 
 // Gray Button
 .gray-button {
-  background-color: #80808094;
+  background-color: #8080806b;
   padding: 10px 15px;
   border-radius: 40px;
   color: #fff;
@@ -16,21 +16,22 @@ $primary-colour: #80808094; // gray
   box-shadow: 0 4px 4px 0 #ced4da;
 }
 
-  .gray-button a {
+.gray-button a {
   color: #fff;
   text-decoration: none;
   }
 
-.gray-button:hover {
-  opacity: 0.8;
+.gray-button:hover a  {
+  opacity: .75;
   text-decoration: none;
+  color: #fff;
   }
 
 
 // Unfollow Button
 .unfollow-button {
-  background-color: #80808094;
-  padding: 10px 15px;
+  background-color: #8080806b;
+  padding: 18px 10px;
   border-radius: 40px;
   color: #fff;
   width: fit-content;
@@ -38,7 +39,7 @@ $primary-colour: #80808094; // gray
   text-decoration: none;
   text-align: center;
   height: 50px;
-  font-size: 13px;
+  font-size: 10px;
   box-shadow: 0 4px 4px 0 #ced4da;
 }
 
@@ -50,12 +51,12 @@ $primary-colour: #80808094; // gray
 .unfollow-button:hover {
   opacity: 0.8;
   text-decoration: none;
-  }
+ }
 
 // Follow Button
 .follow-button {
-  background-color: #5ADDE6;
-  padding: 10px 15px;
+  background-color: #8080806b;
+  padding: 18px 10px;
   border-radius: 40px;
   color: #fff;
   width: fit-content;
@@ -63,7 +64,7 @@ $primary-colour: #80808094; // gray
   text-decoration: none;
   text-align: center;
   height: 50px;
-  font-size: 13px;
+  font-size: 10px;
   box-shadow: 0 4px 4px 0 #ced4da;
 }
 
@@ -76,3 +77,14 @@ $primary-colour: #80808094; // gray
   opacity: 0.8;
   text-decoration: none;
   }
+
+
+// Followers & following
+.followings button {
+    display: inline-block;
+    background: white;
+    box-shadow: 2px 2px black;
+    padding: 8px;
+    border: 1px;
+    border-style: solid;
+}
