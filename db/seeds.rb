@@ -45,6 +45,8 @@ avatar_urls = ['https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367276/di
               'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367144/casper_jxkaje.jpg',
               'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367144/gordon_lxgvkh.jpg',
               'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367144/roychoi_irciqd.jpg'
+
+
               ]
 
 avatar_filenames = ['diego.png',

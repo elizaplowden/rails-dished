@@ -6,7 +6,7 @@
     <% unless recipe.reviews.pluck(:user_id).include?(current_user.id) %>
       <%= simple_form_for [recipe, review], method: :post, url: recipe_reviews_path(recipe) do |f| %>
         <%= f.input :description, label: false, placeholder: 'Leave a review' %>
-        <%= f.input :rating, label: false, placeholder: 'Rating /5'%>
+        <%= f.input :rating, collection: (1..5).to_a, label: "Rate the recipe" %>
         <%= f.submit 'Save', class: "back-button-review" %>
       <% end %>
     <% end %>
