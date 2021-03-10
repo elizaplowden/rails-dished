@@ -18,13 +18,13 @@
 
         <!-- adding Notification DropDown -->
           <% if user_signed_in? %>
-          <li class="nav-item dropdown" data-behavior='notifications'>
+          <li class="nav-item dropdown">
             <a class="dropdown-toggle nav-link" type="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-bell"></i>
             </a>
 
-             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="navbar-dropdown-text" data-behavior='notification-items'>
-              </div>
+             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="navbar-dropdown-text">
+            </div>
             </li>
 
           <% end %>
@@ -34,7 +34,7 @@
             .then(response => response.json())
             .then(data => {
               data.forEach(notification => {
-                const element = `<a class="dropdown-item" data-remote="true" rel="nofollow" data-method="post" href="/notifications/${notification.id}/mark_as_read">${notification.actor}</a>`
+                const element = `<a class="dropdown-item" data-remote="true" rel="nofollow" data-method="post" href="/notifications/${notification.id}/mark_as_read">${notification.actor} ${notification.action}</a>`
                 document.getElementById("navbar-dropdown-text").insertAdjacentHTML("beforeend", element)
               })
             })
