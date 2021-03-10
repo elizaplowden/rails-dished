@@ -23,6 +23,10 @@
  padding: 20px;
 }
 
+.dropdown-toggle::after {
+  display: none;
+}
+
 // Icon & Title styling
 .title-with-icon {
   font-size: 25px;
