@@ -1,66 +1,109 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>Sorry, the page you were looking for doesn't exist! 500</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+    body{
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+      margin-left: 20px;
+      background: #5ADDE6;
+      color: #fff;
+      font-size: 26px;
+      font-family: 'Cutive Mono', monospace;
+    }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    .dialog{
+      text-align: center;
+      width: 600px;
+    }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+    img{
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+    }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    div{
+      animation: glitch 1s linear infinite;
+    }
+
+    @keyframes glitch{
+      2%,64%{
+        transform: translate(2px,0) skew(0deg);
+      }
+      4%,60%{
+        transform: translate(-2px,0) skew(0deg);
+      }
+      62%{
+        transform: translate(0,0) skew(5deg);
+      }
+    }
+
+    div:before,
+    div:after{
+      content: attr(title);
+      position: absolute;
+      left: 0;
+    }
+
+    div:before{
+      animation: glitchTop 1s linear infinite;
+      clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    }
+
+    @keyframes glitchTop{
+      2%,64%{
+        transform: translate(2px,-2px);
+      }
+      4%,60%{
+        transform: translate(-2px,2px);
+      }
+      62%{
+        transform: translate(13px,-1px) skew(-13deg);
+      }
+    }
+
+    div:after{
+      animation: glitchBotom 1.5s linear infinite;
+      clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+      -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+    }
+
+    @keyframes glitchBotom{
+      2%,64%{
+        transform: translate(-2px,0);
+      }
+      4%,60%{
+        transform: translate(-2px,0);
+      }
+      62%{
+        transform: translate(-22px,5px) skew(21deg);
+      }
+    }
+
   </style>
 </head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/500.html -->
+<body class="dished-error-404">
+  <!-- This file lives in public/404.html -->
   <div class="dialog">
     <div>
-      <h1>We're sorry, but something went wrong.</h1>
+      <h1>Sorry, the page you were looking for doesn't exist!</h1>
+      <br>
+      <img src="images/logo-dished.png" alt="">
+      <br>
+      <h1>500 error </h1>
+
+
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+
   </div>
 </body>
 </html>

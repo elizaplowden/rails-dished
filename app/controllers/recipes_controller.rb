@@ -3,12 +3,14 @@ class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :destroy, :edit, :update, :upload, :add_to_wishlist, :average_rating]
   before_action :average_rating, only: :show
   before_action :foods, only: [:index, :new]
+  before_action :find_search_terms, only: [:index]
 
   def index
     # if statement so the recipes index still returns all recipes if there is no search term
-    if params.dig(:search, :query).present?
-      # using pgsearch - the search criteria is defined in the Recipe model
-      @recipes = Recipe.search_by_food(params.dig(:search, :query))
+    # also it removes any blank values from the search array
+    if params.dig(:search, :query).present? && !params.dig(:search, :query).reject(&:blank?).empty?
+        # using pgsearch - the search criteria is defined in the Recipe model
+        @recipes = Recipe.search_by_food(params.dig(:search, :query))
     # elsif passing params to filter by cuisine
     elsif params.key?(:cuisine_type)
       @recipes = Recipe.where(cuisine: params[:cuisine_type])
@@ -109,5 +111,13 @@ class RecipesController < ApplicationController
   def foods
     # gets a list of all the foods in the Foods table and sorts them alphabetically by name
     @foods = Food.order(:name)
+  end
+
+  def find_search_terms
+    if params[:search]
+      @search_terms = params[:search][:query]
+    else
+      @search_terms = params[:search]
+    end
   end
 end

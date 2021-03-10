@@ -15,9 +15,6 @@
             </div>
 
 
-
-
-
             <div class="followings">
               <%#-- Follow / Unfollow logic %>
               <% if current_user != @user && !current_user.follows_given.pluck(:followee_id).include?(@user.id) %>
@@ -29,21 +26,8 @@
               <%= render "./shared/follower_modal" %>
               <%#-- Shows who you are following %>
               <%= render "./shared/following_modal" %>
-
-
-              <button>
-                <%#-- Link to users index %>
-                <% if @user == current_user %>
-                  <i class="fas fa-users"></i>
-                    <%= link_to "Find foodie friends", users_path %>
-                <% else %>
-                  <%= link_to "Find more foodies", users_path %>
-                  <br>
-                <% end %>
-              </button>
-
-            </div>
           </div>
+      </div>
 
       <%#-- Show each bookmark... this needs to be turned into a card %>
       <div class="cookbook">
@@ -77,13 +61,17 @@
               </div>
             <% end %>
           </div>
+
+
+
         </div>
         <% end %>
       </div>
       <div class="recipe-links">
-        <%= link_to 'Edit your profile', edit_user_registration_path %>
-        <%= link_to 'Upload a new recipe', new_recipe_path %>
-        <%= link_to 'Back to all recipes', recipes_path %>
+        <div class="gray-button"><%= link_to 'Edit your profile', edit_user_registration_path %></div>
+        <div class="gray-button"><%= link_to 'Upload a new recipe', new_recipe_path %></div>
+        <div class="gray-button"><%= link_to 'Back to all recipes', recipes_path %></div>
+
       </div>
   </div>
 </div>
