@@ -17,6 +17,7 @@ User.delete_all
 
 ###################################
 
+puts 'creating users...'
 
 User.create(email: 'goldenboy@gmail.com', password: 'goldenboy', username: 'GoldenBoy')
 User.create(email: 'gordon@kitchennightmares.com', password: 'gordon', username: 'Gordon Ramsey')
@@ -28,10 +29,47 @@ User.create(email: 'george@email.com', password: 'Password1', username: 'George'
 User.create(email: 'chefcasper@email.com', password: 'Password1', username: 'chefcasper')
 User.create(email: 'nigella@email.com', password: 'Password1', username: 'nigella')
 User.create(email: 'roy@email.com', password: 'Password1', username: 'roychoi')
-
+User.create(email: 'ainsley@email.com', password: 'Password1', username: 'ainsleyh')
 
 3.times do
   User.create(email: Faker::Internet::email, password: 'Password1', username: Faker::Internet::username)
+end
+
+puts 'attaching avatars...'
+
+counter = 0
+
+avatar_urls = ['https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367276/diego.png',
+              'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367144/jayray_byypnd.jpg',
+              'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367144/nigella_ujmnt8.jpg',
+              'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367144/casper_jxkaje.jpg',
+              'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367144/gordon_lxgvkh.jpg',
+              'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367144/roychoi_irciqd.jpg'
+              ]
+
+avatar_filenames = ['diego.png',
+                    'jayray_byypnd.jpg',
+                    'nigella_ujmnt8.jpg',
+                    'casper_jxkaje.jpg',
+                    'gordon_lxgvkh.jpg',
+                    'roychoi_irciqd.jpg'
+                    ]
+
+users = []
+users << User.find_by(username: 'GoldenBoy')
+users << User.find_by(username: 'jayray')
+users << User.find_by(username: 'nigella')
+users << User.find_by(username: 'chefcasper')
+users << User.find_by(username: 'Gordon Ramsey')
+users << User.find_by(username: 'roychoi')
+
+number = avatar_urls.size
+number.times do
+  downloaded_image = open(avatar_urls[counter])
+  filename = avatar_filenames[counter]
+  user = users[counter]
+  # attaching the photo as the avatar
+  user.avatar.attach(io: downloaded_image, filename: filename)
 end
 
 puts "created #{User.count} users"
@@ -57,79 +95,81 @@ puts "created #{Food.count} foods"
 puts 'creating recipes, ingredients and photos...'
 counter = 0
 recipes_url = [
-  'https://themealdb.com/api/json/v1/1/search.php?s=Thai%20Green%20Curry',
-  'https://themealdb.com/api/json/v1/1/search.php?s=Banana%20Pancakes',
-  'https://themealdb.com/api/json/v1/1/search.php?s=Mediterranean%20Pasta%20Salad',
-  'https://themealdb.com/api/json/v1/1/search.php?s=Lamb%20Tzatziki%20Burgers',
-  'https://themealdb.com/api/json/v1/1/search.php?s=chocolate%20souffle',
-  'https://themealdb.com/api/json/v1/1/search.php?s=cajun%20spiced%20fish%20tacos',
-  'https://themealdb.com/api/json/v1/1/search.php?s=Chinon%20Apple%20Tarts',
-  'https://themealdb.com/api/json/v1/1/search.php?s=Chicken%20Quinoa%20Greek%20Salad',
-  'https://themealdb.com/api/json/v1/1/search.php?s=Honey%20Teriyaki%20Salmon',
-  'https://themealdb.com/api/json/v1/1/search.php?s=Lamb%20Tagine',
-  'https://themealdb.com/api/json/v1/1/search.php?s=Tuna%20Nicoise',
-  'https://themealdb.com/api/json/v1/1/search.php?s=Vegan%20Lasagna',
-  'https://themealdb.com/api/json/v1/1/search.php?s=Jerk%20chicken%20with%20rice%20&%20peas',
-  'https://themealdb.com/api/json/v1/1/search.php?s=Squash%20linguine',
-  'https://themealdb.com/api/json/v1/1/search.php?s=carrot%20cake',
-  'https://www.themealdb.com/api/json/v1/1/search.php?s=Salmon%20Prawn%20Risotto',
-  'https://www.themealdb.com/api/json/v1/1/search.php?s=Baked%20salmon%20with%20fennel%20&%20tomatoes',
-  'https://themealdb.com/api/json/v1/1/search.php?s=Lasagne',
-  'https://themealdb.com/api/json/v1/1/search.php?s=Blackberry%20Fool'
+  'https://themealdb.com/api/json/v1/1/search.php?s=Thai%20Green%20Curry', #0
+  'https://themealdb.com/api/json/v1/1/search.php?s=Banana%20Pancakes', #1
+  'https://themealdb.com/api/json/v1/1/search.php?s=Mediterranean%20Pasta%20Salad', #2
+  'https://themealdb.com/api/json/v1/1/search.php?s=Lamb%20Tzatziki%20Burgers', #3
+  'https://themealdb.com/api/json/v1/1/search.php?s=chocolate%20souffle', #4
+  'https://themealdb.com/api/json/v1/1/search.php?s=cajun%20spiced%20fish%20tacos', #5
+  'https://themealdb.com/api/json/v1/1/search.php?s=Chinon%20Apple%20Tarts', #6
+  'https://themealdb.com/api/json/v1/1/search.php?s=Chicken%20Quinoa%20Greek%20Salad', #7
+  'https://themealdb.com/api/json/v1/1/search.php?s=Honey%20Teriyaki%20Salmon', #8
+  'https://themealdb.com/api/json/v1/1/search.php?s=Lamb%20Tagine', #9
+  'https://themealdb.com/api/json/v1/1/search.php?s=Tuna%20Nicoise', #10
+  'https://themealdb.com/api/json/v1/1/search.php?s=Vegan%20Lasagna', #11
+  'https://themealdb.com/api/json/v1/1/search.php?s=Jerk%20chicken%20with%20rice%20&%20peas', #12
+  'https://themealdb.com/api/json/v1/1/search.php?s=Squash%20linguine', #13
+  'https://themealdb.com/api/json/v1/1/search.php?s=carrot%20cake', #14
+  'https://themealdb.com/api/json/v1/1/search.php?s=Salmon%20Prawn%20Risotto', #15
+  'https://themealdb.com/api/json/v1/1/search.php?s=Baked%20salmon%20with%20fennel%20&%20tomatoes', #16
+  'https://themealdb.com/api/json/v1/1/search.php?s=Grilled%20Mac%20and%20Cheese%20Sandwich', #17
+  'https://themealdb.com/api/json/v1/1/search.php?s=Blackberry%20Fool' #18
 ]
+
 image_url = [
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944353/curry_enmkfv.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944736/pancakes_qrqfsm.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944817/photo-1473093295043-cdd812d0e601_feew13.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944885/burger_v3wcmm.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945126/photo-1579523609100-5b868b803668_z4psfa.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945367/tacos_yjk701.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945552/apple_tart_fqencu.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945687/quinoa_n9zmji.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944557/salmon_xv79pu.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945819/tagine_asyowg.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949295/nicoise_vphbl4.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949440/lasagne_avupin.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949651/jerk_uywqnh.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949851/inguine_o0jtfp.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949946/carrot_cake_sw8lch.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949946/carrot_cake_sw8lch.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949946/carrot_cake_sw8lch.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949946/carrot_cake_sw8lch.jpg',
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949946/carrot_cake_sw8lch.jpg'
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944353/curry_enmkfv.jpg', #0
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944736/pancakes_qrqfsm.jpg', #1
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944817/photo-1473093295043-cdd812d0e601_feew13.jpg', #2
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944885/burger_v3wcmm.jpg', #3
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945126/photo-1579523609100-5b868b803668_z4psfa.jpg', #4
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945367/tacos_yjk701.jpg', #5
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945552/apple_tart_fqencu.jpg', #6
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945687/quinoa_n9zmji.jpg', #7
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944557/salmon_xv79pu.jpg', #8
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614945819/tagine_asyowg.jpg', #9
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949295/nicoise_vphbl4.jpg', #10
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949440/lasagne_avupin.jpg', #11
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949651/jerk_uywqnh.jpg', #12
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949851/inguine_o0jtfp.jpg', #13
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614949946/carrot_cake_sw8lch.jpg', #14
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367145/salmon_prawn_risotto_iswv1q.jpg', #15
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367150/baked_salmon_tomatoes_vwocer.jpg', #16
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367152/sandwich1_i4kmqr.jpg', #17
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367163/blackberryfool_xkdoxb.jpg' #18
 ]
 
 image_name = [
-      'curry_enmkfv.jpg',
-      'pancakes_qrqfsm.jpg',
-      'photo-1473093295043-cdd812d0e601_feew13.jpg',
-      'burger_v3wcmm.jpg',
-      'photo-1579523609100-5b868b803668_z4psfa.jpg',
-      'tacos_yjk701.jpg',
-      'apple_tart_fqencu.jpg',
-      'quinoa_n9zmji.jpg',
-      'salmon_xv79pu.jpg',
-      'tagine_asyowg.jpg',
-      'nicoise_vphbl4.jpg',
-      'lasagne_avupin.jpg',
-      'jerk_uywqnh.jpg',
-      'inguine_o0jtfp.jpg',
-      'carrot_cake_sw8lch.jpg',
-      'carrot_cake_sw8lch.jpg',
-      'carrot_cake_sw8lch.jpg',
-      'carrot_cake_sw8lch.jpg',
-      'carrot_cake_sw8lch.jpg'
+      'curry_enmkfv.jpg', #0
+      'pancakes_qrqfsm.jpg', #1
+      'photo-1473093295043-cdd812d0e601_feew13.jpg', #2
+      'burger_v3wcmm.jpg', #3
+      'photo-1579523609100-5b868b803668_z4psfa.jpg', #4
+      'tacos_yjk701.jpg', #5
+      'apple_tart_fqencu.jpg', #6
+      'quinoa_n9zmji.jpg', #7
+      'salmon_xv79pu.jpg', #8
+      'tagine_asyowg.jpg', #9
+      'nicoise_vphbl4.jpg', #10
+      'lasagne_avupin.jpg', #11
+      'jerk_uywqnh.jpg', #12
+      'inguine_o0jtfp.jpg', #13
+      'carrot_cake_sw8lch.jpg', #14
+      'salmon_prawn_risotto_iswv1q.jpg', #15
+      'baked_salmon_tomatoes_vwocer.jpg', #16
+      'sandwich1_i4kmqr.jpg', #17
+      'blackberryfool_xkdoxb.jpg' #18
 ]
 
 
 19.times do
-  recipes_serialized = open(recipes_url[counter]).read
-  recipes = JSON.parse(recipes_serialized)
+  # gets one recipe from the recipes_url array (at the index that = counter)
+  recipe_serialized = open(recipes_url[counter]).read
+  recipe_parsed = JSON.parse(recipe_serialized)
 
   # selects a random user
   rand_user = User.order("RANDOM()").limit(1).first
 
-  recipes['meals'].each do |meal|
+  recipe_parsed['meals'].each do |meal|
     # creating the recipe instance and saving to the db
      recipe = Recipe.create( {
       name: meal['strMeal'],
@@ -161,7 +201,6 @@ image_name = [
    downloaded_image = open(image_url[counter])
    filename = image_name[counter]
    recipe.photo.attach(io: downloaded_image, filename: filename)
-   puts 'attached photo'
   end
    puts "created recipe #{counter + 1}"
    counter += 1
