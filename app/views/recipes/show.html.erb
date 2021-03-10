@@ -3,16 +3,10 @@
 
   <div class="recipe-stats-actions">
     <h2><%=@recipe.name%></h2>
-    <%= render "./shared/rating", rating: @average_rating %>
+    <%= render "./shared/rating", rating: @recipe.average_rating %>
   </div>
   <div class="recipe-overview-container">
     <div class="ingredients-container col-7">
-      
-      <div class="recipe-stats-actions">
-        <%= render "./shared/rating", rating: @recipe.average_rating %>
-      </div>
-
-
       <div class="recipe-info-bar">
         <h4>Ingredients</h4>
         <div class="recipe-info-icons">
@@ -59,4 +53,5 @@
     <%= render "./shared/dishlist_button", recipe: @recipe %>
     <%= link_to icon('far', 'trash-alt ', 'Delete'), recipe_path(@recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %>
     <%= link_to 'More Recipes', recipes_path, class: "button" %>
+</div>
 </div>
