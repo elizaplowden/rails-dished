@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :find_recipe, only: [:show, :destroy, :edit, :update, :upload, :add_to_wishlist, :average_rating]
-  before_action :average_rating, only: :show
+  # before_action :average_rating, only: :show
   before_action :foods, only: [:index, :new]
   before_action :find_search_terms, only: [:index]
 
@@ -87,16 +87,16 @@ class RecipesController < ApplicationController
     redirect_back(fallback_location: recipes_path)
   end
 
-  def average_rating
-    reviews = @recipe.reviews
-    ratings = []
-    reviews.each do |review|
-      ratings << review.rating
-    end
-    unless ratings.empty?
-      @average_rating = (ratings.sum / ratings.size)
-    end
-  end
+  # def average_rating
+  #   reviews = @recipe.reviews
+  #   ratings = []
+  #   reviews.each do |review|
+  #     ratings << review.rating
+  #   end
+  #   unless ratings.empty?
+  #     @average_rating = (ratings.sum / ratings.size)
+  #   end
+  # end
 
   private
 

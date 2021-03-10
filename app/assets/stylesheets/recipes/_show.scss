@@ -50,60 +50,36 @@ $secondary-colour: #5ADDE6; // blue
 }
 
 .recipe-stats-actions {
-  color: #80808094;
+  // color: #80808094;
   display: flex;
-  justify-content: space-around;
-  padding: 10px 0px 30px 0px;
+  justify-content: flex-start;
   align-items: center;
   font-weight: bold;
+  text-align:left;
 
-  // color: gray;
-  // display: flex;
-  // justify-content: flex-start;
-  // padding: 10px 0px 30px 0px;
-  // font-weight: bold;
+  i {
+    margin-top: 30px;
+  }
 }
 
-.recipe-photo-container{
-  position:relative;
-  display:block;
-}
 
 .recipe-photo {
   width: 450px;
   height: 400px;
   object-fit: cover;
   border-radius: 16px;
-  margin-top: 30px;
+  margin-top: -40px;
 
 }
 
-
-.cookbook-button-save, .cookbook-button-saved{
-    position:absolute;
-    top:0;
-    right: 0;
-    z-index: 2;
-    color: $secondary-colour;
-    font-weight: bold;
-
+.recipe-photo-container .cookbook-button-save, .cookbook-button-saved {
+  color: #fff;
+  position: relative;
+  top: 80px;
+  left: 400px;
+  i{
+    font-size: 30px;
   }
-
-
-.cookbook-button-save:hover, .cookbook-button-saved:hover{
-  text-decoration: none;
-  color: $primary-colour;
-  font-weight: bold;
-}
-
-.dishlist-button {
-  color: $secondary-colour;
-  font-weight: bold;
-}
-
-.dishlist-button:hover{
-  color: $primary-colour;
-  font-weight: bold;
 }
 
 
@@ -180,39 +156,11 @@ $secondary-colour: #5ADDE6; // blue
   }
 }
 
-
-.show-button {
-  margin-bottom: 40px;
-  background-color: #80808094;
-  padding: 10px 15px;
-  border-radius: 40px;
-  color: #fff;
-  width: 145px;
-  margin: 5px;
-  text-decoration: none;
-}
-  .show-button, a {
-  text-decoration: none;
-  color: #fff;
-  }
-
-  a:hover {
-  opacity: 0.8;
-  text-decoration: none;
-  color: #fff;
-  }
-
-#delete-review {
-  background-color: #80808094;
-}
-
 .links-to {
   list-style-type: none;
   margin-bottom: 50px;
   margin-top: 30px;
 }
-
-
 
 .recipe-actions a{
   margin-top: 30px;

@@ -1,53 +1,41 @@
 <div class="container">
 
   <div class="user-profile-page">
-    <div class="profile-info">
           <div class="user-profile">
-
-            <%#--Shows profile name %>
-            <h3><%= @user.username %></h3>
-            <%#-- Follow / Unfollow logic %>
-            <% if current_user != @user && !current_user.follows_given.pluck(:followee_id).include?(@user.id) %>
-              <button><%= link_to "Follow", follow_user_path(@user), method: :post %></button>
-            <% elsif current_user != @user  %>
-              <button><%= link_to "Unfollow", unfollow_user_path(@user), method: :delete %></button>
-            <% end %>
 
             <div class="avatar-username">
               <!-- TODO: add an if statement to replace avatar with logo -->
               <% if @user.avatar.attached? %>
-                 <%=cl_image_tag @user.avatar.key, class: "avatar", crop: :fill  %>
+                 <%=cl_image_tag @user.avatar.key, class: "avatar-large", crop: :fill  %>
               <% else %>
-                <%= image_tag 'logo-dished' %>
+                <%= image_tag 'logo-dished.png', class: "avatar-large" %>
               <% end %>
+            <%#--Shows profile name %>
+            <h3><%= @user.username %></h3>
             </div>
 
 
-
             <div class="followings">
+              <%#-- Follow / Unfollow logic %>
+              <% if current_user != @user && !current_user.follows_given.pluck(:followee_id).include?(@user.id) %>
+                <button><%= link_to "Follow", follow_user_path(@user), method: :post %></button>
+              <% elsif current_user != @user  %>
+                <button><%= link_to "Unfollow", unfollow_user_path(@user), method: :delete %></button>
+              <% end %>
               <%#-- Shows who follows you %>
               <%= render "./shared/follower_modal" %>
               <%#-- Shows who you are following %>
               <%= render "./shared/following_modal" %>
-
-
-              <button>
-                <%#-- Link to users index %>
-                <% if @user == current_user %>
-                  <i class="fas fa-users"></i>
-                    <%= link_to "Find foodie friends", users_path %>
-                <% else %>
-                  <%= link_to "Find more foodies", users_path %>
-                  <br>
-                <% end %>
-              </button>
-
-            </div>
           </div>
+      </div>
 
       <%#-- Show each bookmark... this needs to be turned into a card %>
       <div class="cookbook">
-        <h3>Saved Dishes</h3>
+        <% if @user.bookmarks.count == 0 %>
+            <h3>No Saved Dishes</h3>
+        <% else %>
+          <h3>Saved Dishes</h3>
+
         <div class="cookbook-content">
 
           <!-- to be replaced by index card once created -->
@@ -73,14 +61,18 @@
               </div>
             <% end %>
           </div>
+
+
+
         </div>
+        <% end %>
       </div>
       <div class="recipe-links">
-        <%= link_to 'Edit your profile', edit_user_registration_path %>
-        <%= link_to 'Upload a new recipe', new_recipe_path %>
-        <%= link_to 'Back to all recipes', recipes_path %>
+        <div class="gray-button"><%= link_to 'Edit your profile', edit_user_registration_path %></div>
+        <div class="gray-button"><%= link_to 'Upload a new recipe', new_recipe_path %></div>
+        <div class="gray-button"><%= link_to 'Back to all recipes', recipes_path %></div>
+
       </div>
-    </div>
   </div>
 </div>
 
