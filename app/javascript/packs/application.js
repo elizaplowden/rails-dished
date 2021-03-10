@@ -9,6 +9,7 @@
 //= require bootstrap
 //= require_tree .
 //= require masonry/jquery.masonry
+require data-confirm-modal
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
