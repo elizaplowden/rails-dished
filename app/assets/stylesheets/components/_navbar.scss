@@ -4,8 +4,8 @@
 .navbar {
   font-family:  "Work Sans", "Helvetica", "sans-serif";
   padding: 0px !important;
-  border-style: solid;
-  border-color: black;
+  // border-style: solid;
+  // border-color: black;
 }
 
 .navbar-lewagon {
@@ -15,7 +15,7 @@
 }
 
 .search_nav {
-  padding-top: 10px;
+  padding-top: 16px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -24,6 +24,15 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-nav li {
+  padding: 0px 18px;
+  padding-top: 11px;
+}
+
+.navbar-expand-sm .navbar-nav {
+  padding-right: 0px !important;
 }
 
 .navbar {
@@ -74,12 +83,11 @@
 
 .dropdown-item i {
   padding: 8px;
-
 }
 
 
 #dropdown-heading h3 {
-  padding: 10px;
+  padding: 1px;
 }
 
 // nav search styling
