@@ -50,12 +50,16 @@ $secondary-colour: #5ADDE6; // blue
 }
 
 .recipe-stats-actions {
-  color: #80808094;
+  // color: #80808094;
   display: flex;
-  justify-content: space-around;
-  padding: 10px 0px 30px 0px;
+  justify-content: flex-start;
   align-items: center;
   font-weight: bold;
+  text-align:left;
+
+  i {
+    margin-top: 30px;
+  }
 
   // color: gray;
   // display: flex;
