@@ -81,7 +81,6 @@
   border-left: 1px solid LightGray !important;
   border-top: 1px solid LightGray !important;
   border-bottom: 1px solid LightGray !important;
-  margin-bottom: 10px !important;
 }
 
 
@@ -101,4 +100,8 @@
 
 .select2-results__option--highlighted[aria-selected] {
     background-color: #54BBC0 !important;
+}
+
+.select2-selection--multiple {
+  padding: 0px;
 }
