@@ -6,6 +6,7 @@
             <div class="avatar-username">
               <!-- TODO: add an if statement to replace avatar with logo -->
               <% if @user.avatar.attached? %>
+
                  <%=cl_image_tag @user.avatar.key, class: "avatar-large", crop: :fill  %>
               <% else %>
                 <%= image_tag 'yellow.png', class: "avatar-large", crop: :fill %>
