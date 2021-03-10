@@ -56,12 +56,13 @@
 }
 
 // avatar
-.avatar {
-    width: 35px;
-    border-radius: 50%;
-    height: 35px;
-    margin: 5px 10px;
-}
+// commenting out because this class is defined elsewhere in the avatar.scss
+// .avatar {
+//     width: 35px;
+//     border-radius: 50%;
+//     height: 35px;
+//     margin: 5px 10px;
+// }
 
 // drop down color
 .dropdown-item {

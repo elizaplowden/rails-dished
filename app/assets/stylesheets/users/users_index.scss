@@ -20,10 +20,6 @@
   padding: 20px;
 }
 
-.explore-feed {
-
-}
-
 .explore-heading {
   margin: 32px;
 }
@@ -38,39 +34,51 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 16px
+  padding: 8px 16px;
+}
+
+.explore-feed-heading a {
+  color: black;
 }
 
 // user avatar and name
 .explore-user-details {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
-// remove margin from the bottom of usernames, so they align nicely with the avatar
-.explore-feed-heading h2 {
-  margin: 0;
+// username - adjusting the margin
+.explore-user-details h2 {
+  margin-bottom: 0;
+  margin-left: 15px;
 }
 
-.explore-recipe-card {
-  position: relative;
-  padding-left: 8px;
-  padding-right: 8px;
-}
+//  commented out these classes because I think they're not being used anywhere on the explore page
+// .explore-recipe-card {
+//   position: relative;
+//   padding-left: 8px;
+//   padding-right: 8px;
+// }
 
-.explore-recipe-card img {
-  border-radius: 16px;
-  filter: brightness(70%);
-}
+// .explore-recipe-card img {
+//   border-radius: 16px;
+//   filter: brightness(70%);
+// }
 
-.explore-recipe-info {
-  position: absolute;
-  bottom: 0px;
-  left: 12px;
-  color: black;
-}
+// .explore-recipe-info {
+//   position: absolute;
+//   bottom: 0px;
+//   left: 12px;
+//   color: black;
+// }
 
-.explore-feed-heading a {
-  color: black
+// if the user hasn't created any recipes
+#empty-recipes-placeholder {
+  color: white;
+  font-size: 12pt;
+  background-color: lightgray;
+  width: 400px;
+  height: 100px;
+  margin: 12px;
 }

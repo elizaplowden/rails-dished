@@ -14,10 +14,12 @@
         <%# follow/unfollow user %>
         <div>
           <% if current_user != user && !current_user.follows_given.pluck(:followee_id).include?(user.id) %>
+            <!-- follow button -->
             <%= link_to follow_user_path(user), method: :post do %>
               Follow <i class="fas fa-pepper-hot"></i>
             <% end %>
           <% elsif current_user != user  %>
+            <!-- unfollow button -->
             <%= link_to unfollow_user_path(user), method: :delete do %>
               Unfollow <i class="fas fa-pepper-hot"></i>
             <% end %>
@@ -25,24 +27,34 @@
         </div>
       </div>
       <div class="explore-feed-item">
-        <% user.recipes.each do |recipe| %>
-          <%# making the recipe item a link %>
-          <%=link_to recipe_path(recipe.id) do %>
-            <%# Some of the users recipes in a card %>
-            <div class="index-card" id="explore-page">
-              <%# Recipe image %>
-              <%=cl_image_tag recipe.photo.key, height: 240 %>
-              <div class="index-card-text" id="explore-text">
-                <div class="index-card-heading">
-                  <h2><%=recipe.name.truncate(32)%></h2>
-                <%# Recipe title %>
-                </div>
-                <div class="index-card-info">
-                  <p><%= render 'shared/rating', rating: recipe.average_rating %></p>
+        <% if !user.recipes.empty? %>
+          <% user.recipes.each do |recipe| %>
+            <%# making the recipe item a link %>
+            <%=link_to recipe_path(recipe.id) do %>
+              <%# Some of the users recipes in a card %>
+              <div class="index-card" id="explore-page">
+                <!-- recipe image -->
+                <%=cl_image_tag recipe.photo.key, height: 240 %>
+                <div class="index-card-text">
+                  <div class="index-card-heading">
+                    <!-- recipe title -->
+                    <h2><%=recipe.name.truncate(32)%></h2>
+                  </div>
+                  <div class="index-card-info">
+                    <p><%= render 'shared/rating', rating: recipe.average_rating %></p>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
+        <% else %>
+          <!-- if the user hasn't created any recipes -->
+          <div class="index-card" id="empty-recipes-placeholder">
+            <div>
+              They haven't created any recipes yet
+              <i class="far fa-sad-cry"></i>
+            </div>
+          </div>
         <% end %>
       </div>
   <% end %>
