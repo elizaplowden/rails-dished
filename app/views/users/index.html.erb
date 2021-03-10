@@ -28,6 +28,7 @@
       </div>
       <div class="explore-feed-item">
         <% if !user.recipes.empty? %>
+          <!-- if user does have recipes -->
           <% user.recipes.each do |recipe| %>
             <%# making the recipe item a link %>
             <%=link_to recipe_path(recipe.id) do %>
