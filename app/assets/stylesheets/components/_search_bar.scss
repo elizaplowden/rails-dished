@@ -31,6 +31,9 @@
   transform: scale(1.3);
 }
 
+#search_button_home:focus, #search_button_navbar:focus {
+outline: 0;
+}
 
 // styles the background box of the recipes index page
 .index-search-background {
