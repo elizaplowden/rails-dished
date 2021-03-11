@@ -1,9 +1,4 @@
 // all css for notes on the recipe show page
-// colour variables
-
-// colour variables
-$primary-colour: #E6D74E; // yellow
-$secondary-colour: #15b3b3; // blue
 
 
 .notes-container {
@@ -25,7 +20,17 @@ $secondary-colour: #15b3b3; // blue
   color: $secondary-colour;
 }
 
-.notes-container li:hover > a {
+// display trash icon on hover
+.notes-container li:hover > p > a {
   color: #fff;
   cursor: pointer;
+}
+
+// the notes box in the new note form
+.note_description {
+  border-radius: 5px;
+  margin-left: 0 !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
 }

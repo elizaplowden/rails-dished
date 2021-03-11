@@ -27,6 +27,7 @@
       </ul>
     </div>
     <div class="recipe-photo-container">
+      <%= render "./shared/dishlist_button", recipe: @recipe %>
       <%= render "./shared/cookbook_button", recipe: @recipe %>
       <%=cl_image_tag @recipe.photo.key, class: "recipe-photo", crop: :fill  %>
 
@@ -44,14 +45,17 @@
     <%= render "notes", recipe: @recipe, bookmark: @bookmark, note: @note %>
   </div>
   <div class="user-images-container">
+    <!-- USER IMAGES -->
     <%= render "user_images", recipe: @recipe %>
   </div>
   <div class="reviews-container">
+    <!-- REVIEWS -->
     <%= render "reviews", recipe: @recipe, review: @review %>
   </div>
   <div class="recipe-actions">
     <%= render "./shared/dishlist_button", recipe: @recipe %>
     <%= render "recipe_delete_button", recipe: @recipe %>
+
     <%= link_to 'More Recipes', recipes_path, class: "button" %>
 </div>
 </div>

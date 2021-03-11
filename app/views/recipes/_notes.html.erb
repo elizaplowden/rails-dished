@@ -7,18 +7,20 @@
         <ul>
           <% recipe.notes.each do |note| %>
           <li>
-            <i class="fas fa-cheese"></i> &nbsp;
-            <%= note.description %> &nbsp;
-            <%= link_to note_path(note), method: :delete,  data: { confirm: 'Are you sure?' } do %>
-              <i class="fas fa-trash"></i>
-            <% end %>
+            <p>
+              <i class="fas fa-cheese"></i>
+              <%= " #{note.description} "%>
+              <%= link_to note_path(note), method: :delete,  data: { confirm: 'Are you sure?' } do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
+            </p>
           </li>
         <% end %>
         </ul>
         <!-- they can add/delete notes -->
         <%= simple_form_for [bookmark, note], method: :post, remote: true do |f| %>
-          <%= f.input :description, label: false, placeholder: 'add a note' %>
-          <%= f.submit "Add", class: 'button' %>
+          <%= f.input :description, label: false, input_html: { class: 'note_description' } %>
+          <%= f.button :submit, "+ add note",  class: 'gray-button'%>
         <% end %>
       <% end %>
     </div>
