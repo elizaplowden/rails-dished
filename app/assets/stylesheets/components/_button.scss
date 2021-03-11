@@ -15,13 +15,15 @@ $secondary-colour: #15b3b3; // blue
   text-decoration: none;
   text-align: center;
   font-size: 15px;
-  box-shadow: 0 4px 4px 0 #ced4da;
+  box-shadow: 0 2px 2px 0 #ced4da;
   cursor: pointer;
 }
 
 .gray-button:hover {
   opacity: 0.75;
   cursor: pointer;
+  transform: translateY(0.7px);
+  transition: all 0.2s linear;
 }
 
 .gray-button a {
