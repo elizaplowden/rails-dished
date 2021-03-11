@@ -22,6 +22,8 @@ $secondary-colour: #15b3b3; // blue
 .gray-button:hover {
   opacity: 0.75;
   cursor: pointer;
+  transform: translateY(0.7px);
+  transition: all 0.2s linear;
 }
 
 .gray-button a {
@@ -110,17 +112,14 @@ $secondary-colour: #15b3b3; // blue
 .cookbook-button-save:hover, .cookbook-button-saved:hover{
   text-decoration: none;
   color: #fff;
-  font-weight: bold;
 }
 
 .dishlist-button {
   color: $secondary-colour;
-  font-weight: bold;
 }
 
 .dishlist-button:hover {
   color: $primary-colour;
-  font-weight: bold;
 }
 
 
