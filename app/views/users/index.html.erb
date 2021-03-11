@@ -12,10 +12,10 @@
           <h2><%= link_to user.username, user %></h2>
         </div>
         <%# follow/unfollow user %>
-        <div>
+        <div class ="unfollow-button">
           <% if current_user != user && !current_user.follows_given.pluck(:followee_id).include?(user.id) %>
             <!-- follow button -->
-            <%= link_to follow_user_path(user), method: :post do %>
+            <%= link_to follow_user_path(user), method: :post  do %>
               Follow <i class="fas fa-carrot"></i>
             <% end %>
           <% elsif current_user != user  %>

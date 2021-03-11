@@ -30,7 +30,7 @@
   overflow: hidden;
   margin-right: 8px;
   border-radius: 16px;
-  width: 477.5px;
+  width: 506.91px;
 }
 
 ::-webkit-scrollbar{
@@ -60,7 +60,7 @@
 }
 
 .scrolling-card img {
-  width: 500px;
+  width: 600px;
   object-fit: cover;
   filter: brightness(50%);
 }
@@ -71,16 +71,25 @@
   text-shadow: 0.5px 0.5px black;
 }
 
-.add-to-cookbook {
+.modal-actions {
   top: 30px;
   position: relative;
+  display: flex;
+  flex-direction: flex-end;
   // color: white;
-  right: 60px;
+  right: 150px;
   .cookbook-button-save, .cookbook-button-saved {
   color: #fff;
   position: static;
+  left: 20px;
+  padding-left: 30px;
+  .remove-from-dishlist{
+    left: 20px;
+    font-size: 20px;
+  }
   i{
     font-size: 30px;
+
   }
 }
 
