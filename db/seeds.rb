@@ -29,7 +29,11 @@ User.create(email: 'george@email.com', password: 'Password1', username: 'George'
 User.create(email: 'chefcasper@email.com', password: 'Password1', username: 'chefcasper')
 User.create(email: 'nigella@email.com', password: 'Password1', username: 'nigella')
 User.create(email: 'roy@email.com', password: 'Password1', username: 'roychoi')
+User.create(email: Faker::Internet::email, password: 'Password1', username: 'willena.wiza')
+User.create(email: Faker::Internet::email, password: 'Password1', username: 'dana')
+User.create(email: Faker::Internet::email, password: 'Password1', username: 'chi.skiles')
 User.create(email: 'ainsley@email.com', password: 'Password1', username: 'ainsleyh')
+
 
 3.times do
   User.create(email: Faker::Internet::email, password: 'Password1', username: Faker::Internet::username)
@@ -84,9 +88,9 @@ users << User.find_by(username: 'saraevs')
 users << User.find_by(username: 'Phillip')
 users << User.find_by(username: 'Eliza')
 users << User.find_by(username: 'George')
-users << User.find_by(username: Faker::Internet::username)
-users << User.find_by(username: Faker::Internet::username)
-users << User.find_by(username: Faker::Internet::username)
+users << User.find_by(username: 'willena.wiza')
+users << User.find_by(username: 'dana')
+users << User.find_by(username: 'chi.skiles')
 users << User.find_by(username: 'ainsleyh')
 
 
