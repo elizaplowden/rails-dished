@@ -8,26 +8,26 @@
     <%= f.input :cook_time, label: 'How long in minutes?', wrapper_html: { class: 'form-inline' } %>
     <%= f.input :photo, as: :file %>
     <hr>
-    <h5>Ingredients</h5>
+    <p>Ingredients (select at least one)</p>
     <%=  f.simple_fields_for :ingredients_attributes do |ingredients_form| %>
       <div class="ingredient-form-group">
-        <%= ingredients_form.input :food_id, collection: @foods, label: "Select first ingredient: ", input_html: { name: "recipe[ingredients_attributes][][food_id]", class: "select2", id: 'first_ingredient' } %>
+        <%= ingredients_form.input :food_id, collection: @foods, label: "Item", input_html: { name: "recipe[ingredients_attributes][][food_id]", class: "select2", id: 'first_ingredient' } %>
         <%= ingredients_form.input :quantity, label: 'Quantity:', input_html: { name: "recipe[ingredients_attributes][][quantity]", id: "first_quantity" }, wrapper_html: { class: 'form-inline' }  %>
       </div>
       <div class="ingredient-form-group">
-        <%= ingredients_form.input :food_id, collection: @foods, label: "Select second ingredient: ", required: false, input_html: { name: "recipe[ingredients_attributes][][food_id]", class: "select2", id: 'second_ingredient' } %>
+        <%= ingredients_form.input :food_id, collection: @foods, label: "Item", required: false, input_html: { name: "recipe[ingredients_attributes][][food_id]", class: "select2", id: 'second_ingredient' } %>
         <%= ingredients_form.input :quantity, label: 'Quantity:', required: false, input_html: { name: "recipe[ingredients_attributes][][quantity]", id: "second-quantity" }, wrapper_html: { class: 'form-inline' }  %>
       </div>
       <div class="ingredient-form-group">
-        <%= ingredients_form.input :food_id, collection: @foods, label: "Select third ingredient: ", required: false, input_html: { name: "recipe[ingredients_attributes][][food_id]", class: "select2", id: 'third_ingredient' } %>
+        <%= ingredients_form.input :food_id, collection: @foods, label: "Item", required: false, input_html: { name: "recipe[ingredients_attributes][][food_id]", class: "select2", id: 'third_ingredient' } %>
         <%= ingredients_form.input :quantity, label: 'Quantity:', required: false, input_html: { name: "recipe[ingredients_attributes][][quantity]", id: "third-quantity" }, wrapper_html: { class: 'form-inline' }  %>
       </div>
       <div class="ingredient-form-group">
-        <%= ingredients_form.input :food_id, collection: @foods, label: "Select fourth ingredient: ", required: false, input_html: { name: "recipe[ingredients_attributes][][food_id]", class: "select2", id: 'fourth_ingredient' } %>
+        <%= ingredients_form.input :food_id, collection: @foods, label: "Item", required: false, input_html: { name: "recipe[ingredients_attributes][][food_id]", class: "select2", id: 'fourth_ingredient' } %>
         <%= ingredients_form.input :quantity, label: 'Quantity:', required: false, input_html: { name: "recipe[ingredients_attributes][][quantity]", id: "fourth-quantity" }, wrapper_html: { class: 'form-inline' }  %>
       </div>
       <div class="ingredient-form-group">
-        <%= ingredients_form.input :food_id, collection: @foods, label: "Select fifth  ingredient: ", required: false, input_html: { name: "recipe[ingredients_attributes][][food_id]", class: "select2", id: 'fifth_ingredient' } %>
+        <%= ingredients_form.input :food_id, collection: @foods, label: "Item", required: false, input_html: { name: "recipe[ingredients_attributes][][food_id]", class: "select2", id: 'fifth_ingredient' } %>
         <%= ingredients_form.input :quantity, label: 'Quantity:', required: false, input_html: { name: "recipe[ingredients_attributes][][quantity]", id: "fifth-quantity" }, wrapper_html: { class: 'form-inline' }  %>
       </div>
     <% end %>
