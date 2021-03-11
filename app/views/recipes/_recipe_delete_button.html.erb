@@ -1,6 +1,5 @@
 <%= link_to recipe_path(recipe.id), method: :delete, class: "dishlist-button", data: { confirm: 'Are you sure you want to delete your recipe?' } do %>
-  <% if recipe.user = current_user %>
-    <% raise %>
+  <% if recipe.user == current_user %>
     <p><i class="fas fa-trash-alt"></i></i> Delete recipe</p>
   <% end %>
 <% end %>
