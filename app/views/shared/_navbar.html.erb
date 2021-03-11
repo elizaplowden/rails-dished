@@ -7,7 +7,7 @@
 
 
   <div class="search_nav">
-    <%= render "./recipes/search", foods: @foods, search_terms: @search_terms unless current_page?("/") || current_page?("/recipes") %>
+    <%= render "./recipes/search", foods: @foods, search_terms: @search_terms unless current_page?("/") %>
   </div>
 
 
