@@ -52,7 +52,6 @@
     <%= render "reviews", recipe: @recipe, review: @review %>
   </div>
   <div class="recipe-actions">
-    <%= render "./shared/dishlist_button", recipe: @recipe %>
     <%= render "recipe_delete_button", recipe: @recipe %>
 
     <%= link_to 'More Recipes', recipes_path, class: "button" %>
