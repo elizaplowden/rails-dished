@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @review.destroy
     @recipe = @review.recipe
-    redirect_to recipe_path(@recipe.id)
+    redirect_to recipe_path(@recipe.id, anchor: "reviews")
   end
 
   private
