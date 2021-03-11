@@ -1,7 +1,21 @@
 // all the styling for the about page
-.about-developers {
+
+$spacing: 60px;
+
+
+.about-developers, .about-header {
   background-color: $secondary-colour;
   color: #fff;
-  padding: 30px;
+  padding: 60px;
   text-align: center;
+}
+
+.about-text {
+  text-align: center;
+  padding: 60px;
+}
+
+.about-developers a {
+  color: #fff;
+  text-decoration: none;
 }
