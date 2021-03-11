@@ -37,12 +37,12 @@ class RecipesController < ApplicationController
     # recipe_params[:ingredients_attributes] = recipe_params[:ingredients_attributes].select { |i| i[:quantity].present? }
     # recipe_params.deep_transform_keys!(&:compact)
     ingredients_attributes = params[:recipe][:ingredients_attributes]
-    @recipe = Recipe.new(recipe_params)
-    @recipe.user = current_user
+    recipe = Recipe.new(recipe_params)
+    recipe.user = current_user
 
-    if @recipe.save
-      ingredients_attributes.map! { |attribute| Ingredient.create!(food_id: attribute[:food_id], quantity: attribute[:quantity], recipe: @recipe) if attribute[:quantity].present? }
-      @recipe.ingredients = ingredients_attributes.reject(&:nil?)
+    if recipe.save
+      ingredients_attributes.map! { |attribute| Ingredient.create!(food_id: attribute[:food_id], quantity: attribute[:quantity], recipe: recipe) if attribute[:quantity].present? }
+      recipe.ingredients = ingredients_attributes.reject(&:nil?)
       # Create notifications
       redirect_to recipes_path
     else
