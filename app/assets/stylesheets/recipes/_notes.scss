@@ -20,7 +20,8 @@
   color: $secondary-colour;
 }
 
-.notes-container li:hover > a {
+// display trash icon on hover
+.notes-container li:hover > p > a {
   color: #fff;
   cursor: pointer;
 }
