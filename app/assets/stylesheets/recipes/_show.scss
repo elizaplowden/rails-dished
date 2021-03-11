@@ -152,33 +152,77 @@ $secondary-colour: #15b3b3; // blue
     margin-right: 10px;
     border-radius: 16px;
     margin-bottom: 20px;
-  }
-  // to style buttons etc
-  .simple_form{
-  }
+   }
+   h3{
+    padding-left: 15px;
+   }
 }
 
-.links-to {
-  list-style-type: none;
-  margin-bottom: 50px;
-  margin-top: 30px;
-}
-
-
-.recipe-actions a {
-  margin-top: 20px;
-  display:flex;
-  color: $secondary-colour;
-  flex-wrap: wrap;
-}
-
-.recipe-actions a:hover{
-  color: $primary-colour;
-}
 
 .recipe-actions {
-  margin: 20px 20px;
+  margin: 40px 35px;
   flex-wrap: wrap;
   display: flex;
+
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  a:hover {
+    opacity: 0.8;
+    text-decoration: none;
+    font-size: 16px;
+    text-decoration: underline;
+    text-decoration-color: #E6D74E;
+   }
 }
+
+
+#user-image-uploads {
+  .black-btn{
+    width: fit-content;
+    margin: 5px;
+    text-decoration: none;
+    text-align: center;
+    // height: 50px;
+    font-size: 17px;
+    color: black;
+    font-family: 'Cutive Mono', monospace;
+  }
+
+  .black-btn:hover {
+    opacity: 0.8;
+    text-decoration: none;
+    font-size: 20px;
+    text-decoration: underline;
+    text-decoration-color: #E6D74E;
+   }
+}
+
+.notes-container {
+  .black-btn{
+    width: fit-content;
+    margin-left: -11px;
+    text-decoration: none;
+    text-align: center;
+    // height: 50px;
+    font-size: 17px;
+    color: black;
+    font-family: 'Cutive Mono', monospace;
+  }
+   .black-btn:hover {
+    opacity: 0.8;
+    text-decoration: none;
+    font-size: 20px;
+    text-decoration: underline;
+    text-decoration-color: #E6D74E;
+   }
+}
+
+
+
+
+
 

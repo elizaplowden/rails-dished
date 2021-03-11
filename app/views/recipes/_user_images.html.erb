@@ -9,7 +9,7 @@
     <!-- uploading a photo -->
     <%= simple_form_for recipe, method: :patch, url: upload_recipe_path, remote: true do |f| %>
       <!-- to add one or mutliple images to a recipe -->
-      <%= f.input :images, as: :file, input_html: { class: 'd-none', multiple: true, id: 'photo-input' }, label_html: { class: 'gray-button' }, label: 'Upload a photo' %>
+      <%= f.input :images, as: :file, input_html: { class: 'd-none', multiple: true, id: 'photo-input' }, label_html: { class: 'black-btn' }, label: 'Upload a photo' %>
       <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
       <%= f.submit "Upload", class: "d-none", id: 'photo-save-button' %>
     <% end %>
