@@ -1,8 +1,11 @@
 <%# Modal Button --- Could be moved to Navbar?%>
 <% if user_signed_in? %>
 <% unless current_page?("/") %>
+  <%#
   <button type="button" class="btn btn-primary chilli-button" id="dishlist-button" data-toggle="modal" data-target=".bd-example-modal-lg">Dishlist <i class="fas fa-pepper-hot"></i></button>
+  %>
   <%# Modal from Bootstrap %>
+  <button class="dished-button" data-toggle="modal" data-target=".bd-example-modal-lg">Dishlist <i class="fas fa-pepper-hot"></i></button>
   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
