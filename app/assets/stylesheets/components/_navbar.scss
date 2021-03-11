@@ -10,12 +10,22 @@
 
 .navbar-lewagon {
   justify-content: space-between;
-  background-color: transparent;
+  // background-color: transparent;
   transition: 0.5s background-color ease;
+  height: 65px;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.navbar-lewagon-white {
+  // background-color: white;
 }
 
 .search_nav {
-  padding-top: 16px;
+  padding-top: 22px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -27,8 +37,8 @@
 }
 
 .navbar-nav li {
-  padding: 0px 18px;
-  padding-top: 11px;
+  padding: 0px 12px;
+  padding-top: 0px;
 }
 
 .navbar-expand-sm .navbar-nav {
@@ -37,10 +47,6 @@
 
 .navbar {
 
-}
-
-.nav-item i {
-  padding-right: 10px;
 }
 
 .dropdown-toggle::after {
@@ -86,13 +92,19 @@
   padding: 0;
 }
 
-.dropdown-item i {
-  padding: 8px;
-}
-
 
 #dropdown-heading h3 {
-  padding: 1px;
+  padding-top: 9px;
+  font-size: 22px;
+}
+
+.dropdown-toggle {
+  padding: 0px;
+}
+
+.dropdown-toggle i {
+  padding: 7px;
+  padding-top: 12px;
 }
 
 // nav search styling
