@@ -201,6 +201,26 @@ $secondary-colour: #15b3b3; // blue
    }
 }
 
+.notes-container {
+  .black-btn{
+    width: fit-content;
+    margin-left: -10px;
+    text-decoration: none;
+    text-align: center;
+    // height: 50px;
+    font-size: 17px;
+    color: black;
+    font-family: 'Cutive Mono', monospace;
+  }
+   .black-btn:hover {
+    opacity: 0.8;
+    text-decoration: none;
+    font-size: 20px;
+    text-decoration: underline;
+    text-decoration-color: #E6D74E;
+   }
+}
+
 
 
 
