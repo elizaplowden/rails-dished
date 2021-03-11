@@ -27,6 +27,7 @@
       </ul>
     </div>
     <div class="recipe-photo-container">
+      <%= render "./shared/dishlist_button", recipe: @recipe %>
       <%= render "./shared/cookbook_button", recipe: @recipe %>
       <%=cl_image_tag @recipe.photo.key, class: "recipe-photo", crop: :fill  %>
 
@@ -50,7 +51,6 @@
     <%= render "reviews", recipe: @recipe, review: @review %>
   </div>
   <div class="recipe-actions">
-    <%= render "./shared/dishlist_button", recipe: @recipe %>
     <%= link_to icon('far', 'trash-alt ', '  Delete'), recipe_path(@recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %>
     <%= link_to 'More Recipes', recipes_path, class: "button" %>
 </div>
