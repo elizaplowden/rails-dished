@@ -5,24 +5,25 @@
   top: 200px;
   z-index: 100;
   padding: 5px;
-  color: black;
+  // color: black;
 }
 
 .filter-title {
-  color: white;
-  background: black;
+  color: black;
+  background: white;
+  margin: 5px;
 }
 .filter-links a {
   text-decoration: none;
-  color: black;
+  // color: black;
 }
 
 .filter-links h4 {
-  font-size: 16px;
-  box-shadow: 2px 2px black;
-  padding: 8px;
-  border: 1px;
-  border-style: solid;
+   font-size: 16px;
+  // box-shadow: 2px 2px black;
+  // padding: 8px;
+  // border: 1px;
+  // border-style: solid;
 }
 
 .filter-links :hover {
