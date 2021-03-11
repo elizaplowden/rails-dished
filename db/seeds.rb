@@ -44,7 +44,13 @@ avatar_urls = ['https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367276/di
                'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615388003/nigella_zn2xvl.jpg',
                'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615388003/casper_nocw1b.jpg',
                'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615388004/gordon_kn7y8r.jpg',
-               'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615388003/roychoi_hkggeq.jpg'
+               'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615388003/roychoi_hkggeq.jpg',
+               'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615456761/michael-dam-mEZ3PoFGs_k-unsplash_d2achi.jpg',
+               'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615456759/ian-dooley-d1UPkiFd04A-unsplash_wssqoj.jpg',
+               'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615456761/pablo-merchan-montes-Orz90t6o0e4-unsplash_2_cduxzd.jpg',
+               'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615456763/joseph-gonzalez-iFgRcqHznqg-unsplash_mlgbn8.jpg',
+               'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615456757/ainsley_acq6tb.jpg'
+
               ]
 
 avatar_filenames = ['diego.png',
@@ -52,7 +58,12 @@ avatar_filenames = ['diego.png',
                     'nigella_ujmnt8.jpg',
                     'casper_jxkaje.jpg',
                     'gordon_kn7y8r.jpg',
-                    'roychoi_irciqd.jpg'
+                    'roychoi_irciqd.jpg',
+                    'michael-dam-mEZ3PoFGs_k-unsplash_d2achi.jpg',
+                    'ian-dooley-d1UPkiFd04A-unsplash_wssqoj.jpg',
+                    'pablo-merchan-montes-Orz90t6o0e4-unsplash_2_cduxzd.jpg',
+                    'joseph-gonzalez-iFgRcqHznqg-unsplash_mlgbn8.jpg',
+                    'ainsley_acq6tb.jpg'
                     ]
 
 # creating an array of the users which will get avatars
@@ -63,6 +74,14 @@ users << User.find_by(username: 'nigella')
 users << User.find_by(username: 'chefcasper')
 users << User.find_by(username: 'Gordon Ramsey')
 users << User.find_by(username: 'roychoi')
+users << User.find_by(username: 'saraevs')
+users << User.find_by(username: 'Phillip')
+users << User.find_by(username: 'Eliza')
+users << User.find_by(username: 'George')
+users << User.find_by(username: 'ainsleyh')
+
+
+
 
 number = avatar_urls.size
 
