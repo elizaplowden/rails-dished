@@ -164,8 +164,9 @@ $secondary-colour: #15b3b3; // blue
   margin-top: 30px;
 }
 
+
 .recipe-actions a {
-  margin-top: 30px;
+  margin-top: 20px;
   display:flex;
   color: $secondary-colour;
   flex-wrap: wrap;
@@ -176,9 +177,9 @@ $secondary-colour: #15b3b3; // blue
 }
 
 .recipe-actions {
-  margin: 40px 20px;
-  flex-wrap: wrap;
-  display: flex;
-  gap: 40px;
+  // margin: 40px 20px;
+  // flex-wrap: wrap;
+  // display: flex;
+  // gap: 40px;
 }
 
