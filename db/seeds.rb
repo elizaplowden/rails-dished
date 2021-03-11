@@ -35,10 +35,6 @@ User.create(email: Faker::Internet::email, password: 'Password1', username: 'chi
 User.create(email: 'ainsley@email.com', password: 'Password1', username: 'ainsleyh')
 
 
-3.times do
-  User.create(email: Faker::Internet::email, password: 'Password1', username: Faker::Internet::username)
-end
-
 puts 'attaching avatars...'
 
 counter = 0
