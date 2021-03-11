@@ -29,11 +29,11 @@ User.create(email: 'george@email.com', password: 'Password1', username: 'George'
 User.create(email: 'chefcasper@email.com', password: 'Password1', username: 'chefcasper')
 User.create(email: 'nigella@email.com', password: 'Password1', username: 'nigella')
 User.create(email: 'roy@email.com', password: 'Password1', username: 'roychoi')
+User.create(email: Faker::Internet::email, password: 'Password1', username: 'willena.wiza')
+User.create(email: Faker::Internet::email, password: 'Password1', username: 'dana')
+User.create(email: Faker::Internet::email, password: 'Password1', username: 'chi.skiles')
 User.create(email: 'ainsley@email.com', password: 'Password1', username: 'ainsleyh')
 
-3.times do
-  User.create(email: Faker::Internet::email, password: 'Password1', username: Faker::Internet::username)
-end
 
 puts 'attaching avatars...'
 
@@ -49,7 +49,10 @@ avatar_urls = ['https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367276/di
                'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615456759/ian-dooley-d1UPkiFd04A-unsplash_wssqoj.jpg',
                'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615456761/pablo-merchan-montes-Orz90t6o0e4-unsplash_2_cduxzd.jpg',
                'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615456763/joseph-gonzalez-iFgRcqHznqg-unsplash_mlgbn8.jpg',
-               'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615456757/ainsley_acq6tb.jpg'
+               'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615457635/helena-lopes-PGnqT0rXWLs-unsplash_buon8u.jpg',
+               'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615457711/tim-marshall-Wa-gS5R58gA-unsplash_ttal2j.jpg',
+               'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615456758/steve-halama-T9A31lqrXnU-unsplash_b6ye8q.jpg',
+               'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615457724/ainsley2_xml9ja.jpg'
 
               ]
 
@@ -63,7 +66,10 @@ avatar_filenames = ['diego.png',
                     'ian-dooley-d1UPkiFd04A-unsplash_wssqoj.jpg',
                     'pablo-merchan-montes-Orz90t6o0e4-unsplash_2_cduxzd.jpg',
                     'joseph-gonzalez-iFgRcqHznqg-unsplash_mlgbn8.jpg',
-                    'ainsley_acq6tb.jpg'
+                    'helena-lopes-PGnqT0rXWLs-unsplash_buon8u.jpg',
+                    'tim-marshall-Wa-gS5R58gA-unsplash_ttal2j.jpg',
+                    'steve-halama-T9A31lqrXnU-unsplash_b6ye8q.jpg',
+                    'ainsley2_xml9ja.jpg'
                     ]
 
 # creating an array of the users which will get avatars
@@ -78,6 +84,9 @@ users << User.find_by(username: 'saraevs')
 users << User.find_by(username: 'Phillip')
 users << User.find_by(username: 'Eliza')
 users << User.find_by(username: 'George')
+users << User.find_by(username: 'willena.wiza')
+users << User.find_by(username: 'dana')
+users << User.find_by(username: 'chi.skiles')
 users << User.find_by(username: 'ainsleyh')
 
 
