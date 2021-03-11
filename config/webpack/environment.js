@@ -12,3 +12,7 @@ environment.plugins.prepend('Provide',
   })
 );
 module.exports = environment
+
+
+require('@rails/ujs').start()
+require('data-confirm-modal')
