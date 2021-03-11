@@ -125,7 +125,11 @@ $secondary-colour: #15b3b3; // blue
 // New black-btn
 .black-btn {
   width: fit-content;
+<<<<<<< HEAD
   margin: 5px;
+=======
+  margin: 5px 0px;
+>>>>>>> c7f4af36094b577ee6f12d2b8f34566ee6ce83eb
   text-decoration: none;
   text-align: center;
   // height: 50px;
@@ -138,6 +142,21 @@ $secondary-colour: #15b3b3; // blue
   color: black;
   text-decoration: none;
 }
+<<<<<<< HEAD
+=======
+
+.black-btn a:hover {
+  opacity: 0.8;
+  text-decoration: none;
+  font-size: 16px;
+  text-decoration: underline;
+  text-decoration-color: #E6D74E;
+ }
+
+
+
+
+>>>>>>> c7f4af36094b577ee6f12d2b8f34566ee6ce83eb
 
 .black-btn a:hover {
   opacity: 0.8;
