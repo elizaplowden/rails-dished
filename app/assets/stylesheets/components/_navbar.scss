@@ -1,18 +1,21 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital@1&display=swap');
 
+.navbar {
+  font-family:  "Work Sans", "Helvetica", "sans-serif";
+  padding: 0px !important;
+  // border-style: solid;
+  // border-color: black;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background-color: transparent;
   transition: 0.5s background-color ease;
 }
 
-.navbar{
-  font-family:  "Work Sans", "Helvetica", "sans-serif";
-}
-
-.navbar-lewagon-white {
-  background-color: white;
+.search_nav {
+  padding-top: 16px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -23,8 +26,21 @@
   width: 40px;
 }
 
+.navbar-nav li {
+  padding: 0px 18px;
+  padding-top: 11px;
+}
+
+.navbar-expand-sm .navbar-nav {
+  padding-right: 0px !important;
+}
+
 .navbar {
 
+}
+
+.nav-item i {
+  padding-right: 10px;
 }
 
 .dropdown-toggle::after {
@@ -34,14 +50,9 @@
 // Icon & Title styling
 .title-with-icon {
   font-size: 25px;
-  padding: 10px 10px;
+  padding-left: 28px;
   color: #e6d74e;
 
-}
-
-.title-with-icon:hover {
-  color: #e6d74e;
-  opacity: 0.7;
 }
 
 // Dished text
@@ -51,7 +62,7 @@
 }
 
 // padding for home
-.navbar-expand-sm .navbar-nav .nav-link {
+.navbar-expand-sm .navbar-nav {
   padding-right: 2.5rem;
 }
 
@@ -77,8 +88,27 @@
 
 .dropdown-item i {
   padding: 8px;
-
 }
+
+
+#dropdown-heading h3 {
+  padding: 1px;
+}
+
+// nav search styling
+.search_nav .btn {
+  background-color: white;
+  color: gray;
+  border: white;
+}
+
+
+
+.dropdown-toggle .nav-link {
+  padding: 0px;
+}
+
+// animation
 
 @keyframes wiggle {
     0% { transform: rotate(12deg); }
@@ -99,6 +129,11 @@ i.wiggle:hover {
   animation: none;
 }
 
+.title-with-icon:hover {
+  color: #e6d74e;
+  opacity: 0.7;
+}
+
 // drop down hover color
 .dropdown-item:hover {
   color: #e6d74e;
@@ -107,13 +142,6 @@ i.wiggle:hover {
 // links hover color
 .navbar-expand-sm .navbar-nav .nav-link:hover {
   color: #e6d74e;
-}
-
-// nav search styling
-.search_nav .btn {
-  background-color: white;
-  color: gray;
-  border: white;
 }
 
 .search_nav .btn:hover {
