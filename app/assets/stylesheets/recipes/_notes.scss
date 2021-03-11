@@ -29,3 +29,9 @@ $secondary-colour: #15b3b3; // blue
   color: #fff;
   cursor: pointer;
 }
+
+// the notes box in the new note form
+.note_description {
+  border-radius: 5px;
+  margin-bottom: 0;
+}
