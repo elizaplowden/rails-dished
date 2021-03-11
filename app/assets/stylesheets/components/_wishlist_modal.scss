@@ -99,7 +99,15 @@
     position: relative;
     // color: white;
     right: 120px;
-    bottom: 15px;
+    bottom: 0px;
+
+    a{
+      font-size: 20px;
+      margin-left: 50px;
+    }
+    a:hover{
+      font-size: 22px;
+    }
 }
 
 .add-to-cookbook i {
@@ -109,4 +117,8 @@
 .add-to-cookbook a {
   color: white i !important;
   text-decoration: none i !important;
+}
+
+.add-to-cookbook a:hover{
+  font-size: 25px;
 }
