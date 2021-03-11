@@ -62,31 +62,6 @@ $secondary-colour: #15b3b3; // blue
   text-decoration-color: #E6D74E;
  }
 
-// // Follow Button
-// .follow-button {
-//   background-color: #8080806b;
-//   padding: 18px 10px;
-//   border-radius: 40px;
-//   color: #fff;
-//   width: fit-content;
-//   margin: 5px;
-//   text-decoration: none;
-//   text-align: center;
-//   height: 50px;
-//   font-size: 10px;
-//   box-shadow: 0 4px 4px 0 #ced4da;
-// }
-
-// .follow-button a {
-//   color: #fff;
-//   text-decoration: none;
-//   }
-
-//   .follow-button:hover {
-//   opacity: 0.8;
-//   text-decoration: none;
-//   }
-
 // Followers & following
 .followings button {
     display: inline-block;
@@ -122,6 +97,20 @@ $secondary-colour: #15b3b3; // blue
   color: $primary-colour;
 }
 
+
+// user forms buttons
+
+.user-form-btn {
+  background-color: $secondary-colour;
+  color: #fff;
+  padding: 10px 15px;
+  margin: 20px 0px;
+}
+
+.user-form-btn:hover {
+  opaacity: 0.75;
+}
+
 // New black-btn
 .black-btn {
   width: fit-content;
@@ -147,6 +136,7 @@ $secondary-colour: #15b3b3; // blue
   text-decoration: underline;
   text-decoration-color: #E6D74E;
  }
+
 
 
 
