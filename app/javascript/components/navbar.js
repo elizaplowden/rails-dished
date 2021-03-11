@@ -18,9 +18,9 @@
 const initUpdateNavbarOnScroll = () => {
   $(window).scroll(function () {
   if ($(window).scrollTop() >= 40) {
-  $('.navbar-lewagon').css({'box-shadow':'0 0px 0px 0 rgba(0, 0, 0, 10)', 'background':'transparent'});
+  $('.navbar-lewagon').css({'box-shadow':'0 2px 2px 0 rgba(0, 0, 0, 1)', 'background':'white',});
   } else {
-  $('.navbar-lewagon').css('background','white',);
+  $('.navbar-lewagon').css({'background':'transparent',});
   }
   });
 }
