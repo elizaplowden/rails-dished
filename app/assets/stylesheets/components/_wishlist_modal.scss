@@ -73,27 +73,32 @@
 
 .modal-actions {
   top: 30px;
-  position: relative;
-  display: flex;
-  flex-direction: flex-end;
+  position: absolute;
   // color: white;
   right: 150px;
-  .cookbook-button-save, .cookbook-button-saved {
-  color: #fff;
-  position: static;
-  left: 20px;
-  padding-left: 30px;
-  .remove-from-dishlist{
-    left: 20px;
-    font-size: 20px;
-  }
-  i{
-    font-size: 30px;
-
-  }
 }
 
+.add-to-cookbook {
+  color: #fff !important;
+  position: relative !important;
+  left: 285px !important;
+  bottom: 55px;
+  padding-left: 30px !important;
+}
 
+.add-to-cookbook i{
+    font-size: 30px !important;
+}
+
+.add-to-cookbook i{
+    font-size: 30px;
+}
+
+.remove-from-dishlist{
+    position: relative;
+    // color: white;
+    right: 120px;
+    bottom: 15px;
 }
 
 .add-to-cookbook i {
