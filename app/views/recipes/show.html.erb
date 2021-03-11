@@ -45,13 +45,17 @@
     <%= render "notes", recipe: @recipe, bookmark: @bookmark, note: @note %>
   </div>
   <div class="user-images-container">
+    <!-- USER IMAGES -->
     <%= render "user_images", recipe: @recipe %>
   </div>
   <div class="reviews-container">
+    <!-- REVIEWS -->
     <%= render "reviews", recipe: @recipe, review: @review %>
   </div>
   <div class="recipe-actions">
-    <%= link_to icon('far', 'trash-alt ', '  Delete'), recipe_path(@recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= render "./shared/dishlist_button", recipe: @recipe %>
+    <%= render "recipe_delete_button", recipe: @recipe %>
+
     <%= link_to 'More Recipes', recipes_path, class: "button" %>
 </div>
 </div>

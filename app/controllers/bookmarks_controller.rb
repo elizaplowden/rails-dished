@@ -7,7 +7,7 @@ class BookmarksController < ApplicationController
     # @bookmark.recipe = @recipe
     if @bookmark.save
       flash[:notice] = "Saved to your cookbook."
-    Notification.create(recipient: @bookmark.recipe.user, actor: current_user, action: "bookmarked your recipe", notifiable: recipe.user)
+    Notification.create(recipient: @bookmark.recipe.user, actor: current_user, action: "bookmarked your recipe", notifiable: @bookmark.recipe.user)
     else
       flash[:alert] = "This did not save"
     end
