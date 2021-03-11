@@ -52,8 +52,8 @@
     <%= render "reviews", recipe: @recipe, review: @review %>
   </div>
   <div class="recipe-actions">
-    <%= render "recipe_delete_button", recipe: @recipe %>
     <%= link_to 'More Recipes', recipes_path, class: "button" %>
+    <%= render "recipe_delete_button", recipe: @recipe %>
 </div>
 </div>
 </div>
