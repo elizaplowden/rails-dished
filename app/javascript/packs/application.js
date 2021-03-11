@@ -3,15 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-//= require jquery3
-//= require jquery_ujs
-//= require turbolinks
-//= require bootstrap
-//= require_tree .
-//= require masonry/jquery.masonry
-//= require popper
-//= require data-confirm-modal
-//= require confirm-modal
+
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
@@ -33,14 +25,14 @@ import "bootstrap";
 
 // Internal imports
 import { initSelect2 } from '../components/init_select2';
-import { initAddNewField } from '../components/recipe_new_form';
+// import { initAddNewField } from '../components/recipe_new_form';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { previewImageOnFileSelect } from '../components/user_image_preview';
 import { initStarRating } from '../plugins/init_star_rating';
 
 document.addEventListener('turbolinks:load', () => {
   initSelect2();
-  initAddNewField();
+  // initAddNewField();
   initUpdateNavbarOnScroll();
   previewImageOnFileSelect();
   initStarRating();
