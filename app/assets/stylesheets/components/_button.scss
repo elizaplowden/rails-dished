@@ -123,4 +123,22 @@ $secondary-colour: #15b3b3; // blue
   font-weight: bold;
 }
 
+// white Button
+.white-button {
+  padding: 0 15px;
+  background-color: transparent;
+  border: 0;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.white-button:hover {
+  opacity: 0.75;
+  cursor: pointer;
+}
+
+
 

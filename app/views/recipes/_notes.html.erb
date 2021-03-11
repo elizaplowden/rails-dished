@@ -18,7 +18,7 @@
         <!-- they can add/delete notes -->
         <%= simple_form_for [bookmark, note], method: :post, remote: true do |f| %>
           <%= f.input :description, label: false, placeholder: 'add a note' %>
-          <%= f.submit "Add", class: 'button' %>
+          <%= f.submit "Add", class: 'white-button' %>
         <% end %>
       <% end %>
     </div>
