@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
       (@recipe.users.uniq - [current_user]).each do |user|
         Notification.create(recipient: user, actor: current_user, action: "posted a review", notifiable: @review)
       end
-      redirect_to recipe_path(@recipe.id)
+      redirect_to recipe_path(@recipe.id, anchor: "reviews")
     else
       render(:new) # render the new.html.erb
     end
