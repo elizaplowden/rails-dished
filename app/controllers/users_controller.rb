@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show, :follow, :unfollow]
 
   def index
-    @users = User.where.not(id: current_user.id)
+    @users = User.where.not(id: current_user.id).left_joins(:recipes).group(:id).order("COUNT(recipes.id) DESC")
   end
 
   def show
