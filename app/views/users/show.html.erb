@@ -28,7 +28,7 @@
     <div class="cookbook">
       <% if @user.bookmarks.count == 0 %>
           <h3>No Saved Dishes</h3>
-          <div><%= link_to 'Find a recipe', recipes_path, class: 'gray-button'  %>
+          <div><%= link_to 'Find a recipe', recipes_path, class: 'black-btn'  %>
           </div>
       <% else %>
         <h3>Saved Dishes</h3>
@@ -63,7 +63,7 @@
       <div class="created-recipes">
       <% if @user.recipes.count == 0 %>
           <h3>No recipes created</h3>
-          <div class="gray-button"><%= link_to 'Upload a new recipe', new_recipe_path %>
+          <div class="black-btn"><%= link_to 'Upload a new recipe', new_recipe_path %>
           </div>
       <% else %>
         <h3>Your recipes</h3>
@@ -97,9 +97,9 @@
 
 
       <div class="recipe-links">
-        <div class="gray-button"><%= link_to 'Edit your profile', edit_user_registration_path %></div>
-        <div class="gray-button"><%= link_to 'Upload a new recipe', new_recipe_path %></div>
-        <div class="gray-button"><%= link_to 'Back to all recipes', recipes_path %></div>
+        <div class="black-btn"><%= link_to 'Edit your profile', edit_user_registration_path %></div>
+        <div class="black-btn"><%= link_to 'Upload a new recipe', new_recipe_path %></div>
+        <div class="black-btn"><%= link_to 'Back to all recipes', recipes_path %></div>
       </div>
   </div>
 </div>
