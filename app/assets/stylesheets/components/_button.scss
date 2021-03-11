@@ -122,5 +122,33 @@ $secondary-colour: #15b3b3; // blue
   color: $primary-colour;
 }
 
+// New black-btn
+.black-btn {
+  width: fit-content;
+  margin: 5px;
+  text-decoration: none;
+  text-align: center;
+  // height: 50px;
+  font-size: 15px;
+  color: black;
+  font-family: 'Cutive Mono', monospace;
+}
 
+.black-btn a {
+  color: black;
+  text-decoration: none;
+}
+
+.black-btn a:hover {
+  opacity: 0.8;
+  text-decoration: none;
+  font-size: 16px;
+  text-decoration: underline;
+  text-decoration-color: #E6D74E;
+ }
+
+#photo-save-button{
+  border: none !important;
+  background: none !important;
+}
 
