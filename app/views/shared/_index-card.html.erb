@@ -2,7 +2,7 @@
   <% @recipes.each do |recipe| %>
     <div class="index-box">
       <%=link_to recipe_path(recipe.id) do %>
-        <div class='index-card'>
+        <div class='index-card' id="index-card-recipe">
           <%=cl_image_tag recipe.photo.key, height: [320,400,480].sample %>
           <div class="index-card-text">
               <div class="index-card-heading">
