@@ -37,7 +37,7 @@
               <% @user.bookmarks.each do |bookmark| %>
                 <div class="index-box">
                   <%=link_to recipe_path(bookmark.recipe.id) do %>
-                    <div class='index-card'>
+                    <div class='index-card' id="index-card-saved">
                       <%=cl_image_tag bookmark.recipe.photo.key, height: 400 %>
                       <div class="index-card-text">
                         <div class="index-card-heading">
@@ -71,7 +71,7 @@
               <% @user.recipes.each do |recipe| %>
                 <div class="index-box">
                   <%=link_to recipe_path(recipe.id) do %>
-                    <div class='index-card'>
+                    <div class='index-card' id="index-card-cookbook">
                       <%=cl_image_tag recipe.photo.key, height: 400 %>
                       <div class="index-card-text">
                         <div class="index-card-heading">
