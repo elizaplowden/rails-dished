@@ -56,21 +56,21 @@ avatar_urls = ['https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367276/di
 
               ]
 
-avatar_filenames = ['diego.png',
-                    'jayray_byypnd.jpg',
-                    'nigella_ujmnt8.jpg',
-                    'casper_jxkaje.jpg',
-                    'gordon_kn7y8r.jpg',
-                    'roychoi_irciqd.jpg',
-                    'michael-dam-mEZ3PoFGs_k-unsplash_d2achi.jpg',
-                    'ian-dooley-d1UPkiFd04A-unsplash_wssqoj.jpg',
-                    'pablo-merchan-montes-Orz90t6o0e4-unsplash_2_cduxzd.jpg',
-                    'joseph-gonzalez-iFgRcqHznqg-unsplash_mlgbn8.jpg',
-                    'helena-lopes-PGnqT0rXWLs-unsplash_buon8u.jpg',
-                    'tim-marshall-Wa-gS5R58gA-unsplash_ttal2j.jpg',
-                    'steve-halama-T9A31lqrXnU-unsplash_b6ye8q.jpg',
-                    'ainsley2_xml9ja.jpg'
-                    ]
+# avatar_filenames = ['diego.png',
+#                     'jayray_byypnd.jpg',
+#                     'nigella_ujmnt8.jpg',
+#                     'casper_jxkaje.jpg',
+#                     'gordon_kn7y8r.jpg',
+#                     'roychoi_irciqd.jpg',
+#                     'michael-dam-mEZ3PoFGs_k-unsplash_d2achi.jpg',
+#                     'ian-dooley-d1UPkiFd04A-unsplash_wssqoj.jpg',
+#                     'pablo-merchan-montes-Orz90t6o0e4-unsplash_2_cduxzd.jpg',
+#                     'joseph-gonzalez-iFgRcqHznqg-unsplash_mlgbn8.jpg',
+#                     'helena-lopes-PGnqT0rXWLs-unsplash_buon8u.jpg',
+#                     'tim-marshall-Wa-gS5R58gA-unsplash_ttal2j.jpg',
+#                     'steve-halama-T9A31lqrXnU-unsplash_b6ye8q.jpg',
+#                     'ainsley2_xml9ja.jpg'
+#                     ]
 
 # creating an array of the users which will get avatars
 users = []
@@ -129,7 +129,7 @@ puts "created #{Food.count} foods"
 # seeding some recipes from meals.db api
 puts 'creating recipes, ingredients and photos...'
 counter = 0
-recipes_url = [
+recipes_urls = [
   'https://themealdb.com/api/json/v1/1/search.php?s=Thai%20Green%20Curry', #0
   'https://themealdb.com/api/json/v1/1/search.php?s=Banana%20Pancakes', #1
   'https://themealdb.com/api/json/v1/1/search.php?s=Mediterranean%20Pasta%20Salad', #2
@@ -148,10 +148,14 @@ recipes_url = [
   'https://themealdb.com/api/json/v1/1/search.php?s=Salmon%20Prawn%20Risotto', #15
   'https://themealdb.com/api/json/v1/1/search.php?s=Baked%20salmon%20with%20fennel%20&%20tomatoes', #16
   'https://themealdb.com/api/json/v1/1/search.php?s=Grilled%20Mac%20and%20Cheese%20Sandwich', #17
-  'https://themealdb.com/api/json/v1/1/search.php?s=Blackberry%20Fool' #18
+  'https://themealdb.com/api/json/v1/1/search.php?s=Blackberry%20Fool', #18
+  'https://www.themealdb.com/api/json/v1/1/search.php?s=Split%20pea%20soup', #19
+  'https://www.themealdb.com/api/json/v1/1/search.php?s=Rigatoni%20with%20fennel%20sausage%20sauce', #20
+  'https://www.themealdb.com/api/json/v1/1/search.php?s=lamb%20rogan%20josh', #21
+  'https://www.themealdb.com/api/json/v1/1/search.php?s=chicken ham and leek pie' #22
 ]
 
-image_url = [
+image_urls = [
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944353/curry_enmkfv.jpg', #0
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944736/pancakes_qrqfsm.jpg', #1
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1614944817/photo-1473093295043-cdd812d0e601_feew13.jpg', #2
@@ -170,39 +174,43 @@ image_url = [
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367145/salmon_prawn_risotto_iswv1q.jpg', #15
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367150/baked_salmon_tomatoes_vwocer.jpg', #16
       'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367152/sandwich1_i4kmqr.jpg', #17
-      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367163/blackberryfool_xkdoxb.jpg' #18
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615367163/blackberryfool_xkdoxb.jpg', #18
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615485185/split-pea-soup_kyoyhx.jpg', #19
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615485166/rigatoni_wirczj.jpg', #20
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615485181/rogan-josh_vcuqmz.jpg', #21
+      'https://res.cloudinary.com/dupmc3vsd/image/upload/v1615485182/pie_gnddym.jpg' #22
 ]
 
-image_name = [
-      'curry_enmkfv.jpg', #0
-      'pancakes_qrqfsm.jpg', #1
-      'photo-1473093295043-cdd812d0e601_feew13.jpg', #2
-      'burger_v3wcmm.jpg', #3
-      'photo-1579523609100-5b868b803668_z4psfa.jpg', #4
-      'tacos_yjk701.jpg', #5
-      'apple_tart_fqencu.jpg', #6
-      'quinoa_n9zmji.jpg', #7
-      'salmon_xv79pu.jpg', #8
-      'tagine_asyowg.jpg', #9
-      'nicoise_vphbl4.jpg', #10
-      'lasagne_avupin.jpg', #11
-      'jerk_uywqnh.jpg', #12
-      'inguine_o0jtfp.jpg', #13
-      'carrot_cake_sw8lch.jpg', #14
-      'salmon_prawn_risotto_iswv1q.jpg', #15
-      'baked_salmon_tomatoes_vwocer.jpg', #16
-      'sandwich1_i4kmqr.jpg', #17
-      'blackberryfool_xkdoxb.jpg' #18
-]
+# image_name = [
+#       'curry_enmkfv.jpg', #0
+#       'pancakes_qrqfsm.jpg', #1
+#       'photo-1473093295043-cdd812d0e601_feew13.jpg', #2
+#       'burger_v3wcmm.jpg', #3
+#       'photo-1579523609100-5b868b803668_z4psfa.jpg', #4
+#       'tacos_yjk701.jpg', #5
+#       'apple_tart_fqencu.jpg', #6
+#       'quinoa_n9zmji.jpg', #7
+#       'salmon_xv79pu.jpg', #8
+#       'tagine_asyowg.jpg', #9
+#       'nicoise_vphbl4.jpg', #10
+#       'lasagne_avupin.jpg', #11
+#       'jerk_uywqnh.jpg', #12
+#       'inguine_o0jtfp.jpg', #13
+#       'carrot_cake_sw8lch.jpg', #14
+#       'salmon_prawn_risotto_iswv1q.jpg', #15
+#       'baked_salmon_tomatoes_vwocer.jpg', #16
+#       'sandwich1_i4kmqr.jpg', #17
+#       'blackberryfool_xkdoxb.jpg' #18
+# ]
 
 
-19.times do
+21.times do
   # gets one recipe from the recipes_url array (at the index that = counter)
-  recipe_serialized = open(recipes_url[counter]).read
+  recipe_serialized = open(recipes_urls[counter]).read
   recipe_parsed = JSON.parse(recipe_serialized)
 
-  # selects a random user
-  rand_user = User.order("RANDOM()").limit(1).first
+  # selects a random user with the least amount of recipes
+  rand_user = User.left_joins(:recipes).group(:id).order('COUNT(recipes.id) ASC').limit(1).first
 
   recipe_parsed['meals'].each do |meal|
     # creating the recipe instance and saving to the db
@@ -233,8 +241,9 @@ image_name = [
       end
     end
    # attaching a photo to the recipe
-   downloaded_image = open(image_url[counter])
-   filename = image_name[counter]
+   url = image_urls[counter]
+   downloaded_image = open(url)
+   filename = File.basename(URI.parse(url).path)
    recipe.photo.attach(io: downloaded_image, filename: filename)
   end
    puts "created recipe #{counter + 1}"

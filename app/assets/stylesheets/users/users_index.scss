@@ -42,11 +42,16 @@
 }
 
 // user avatar and name
-.explore-user-details {
+.explore-user-details a {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+.explore-user-details a:hover {
+  opacity: 0.6;
+}
+
 
 // username - adjusting the margin
 .explore-user-details h2 {

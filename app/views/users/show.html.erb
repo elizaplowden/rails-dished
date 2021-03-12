@@ -28,8 +28,7 @@
     <div class="cookbook">
       <% if @user.bookmarks.count == 0 %>
           <h3>No Saved Dishes</h3>
-          <div><%= link_to 'Find a recipe', recipes_path, class: 'black-btn'  %>
-          </div>
+          <div class="black-btn"><%= link_to 'Find a recipe', recipes_path  %></div>
       <% else %>
         <h3>Saved Dishes</h3>
           <div class="cookbook-content">
@@ -68,7 +67,6 @@
       <% else %>
         <h3>Your recipes</h3>
           <div class="cookbook-content">
-            <!-- to be replaced by index card once created -->
             <div class="index-container">
               <% @user.recipes.each do |recipe| %>
                 <div class="index-box">
