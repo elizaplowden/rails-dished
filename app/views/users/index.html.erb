@@ -4,15 +4,17 @@
     <% @users.each do |user| %>
       <div class="explore-feed-heading">
         <div class="explore-user-details">
-          <% if user.avatar.attached? %>
-             <%=cl_image_tag user.avatar.key, class: "avatar", crop: :fill  %>
-          <% else %>
-            <%= image_tag 'yellow.png', class: "avatar", crop: :fill %>
+          <%= link_to user do %>
+            <% if user.avatar.attached? %>
+               <%=cl_image_tag user.avatar.key, class: "avatar", crop: :fill  %>
+            <% else %>
+              <%= image_tag 'yellow.png', class: "avatar", crop: :fill %>
+            <% end %>
+            <h2><%= user.username %></h2>
           <% end %>
-          <h2><%= link_to user.username, user %></h2>
         </div>
         <%# follow/unfollow user %>
-        <div class ="unfollow-button">
+        <div class ="black-btn">
           <% if current_user != user && !current_user.follows_given.pluck(:followee_id).include?(user.id) %>
             <!-- follow button -->
             <%= link_to follow_user_path(user), method: :post  do %>
