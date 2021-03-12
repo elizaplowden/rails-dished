@@ -1,7 +1,6 @@
 
 // Image styling
 .index-card img {
-  width: 500px;
   object-fit: cover;
 }
 
@@ -9,7 +8,6 @@
 // Index card positioning
 .index-card {
   border-radius: 16px;
-  width: 240px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,9 +16,11 @@
   transition: all 0.2s linear;
 }
 
+#index-card-recipe {
+  width:240px;
+}
 
 #explore-page {
-  width: 400px;
   margin: 12px;
 }
 
