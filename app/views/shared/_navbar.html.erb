@@ -15,8 +15,12 @@
     <ul class="navbar-nav mr-auto">
 
       <% if user_signed_in? %>
+          <li class="nav-item" id="index-button">
+            <%= link_to "All Recipes", recipes_path, class: "nav-link" %>
+          </li>
           <li class="nav-item" id= "create-button">
           <%= link_to "Create Recipe", new_recipe_path, class: "nav-link" %>
+          </li>
           <li class="nav-item" id= "explore-button">
           <%= link_to "Explore", users_path, class: "nav-link" %>
         </li>
