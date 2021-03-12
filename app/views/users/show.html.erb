@@ -95,7 +95,9 @@
 
 
       <div class="recipe-links">
-        <div class="black-btn"><%= link_to 'Edit your profile', edit_user_registration_path %></div>
+        <% if current_user == @user %>
+          <div class="black-btn"><%= link_to 'Edit your profile', edit_user_registration_path %></div>
+        <% end %>
         <div class="black-btn"><%= link_to 'Back to all recipes', recipes_path %></div>
       </div>
   </div>
