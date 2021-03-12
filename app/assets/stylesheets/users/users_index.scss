@@ -9,6 +9,17 @@
   }
 }
 
+.explore-feed-item{
+  index-card-text{
+    margin:0;
+  }
+}
+
+#explore-container {
+  margin-bottom: 60px;
+}
+
+
 // extra css to make the scroll have 'momentum'
 .explore-feed-item {
   -webkit-overflow-scrolling: touch;

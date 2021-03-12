@@ -85,7 +85,11 @@
 .dropdown-item {
   color: gray;
   padding: 8px;
-  padding-left: 8px;
+  padding-left: 12px;
+}
+
+.dropdown-item i {
+  padding: 8px;
 }
 
 .dropdown-menu {

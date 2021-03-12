@@ -98,8 +98,9 @@
 .remove-from-dishlist{
     position: relative;
     // color: white;
+
     right: 25px;
-    bottom: 0px;
+    bottom: 10px;
 
     a{
       font-size: 20px;
@@ -109,6 +110,7 @@
       font-size: 20px;
       transition: none;
     }
+
 }
 
 .add-to-cookbook i {
