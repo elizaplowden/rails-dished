@@ -106,12 +106,17 @@
       margin-left: 50px;
     }
     a:hover{
-      font-size: 22px;
+      font-size: 20px;
+      transition: none;
     }
 }
 
 .add-to-cookbook i {
   font-size: 40px;
+}
+
+.add-to-cookbook i:hover{
+  font-weight: bold;
 }
 
 .add-to-cookbook a {
@@ -121,4 +126,5 @@
 
 .add-to-cookbook a:hover{
   font-size: 25px;
+  font-weight: bold;
 }
