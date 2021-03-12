@@ -2,11 +2,10 @@
  <% if @user.follows_given.empty? %>
     <button><b>0</b> Following</button>
   <% else %>
-
-  <button data-toggle="modal" data-target="#exampleModalLong">
-    <b><%= @user.follows_given.count%></b> Following
-  </button>
-    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <button data-toggle="modal" data-target="#exampleModalLong2">
+      <b><%= @user.follows_given.count%></b> Following
+    </button>
+    <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog follow-modal-dialog" role="document">
         <div class="modal-content"  id="follow-modal">
           <div class="modal-header">
@@ -33,5 +32,4 @@
         </div>
       </div>
     </div>
-
   <% end %>
