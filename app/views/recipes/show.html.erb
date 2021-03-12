@@ -54,6 +54,8 @@
   <div class="recipe-actions">
     <%= link_to 'More Recipes', recipes_path, class: "black-btn" %>
     <%= render "recipe_delete_button", recipe: @recipe %>
+    <p class="black-btn">Recipe created by <strong><%= link_to @recipe.user.username, user_path(@recipe.user)  %></strong>
+    </p>
 </div>
 </div>
 </div>
