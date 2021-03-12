@@ -61,7 +61,7 @@
 }
 
 .scrolling-card img {
-  width: 600px;
+  width: 500px;
   object-fit: cover;
   filter: brightness(50%);
 }
@@ -73,18 +73,18 @@
 }
 
 .modal-actions {
-  top: 30px;
+  top: 10px;
   position: absolute;
   // color: white;
-  right: 150px;
+  right: 160px;
 }
 
 .add-to-cookbook {
   color: #fff !important;
   position: relative !important;
-  left: 285px !important;
+  left: 320px !important;
   bottom: 55px;
-  padding-left: 30px !important;
+  padding-left: 60px !important;
 }
 
 .add-to-cookbook i{
@@ -98,15 +98,35 @@
 .remove-from-dishlist{
     position: relative;
     // color: white;
-    right: 208px;
-    bottom: 15px;
+
+    right: 25px;
+    bottom: 10px;
+
+    a{
+      font-size: 20px;
+      margin-left: 50px;
+    }
+    a:hover{
+      font-size: 20px;
+      transition: none;
+    }
+
 }
 
 .add-to-cookbook i {
   font-size: 40px;
 }
 
+.add-to-cookbook i:hover{
+  font-weight: bold;
+}
+
 .add-to-cookbook a {
   color: white i !important;
   text-decoration: none i !important;
+}
+
+.add-to-cookbook a:hover{
+  font-size: 25px;
+  font-weight: bold;
 }

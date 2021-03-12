@@ -90,11 +90,23 @@ $secondary-colour: #15b3b3; // blue
 }
 
 .dishlist-button {
-  color: $secondary-colour;
+  width: fit-content;
+  padding-top: 10px;
+  text-decoration: none;
+  // height: 50px;
+  font-size: 15px;
+  color: black;
+  font-family: 'Cutive Mono', monospace;
 }
 
 .dishlist-button:hover {
-  color: $primary-colour;
+  opacity: 0.8;
+  text-decoration: none;
+  font-size: 16px;
+  text-decoration: underline;
+  text-decoration-color: #E6D74E;
+  color: black;
+
 }
 
 
@@ -108,7 +120,7 @@ $secondary-colour: #15b3b3; // blue
 }
 
 .user-form-btn:hover {
-  opaacity: 0.75;
+  opacity: 0.75;
 }
 
 // New black-btn
@@ -137,14 +149,6 @@ $secondary-colour: #15b3b3; // blue
   text-decoration-color: #E6D74E;
  }
 
-
-.black-btn a:hover {
-  opacity: 0.8;
-  text-decoration: none;
-  font-size: 16px;
-  text-decoration: underline;
-  text-decoration-color: #E6D74E;
- }
 
 #photo-save-button{
   border: none !important;
