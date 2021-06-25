@@ -34,6 +34,8 @@ Dished! is a recipe inspiration application where users have their own profile p
 
 The screenshots below display several of the main features:
 
-Homepage
+Homepage:
+- The homepage has an automatic carousel which slides dynamically between two background images.
 
 ![Screenshot](https://user-images.githubusercontent.com/71760740/123434667-a4325380-d5c4-11eb-87a6-76d9a8477d83.png)
+![Screenshot](https://user-images.githubusercontent.com/71760740/123434798-c4faa900-d5c4-11eb-953e-ab47754d933c.png)
