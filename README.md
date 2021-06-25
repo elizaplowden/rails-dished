@@ -56,3 +56,11 @@ Dishlist
 ![Screenshot](https://user-images.githubusercontent.com/71760740/123436617-b57c5f80-d5c6-11eb-8b77-e046148a8e85.png)
 ![Screenshot](https://user-images.githubusercontent.com/71760740/123436624-b7462300-d5c6-11eb-89f7-c734132d534a.png)
 ![Screenshot](https://user-images.githubusercontent.com/71760740/123436630-b8775000-d5c6-11eb-8d72-4051603e5f4b.png)
+
+Show Page
+- The simple design on the recipe show page makes it easy for a user to read the recipe's ingredients and method
+- As the user scrolls down the page, they can upload their own images and add a review
+- The user can also add their own notes to a recipe, which will only be visible to them
+
+![Screenshot](https://user-images.githubusercontent.com/71760740/123436951-12781580-d5c7-11eb-9c86-a16500013095.png)
+![Screenshot](https://user-images.githubusercontent.com/71760740/123436957-13a94280-d5c7-11eb-9ea1-7266f42164ef.png)
