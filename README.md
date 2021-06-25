@@ -39,3 +39,13 @@ Homepage:
 
 ![Screenshot](https://user-images.githubusercontent.com/71760740/123434667-a4325380-d5c4-11eb-87a6-76d9a8477d83.png)
 ![Screenshot](https://user-images.githubusercontent.com/71760740/123434798-c4faa900-d5c4-11eb-953e-ab47754d933c.png)
+
+Index:
+- The Pinterest-inspired index page was built using CSS grid
+- The user can filter by ingredient or cuisine
+- The recipe name and rating appear on hover
+
+![Screenshot](https://user-images.githubusercontent.com/71760740/123435411-77327080-d5c5-11eb-99c9-6a9b6df16347.png)
+![Screenshot](https://user-images.githubusercontent.com/71760740/123435430-7a2d6100-d5c5-11eb-8746-1ed74fe0aaa7.png)
+![Screenshot](https://user-images.githubusercontent.com/71760740/123435450-7dc0e800-d5c5-11eb-9802-e3125ab7a25d.png)
+![Screenshot](https://user-images.githubusercontent.com/71760740/123435439-7bf72480-d5c5-11eb-9632-da4acbe31eca.png)
