@@ -27,3 +27,13 @@ rails s
 ```
 
 Then go to http://localhost:3000/ to view this application in your browser.
+
+## About the App
+
+Dished! is a recipe inspiration application where users have their own profile pages and personal 'Cookbooks'. The main feature of the website is the search bar, which users can use to find a recipe to cook with things already in their fridge, avoiding food waste and saving money. They can save recipes into their 'Dishlist' to narrow down options, and then add recipes from their Dishlist to their personal cookbooks on their profile page. Users can also follow their friends and favourite chefs and find inspiration on others' profiles. Dished! has a notification feature, so users are updated when people follow them or when those they follow have shared a new recipe. Users can also upload photos of recipes after cooking them, rate recipes, and add personal notes to their 'bookmarked' recipes (which only they can see).
+
+The screenshots below display several of the main features:
+
+Homepage
+
+[Screenshot](https://user-images.githubusercontent.com/71760740/123434667-a4325380-d5c4-11eb-87a6-76d9a8477d83.png)
