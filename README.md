@@ -48,7 +48,17 @@ Index:
 ![Screenshot](https://user-images.githubusercontent.com/71760740/123435411-77327080-d5c5-11eb-99c9-6a9b6df16347.png)
 ![Screenshot](https://user-images.githubusercontent.com/71760740/123435430-7a2d6100-d5c5-11eb-8746-1ed74fe0aaa7.png)
 
-Dishlist
+Search:
+- A user can search for a recipe from any page. 
+- The search bar is centered on the homepage, and appears in the navbar on the other pages
+- The search feature uses PG Search, Simple Form and the Select2 plugin
+- A user can also filter by cuisine
+
+![Screenshot](https://user-images.githubusercontent.com/71760740/123440006-3be67080-d5ca-11eb-92a7-5d12cded9b88.png)
+![Screenshot](https://user-images.githubusercontent.com/71760740/123440027-4143bb00-d5ca-11eb-8fad-f754f21cdfbe.png)
+![Screenshot](https://user-images.githubusercontent.com/71760740/123440035-443eab80-d5ca-11eb-841a-6e7c25b66f83.png)
+
+Dishlist:
 - The user can save recipes in their dishlist to consider cooking
 - The Dishlist is an opaque modal which pops up on top of the current page
 - The user can scroll through the carousel of recipes they've saved
@@ -89,3 +99,8 @@ Notifications
 - A user recieves notifications each time someone follows them or when someone they follow uploads a new recipe
 
 ![Screenshot](https://user-images.githubusercontent.com/71760740/123438848-068d5300-d5c9-11eb-9d56-e3e0dc039caa.png)
+
+About
+- A simple page with information about the project and the four developers who worked on it
+
+![Screenshot](https://user-images.githubusercontent.com/71760740/123440314-8bc53780-d5ca-11eb-84a2-39c685fd8606.png)
