@@ -62,6 +62,7 @@ Dishlist:
 - The user can save recipes in their dishlist to consider cooking
 - The Dishlist is an opaque modal which pops up on top of the current page
 - The user can scroll through the carousel of recipes they've saved
+- The Dishlist button has position:fixed and appears on every page except the homepage, provided a user is signed in
 
 ![Screenshot](https://user-images.githubusercontent.com/71760740/123436617-b57c5f80-d5c6-11eb-8b77-e046148a8e85.png)
 ![Screenshot](https://user-images.githubusercontent.com/71760740/123436624-b7462300-d5c6-11eb-89f7-c734132d534a.png)
