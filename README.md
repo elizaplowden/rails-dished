@@ -64,3 +64,28 @@ Show Page
 
 ![Screenshot](https://user-images.githubusercontent.com/71760740/123436951-12781580-d5c7-11eb-9c86-a16500013095.png)
 ![Screenshot](https://user-images.githubusercontent.com/71760740/123436957-13a94280-d5c7-11eb-9ea1-7266f42164ef.png)
+![Screenshot](https://user-images.githubusercontent.com/71760740/123437489-9fbb6a00-d5c7-11eb-9765-33899c458d0b.png)
+
+Cookbook
+- A user can easily add a recipe to their cookbook, either from the Dishlist modal or the recipe show page
+- When a recipe has been added to a cookbook, the bookmark icon is filled in on the recipe image
+- The cookbook is stored on the user's profile page, where they can differentiate between recipes they've saved and those they've uploaded themselves
+- A user can also view other users' personal cookbooks
+
+![Screenshot](https://user-images.githubusercontent.com/71760740/123438391-8cf56500-d5c8-11eb-973e-b0f973e6f979.png)
+![Screenshot](https://user-images.githubusercontent.com/71760740/123438389-8c5cce80-d5c8-11eb-9f44-3146673d136f.png)
+![Screenshot](https://user-images.githubusercontent.com/71760740/123438520-ab5b6080-d5c8-11eb-91eb-bd76eebfc3b1.png)
+![Screenshot]()
+![Screenshot]()
+
+Explore page
+- A user can find their friends and favourite chefs in the Explore page
+- They can see which recipes other users have uploaded and how many stars they have by scrolling through the carousel
+
+![Screenshot](https://user-images.githubusercontent.com/71760740/123438606-c5953e80-d5c8-11eb-8a4b-754d8c22be72.png)
+![Screenshot](https://user-images.githubusercontent.com/71760740/123438608-c6c66b80-d5c8-11eb-8922-2560466d86c2.png)
+
+Notifications
+- A user recieves notifications each time someone follows them or when someone they follow uploads a new recipe
+
+![Screenshot](https://user-images.githubusercontent.com/71760740/123438848-068d5300-d5c9-11eb-9d56-e3e0dc039caa.png)
