@@ -47,5 +47,12 @@ Index:
 
 ![Screenshot](https://user-images.githubusercontent.com/71760740/123435411-77327080-d5c5-11eb-99c9-6a9b6df16347.png)
 ![Screenshot](https://user-images.githubusercontent.com/71760740/123435430-7a2d6100-d5c5-11eb-8746-1ed74fe0aaa7.png)
-![Screenshot](https://user-images.githubusercontent.com/71760740/123435450-7dc0e800-d5c5-11eb-9802-e3125ab7a25d.png)
-![Screenshot](https://user-images.githubusercontent.com/71760740/123435439-7bf72480-d5c5-11eb-9632-da4acbe31eca.png)
+
+Dishlist
+- The user can save recipes in their dishlist to consider cooking
+- The Dishlist is an opaque modal which pops up on top of the current page
+- The user can scroll through the carousel of recipes they've saved
+
+![Screenshot](https://user-images.githubusercontent.com/71760740/123436617-b57c5f80-d5c6-11eb-8b77-e046148a8e85.png)
+![Screenshot](https://user-images.githubusercontent.com/71760740/123436624-b7462300-d5c6-11eb-89f7-c734132d534a.png)
+![Screenshot](https://user-images.githubusercontent.com/71760740/123436630-b8775000-d5c6-11eb-8d72-4051603e5f4b.png)
